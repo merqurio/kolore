@@ -1,0 +1,132 @@
+{% extends "base.html"%}
+
+{% block css %}
+<style type="text/css">
+@media only screen and (max-width: 950px) {
+    #unseen table td:nth-child(3), 
+    #unseen table th:nth-child(3) {display: none;}
+}
+ 
+@media only screen and (max-width: 640px) {
+    #unseen table td:nth-child(3),
+    #unseen table th:nth-child(3),
+    #unseen table td:nth-child(2),
+    #unseen table th:nth-child(2){display: none;}
+}
+
+
+</style>
+{% endblock %}
+
+{% block content%}
+<div class="row">
+        <div class="col-md-12">
+            <div class="grid simple">
+                <div class="grid-title no-border">
+                    <h4>All <span class="semi-bold">{{_("Posts")}}</span></h4>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"></a>
+                        <a href="#" class="config"></a>
+                    </div>
+                </div>
+                <div class="grid-body no-border">
+                   
+
+                    <a href="{{url_for('admin.addPost')}}" class="btn btn-white btn-small ">
+                        <i class="fa fa-plus"></i>
+                         Add Post
+                    </a>
+                   
+                    {# <button type="submit" name="multiple" value="yes" class="btn btn-danger btn-small ">
+                        <i class="fa fa-trash-o"></i>
+                        Delete
+                    </button> #}
+                     <br>
+                    <div class="row" id="unseen">    
+                        <table class="table table-hover cf">
+                            <thead class="cf">
+                                <tr>
+                                    {# <th>
+                                        <div class="checkbox check-default">
+                                            <input id="checkbox0" type="checkbox" value="1" class="checkall">
+                                            <label for="checkbox0"></label>
+                                        </div>
+                                    </th> #}
+                                    <th>Post</th>
+                                    <th>Published</th>
+                                    <th>Categories</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post in posts %}
+                                <tr>
+                                    {# <td>
+                                        <div class="checkbox check-default">
+                                            <input name="check" id="checkbox{{loop.index}}" type="checkbox" value="{{post.key.urlsafe()}}">
+                                            <label for="checkbox{{loop.index}}"></label>
+                                        </div>
+                                    </td> #}
+                                    <td><a href="#"><span style="line-height: 23px;">{{post.title}}</span></a></td>
+                                    <td><span style="line-height: 23px;" class="date" data-date="{{post.date}}" data-format="LL"></span></td>
+                                    <td>
+                                        {% for category in post.get_categories() %}<span class="label">{{category}}</span> {% endfor %}
+                                    </td>
+                                    <td>
+                                        <form method="POST">
+                                            <div data-toggle="buttons-radio" class="btn-group">
+                                                {# <a class="btn btn-table btn-primary">
+                                                    <i class="fa fa-eye"></i>
+                                                </a> #}
+                                                <a class="btn btn-table btn-info tip" href="{{ url_for('admin.edit_post', post_id=post.key.id())}}" data-toggle="tooltip" data-original-title="{{_("Edit")}}">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                                <button type="submit" class="btn btn-table btn-danger tip" data-toggle="tooltip" data-original-title="{{_("Delete")}}">
+                                                    <input value="{{post.key.id()}}" name="post_id"  type="hidden"> 
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                            </div>
+                                        </form> 
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+{# Dependencies #}
+<script type="text/javascript" src="{{ url_for('static', filename='plugins/moment-with-locales.min.js') }}"></script>
+
+<script>
+    //Helps the to tick all options in the table 
+    $('table .checkbox input').click( function() {          
+        if($(this).is(':checked')){         
+            $(this).parent().parent().parent().toggleClass('row_selected');                 
+        }
+        else{   
+        $(this).parent().parent().parent().toggleClass('row_selected');     
+        }
+    });
+</script>
+<script type="text/javascript">
+    // Set's dates
+    $(document).ready(function(){
+        
+        $('.tip').tooltip();
+        moment.locale('en');
+
+        $('.date').each(function(){
+            var elementuarenData = moment(new Date($(this).attr('data-date'))),
+                elementuarenFormatua = $(this).attr('data-format');
+            $(this).html(elementuarenData.format(elementuarenFormatua));
+        });
+
+    });
+</script>
+{% endblock %}

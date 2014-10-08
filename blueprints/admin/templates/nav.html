@@ -1,0 +1,38 @@
+<p class="menu-title">{{_('MAIN MENU')}} </p>
+<ul>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-file-text"></i>
+            <span class="title">{{_('Pages')}}</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li {% if id == home %} class="active" {% endif %} > <a href="{{ url_for('admin.pages')}}"><i class="fa fa-files-o"></i> {{_('All Pages')}}</a> </li>
+            <li > <a href="#"><i class="fa fa-plus"></i> {{_('Add New')}}</a> </li>
+        </ul>
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-send"></i>
+            <span class="title">{{_('Blog')}}</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li > <a href="{{ url_for('admin.posts')}}"><i class="fa fa-send-o"></i> {{_('All Entries')}}</a> </li>
+            <li > <a href="{{ url_for('admin.addPost')}}"><i class="fa fa-plus-square"></i> {{_('Add New')}}</a> </li>
+            <li > <a href="{{ url_for('admin.categories')}}"><i class="fa fa-tags"></i> {{_('Categories')}}</a> </li>
+        </ul>
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-gear"></i>
+            <span class="title">{{_('Options')}}</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li > <a href="#"><i class="fa fa-align-justify"></i> {{_('Menu Settings')}}</a> </li>
+            <li > <a href="#"><i class="fa fa-envelope"></i> {{_('Contact Settings')}}</a> </li>
+        </ul>
+    </li>
+</ul>
+<div class="clearfix"></div>

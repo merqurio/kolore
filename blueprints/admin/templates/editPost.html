@@ -1,0 +1,110 @@
+{% extends "base.html"%}
+
+{% block css %}
+    <link href="{{ url_for('static', filename='plugins/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen">
+    <link href="{{ url_for('static', filename='css/pagedown-bootstrap.css') }}" rel="stylesheet" type="text/css" media="screen">
+{% endblock %}
+
+{% block content%}
+    <form id="editForm" method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="grid simple">
+                    <div class="grid-title no-border">
+                        <h4>{{_("Edit")}} <span class="semi-bold">{{_("Post")}}</span></h4>
+                        <div class="tools">
+                            <a href="javascript:;" class="collapse"></a>
+                            <a href="#" class="config"></a>
+                        </div>
+                    </div>
+                    <div class="grid-body no-border">
+                        <div class="row">    
+                            <!-- FORM -->
+                                <!-- Main wrapper -->
+                                <input class="form-control input-lg" type="text" value="{{post.title}}" name="title">
+                                <br>
+                                <textarea id="pagedownMe" name="text"  class="form-control" rows="14">{{post.text}}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="grid simple">
+                    <div class="grid-title no-border">
+                        <h4>{{_("Other")}} <span class="semi-bold">{{_("Options")}}</span></h4>
+                        <div class="tools">
+                            <a href="javascript:;" class="collapse"></a>
+                            <a href="#" class="config"></a>
+                        </div>
+                    </div>
+                    <div class="grid-body no-border">
+                        <div class="row">   
+                            <h5>{{_("Edit")}} <span class="semi-bold">{{_("Categories")}}</span></h5>
+                            <input id="multi" name="categories" style="width:100%" value="{% for cat in post.get_categories()%}{{cat}}{% if not loop.last%},{% endif %}{% endfor %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="grid simple">
+                    <div class="grid-title no-border">
+                        <h4>{{_("Save")}} <span class="semi-bold">{{_("Changes")}}</span></h4>
+                        <div class="tools">
+                            <a href="javascript:;" class="collapse"></a>
+                            <a href="#" class="config"></a>
+                        </div>
+                    </div>
+                    <div class="grid-body no-border">
+                        <div class="row">   
+                            <h5>{{_("By saving all the changes will be published")}}</h5>
+                            <hr>
+                            <button type="submit" class="btn btn-primary">{{_("Update the post")}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+
+{% block js %}
+<script src="{{ url_for('static', filename='plugins/bootstrap-select2/select2.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/pagedown-bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {              
+
+        //Form Wizard Validations
+        var $validator = $("#editForm").validate({
+              rules: {
+                categories: {
+                    required: true
+                },
+                title:  {
+                    required: true
+                }
+              },
+              errorPlacement: function(label, element) {
+                    $('<span class="arrow"></span>').insertBefore(element);
+                    $('<span class="error"></span>').insertAfter(element).append(label)
+                }
+            });
+
+        //Multiselect
+        $("#multi").select2({
+            tags: {{categories|tojson}},
+            tokenSeparators: [",","."],
+            matcher: function(term, text) { return text.toUpperCase().indexOf(term.toUpperCase())==0; }
+        });
+
+
+        //Textarea
+        $("textarea#pagedownMe").pagedownBootstrap();
+
+    }); 
+         
+</script>
+{% endblock %}
