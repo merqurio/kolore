@@ -3110,6 +3110,9 @@ div.DTTT_print_info p {
 label,
 input,
 button,
+.editable,
+.editable p,
+.editable:after,
 select,
 textarea {
   font-size: 14px;
@@ -3118,11 +3121,15 @@ textarea {
 }
 input,
 button,
+.editable,
+.editable p,
+.editable:after,
 select,
 textarea {
   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .uneditable-input,
+.editable,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -3142,7 +3149,6 @@ input[type="color"] {
   -webkit-appearance: none !important;
   color: #282323;
   outline: 0;
-  height: 16px;
   padding: 6px 11px !important;
   line-height: 15px;
   font-size: 13px;
@@ -3161,6 +3167,24 @@ input[type="color"] {
   border-radius: 2px;
   border: 1px solid #e5e9ec;
   transition: background 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+.uneditable-input,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  height: 16px;
 }
 input {
   border: 1px solid #cecece;
@@ -3181,6 +3205,7 @@ textarea {
   padding-top: 10px !important;
 }
 .uneditable-input.focus,
+.editable:focus,
 textarea:focus,
 select:focus,
 input[type="text"]:focus,
