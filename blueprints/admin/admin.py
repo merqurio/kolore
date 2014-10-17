@@ -8,7 +8,7 @@ from google.appengine.ext import ndb, blobstore
 from google.appengine.api.images import get_serving_url
 from werkzeug import parse_options_header
 from flask import (Blueprint, render_template, make_response, request,
-                   redirect, url_for, jsonify)
+                   redirect, url_for)
 
 # Models
 # ----------------------------------------------------------------
@@ -19,7 +19,7 @@ from blueprints.admin.models import BlogPost, BlogCategory
 # ----------------------------------------------------------------
 
 admin_blueprint = Blueprint('admin', __name__, template_folder='templates')
-BUCKET_NAME = "chroma-dev"
+BUCKET_NAME = "gcs-tester-app"
 
 
 # Controllers
@@ -78,11 +78,17 @@ def addPost():
         return redirect(url_for('admin.posts'))
 
     # GET
-    upload_url = blobstore.create_upload_url('/upload',
+    upload_url = blobstore.create_upload_url('/admin/upload',
                                              gs_bucket_name=BUCKET_NAME)
     return render_template('addPost.html',
                            categories=BlogCategory.query_all(),
                            upload_url=upload_url)
+
+
+@admin_blueprint.route('/upload_url')
+@login_required
+def upload_url():
+    pass
 
 
 @admin_blueprint.route('/upload', methods=['POST'])
@@ -90,7 +96,6 @@ def addPost():
 def upload():
     if request.method == 'POST':
         file = request.files['file']
-
         # Creates the options for the file
         header = file.headers['Content-Type']
         parsed_header = parse_options_header(header)
@@ -99,15 +104,12 @@ def upload():
         if file:
             try:
                 blob_key = parsed_header[1]['blob-key']
-                files = []
-                the_file = {}
-                the_file['name'] = file.filename
-                the_file['file'] = get_serving_url(blob_key)
-                files.admin_blueprintend(the_file)
-                return jsonify({"file": the_file['file']})
+                return get_serving_url(blob_key)
             except Exception as e:
                 logging.exception(e)
-                return jsonify({"success": False})
+                return 'http://placehold.it/500&text="No :("'
+        else:
+            logging.exception('Not file, mate :(')
 
 
 @admin_blueprint.route("/img/<bkey>")
