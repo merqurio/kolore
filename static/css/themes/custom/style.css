@@ -1858,8 +1858,11 @@ h6.block {
 }
 a {
   text-shadow: none !important;
-  color: #0d638f;
+  color: #00bc9a;
   transition: color 0.1s linear 0s, background-color 0.1s linear 0s, opacity 0.1s linear 0s !important;
+}
+a:hover, a:focus {
+color: #0BAF91;
 }
 a.icon:hover {
   text-decoration: none;
@@ -3299,6 +3302,9 @@ textarea[class*="span"] {
 .input-sm {
   font-size: 13px !important;
   min-height: 29px !important;
+}
+.editable {
+  min-height: 120px;
 }
 .input-prepend,
 .input-append {

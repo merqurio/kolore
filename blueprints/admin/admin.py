@@ -1,10 +1,14 @@
 # Imports
 # ----------------------------------------------------------------
 import time
+import logging
 from login import login_required
 from google.appengine.api import users
-from google.appengine.ext import ndb
-from flask import Blueprint, render_template, request, redirect, url_for
+from google.appengine.ext import ndb, blobstore
+from google.appengine.api.images import get_serving_url
+from werkzeug import parse_options_header
+from flask import (Blueprint, render_template, make_response, request,
+                   redirect, url_for, jsonify)
 
 # Models
 # ----------------------------------------------------------------
@@ -15,6 +19,7 @@ from blueprints.admin.models import BlogPost, BlogCategory
 # ----------------------------------------------------------------
 
 admin_blueprint = Blueprint('admin', __name__, template_folder='templates')
+BUCKET_NAME = "chroma-dev"
 
 
 # Controllers
@@ -73,7 +78,44 @@ def addPost():
         return redirect(url_for('admin.posts'))
 
     # GET
-    return render_template('addPost.html', categories=BlogCategory.query_all())
+    upload_url = blobstore.create_upload_url('/upload',
+                                             gs_bucket_name=BUCKET_NAME)
+    return render_template('addPost.html',
+                           categories=BlogCategory.query_all(),
+                           upload_url=upload_url)
+
+
+@admin_blueprint.route('/upload', methods=['POST'])
+@login_required
+def upload():
+    if request.method == 'POST':
+        file = request.files['file']
+
+        # Creates the options for the file
+        header = file.headers['Content-Type']
+        parsed_header = parse_options_header(header)
+
+        # IF everything is OK, save the file
+        if file:
+            try:
+                blob_key = parsed_header[1]['blob-key']
+                files = []
+                the_file = {}
+                the_file['name'] = file.filename
+                the_file['file'] = get_serving_url(blob_key)
+                files.admin_blueprintend(the_file)
+                return jsonify({"file": the_file['file']})
+            except Exception as e:
+                logging.exception(e)
+                return jsonify({"success": False})
+
+
+@admin_blueprint.route("/img/<bkey>")
+def img(bkey):
+    blob_info = blobstore.get(bkey)
+    response = make_response(blob_info.open().read())
+    response.headers['Content-Type'] = blob_info.content_type
+    return response
 
 
 @admin_blueprint.route('/post/edit/<int:post_id>', methods=['GET', 'POST'])

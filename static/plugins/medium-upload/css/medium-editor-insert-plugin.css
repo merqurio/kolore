@@ -92,18 +92,19 @@
   .medium-editor-insert-plugin .hide {
     display: none !important; }
   .medium-editor-insert-plugin.hover .mediumInsert-placeholder {
-    min-height: 14px;
-    border: 1px dashed #ddd;
-    margin-top: -1px;
-    margin-bottom: -1px; }
+    min-height: 24px;
+    border: 2px dashed #ddd;
+    margin-top: -2px;
+    margin-bottom: -2px; }
 
 .medium-editor-insert-plugin.medium-editor-placeholder {
   padding-bottom: 0 !important;
-  min-height: 58px; }
+  min-height: 120px; }
 
 .medium-editor-insert-plugin.medium-editor-placeholder:after {
   content: attr(data-placeholder) !important;
-  top: 1em; }
+  top: 1em; 
+}
 
 .mediumInsert {
   position: relative;
@@ -137,14 +138,14 @@
     position: absolute;
     width: 40px;
     bottom: 0;
-    left: 0;
+    left: 18px;
     color: #ddd;
     font-size: 0.9em; }
     .mediumInsert .mediumInsert-buttons a {
       text-decoration: underline;
       cursor: pointer; }
       .mediumInsert .mediumInsert-buttons a.active {
-        font-weight: bold; }
+        color: black; }
   .mediumInsert ul.mediumInsert-buttonsOptions {
     margin: 0;
     padding: 0;
@@ -158,11 +159,14 @@
     .mediumInsert ul.mediumInsert-buttonsOptions button {
       min-height: auto;
       height: auto;
+      width: 100%;
       padding: 5px;
       border-left: none;
       float: none; }
       .mediumInsert ul.mediumInsert-buttonsOptions button .fa {
         font-size: 20px; }
+      ul.mediumInsert-buttonsOptions li {
+        width: 110%; }
   .mediumInsert .mediumInsert-placeholder {
     position: relative;
     margin-left: 40px;
@@ -228,6 +232,7 @@
   .mediumInsert.hover .mediumInsert-placeholder {
     background: #f0f0f0; }
   .mediumInsert:hover .mediumInsert-buttonsShow {
+    background-color: white;
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1);

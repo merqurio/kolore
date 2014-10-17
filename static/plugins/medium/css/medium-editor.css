@@ -178,6 +178,7 @@
   .medium-editor-placeholder:after {
     position: absolute;
     /*top: 0;
-    left: 0;*/
+    left: 0;
+    font-style: italic;*/
     content: attr(data-placeholder) !important;
-    font-style: italic; }
+    
