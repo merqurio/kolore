@@ -250,12 +250,36 @@
 
         var editor = new MediumEditor('.editable');
 
+        function getURL(callback) {
+            var url;
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: "/admin/upload_url",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {                            
+                    url = data['url'];
+                    callback(url);
+                } //success
+           });
+        }
+
+        getURL(function(url){console.log(url);});
+        getURL(function(url){console.log(url);});
+        getURL(function(url){console.log(url);});
+        getURL(function(url){console.log(url);});
+        getURL(function(url){console.log(url);});
+        getURL(function(url){console.log(url);});
+        getURL(function(url){console.log(url);});
+        
+
         $(function () {
           $('.editable').mediumInsert({
             editor: editor,
             addons: {
               images: {
-                imagesUploadScript: '{{upload_url}}'
+                /*imagesUploadScript: */
               },
               embeds: {
                 oembedProxy: 'http://medium.iframe.ly/api/oembed?iframe=1'

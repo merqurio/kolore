@@ -8,7 +8,7 @@ from google.appengine.ext import ndb, blobstore
 from google.appengine.api.images import get_serving_url
 from werkzeug import parse_options_header
 from flask import (Blueprint, render_template, make_response, request,
-                   redirect, url_for)
+                   redirect, url_for, jsonify)
 
 # Models
 # ----------------------------------------------------------------
@@ -78,17 +78,15 @@ def addPost():
         return redirect(url_for('admin.posts'))
 
     # GET
-    upload_url = blobstore.create_upload_url('/admin/upload',
-                                             gs_bucket_name=BUCKET_NAME)
     return render_template('addPost.html',
-                           categories=BlogCategory.query_all(),
-                           upload_url=upload_url)
+                           categories=BlogCategory.query_all())
 
 
 @admin_blueprint.route('/upload_url')
-@login_required
 def upload_url():
-    pass
+    upload_url = blobstore.create_upload_url('/admin/upload',
+                                             gs_bucket_name=BUCKET_NAME)
+    return jsonify({"url": upload_url})
 
 
 @admin_blueprint.route('/upload', methods=['POST'])
