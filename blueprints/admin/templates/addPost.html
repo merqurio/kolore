@@ -262,16 +262,11 @@
                     url = data['url'];
                     callback(url);
                 } //success
-           });
+            });
+            return url
+
         }
 
-        getURL(function(url){console.log(url);});
-        getURL(function(url){console.log(url);});
-        getURL(function(url){console.log(url);});
-        getURL(function(url){console.log(url);});
-        getURL(function(url){console.log(url);});
-        getURL(function(url){console.log(url);});
-        getURL(function(url){console.log(url);});
         
 
         $(function () {
@@ -279,7 +274,7 @@
             editor: editor,
             addons: {
               images: {
-                /*imagesUploadScript: */
+                imagesUploadScript: getURL(function(url){return(url)})
               },
               embeds: {
                 oembedProxy: 'http://medium.iframe.ly/api/oembed?iframe=1'
