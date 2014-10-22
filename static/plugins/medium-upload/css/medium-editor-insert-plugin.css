@@ -78,7 +78,8 @@
         -ms-user-select: none;
             user-select: none; }
   .medium-editor-insert-plugin[contenteditable], .medium-editor-insert-plugin [contenteditable] {
-    outline: 0px solid transparent; }
+    outline: 0px solid transparent; 
+    margin-top: -10px;}
     .medium-editor-insert-plugin[contenteditable]:focus, .medium-editor-insert-plugin [contenteditable]:focus {
       outline: 0px solid transparent; }
   .medium-editor-insert-plugin * {
@@ -99,7 +100,8 @@
 
 .medium-editor-insert-plugin.medium-editor-placeholder {
   padding-bottom: 0 !important;
-  min-height: 120px; }
+  min-height: 120px; 
+}
 
 .medium-editor-insert-plugin.medium-editor-placeholder:after {
   content: attr(data-placeholder) !important;
@@ -113,12 +115,13 @@
   .mediumInsert.small {
     max-width: calc(33.33% + 40px); }
   .mediumInsert .mediumInsert-buttonsShow {
-    opacity: 0;
+    /*opacity: 0;
     -webkit-transform: scale(0);
         -ms-transform: scale(0);
             transform: scale(0);
     -webkit-transition: all 0.08s cubic-bezier(0.2, 0.3, 0.25, 0.9);
-            transition: all 0.08s cubic-bezier(0.2, 0.3, 0.25, 0.9);
+            transition: all 0.08s cubic-bezier(0.2, 0.3, 0.25, 0.9);*/
+    background: white;
     display: block;
     width: 18px;
     height: 18px;

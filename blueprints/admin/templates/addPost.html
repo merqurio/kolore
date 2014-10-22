@@ -59,7 +59,6 @@
                                     <!-- Step -->
                                     <div class="tab-pane" id="tab1">
                                         <h3>{{_("Some tips")}} <span class="semi-bold">{{_("for writing a blog post")}}</span></h3>
-                                        <br>
                                         <p>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -123,12 +122,12 @@
                                     <div class="tab-pane" id="tab2">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h3>{{_("Post")}} <span class="semi-bold">{{_("Categories")}}</span></h3>
+                                                <h3>{{_("Post")}} <span class="semi-bold">{{_("Categories")}}</span></h3><br>
                                                 <p>{{_("It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website.")}}</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <h3>{{_("Select")}} <span class="semi-bold">{{_("Categories")}}</span></h3>
-                                                <p>{{_("Search for existing categories or write a new one and press enter. Please try <b>not to duplicate</b> categories.")}}</p>
+                                                <h3>{{_("Select")}} <span class="semi-bold">{{_("Categories")}}</span></h3><br>
+                                                <p>{{_("<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories.")}}</p>
                                                 <br>
                                                 <input id="multi" name="categories" style="width:100%" placeholder="Search or Create a category..">
                                             </div> 
@@ -137,11 +136,11 @@
                                     <!-- Step -->
                                     <div class="tab-pane" id="tab3">
                                         <h3>{{_("Write your")}} <span class="semi-bold">{{_("Blog Post")}}</span></h3>
-                                        <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p>
+                                        <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p><br>
                                         <input class="form-control input-lg" type="text" placeholder="Enter a title" name="title">
                                         <br>
                                         <div class="editable">
-                                            <p>Replace this text, and start writing :D</p>
+                                        {# <p>&#8203;</p> #}
                                         </div>
                                     </div>
                                     <!-- Step -->
@@ -248,23 +247,27 @@
             matcher: function(term, text) { return text.toUpperCase().indexOf(term.toUpperCase())==0; }
         });
 
-        var editor = new MediumEditor('.editable');
+        var editor = new MediumEditor('.editable', {
+            anchorInputPlaceholder: 'Your link',
+            buttonLabels: 'fontawesome',
+            buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist','orderedlist'],
+            checkLinkFormat: true,
+            targetBlank: true
+        });
+
         var url;
 
         function AJAXURL() {
             return $.ajax({
                 type: "GET",
                 url: "/admin/upload_url",
-                dataType: "json",
                 success: function(response){
                     url = response['url'];
-                    console.log(response);
-                    //callback(url);
-                        
                 }
             });
         };
-        
+
+        // Gets a first upload URL
         AJAXURL();
 
         $('.editable').mediumInsert({
@@ -272,14 +275,14 @@
             addons: {
                 images: {
                     imagesUploadScript: function getURL() {
-                        console.log('getURL called');
-                        console.log('returned :' + url);
-                        // make request to grab new url
+                        // makes a request to grab new url
                         AJAXURL();
+                        // But returns the old url in the meanwhile
                         return url;
                     }
                 },
                 embeds: {
+                    urlPlaceholder: 'YouTube or Vimeo Link to video',
                     oembedProxy: 'http://medium.iframe.ly/api/oembed?iframe=1'
                 }
             }

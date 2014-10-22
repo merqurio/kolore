@@ -3904,6 +3904,13 @@ form legend,
 .wizard-steps li.active .title {
   color: #2B3D53;
 }
+
+#rootwizard p{
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 14px;
+}
+
 .step-content {
   margin-left: 60px;
   margin-top: 40px;

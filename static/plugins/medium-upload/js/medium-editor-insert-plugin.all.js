@@ -514,7 +514,7 @@
     insertButton : function (buttonLabels) {
       var label = 'Embed';
       if (buttonLabels === 'fontawesome' || typeof buttonLabels === 'object' && !!(buttonLabels.fontawesome)) {
-        label = '<i class="fa fa-code"></i>';
+        label = '<i class="fa fa-video-camera"></i>';
       }
 
       if (typeof buttonLabels === 'object' && buttonLabels.embed) {
