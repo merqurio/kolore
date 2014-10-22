@@ -721,7 +721,7 @@
       uploadFile: function ($placeholder, file, that) {
         $.ajax({
           type: "post",
-          url: that.options.imagesUploadScript,
+          url: that.options.imagesUploadScript(),
           xhr: function () {
             var xhr = new XMLHttpRequest();
             xhr.upload.onprogress = that.updateProgressBar;
