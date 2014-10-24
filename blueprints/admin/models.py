@@ -9,7 +9,6 @@ class BlogPost(ndb.Model):
     date = ndb.DateTimeProperty(auto_now_add=True)
     categories = ndb.KeyProperty(repeated=True)
     author = ndb.UserProperty()
-    url = ndb.StringProperty()
 
     def get_categories(self):
         '''Returns a string list of post's categories'''

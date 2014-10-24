@@ -2,7 +2,9 @@
 
 {% block css %}
     <link href="{{ url_for('static', filename='plugins/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen">
-    <link href="{{ url_for('static', filename='css/pagedown-bootstrap.css') }}" rel="stylesheet" type="text/css" media="screen">
+    <link href="{{ url_for('static', filename='plugins/medium/css/medium-editor.css') }}" rel="stylesheet" type="text/css" media="screen">
+    <link href="{{ url_for('static', filename='plugins/medium/css/themes/default.css') }}" rel="stylesheet" type="text/css" media="screen">
+    <link href="{{ url_for('static', filename='plugins/medium-upload/css/medium-editor-insert-plugin.css') }}" rel="stylesheet" type="text/css" media="screen">
 {% endblock %}
 
 {% block content%}
@@ -19,7 +21,7 @@
                 <div class="grid-body no-border">
                     <div class="row">    
                         <!-- FORM -->
-                        <form id="commentForm" method="post">
+                        <form id="commentForm" method="POST" onsubmit="return copyContent()">
                             <!-- Main wrapper -->
                             <div id="rootwizard" class="col-md-12">
                           <!-- Step List -->
@@ -57,7 +59,6 @@
                                     <!-- Step -->
                                     <div class="tab-pane" id="tab1">
                                         <h3>{{_("Some tips")}} <span class="semi-bold">{{_("for writing a blog post")}}</span></h3>
-                                        <br>
                                         <p>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -121,12 +122,12 @@
                                     <div class="tab-pane" id="tab2">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h3>{{_("Post")}} <span class="semi-bold">{{_("Categories")}}</span></h3>
+                                                <h3>{{_("Post")}} <span class="semi-bold">{{_("Categories")}}</span></h3><br>
                                                 <p>{{_("It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website.")}}</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <h3>{{_("Select")}} <span class="semi-bold">{{_("Categories")}}</span></h3>
-                                                <p>{{_("Search for existing categories or write a new one and press enter. Please try <b>not to duplicate</b> categories.")}}</p>
+                                                <h3>{{_("Select")}} <span class="semi-bold">{{_("Categories")}}</span></h3><br>
+                                                <p>{{_("<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories.")}}</p>
                                                 <br>
                                                 <input id="multi" name="categories" style="width:100%" placeholder="Search or Create a category..">
                                             </div> 
@@ -135,10 +136,13 @@
                                     <!-- Step -->
                                     <div class="tab-pane" id="tab3">
                                         <h3>{{_("Write your")}} <span class="semi-bold">{{_("Blog Post")}}</span></h3>
-                                        <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p>
+                                        <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p><br>
                                         <input class="form-control input-lg" type="text" placeholder="Enter a title" name="title">
                                         <br>
-                                        <textarea id="pagedownMe" name="text"  class="form-control" rows="14"></textarea>
+                                        <div class="editable" id="body_editable">
+                                            <p>&#8203;</p>
+                                        </div>
+                                        <input id="hiddenTextarea" name="text" style="display:none"/>
                                     </div>
                                     <!-- Step -->
                                     <div class="tab-pane" id="tab4">
@@ -174,9 +178,10 @@
 
 {% block js %}
 <script src="{{ url_for('static', filename='plugins/bootstrap-select2/select2.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='js/pagedown-bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='plugins/boostrap-form-wizard/js/jquery.bootstrap.wizard.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='plugins/medium/js/medium-editor.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='plugins/medium-upload/js/medium-editor-insert-plugin.all.js') }}" type="text/javascript"></script>
 
 <script type="text/javascript">
 
@@ -235,6 +240,7 @@
                 }*/
 
         });     
+        
         //Multiselect
         $("#multi").select2({
             tags: {{categories|tojson}},
@@ -242,11 +248,53 @@
             matcher: function(term, text) { return text.toUpperCase().indexOf(term.toUpperCase())==0; }
         });
 
+        var editor = new MediumEditor('#body_editable', {
+            anchorInputPlaceholder: 'Your link',
+            buttonLabels: 'fontawesome',
+            buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist','orderedlist'],
+            checkLinkFormat: true,
+            targetBlank: true
+        });
 
-        //Textarea
-        $("textarea#pagedownMe").pagedownBootstrap();
+        var url;
+
+        function AJAXURL() {
+            return $.ajax({
+                type: "GET",
+                url: "/admin/upload_url",
+                success: function(response){
+                    url = response['url'];
+                }
+            });
+        };
+
+        // Gets a first upload URL
+        AJAXURL();
+
+        $('#body_editable').mediumInsert({
+            editor: editor,
+            addons: {
+                images: {
+                    imagesUploadScript: function getURL() {
+                        // makes a request to grab new url
+                        AJAXURL();
+                        // But returns the old url in the meanwhile
+                        return url;
+                    }
+                },
+                embeds: {
+                    urlPlaceholder: 'YouTube or Vimeo Link to video',
+                    oembedProxy: 'http://medium.iframe.ly/api/oembed?iframe=1'
+                }
+            }
+        });   
 
     }); 
+
+    function copyContent () {
+        $('#hiddenTextarea').val(editor.serialize().body_editable.value);
+        return true;
+    }
          
 </script>
 {% endblock %}

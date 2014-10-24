@@ -78,10 +78,10 @@
                                                 {# <a class="btn btn-table btn-primary">
                                                     <i class="fa fa-eye"></i>
                                                 </a> #}
-                                                <a class="btn btn-table btn-info tip" href="{{ url_for('admin.edit_post', post_id=post.key.id())}}" data-toggle="tooltip" data-original-title="{{_("Edit")}}">
+                                                <a class="btn btn-table btn-info tip" href="{{ url_for('admin.edit_post', post_id=post.key.id())}}" data-toggle="tooltip" data-container="body" data-original-title="{{_("Edit")}}">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
-                                                <button type="submit" class="btn btn-table btn-danger tip" data-toggle="tooltip" data-original-title="{{_("Delete")}}">
+                                                <button type="submit" class="btn btn-table btn-danger tip" data-container="body" data-toggle="tooltip" data-original-title="{{_("Delete")}}">
                                                     <input value="{{post.key.id()}}" name="post_id"  type="hidden"> 
                                                     <i class="fa fa-trash-o"></i>
                                                 </button>
