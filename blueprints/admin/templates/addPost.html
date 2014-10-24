@@ -292,8 +292,8 @@
     }); 
 
     function copyContent () {
-        $('#hiddenTextarea').val(editor.serialize().body_editable.value);
-        return true;
+        document.getElementById("hiddenTextarea").value =  
+            document.getElementById("editable").innerHTML;
     }
          
 </script>
