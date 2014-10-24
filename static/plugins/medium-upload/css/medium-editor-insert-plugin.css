@@ -156,7 +156,7 @@
     display: none;
     position: absolute;
     z-index: 2;
-    left: 40px;
+    left: 25px;
     top: -10px;
     border-radius: 5px; }
     .mediumInsert ul.mediumInsert-buttonsOptions button {
@@ -191,6 +191,11 @@
     background-image: url(../images/resize-smaller.png); }
   .mediumInsert .mediumInsert-imageResizeBigger {
     background-image: url(../images/resize-bigger.png); }
+  .mediumInsert .mediumInsert-imageLink, .mediumInsert .mediumInsert-imageUnlink {
+    right: 62px;
+    background-image: url(../images/link.png); }
+  .mediumInsert .mediumInsert-imageUnlink {
+    background-image: url(../images/unlink.png); }
   .mediumInsert .mediumInsert-error {
     background-color: #f2dede;
     border: 1px solid #ebccd1;

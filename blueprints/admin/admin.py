@@ -29,7 +29,8 @@ BUCKET_NAME = "gcs-tester-app"
 @login_required
 def home():
     user = users.get_current_user()
-    return render_template('home.html', user=user.nickname())
+    name = user.nickname().split('@')[0].title()
+    return render_template('home.html', user=name)
 
 # /// Pages ///
 
@@ -82,6 +83,35 @@ def addPost():
                            categories=BlogCategory.query_all())
 
 
+@admin_blueprint.route('/post/edit/<int:post_id>', methods=['GET', 'POST'])
+@login_required
+def edit_post(post_id):
+    '''Edit posts'''
+    if request.method == 'POST':
+
+        # Retrieve the object
+        blog_post = ndb.Key('BlogPost', int(post_id)).get()
+
+        # Update the values
+        blog_post.title = request.form['title']
+        blog_post.text = request.form['text']
+        post_categories = request.form['categories'].split(",")
+        blog_post.categories = BlogCategory.add_categories(post_categories)
+
+        # Save the new post
+        blog_post.put()
+
+        # Redirect
+        time.sleep(1)
+        return redirect(url_for('admin.posts'))
+
+    return render_template('editPost.html',
+                           post=ndb.Key('BlogPost', int(post_id)).get(),
+                           categories=BlogCategory.query_all())
+
+
+# /// Images ///
+
 @admin_blueprint.route('/upload_url')
 def upload_url():
     upload_url = blobstore.create_upload_url('/admin/upload',
@@ -116,34 +146,6 @@ def img(bkey):
     response = make_response(blob_info.open().read())
     response.headers['Content-Type'] = blob_info.content_type
     return response
-
-
-@admin_blueprint.route('/post/edit/<int:post_id>', methods=['GET', 'POST'])
-@login_required
-def edit_post(post_id):
-    '''Edit posts'''
-    if request.method == 'POST':
-
-        # Retrieve the object
-        blog_post = ndb.Key('BlogPost', int(post_id)).get()
-
-        # Update the values
-        blog_post.title = request.form['title']
-        blog_post.text = request.form['text']
-        post_categories = request.form['categories'].split(",")
-        blog_post.categories = BlogCategory.add_categories(post_categories)
-
-        # Save the new post
-        blog_post.put()
-
-        # Redirect
-        time.sleep(1)
-        return redirect(url_for('admin.posts'))
-
-    return render_template('editPost.html',
-                           post=ndb.Key('BlogPost', int(post_id)).get(),
-                           categories=BlogCategory.query_all())
-
 
 # /// Categories ///
 

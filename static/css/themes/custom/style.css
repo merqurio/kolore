@@ -40,6 +40,15 @@
 .placeholder {
   color: '#333843';
 }
+
+progress[value]{
+  background-color: #00bc9a;
+  color: #00bc9a;
+  border-radius: 2px;
+  -webkit-appearance: none;
+   appearance: none; 
+}
+
 html {
   font-size: 100%;
   height: 100%;

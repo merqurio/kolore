@@ -1,12 +1,3 @@
-/*! 
- * medium-editor-insert-plugin v0.2.15 - jQuery insert plugin for MediumEditor
- *
- * https://github.com/orthes/medium-editor-insert-plugin
- * 
- * Copyright (c) 2014 Pavel Linkesch (http://linkesch.sk)
- * Released under the MIT license
- */
-
 (function ($) {
 
   $.fn.mediumInsert.registerAddon('tables', {

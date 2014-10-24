@@ -21,7 +21,7 @@
                 <div class="grid-body no-border">
                     <div class="row">    
                         <!-- FORM -->
-                        <form id="commentForm" method="post">
+                        <form id="commentForm" method="POST" onsubmit="return copyContent()">
                             <!-- Main wrapper -->
                             <div id="rootwizard" class="col-md-12">
                           <!-- Step List -->
@@ -139,9 +139,10 @@
                                         <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p><br>
                                         <input class="form-control input-lg" type="text" placeholder="Enter a title" name="title">
                                         <br>
-                                        <div class="editable">
-                                        {# <p>&#8203;</p> #}
+                                        <div class="editable" id="body_editable">
+                                            <p>&#8203;</p>
                                         </div>
+                                        <input id="hiddenTextarea" name="text" style="display:none"/>
                                     </div>
                                     <!-- Step -->
                                     <div class="tab-pane" id="tab4">
@@ -247,7 +248,7 @@
             matcher: function(term, text) { return text.toUpperCase().indexOf(term.toUpperCase())==0; }
         });
 
-        var editor = new MediumEditor('.editable', {
+        var editor = new MediumEditor('#body_editable', {
             anchorInputPlaceholder: 'Your link',
             buttonLabels: 'fontawesome',
             buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist','orderedlist'],
@@ -270,7 +271,7 @@
         // Gets a first upload URL
         AJAXURL();
 
-        $('.editable').mediumInsert({
+        $('#body_editable').mediumInsert({
             editor: editor,
             addons: {
                 images: {
@@ -289,6 +290,11 @@
         });   
 
     }); 
+
+    function copyContent () {
+        $('#hiddenTextarea').val(editor.serialize().body_editable.value);
+        return true;
+    }
          
 </script>
 {% endblock %}
