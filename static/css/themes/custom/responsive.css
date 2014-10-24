@@ -809,6 +809,11 @@
   body.hide-top-content-header .header {
     width: 100%;
   }
+
+  .grid.simple .grid-body {
+    padding: 0px!important;
+  }
+
   body.hide-top-content-header .page-content .content {
     padding-top: 93px;
   }

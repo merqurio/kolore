@@ -40,6 +40,15 @@
 .placeholder {
   color: '#333843';
 }
+
+progress[value]{
+  background-color: #00bc9a;
+  color: #00bc9a;
+  border-radius: 2px;
+  -webkit-appearance: none;
+   appearance: none; 
+}
+
 html {
   font-size: 100%;
   height: 100%;
@@ -1858,8 +1867,11 @@ h6.block {
 }
 a {
   text-shadow: none !important;
-  color: #0d638f;
+  color: #00bc9a;
   transition: color 0.1s linear 0s, background-color 0.1s linear 0s, opacity 0.1s linear 0s !important;
+}
+a:hover, a:focus {
+color: #0BAF91;
 }
 a.icon:hover {
   text-decoration: none;
@@ -3110,6 +3122,9 @@ div.DTTT_print_info p {
 label,
 input,
 button,
+.editable,
+.editable p,
+.editable:after,
 select,
 textarea {
   font-size: 14px;
@@ -3118,11 +3133,15 @@ textarea {
 }
 input,
 button,
+.editable,
+.editable p,
+.editable:after,
 select,
 textarea {
   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .uneditable-input,
+.editable,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -3142,7 +3161,6 @@ input[type="color"] {
   -webkit-appearance: none !important;
   color: #282323;
   outline: 0;
-  height: 16px;
   padding: 6px 11px !important;
   line-height: 15px;
   font-size: 13px;
@@ -3161,6 +3179,24 @@ input[type="color"] {
   border-radius: 2px;
   border: 1px solid #e5e9ec;
   transition: background 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+.uneditable-input,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  height: 16px;
 }
 input {
   border: 1px solid #cecece;
@@ -3181,6 +3217,7 @@ textarea {
   padding-top: 10px !important;
 }
 .uneditable-input.focus,
+.editable:focus,
 textarea:focus,
 select:focus,
 input[type="text"]:focus,
@@ -3274,6 +3311,9 @@ textarea[class*="span"] {
 .input-sm {
   font-size: 13px !important;
   min-height: 29px !important;
+}
+.editable {
+  min-height: 120px;
 }
 .input-prepend,
 .input-append {
@@ -3873,6 +3913,13 @@ form legend,
 .wizard-steps li.active .title {
   color: #2B3D53;
 }
+
+#rootwizard p{
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 14px;
+}
+
 .step-content {
   margin-left: 60px;
   margin-top: 40px;
