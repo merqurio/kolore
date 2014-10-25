@@ -139,7 +139,7 @@
                                         <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p><br>
                                         <input class="form-control input-lg" type="text" placeholder="Enter a title" name="title">
                                         <br>
-                                        <div class="editable" id="body_editable">
+                                        <div class="editable" id="editable">
                                             <p>&#8203;</p>
                                         </div>
                                         <input id="hiddenTextarea" name="text" style="display:none"/>
@@ -250,7 +250,7 @@
             matcher: function(term, text) { return text.toUpperCase().indexOf(term.toUpperCase())==0; }
         });
 
-        var editor = new MediumEditor('#body_editable', {
+        var editor = new MediumEditor('#editable', {
             anchorInputPlaceholder: 'Your link',
             buttonLabels: 'fontawesome',
             buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist','orderedlist'],
@@ -273,7 +273,7 @@
         // Gets a first upload URL
         AJAXURL();
 
-        $('#body_editable').mediumInsert({
+        $('#editable').mediumInsert({
             editor: editor,
             addons: {
                 images: {

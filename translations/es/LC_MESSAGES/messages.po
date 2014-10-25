@@ -1,0 +1,302 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2014 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2014-10-25 17:42+0200\n"
+"PO-Revision-Date: 2014-10-25 17:43+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: blueprints/admin/templates/addPost.html:15
+#: blueprints/admin/templates/addPost.html:125
+#: blueprints/admin/templates/editPost.html:17
+msgid "Post"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:33
+msgid "Help"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:39
+msgid "Categorize"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:45
+msgid "Write"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:51
+msgid "Publish"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:61
+msgid "Some tips"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:61
+msgid "for writing a blog post"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:67
+msgid "Tell your story"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:70
+msgid "Share how you feel"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:73
+msgid "You’ll never please everyone"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:76
+msgid "Write about things that matter to you"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:79
+msgid "Inform, inspire and interact"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:82
+msgid "Put aside time to read others blog"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:85
+msgid "When an idea strikes, write it down"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:88
+msgid "Understand who is reading your blog"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:95
+msgid "Do it at least, once a week"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:98
+msgid "Put aside time to create quality content it doesn’t just appear"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:101
+msgid "Ask your readers questions"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:104
+msgid "Brainstorm regularly"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:107
+msgid "Not every post needs to go viral"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:110
+msgid "Write, Write, Write"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:113
+msgid "And <strong>Yes !</strong> everyone writes good content if it wants"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:125
+#: blueprints/admin/templates/addPost.html:129
+#: blueprints/admin/templates/editCategories.html:10
+#: blueprints/admin/templates/editPost.html:49
+#: blueprints/admin/templates/nav.html:23
+#: blueprints/admin/templates/viewCategories.html:10
+#: blueprints/admin/templates/viewCategories.html:35
+msgid "Categories"
+msgstr "Categorias"
+
+#: blueprints/admin/templates/addPost.html:126
+msgid ""
+"It's important to try to keep your content organized. Categorizing posts "
+"helps you to keep <b>your stuff organized.</b> Also helps search engines "
+"to understand the content of your website."
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:129
+msgid "Select"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:130
+msgid ""
+"<span class='text-info'>Search for existing categories or write a new one"
+" and <b>press enter</b></span>. Please try <b>not to duplicate</b> "
+"categories."
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:138
+msgid "Write your"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:138
+#: blueprints/admin/templates/addPost.html:149
+msgid "Blog Post"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:139
+msgid "Write here your blogpost, and when you finish, click next."
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:149
+msgid "Publish the"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:152
+msgid ""
+"You are done, now is time to publish it and make it available to the "
+"world. Remember to share it in your social networks !"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:154
+msgid "Publish Now"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:162
+msgid "Previous"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:165
+msgid "Next"
+msgstr ""
+
+#: blueprints/admin/templates/base.html:77
+msgid "Basque"
+msgstr ""
+
+#: blueprints/admin/templates/base.html:80
+msgid "Spanish"
+msgstr ""
+
+#: blueprints/admin/templates/base.html:83
+msgid "English"
+msgstr ""
+
+#: blueprints/admin/templates/base.html:86
+msgid "French"
+msgstr ""
+
+#: blueprints/admin/templates/base.html:97
+msgid "My Account"
+msgstr ""
+
+#: blueprints/admin/templates/base.html:102
+msgid "Log Out"
+msgstr ""
+
+#: blueprints/admin/templates/editCategories.html:10
+#: blueprints/admin/templates/editCategories.html:35
+#: blueprints/admin/templates/editPost.html:17
+#: blueprints/admin/templates/editPost.html:49
+#: blueprints/admin/templates/viewCategories.html:10
+#: blueprints/admin/templates/viewPosts.html:81
+msgid "Edit"
+msgstr ""
+
+#: blueprints/admin/templates/editCategories.html:18
+#: blueprints/admin/templates/viewCategories.html:18
+msgid ""
+"Pick a category from the list in the left, and edit it in the right "
+"column."
+msgstr ""
+
+#: blueprints/admin/templates/editCategories.html:35
+#: blueprints/admin/templates/editCategories.html:54
+msgid "Category"
+msgstr ""
+
+#: blueprints/admin/templates/editCategories.html:61
+#: blueprints/admin/templates/editPost.html:58
+#: blueprints/admin/templates/viewCategories.html:51
+msgid "Save"
+msgstr ""
+
+#: blueprints/admin/templates/editCategories.html:65
+#: blueprints/admin/templates/viewPosts.html:84
+msgid "Delete"
+msgstr ""
+
+#: blueprints/admin/templates/editPost.html:41
+msgid "Other"
+msgstr ""
+
+#: blueprints/admin/templates/editPost.html:41
+#: blueprints/admin/templates/nav.html:29
+msgid "Options"
+msgstr ""
+
+#: blueprints/admin/templates/editPost.html:58
+msgid "Changes"
+msgstr ""
+
+#: blueprints/admin/templates/editPost.html:66
+msgid "By saving all the changes will be published"
+msgstr ""
+
+#: blueprints/admin/templates/editPost.html:68
+msgid "Update the post"
+msgstr ""
+
+#: blueprints/admin/templates/home.html:8
+msgid "Welcome to Chroma,"
+msgstr "Bienvenido a Chroma,"
+
+#: blueprints/admin/templates/nav.html:1
+msgid "MAIN MENU"
+msgstr ""
+
+#: blueprints/admin/templates/nav.html:6
+msgid "Pages"
+msgstr ""
+
+#: blueprints/admin/templates/nav.html:10
+msgid "All Pages"
+msgstr ""
+
+#: blueprints/admin/templates/nav.html:11
+#: blueprints/admin/templates/nav.html:22
+msgid "Add New"
+msgstr ""
+
+#: blueprints/admin/templates/nav.html:17
+msgid "Blog"
+msgstr ""
+
+#: blueprints/admin/templates/nav.html:21
+msgid "All Entries"
+msgstr ""
+
+#: blueprints/admin/templates/nav.html:33
+msgid "Menu Settings"
+msgstr ""
+
+#: blueprints/admin/templates/nav.html:34
+msgid "Contact Settings"
+msgstr ""
+
+#: blueprints/admin/templates/viewCategories.html:35
+msgid "Add"
+msgstr ""
+
+#: blueprints/admin/templates/viewCategories.html:45
+msgid "Add a"
+msgstr ""
+
+#: blueprints/admin/templates/viewCategories.html:45
+msgid "category"
+msgstr ""
+
+#: blueprints/admin/templates/viewPosts.html:26
+msgid "Posts"
+msgstr ""
+
