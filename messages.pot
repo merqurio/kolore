@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-10-25 17:42+0200\n"
+"POT-Creation-Date: 2014-10-26 15:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,157 +17,172 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: blueprints/admin/templates/addPost.html:15
-#: blueprints/admin/templates/addPost.html:125
+#: blueprints/admin/templates/addPost.html:14
+#: blueprints/admin/templates/viewCategories.html:36
+msgid "Add"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:14
+#: blueprints/admin/templates/addPost.html:124
 #: blueprints/admin/templates/editPost.html:17
+#: blueprints/admin/templates/viewPosts.html:54
 msgid "Post"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:33
+#: blueprints/admin/templates/addPost.html:32
 msgid "Help"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:39
+#: blueprints/admin/templates/addPost.html:38
 msgid "Categorize"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:45
+#: blueprints/admin/templates/addPost.html:44
 msgid "Write"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:51
+#: blueprints/admin/templates/addPost.html:50
 msgid "Publish"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:61
+#: blueprints/admin/templates/addPost.html:60
 msgid "Some tips"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:61
+#: blueprints/admin/templates/addPost.html:60
 msgid "for writing a blog post"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:67
+#: blueprints/admin/templates/addPost.html:66
 msgid "Tell your story"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:70
+#: blueprints/admin/templates/addPost.html:69
 msgid "Share how you feel"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:73
+#: blueprints/admin/templates/addPost.html:72
 msgid "You’ll never please everyone"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:76
+#: blueprints/admin/templates/addPost.html:75
 msgid "Write about things that matter to you"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:79
+#: blueprints/admin/templates/addPost.html:78
 msgid "Inform, inspire and interact"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:82
+#: blueprints/admin/templates/addPost.html:81
 msgid "Put aside time to read others blog"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:85
+#: blueprints/admin/templates/addPost.html:84
 msgid "When an idea strikes, write it down"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:88
+#: blueprints/admin/templates/addPost.html:87
 msgid "Understand who is reading your blog"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:95
+#: blueprints/admin/templates/addPost.html:94
 msgid "Do it at least, once a week"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:98
+#: blueprints/admin/templates/addPost.html:97
 msgid "Put aside time to create quality content it doesn’t just appear"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:101
+#: blueprints/admin/templates/addPost.html:100
 msgid "Ask your readers questions"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:104
+#: blueprints/admin/templates/addPost.html:103
 msgid "Brainstorm regularly"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:107
+#: blueprints/admin/templates/addPost.html:106
 msgid "Not every post needs to go viral"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:110
+#: blueprints/admin/templates/addPost.html:109
 msgid "Write, Write, Write"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:113
+#: blueprints/admin/templates/addPost.html:112
 msgid "And <strong>Yes !</strong> everyone writes good content if it wants"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:125
-#: blueprints/admin/templates/addPost.html:129
+#: blueprints/admin/templates/addPost.html:124
+#: blueprints/admin/templates/addPost.html:128
 #: blueprints/admin/templates/editCategories.html:10
 #: blueprints/admin/templates/editPost.html:49
 #: blueprints/admin/templates/nav.html:23
-#: blueprints/admin/templates/viewCategories.html:10
-#: blueprints/admin/templates/viewCategories.html:35
+#: blueprints/admin/templates/viewCategories.html:11
+#: blueprints/admin/templates/viewCategories.html:36
+#: blueprints/admin/templates/viewPosts.html:56
 msgid "Categories"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:126
+#: blueprints/admin/templates/addPost.html:125
 msgid ""
 "It's important to try to keep your content organized. Categorizing posts "
 "helps you to keep <b>your stuff organized.</b> Also helps search engines "
 "to understand the content of your website."
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:129
+#: blueprints/admin/templates/addPost.html:128
 msgid "Select"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:130
+#: blueprints/admin/templates/addPost.html:129
 msgid ""
 "<span class='text-info'>Search for existing categories or write a new one"
 " and <b>press enter</b></span>. Please try <b>not to duplicate</b> "
 "categories."
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:138
+#: blueprints/admin/templates/addPost.html:137
 msgid "Write your"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:138
-#: blueprints/admin/templates/addPost.html:149
+#: blueprints/admin/templates/addPost.html:137
+#: blueprints/admin/templates/addPost.html:148
 msgid "Blog Post"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:139
+#: blueprints/admin/templates/addPost.html:138
 msgid "Write here your blogpost, and when you finish, click next."
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:149
+#: blueprints/admin/templates/addPost.html:148
 msgid "Publish the"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:152
+#: blueprints/admin/templates/addPost.html:151
 msgid ""
 "You are done, now is time to publish it and make it available to the "
 "world. Remember to share it in your social networks !"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:154
+#: blueprints/admin/templates/addPost.html:153
 msgid "Publish Now"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:162
+#: blueprints/admin/templates/addPost.html:161
 msgid "Previous"
 msgstr ""
 
-#: blueprints/admin/templates/addPost.html:165
+#: blueprints/admin/templates/addPost.html:164
 msgid "Next"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:253
+msgid "Your link"
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:287
+msgid "YouTube or Vimeo link to a video"
 msgstr ""
 
 #: blueprints/admin/templates/base.html:77
@@ -198,13 +213,13 @@ msgstr ""
 #: blueprints/admin/templates/editCategories.html:35
 #: blueprints/admin/templates/editPost.html:17
 #: blueprints/admin/templates/editPost.html:49
-#: blueprints/admin/templates/viewCategories.html:10
-#: blueprints/admin/templates/viewPosts.html:81
+#: blueprints/admin/templates/viewCategories.html:11
+#: blueprints/admin/templates/viewPosts.html:80
 msgid "Edit"
 msgstr ""
 
 #: blueprints/admin/templates/editCategories.html:18
-#: blueprints/admin/templates/viewCategories.html:18
+#: blueprints/admin/templates/viewCategories.html:19
 msgid ""
 "Pick a category from the list in the left, and edit it in the right "
 "column."
@@ -217,12 +232,12 @@ msgstr ""
 
 #: blueprints/admin/templates/editCategories.html:61
 #: blueprints/admin/templates/editPost.html:58
-#: blueprints/admin/templates/viewCategories.html:51
+#: blueprints/admin/templates/viewCategories.html:52
 msgid "Save"
 msgstr ""
 
 #: blueprints/admin/templates/editCategories.html:65
-#: blueprints/admin/templates/viewPosts.html:84
+#: blueprints/admin/templates/viewPosts.html:83
 msgid "Delete"
 msgstr ""
 
@@ -284,19 +299,31 @@ msgstr ""
 msgid "Contact Settings"
 msgstr ""
 
-#: blueprints/admin/templates/viewCategories.html:35
-msgid "Add"
-msgstr ""
-
-#: blueprints/admin/templates/viewCategories.html:45
+#: blueprints/admin/templates/viewCategories.html:46
 msgid "Add a"
 msgstr ""
 
-#: blueprints/admin/templates/viewCategories.html:45
+#: blueprints/admin/templates/viewCategories.html:46
 msgid "category"
 msgstr ""
 
 #: blueprints/admin/templates/viewPosts.html:26
+msgid "All"
+msgstr ""
+
+#: blueprints/admin/templates/viewPosts.html:26
 msgid "Posts"
+msgstr ""
+
+#: blueprints/admin/templates/viewPosts.html:36
+msgid "Add Post"
+msgstr ""
+
+#: blueprints/admin/templates/viewPosts.html:55
+msgid "Published"
+msgstr ""
+
+#: blueprints/admin/templates/viewPosts.html:57
+msgid "Actions"
 msgstr ""
 
