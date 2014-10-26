@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-10-26 15:59+0100\n"
+"POT-Creation-Date: 2014-10-26 16:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -142,6 +142,10 @@ msgid ""
 "categories."
 msgstr ""
 
+#: blueprints/admin/templates/addPost.html:131
+msgid "Search or Create a category.."
+msgstr ""
+
 #: blueprints/admin/templates/addPost.html:137
 msgid "Write your"
 msgstr ""
@@ -153,6 +157,10 @@ msgstr ""
 
 #: blueprints/admin/templates/addPost.html:138
 msgid "Write here your blogpost, and when you finish, click next."
+msgstr ""
+
+#: blueprints/admin/templates/addPost.html:139
+msgid "Enter a title"
 msgstr ""
 
 #: blueprints/admin/templates/addPost.html:148
@@ -178,10 +186,12 @@ msgid "Next"
 msgstr ""
 
 #: blueprints/admin/templates/addPost.html:253
+#: blueprints/admin/templates/editPost.html:115
 msgid "Your link"
 msgstr ""
 
 #: blueprints/admin/templates/addPost.html:287
+#: blueprints/admin/templates/editPost.html:149
 msgid "YouTube or Vimeo link to a video"
 msgstr ""
 
