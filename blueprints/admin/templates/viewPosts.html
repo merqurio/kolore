@@ -23,7 +23,7 @@
         <div class="col-md-12">
             <div class="grid simple">
                 <div class="grid-title no-border">
-                    <h4>All <span class="semi-bold">{{_("Posts")}}</span></h4>
+                    <h4>{{_("All")}} <span class="semi-bold">{{_("Posts")}}</span></h4>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"></a>
                         <a href="#" class="config"></a>
@@ -33,8 +33,7 @@
                    
 
                     <a href="{{url_for('admin.addPost')}}" class="btn btn-white btn-small ">
-                        <i class="fa fa-plus"></i>
-                         Add Post
+                        <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Add Post")}}
                     </a>
                    
                     {# <button type="submit" name="multiple" value="yes" class="btn btn-danger btn-small ">
@@ -52,10 +51,10 @@
                                             <label for="checkbox0"></label>
                                         </div>
                                     </th> #}
-                                    <th>Post</th>
-                                    <th>Published</th>
-                                    <th>Categories</th>
-                                    <th>Actions</th>
+                                    <th>{{_("Post")}}</th>
+                                    <th>{{_("Published")}}</th>
+                                    <th>{{_("Categories")}}</th>
+                                    <th>{{_("Actions")}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -119,12 +118,12 @@
     $(document).ready(function(){
         
         $('.tip').tooltip();
-        moment.locale('en');
+        moment.locale($.cookie('lang'));
 
         $('.date').each(function(){
-            var elementuarenData = moment(new Date($(this).attr('data-date'))),
-                elementuarenFormatua = $(this).attr('data-format');
-            $(this).html(elementuarenData.format(elementuarenFormatua));
+            var elementData = moment(new Date($(this).attr('data-date'))),
+                elementFormat = $(this).attr('data-format');
+            $(this).html(elementData.format(elementFormat));
         });
 
     });

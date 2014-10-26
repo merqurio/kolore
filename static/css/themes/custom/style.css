@@ -305,6 +305,9 @@ body.modal-open .chat-window-wrapper {
   display: block;
   float: left;
   height: 60px;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    0px 0px 4px 0px rgba(50, 50, 50, 0.25);
+  box-shadow:         0px 0px 4px 0px rgba(50, 50, 50, 0.25);
 }
 .header .header-seperation .notifcation-center {
   margin-right: 15px !important;
@@ -319,6 +322,9 @@ body.modal-open .chat-window-wrapper {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
   transition-property: transform, opacity;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    0px 0px 4px 0px rgba(50, 50, 50, 0.25);
+  box-shadow:         0px 0px 4px 0px rgba(50, 50, 50, 0.25);
 }
 .header .header-quick-nav input {
   height: 12px !important;
@@ -3119,6 +3125,11 @@ div.DTTT_print_info p {
   text-align: center;
   right: 0;
 }
+.editable p {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif!important;
+  font-weight: normal!important;
+}
+
 label,
 input,
 button,
