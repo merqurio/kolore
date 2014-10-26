@@ -1,13 +1,15 @@
 # Import the Flask Framework
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
 # Import dependencies
 from flask.ext.babel import Babel
+
+# Babel Config
 babel = Babel(app)
-app.config['BABEL_DEFAULT_LOCALE'] = 'es'
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 LANGUAGES = {
     'en': 'English',
     'es': 'Espanol',
@@ -21,6 +23,15 @@ from blueprints.admin.admin import admin_blueprint
 
 # Register Blueprints
 app.register_blueprint(admin_blueprint, url_prefix='/admin')
+
+
+#Language selector
+@babel.localeselector
+def get_locale():
+    if not request.cookies.get('lang'):
+        return 'en'
+    else:
+        return request.cookies.get('lang')
 
 
 # Main routes
