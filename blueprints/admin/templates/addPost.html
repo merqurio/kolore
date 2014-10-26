@@ -1,5 +1,4 @@
 {% extends "base.html"%}
-
 {% block css %}
     <link href="{{ url_for('static', filename='plugins/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen">
     <link href="{{ url_for('static', filename='plugins/medium/css/medium-editor.css') }}" rel="stylesheet" type="text/css" media="screen">
@@ -12,7 +11,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="grid simple">
                 <div class="grid-title no-border">
-                    <h4>Add <span class="semi-bold">{{_("Post")}}</span></h4>
+                    <h4>{{_("Add")}} <span class="semi-bold">{{_("Post")}}</span></h4>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"></a>
                         <a href="#" class="config"></a>
@@ -251,7 +250,7 @@
         });
 
         var editor = new MediumEditor('#editable', {
-            anchorInputPlaceholder: 'Your link',
+            anchorInputPlaceholder: '{{_("Your link")}}',
             buttonLabels: 'fontawesome',
             buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist','orderedlist'],
             checkLinkFormat: true,
@@ -285,7 +284,7 @@
                     }
                 },
                 embeds: {
-                    urlPlaceholder: 'YouTube or Vimeo Link to video',
+                    urlPlaceholder: '{{_("YouTube or Vimeo link to a video")}}',
                     oembedProxy: 'http://medium.iframe.ly/api/oembed?iframe=1'
                 }
             }

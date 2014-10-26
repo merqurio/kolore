@@ -112,7 +112,7 @@
 
         //Textarea
         var editor = new MediumEditor('#editable', {
-            anchorInputPlaceholder: 'Your link',
+            anchorInputPlaceholder: '{{_("Your link")}}',
             buttonLabels: 'fontawesome',
             buttons: ['bold', 'italic', 'underline', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist','orderedlist'],
             checkLinkFormat: true,
@@ -146,7 +146,7 @@
                     }
                 },
                 embeds: {
-                    urlPlaceholder: 'YouTube or Vimeo Link to video',
+                    urlPlaceholder: '{{_("YouTube or Vimeo link to a video")}}',
                     oembedProxy: 'http://medium.iframe.ly/api/oembed?iframe=1'
                 }
             }
