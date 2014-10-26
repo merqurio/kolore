@@ -810,9 +810,13 @@
     width: 100%;
   }
 
-  .grid.simple .grid-body {
-    padding: 0px!important;
+  /*  Bigger mobile editor */
+
+  #rootwizard .tab-content > .active {
+    padding-left: 10!important;
+    padding-right: 0!important;
   }
+
 
   body.hide-top-content-header .page-content .content {
     padding-top: 93px;
@@ -1312,33 +1316,33 @@
 /*** Retina Display Images **/
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 200/100), only screen and (min-device-pixel-ratio: 2) {
   .grid.simple .grid-title .tools a {
-    background: url('../img/icon/portlet-tray-2x.png');
+    background: url('../../../img/icon/portlet-tray-2x.png');
     background-size: 199px 57px;
   }
   .tiles .controller a {
     position: relative;
-    background: url('../img/icon/portlet-tray-2x.png');
+    background: url('../../../img/icon/portlet-tray-2x.png');
     background-size: 199px 57px;
   }
   .widget-item .controller a {
     position: relative;
-    background: url('../img/icon/portlet-tray-2x.png');
+    background: url('../../../img/icon/portlet-tray-2x.png');
     background-size: 199px 57px;
   }
   .iconset {
-    background: url('../img/icon/top-trayx2.png') no-repeat;
+    background: url('../../../img/icon/top-trayx2.png') no-repeat;
     background-size: 394px 29px;
   }
   .status-icon {
-    background: url('../img/icon/status2x.png');
+    background: url('../../../img/icon/status2x.png');
     background-size: 79px 16px;
   }
   .scrollup {
-    background: url('../img/pullup2x.png');
+    background: url('../../../img/pullup2x.png');
     background-size: 57px 27px;
   }
   .alert .close {
-    background: url("../img/icon/noti-cross-2x.png") no-repeat scroll 0 0 transparent;
+    background: url("../../../img/icon/noti-cross-2x.png") no-repeat scroll 0 0 transparent;
     background-position: -9px -10px;
     width: 10px;
     height: 9px;
