@@ -20,6 +20,7 @@ from blueprints.admin.models import BlogPost, BlogCategory
 
 admin_blueprint = Blueprint('admin', __name__, template_folder='templates')
 BUCKET_NAME = "gcs-tester-app"
+IMG_SIZE = 1200
 
 
 # Controllers
@@ -132,7 +133,7 @@ def upload():
         if file:
             try:
                 blob_key = parsed_header[1]['blob-key']
-                return get_serving_url(blob_key)
+                return get_serving_url(blob_key, size=IMG_SIZE)
             except Exception as e:
                 logging.exception(e)
                 return 'http://placehold.it/500&text="No :("'
@@ -146,6 +147,7 @@ def img(bkey):
     response = make_response(blob_info.open().read())
     response.headers['Content-Type'] = blob_info.content_type
     return response
+
 
 # /// Categories ///
 
