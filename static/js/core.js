@@ -51,6 +51,7 @@ $(document).ready(function () {
         }
     });
 
+
     $(".inside").children('input').blur(function () {
         $(this).parent().children('.add-on').removeClass('input-focus');
     });
@@ -383,6 +384,7 @@ $(document).ready(function () {
             }
         }
     });
+
 
     $('#horizontal-menu-toggle').click(function () {
         if($('body').hasClass('breakpoint-480') || $('body').hasClass('breakpoint-320') ){
