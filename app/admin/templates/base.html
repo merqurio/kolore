@@ -45,6 +45,48 @@
                             <img src="{{url_for('static', filename='img/admin/logo-prueba.png')}}" height="30px" style="margin-left:30px;margin-top: 5px;">
                         </li>
                     </ul>
+                    <!-- BEGIN RIGHT TOGGLER -->
+                    <div class="pull-right">
+                        <ul class="nav quick-section ">
+                            <li class="quicklinks">
+                                <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
+                                    <i class="fa fa-globe"></i>
+                                </a>
+                                <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+                                    <li class="eu">
+                                        <a href="#"> {{_('Basque')}}</a>
+                                    </li>
+                                    <li class="es">
+                                        <a href="#"> {{_('Spanish')}}</a>
+                                    </li>
+                                    <li class="en">
+                                        <a href="#"> {{_('English')}}</a>
+                                    </li>
+                                    <li class="fr">
+                                        <a href="#"> {{_('French')}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="quicklinks"> <span class="h-seperate"></span></li> 
+                            <li class="quicklinks">
+                                <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
+                                    <i class="fa fa-gear"></i>
+                                </a>
+                                <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+                                    <li>
+                                        <a href="#"> {{_('My Account')}}</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="/logout">
+                                            <i class="fa fa-power-off"></i>&nbsp;&nbsp;{{_('Log Out')}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END RIGHT TOGGLER -->
                 </div>
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 <div class="header-quick-nav">
@@ -70,19 +112,19 @@
                         <ul class="nav quick-section ">
                             <li class="quicklinks">
                                 <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
-                                    <i class="fa fa-flag"></i>
+                                    <i class="fa fa-globe"></i>
                                 </a>
                                 <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
-                                    <li id="eu">
+                                    <li class="eu">
                                         <a href="#"> {{_('Basque')}}</a>
                                     </li>
-                                    <li id="es">
+                                    <li class="es">
                                         <a href="#"> {{_('Spanish')}}</a>
                                     </li>
-                                    <li id="en">
+                                    <li class="en">
                                         <a href="#"> {{_('English')}}</a>
                                     </li>
-                                    <li id="fr">
+                                    <li class="fr">
                                         <a href="#"> {{_('French')}}</a>
                                     </li>
                                 </ul>

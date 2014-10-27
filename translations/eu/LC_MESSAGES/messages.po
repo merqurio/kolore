@@ -1,118 +1,102 @@
-# Basque translations for PROJECT.
-# Copyright (C) 2014 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-10-26 15:59+0100\n"
-"PO-Revision-Date: 2014-10-26 16:14+0100\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: eu <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
-
-#: blueprints/admin/templates/addPost.html:14
-#: blueprints/admin/templates/viewCategories.html:36
-msgid "Add"
-msgstr ""
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Kolore\n"
+"Language: eu\n"
 
 #: blueprints/admin/templates/addPost.html:14
 #: blueprints/admin/templates/addPost.html:124
 #: blueprints/admin/templates/editPost.html:17
 #: blueprints/admin/templates/viewPosts.html:54
 msgid "Post"
-msgstr ""
+msgstr "Blog sarrera"
 
 #: blueprints/admin/templates/addPost.html:32
 msgid "Help"
-msgstr ""
+msgstr "Laguntza"
 
 #: blueprints/admin/templates/addPost.html:38
 msgid "Categorize"
-msgstr ""
+msgstr "Kategorizatu"
 
 #: blueprints/admin/templates/addPost.html:44
 msgid "Write"
-msgstr ""
+msgstr "Idatzi"
 
 #: blueprints/admin/templates/addPost.html:50
 msgid "Publish"
-msgstr ""
+msgstr "Argitaratu"
 
 #: blueprints/admin/templates/addPost.html:60
 msgid "Some tips"
-msgstr ""
+msgstr "Laguntza pixkat"
 
 #: blueprints/admin/templates/addPost.html:60
 msgid "for writing a blog post"
-msgstr ""
+msgstr "Blog sarrerak idazkteko"
 
 #: blueprints/admin/templates/addPost.html:66
 msgid "Tell your story"
-msgstr ""
+msgstr "Heman zure istoriaren berri"
 
 #: blueprints/admin/templates/addPost.html:69
 msgid "Share how you feel"
-msgstr ""
+msgstr "Nola sentitzen zara ?"
 
 #: blueprints/admin/templates/addPost.html:72
 msgid "You’ll never please everyone"
-msgstr ""
+msgstr "Ez bilatu guztien onarpena"
 
 #: blueprints/admin/templates/addPost.html:75
 msgid "Write about things that matter to you"
-msgstr ""
+msgstr "Atsegin dituzun gaiaz idatzi"
 
 #: blueprints/admin/templates/addPost.html:78
 msgid "Inform, inspire and interact"
-msgstr ""
+msgstr "Informatu, inspiratu eta elkarbanatu"
 
 #: blueprints/admin/templates/addPost.html:81
 msgid "Put aside time to read others blog"
-msgstr ""
+msgstr "Denbora hartu idazteko"
 
 #: blueprints/admin/templates/addPost.html:84
 msgid "When an idea strikes, write it down"
-msgstr ""
+msgstr "Ideia bat duzunean, idatzi"
 
 #: blueprints/admin/templates/addPost.html:87
 msgid "Understand who is reading your blog"
-msgstr ""
+msgstr "Argi eduki norentzako idazten duzun"
 
 #: blueprints/admin/templates/addPost.html:94
 msgid "Do it at least, once a week"
-msgstr ""
+msgstr "Astero idatzi"
 
 #: blueprints/admin/templates/addPost.html:97
 msgid "Put aside time to create quality content it doesn’t just appear"
-msgstr ""
+msgstr "Beharrezko denbora hartu kalitatezko edukia sortzeko"
 
 #: blueprints/admin/templates/addPost.html:100
 msgid "Ask your readers questions"
-msgstr ""
+msgstr "Galderak egin zure irakurleak parte hartu dezaten"
 
 #: blueprints/admin/templates/addPost.html:103
 msgid "Brainstorm regularly"
-msgstr ""
+msgstr "Brainstorming-ak egin"
 
 #: blueprints/admin/templates/addPost.html:106
 msgid "Not every post needs to go viral"
-msgstr ""
+msgstr "Sarrera guztiak ez dute arrakasta berdina izango, ez larritu"
 
 #: blueprints/admin/templates/addPost.html:109
 msgid "Write, Write, Write"
-msgstr ""
+msgstr "Idatzi, idatzi, idatzi"
 
 #: blueprints/admin/templates/addPost.html:112
 msgid "And <strong>Yes !</strong> everyone writes good content if it wants"
-msgstr ""
+msgstr "<strong>Edonork </strong> sor dezake kalitatezko edukia ! "
 
 #: blueprints/admin/templates/addPost.html:124
 #: blueprints/admin/templates/addPost.html:128
@@ -123,92 +107,76 @@ msgstr ""
 #: blueprints/admin/templates/viewCategories.html:36
 #: blueprints/admin/templates/viewPosts.html:56
 msgid "Categories"
-msgstr ""
+msgstr "Kategoriak"
 
 #: blueprints/admin/templates/addPost.html:125
-msgid ""
-"It's important to try to keep your content organized. Categorizing posts "
-"helps you to keep <b>your stuff organized.</b> Also helps search engines "
-"to understand the content of your website."
-msgstr ""
+msgid "It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website."
+msgstr "Kategoriak ipintzea, zure edukia <b>txukun mantetzen</b> lagunduko dizu. Horrela Google-k ere zure edukia ulertu ahal izango du."
 
 #: blueprints/admin/templates/addPost.html:128
 msgid "Select"
-msgstr ""
+msgstr "Aukeratu"
 
 #: blueprints/admin/templates/addPost.html:129
-msgid ""
-"<span class='text-info'>Search for existing categories or write a new one"
-" and <b>press enter</b></span>. Please try <b>not to duplicate</b> "
-"categories."
-msgstr ""
+msgid "<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories."
+msgstr "<span class='text-info'>Bilatu kategoria bat edo berri bat idatzi eta <b> enter sakatu</b></span>. Mesedez, saiatu zaitez kategori bat <b>ez duplikatzen</b>."
 
 #: blueprints/admin/templates/addPost.html:137
 msgid "Write your"
-msgstr ""
+msgstr "Idatzi zure"
 
 #: blueprints/admin/templates/addPost.html:137
 #: blueprints/admin/templates/addPost.html:148
 msgid "Blog Post"
-msgstr ""
+msgstr "Blog Sarrera"
 
 #: blueprints/admin/templates/addPost.html:138
 msgid "Write here your blogpost, and when you finish, click next."
-msgstr ""
+msgstr "Idatzi zure blog sarrea eta bukatzean sakatu \"hurrengoa\""
 
 #: blueprints/admin/templates/addPost.html:148
 msgid "Publish the"
-msgstr ""
+msgstr "Argitaratu"
 
 #: blueprints/admin/templates/addPost.html:151
-msgid ""
-"You are done, now is time to publish it and make it available to the "
-"world. Remember to share it in your social networks !"
-msgstr ""
+msgid "You are done, now is time to publish it and make it available to the world. Remember to share it in your social networks !"
+msgstr "Bukatu duzu dagoeneko. Orain argitaratzeko ordua da. Gogoratu sare sozialetan elkarbanatzea !"
 
 #: blueprints/admin/templates/addPost.html:153
 msgid "Publish Now"
-msgstr ""
+msgstr "Argitaratu orain"
 
 #: blueprints/admin/templates/addPost.html:161
 msgid "Previous"
-msgstr ""
+msgstr "Aurrekoa"
 
 #: blueprints/admin/templates/addPost.html:164
 msgid "Next"
-msgstr ""
-
-#: blueprints/admin/templates/addPost.html:253
-msgid "Your link"
-msgstr ""
-
-#: blueprints/admin/templates/addPost.html:287
-msgid "YouTube or Vimeo link to a video"
-msgstr ""
+msgstr "Hurrengoa"
 
 #: blueprints/admin/templates/base.html:77
 msgid "Basque"
-msgstr ""
+msgstr "Euskara"
 
 #: blueprints/admin/templates/base.html:80
 msgid "Spanish"
-msgstr ""
+msgstr "Erdara"
 
 #: blueprints/admin/templates/base.html:83
 msgid "English"
-msgstr ""
+msgstr "Ingelesa"
 
 #: blueprints/admin/templates/base.html:86
 msgid "French"
-msgstr ""
+msgstr "Frantsesa"
 
 #: blueprints/admin/templates/base.html:97
 msgid "My Account"
-msgstr ""
+msgstr "Nire kontua"
 
 #: blueprints/admin/templates/base.html:102
 msgid "Log Out"
-msgstr ""
+msgstr "Amaitu saioa"
 
 #: blueprints/admin/templates/editCategories.html:10
 #: blueprints/admin/templates/editCategories.html:35
@@ -217,114 +185,135 @@ msgstr ""
 #: blueprints/admin/templates/viewCategories.html:11
 #: blueprints/admin/templates/viewPosts.html:80
 msgid "Edit"
-msgstr ""
+msgstr "Aldatu"
 
 #: blueprints/admin/templates/editCategories.html:18
 #: blueprints/admin/templates/viewCategories.html:19
-msgid ""
-"Pick a category from the list in the left, and edit it in the right "
-"column."
-msgstr ""
+msgid "Pick a category from the list in the left, and edit it in the right column."
+msgstr "Ezkerreko zerrendatik aukeratu kategori bat eta aldatu eskubiko zutabean."
 
 #: blueprints/admin/templates/editCategories.html:35
 #: blueprints/admin/templates/editCategories.html:54
 msgid "Category"
-msgstr ""
+msgstr "Kategoria"
 
 #: blueprints/admin/templates/editCategories.html:61
 #: blueprints/admin/templates/editPost.html:58
 #: blueprints/admin/templates/viewCategories.html:52
 msgid "Save"
-msgstr ""
+msgstr "Gorde"
 
 #: blueprints/admin/templates/editCategories.html:65
 #: blueprints/admin/templates/viewPosts.html:83
 msgid "Delete"
-msgstr ""
+msgstr "Ezabatu"
 
 #: blueprints/admin/templates/editPost.html:41
 msgid "Other"
-msgstr ""
+msgstr "Beste"
 
 #: blueprints/admin/templates/editPost.html:41
 #: blueprints/admin/templates/nav.html:29
 msgid "Options"
-msgstr ""
+msgstr "Aukerak"
 
 #: blueprints/admin/templates/editPost.html:58
 msgid "Changes"
-msgstr ""
+msgstr "Aldaketak"
 
 #: blueprints/admin/templates/editPost.html:66
 msgid "By saving all the changes will be published"
-msgstr ""
+msgstr "Aldaketak argitaratuko dira gordetzean"
 
 #: blueprints/admin/templates/editPost.html:68
 msgid "Update the post"
-msgstr ""
+msgstr "Gorde aldaketak"
 
 #: blueprints/admin/templates/home.html:8
 msgid "Welcome to Chroma,"
-msgstr ""
+msgstr "Ongietorri Chroma-ra"
 
 #: blueprints/admin/templates/nav.html:1
 msgid "MAIN MENU"
-msgstr ""
+msgstr "MENU NAGUSIA"
 
 #: blueprints/admin/templates/nav.html:6
 msgid "Pages"
-msgstr ""
+msgstr "Orriak"
 
 #: blueprints/admin/templates/nav.html:10
 msgid "All Pages"
-msgstr ""
+msgstr "Orri guztiak"
 
 #: blueprints/admin/templates/nav.html:11
 #: blueprints/admin/templates/nav.html:22
 msgid "Add New"
-msgstr ""
+msgstr "Gehitu berri bat"
 
 #: blueprints/admin/templates/nav.html:17
 msgid "Blog"
-msgstr ""
+msgstr "Bloga"
 
 #: blueprints/admin/templates/nav.html:21
 msgid "All Entries"
-msgstr ""
+msgstr "Sarrera guztiak"
 
 #: blueprints/admin/templates/nav.html:33
 msgid "Menu Settings"
-msgstr ""
+msgstr "Menuaren ezarpenak"
 
 #: blueprints/admin/templates/nav.html:34
 msgid "Contact Settings"
-msgstr ""
+msgstr "Kontaktuaren ezarpenak"
+
+#: blueprints/admin/templates/addPost.html:14
+#: blueprints/admin/templates/viewCategories.html:36
+msgid "Add"
+msgstr "Gehitu"
 
 #: blueprints/admin/templates/viewCategories.html:46
 msgid "Add a"
-msgstr ""
+msgstr "Gehitu"
 
 #: blueprints/admin/templates/viewCategories.html:46
 msgid "category"
-msgstr ""
-
-#: blueprints/admin/templates/viewPosts.html:26
-msgid "All"
-msgstr ""
+msgstr "Kategoriak"
 
 #: blueprints/admin/templates/viewPosts.html:26
 msgid "Posts"
-msgstr ""
+msgstr "Guztiak"
 
 #: blueprints/admin/templates/viewPosts.html:36
 msgid "Add Post"
-msgstr ""
+msgstr "Gehitu Sarrera"
 
 #: blueprints/admin/templates/viewPosts.html:55
 msgid "Published"
-msgstr ""
+msgstr "Argitaratua"
 
 #: blueprints/admin/templates/viewPosts.html:57
 msgid "Actions"
-msgstr ""
+msgstr "Ekintzak"
+
+#: blueprints/admin/templates/viewPosts.html:26
+msgid "All"
+msgstr "Sarrera"
+
+#: blueprints/admin/templates/addPost.html:253
+#: blueprints/admin/templates/editPost.html:115
+msgid "Your link"
+msgstr "Zure link-a"
+
+#: blueprints/admin/templates/addPost.html:287
+#: blueprints/admin/templates/editPost.html:149
+msgid "YouTube or Vimeo link to a video"
+msgstr "YouTube edo Vimeo-ko linka"
+
+#: blueprints/admin/templates/addPost.html:131
+msgid "Search or Create a category.."
+msgstr "Kategori bat bilatu edo sortu.."
+
+#: blueprints/admin/templates/addPost.html:139
+msgid "Enter a title"
+msgstr "Tituloa gehitu"
 
