@@ -42,7 +42,9 @@
                             </a>
                         </li>
                         <li>
-                            <img src="{{url_for('static', filename='img/admin/logo-prueba.png')}}" height="30px" style="margin-left:30px;margin-top: 5px;">
+                            <a href="{{url_for('admin.home')}}">
+                                <img src="{{url_for('static', filename='img/admin/logo-prueba.png')}}" height="30px" style="margin-left:20px;margin-top: -2px;">
+                            </a>
                         </li>
                     </ul>
                     <!-- BEGIN RIGHT TOGGLER -->
@@ -161,7 +163,7 @@
             <div class="page-sidebar mini" id="main-menu">
                 <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
                     <!-- BEGIN SIDEBAR MENU -->
-                    {% include "nav.html"%}
+                    {% include "mainNav.html"%}
                     <!-- END SIDEBAR MENU -->
                 </div>
                 <div class="footer-widget">

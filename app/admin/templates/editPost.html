@@ -17,7 +17,7 @@
                         <h4>{{_("Edit")}} <span class="semi-bold">{{_("Post")}}</span></h4>
                         <div class="tools">
                             <a href="javascript:;" class="collapse"></a>
-                            <a href="#" class="config"></a>
+                            <a href="#" class="config" data-toggle="modal" data-target="#helpModal"></a>
                         </div>
                     </div>
                     <div class="grid-body no-border">
@@ -162,4 +162,5 @@
     }
          
 </script>
+{% include "modalEditor.html"%}
 {% endblock %}
