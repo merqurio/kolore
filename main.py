@@ -19,10 +19,10 @@ LANGUAGES = {
 
 
 # Import Blueprints
-from blueprints.admin.admin import admin_blueprint
+from app.admin.controllers import admin_app
 
 # Register Blueprints
-app.register_blueprint(admin_blueprint, url_prefix='/admin')
+app.register_blueprint(admin_app, url_prefix='/admin')
 
 
 #Language selector

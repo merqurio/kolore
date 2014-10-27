@@ -517,23 +517,23 @@ $(document).ready(function () {
     $("img").unveil();
 
     //***********************************BEGIN Language Selector ***************************
-    $('#en').click(function() {
+    $('.en').click(function() {
         /* Act on the  */
         $.cookie('lang', 'en', { expires: 365, path: '/' });
         location.reload();
     });
-    $('#es').click(function() {
+    $('.es').click(function() {
         /* Act on the  */
         $.cookie('lang', 'es', { expires: 365, path: '/' });
         location.reload();
     });
-    $('#eu').click(function() {
+    $('.eu').click(function() {
         /* Act on the  */
         console.log('eu')
         $.cookie('lang', 'eu', { expires: 365, path: '/' });
         location.reload();
     });
-    $('#fr').click(function() {
+    $('.fr').click(function() {
         /* Act on the  */
         $.cookie('lang', 'fr', { expires: 365, path: '/' });
         location.reload();

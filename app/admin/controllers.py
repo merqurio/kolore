@@ -18,7 +18,7 @@ from blueprints.admin.models import BlogPost, BlogCategory
 # Config
 # ----------------------------------------------------------------
 
-admin_blueprint = Blueprint('admin', __name__, template_folder='templates')
+admin_app = Blueprint('admin', __name__, template_folder='templates')
 BUCKET_NAME = "gcs-tester-app"
 IMG_SIZE = 1200
 
@@ -26,7 +26,7 @@ IMG_SIZE = 1200
 # Controllers
 # ----------------------------------------------------------------
 
-@admin_blueprint.route('/')
+@admin_app.route('/')
 @login_required
 def home():
     user = users.get_current_user()
@@ -36,7 +36,7 @@ def home():
 # /// Pages ///
 
 
-@admin_blueprint.route('/pages')
+@admin_app.route('/pages')
 @login_required
 def pages():
     return render_template('viewPages.html')
@@ -44,7 +44,7 @@ def pages():
 
 # /// Posts ///
 
-@admin_blueprint.route('/posts', methods=['GET', 'POST'])
+@admin_app.route('/posts', methods=['GET', 'POST'])
 @login_required
 def posts():
     ''' Renders all posts'''
@@ -57,7 +57,7 @@ def posts():
     return render_template('viewPosts.html', posts=BlogPost.query())
 
 
-@admin_blueprint.route('/addPost', methods=['GET', 'POST'])
+@admin_app.route('/addPost', methods=['GET', 'POST'])
 @login_required
 def addPost():
     '''Creates a new post in the DB'''
@@ -84,7 +84,7 @@ def addPost():
                            categories=BlogCategory.query_all())
 
 
-@admin_blueprint.route('/post/edit/<int:post_id>', methods=['GET', 'POST'])
+@admin_app.route('/post/edit/<int:post_id>', methods=['GET', 'POST'])
 @login_required
 def edit_post(post_id):
     '''Edit posts'''
@@ -113,14 +113,14 @@ def edit_post(post_id):
 
 # /// Images ///
 
-@admin_blueprint.route('/upload_url')
+@admin_app.route('/upload_url')
 def upload_url():
     upload_url = blobstore.create_upload_url('/admin/upload',
                                              gs_bucket_name=BUCKET_NAME)
     return jsonify({"url": upload_url})
 
 
-@admin_blueprint.route('/upload', methods=['POST'])
+@admin_app.route('/upload', methods=['POST'])
 @login_required
 def upload():
     if request.method == 'POST':
@@ -141,7 +141,7 @@ def upload():
             logging.exception('Not file, mate :(')
 
 
-@admin_blueprint.route("/img/<bkey>")
+@admin_app.route("/img/<bkey>")
 def img(bkey):
     blob_info = blobstore.get(bkey)
     response = make_response(blob_info.open().read())
@@ -151,7 +151,7 @@ def img(bkey):
 
 # /// Categories ///
 
-@admin_blueprint.route('/categories', methods=['GET', 'POST'])
+@admin_app.route('/categories', methods=['GET', 'POST'])
 @login_required
 def categories():
     ''' Renders all categories'''
@@ -164,7 +164,7 @@ def categories():
                            categories=BlogCategory.query())
 
 
-@admin_blueprint.route('/categories/edit/<int:cat_id>',
+@admin_app.route('/categories/edit/<int:cat_id>',
                        methods=['GET', 'POST'])
 @login_required
 def edit_category(cat_id):
