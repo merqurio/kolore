@@ -311,6 +311,7 @@ msgstr "Tituloa gehitu"
 msgid "How to add images and edit text"
 msgstr "Irudiak gehitu eta testua aldatu"
 
+#: app/admin/templates/modalEditor.html:10
 #: app/admin/templates/modalEditor.html:18
 msgid "Edit text"
 msgstr "Testua aldatu"
@@ -330,4 +331,8 @@ msgstr "Bideo edo irudi bat gehitzeko, irudia eraman weborrira saguarekin edo kl
 #: app/admin/templates/modalEditor.html:35
 msgid "button in the left side of the editor."
 msgstr "botoian."
+
+#: app/admin/templates/modalEditor.html:11
+msgid "Add images"
+msgstr "Irudiak gehitu"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-10-27 23:05+0100\n"
+"POT-Creation-Date: 2014-10-27 23:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -303,8 +303,13 @@ msgstr ""
 msgid "How to add images and edit text"
 msgstr ""
 
+#: app/admin/templates/modalEditor.html:10
 #: app/admin/templates/modalEditor.html:18
 msgid "Edit text"
+msgstr ""
+
+#: app/admin/templates/modalEditor.html:11
+msgid "Add images"
 msgstr ""
 
 #: app/admin/templates/modalEditor.html:19
