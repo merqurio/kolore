@@ -311,6 +311,7 @@ msgstr "Introducir un título"
 msgid "How to add images and edit text"
 msgstr "Como añadir imagene y editar el texto"
 
+#: app/admin/templates/modalEditor.html:10
 #: app/admin/templates/modalEditor.html:18
 msgid "Edit text"
 msgstr "Editar el texto"
@@ -330,4 +331,8 @@ msgstr "Para añadir una imagen o un video, arrastralo a la web, o clica en el b
 #: app/admin/templates/modalEditor.html:35
 msgid "button in the left side of the editor."
 msgstr "que encontraras a la izquierda del editor."
+
+#: app/admin/templates/modalEditor.html:11
+msgid "Add images"
+msgstr "Añadir imágenes"
 
