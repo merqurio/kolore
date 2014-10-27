@@ -48,7 +48,7 @@ msgstr "Comparte como te sientes respecto a algo"
 
 #: blueprints/admin/templates/addPost.html:72
 msgid "You’ll never please everyone"
-msgstr "Nunca satisfacerá a todos"
+msgstr "Nunca satisfacerás a todos"
 
 #: blueprints/admin/templates/addPost.html:75
 msgid "Write about things that matter to you"
@@ -156,7 +156,7 @@ msgstr "Siguiente"
 
 #: blueprints/admin/templates/base.html:77
 msgid "Basque"
-msgstr "Vasco"
+msgstr "Euskera"
 
 #: blueprints/admin/templates/base.html:80
 msgid "Spanish"

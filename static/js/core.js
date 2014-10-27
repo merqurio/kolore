@@ -270,8 +270,6 @@ $(document).ready(function () {
         $('#main-menu-toggle-wrapper').show();
         $('#portrait-chat-toggler').show();
         $('#header_inbox_bar').hide();
-        $('#main-menu').removeClass('mini');
-        $('.page-content').removeClass('condensed');
         rebuildSider();
     });
 
@@ -281,8 +279,6 @@ $(document).ready(function () {
         $('#portrait-chat-toggler').show();
         $('#header_inbox_bar').hide();
         //Incase if condensed layout is applied
-        $('#main-menu').removeClass('mini');
-        $('.page-content').removeClass('condensed');
         rebuildSider();
 
     });
@@ -293,8 +289,6 @@ $(document).ready(function () {
         $('#header_inbox_bar').hide();
 
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            $('#main-menu').removeClass('mini');
-            $('.page-content').removeClass('condensed');
             rebuildSider();
         }
 

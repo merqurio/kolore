@@ -13,7 +13,7 @@ from flask import (Blueprint, render_template, make_response, request,
 # Models
 # ----------------------------------------------------------------
 
-from blueprints.admin.models import BlogPost, BlogCategory
+from app.admin.models import BlogPost, BlogCategory
 
 # Config
 # ----------------------------------------------------------------
