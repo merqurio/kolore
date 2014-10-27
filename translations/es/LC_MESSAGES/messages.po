@@ -7,313 +7,327 @@ msgstr ""
 "Project-Id-Version: Kolore\n"
 "Language: es\n"
 
-#: blueprints/admin/templates/addPost.html:14
-#: blueprints/admin/templates/addPost.html:124
-#: blueprints/admin/templates/editPost.html:17
-#: blueprints/admin/templates/viewPosts.html:54
+#: app/admin/templates/addPost.html:14 app/admin/templates/addPost.html:124
+#: app/admin/templates/editPost.html:17 app/admin/templates/viewPosts.html:54
 msgid "Post"
 msgstr "Entrada"
 
-#: blueprints/admin/templates/addPost.html:32
+#: app/admin/templates/addPost.html:32
 msgid "Help"
 msgstr "Ayuda"
 
-#: blueprints/admin/templates/addPost.html:38
+#: app/admin/templates/addPost.html:38
 msgid "Categorize"
 msgstr "Categorizar"
 
-#: blueprints/admin/templates/addPost.html:44
+#: app/admin/templates/addPost.html:44
 msgid "Write"
 msgstr "Escribir"
 
-#: blueprints/admin/templates/addPost.html:50
+#: app/admin/templates/addPost.html:50
 msgid "Publish"
 msgstr "Publicar"
 
-#: blueprints/admin/templates/addPost.html:60
+#: app/admin/templates/addPost.html:60
 msgid "Some tips"
 msgstr "Algunos trucos"
 
-#: blueprints/admin/templates/addPost.html:60
+#: app/admin/templates/addPost.html:60
 msgid "for writing a blog post"
 msgstr "para escribir un entrada del blog"
 
-#: blueprints/admin/templates/addPost.html:66
+#: app/admin/templates/addPost.html:66
 msgid "Tell your story"
 msgstr "Cuenta tu historia"
 
-#: blueprints/admin/templates/addPost.html:69
+#: app/admin/templates/addPost.html:69
 msgid "Share how you feel"
 msgstr "Comparte como te sientes respecto a algo"
 
-#: blueprints/admin/templates/addPost.html:72
+#: app/admin/templates/addPost.html:72
 msgid "You’ll never please everyone"
 msgstr "Nunca satisfacerás a todos"
 
-#: blueprints/admin/templates/addPost.html:75
+#: app/admin/templates/addPost.html:75
 msgid "Write about things that matter to you"
 msgstr "Escribe sobre lo que te importa"
 
-#: blueprints/admin/templates/addPost.html:78
+#: app/admin/templates/addPost.html:78
 msgid "Inform, inspire and interact"
 msgstr "Informa, inspira e interactua con otros"
 
-#: blueprints/admin/templates/addPost.html:81
+#: app/admin/templates/addPost.html:81
 msgid "Put aside time to read others blog"
 msgstr "Guarda tiempo para leer otros blogs"
 
-#: blueprints/admin/templates/addPost.html:84
+#: app/admin/templates/addPost.html:84
 msgid "When an idea strikes, write it down"
 msgstr "Cuando surja una idea, escribela"
 
-#: blueprints/admin/templates/addPost.html:87
+#: app/admin/templates/addPost.html:87
 msgid "Understand who is reading your blog"
 msgstr "Comprende quienes son tus lectores"
 
-#: blueprints/admin/templates/addPost.html:94
+#: app/admin/templates/addPost.html:94
 msgid "Do it at least, once a week"
 msgstr "Escribe, al menos, una vez por semana"
 
-#: blueprints/admin/templates/addPost.html:97
+#: app/admin/templates/addPost.html:97
 msgid "Put aside time to create quality content it doesn’t just appear"
 msgstr "Dedica tiempo a crear contenido de calidad, no solo a publicar"
 
-#: blueprints/admin/templates/addPost.html:100
+#: app/admin/templates/addPost.html:100
 msgid "Ask your readers questions"
 msgstr "Haz preguntas a tus lectores"
 
-#: blueprints/admin/templates/addPost.html:103
+#: app/admin/templates/addPost.html:103
 msgid "Brainstorm regularly"
 msgstr "Recolecta ideas regularmente en un cuaderno"
 
-#: blueprints/admin/templates/addPost.html:106
+#: app/admin/templates/addPost.html:106
 msgid "Not every post needs to go viral"
 msgstr "No todo el contenido ha de ser viral"
 
-#: blueprints/admin/templates/addPost.html:109
+#: app/admin/templates/addPost.html:109
 msgid "Write, Write, Write"
 msgstr "Escribe, escribe y escribe"
 
-#: blueprints/admin/templates/addPost.html:112
+#: app/admin/templates/addPost.html:112
 msgid "And <strong>Yes !</strong> everyone writes good content if it wants"
 msgstr "y <strong> Si! </strong> todo el mundo puede crear contenido de calidad"
 
-#: blueprints/admin/templates/addPost.html:124
-#: blueprints/admin/templates/addPost.html:128
-#: blueprints/admin/templates/editCategories.html:10
-#: blueprints/admin/templates/editPost.html:49
-#: blueprints/admin/templates/nav.html:23
-#: blueprints/admin/templates/viewCategories.html:11
-#: blueprints/admin/templates/viewCategories.html:36
-#: blueprints/admin/templates/viewPosts.html:56
+#: app/admin/templates/addPost.html:124 app/admin/templates/addPost.html:128
+#: app/admin/templates/editCategories.html:10
+#: app/admin/templates/editPost.html:49 app/admin/templates/mainNav.html:23
+#: app/admin/templates/viewCategories.html:11
+#: app/admin/templates/viewCategories.html:36
+#: app/admin/templates/viewPosts.html:56
 msgid "Categories"
 msgstr "Categorías"
 
-#: blueprints/admin/templates/addPost.html:125
+#: app/admin/templates/addPost.html:125
 msgid "It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website."
 msgstr "Es importante que seas ordenado. Categorizar cada entrada <b> te mantiene ordenado</b>. Eso también ayuda a que Google entienda el contenido de tu blog."
 
-#: blueprints/admin/templates/addPost.html:128
+#: app/admin/templates/addPost.html:128
 msgid "Select"
 msgstr "Seleccionar"
 
-#: blueprints/admin/templates/addPost.html:129
+#: app/admin/templates/addPost.html:129
 msgid "<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories."
 msgstr "<span class='text-info'>Busca una categoría o crea una nueva y <b>presiona enter</b></span>. Por favor, trata de <b>no duplicar</b> las categorias. "
 
-#: blueprints/admin/templates/addPost.html:137
+#: app/admin/templates/addPost.html:137
 msgid "Write your"
 msgstr "Escribe tu"
 
-#: blueprints/admin/templates/addPost.html:137
-#: blueprints/admin/templates/addPost.html:148
+#: app/admin/templates/addPost.html:137 app/admin/templates/addPost.html:148
 msgid "Blog Post"
 msgstr "Entrada de Blog"
 
-#: blueprints/admin/templates/addPost.html:138
+#: app/admin/templates/addPost.html:138
 msgid "Write here your blogpost, and when you finish, click next."
 msgstr "Escribe aquí tu entrada y al finalizar haz click en siguiente"
 
-#: blueprints/admin/templates/addPost.html:148
+#: app/admin/templates/addPost.html:148
 msgid "Publish the"
 msgstr "Publicar el"
 
-#: blueprints/admin/templates/addPost.html:151
+#: app/admin/templates/addPost.html:151
 msgid "You are done, now is time to publish it and make it available to the world. Remember to share it in your social networks !"
 msgstr "Has terminado. Ahora es el momento de publicar y hacer que el contenido sea accesible a todos. Acuérdate de compartir la entrada en las redes sociales !"
 
-#: blueprints/admin/templates/addPost.html:153
+#: app/admin/templates/addPost.html:153
 msgid "Publish Now"
 msgstr "Publicar"
 
-#: blueprints/admin/templates/addPost.html:161
+#: app/admin/templates/addPost.html:161
 msgid "Previous"
 msgstr "Anterior"
 
-#: blueprints/admin/templates/addPost.html:164
+#: app/admin/templates/addPost.html:164
 msgid "Next"
 msgstr "Siguiente"
 
-#: blueprints/admin/templates/base.html:77
+#: app/admin/templates/base.html:59 app/admin/templates/base.html:121
 msgid "Basque"
 msgstr "Euskera"
 
-#: blueprints/admin/templates/base.html:80
+#: app/admin/templates/base.html:62 app/admin/templates/base.html:124
 msgid "Spanish"
 msgstr "Castellano"
 
-#: blueprints/admin/templates/base.html:83
+#: app/admin/templates/base.html:65 app/admin/templates/base.html:127
 msgid "English"
 msgstr "Ingles"
 
-#: blueprints/admin/templates/base.html:86
+#: app/admin/templates/base.html:68 app/admin/templates/base.html:130
 msgid "French"
 msgstr "Frances"
 
-#: blueprints/admin/templates/base.html:97
+#: app/admin/templates/base.html:79 app/admin/templates/base.html:141
 msgid "My Account"
 msgstr "Mi cuenta"
 
-#: blueprints/admin/templates/base.html:102
+#: app/admin/templates/base.html:84 app/admin/templates/base.html:146
 msgid "Log Out"
 msgstr "Salir"
 
-#: blueprints/admin/templates/editCategories.html:10
-#: blueprints/admin/templates/editCategories.html:35
-#: blueprints/admin/templates/editPost.html:17
-#: blueprints/admin/templates/editPost.html:49
-#: blueprints/admin/templates/viewCategories.html:11
-#: blueprints/admin/templates/viewPosts.html:80
+#: app/admin/templates/editCategories.html:10
+#: app/admin/templates/editCategories.html:35
+#: app/admin/templates/editPost.html:17 app/admin/templates/editPost.html:49
+#: app/admin/templates/viewCategories.html:11
+#: app/admin/templates/viewPosts.html:80
 msgid "Edit"
 msgstr "Editar"
 
-#: blueprints/admin/templates/editCategories.html:18
-#: blueprints/admin/templates/viewCategories.html:19
+#: app/admin/templates/editCategories.html:18
+#: app/admin/templates/viewCategories.html:19
 msgid "Pick a category from the list in the left, and edit it in the right column."
 msgstr "Selecciona una categoría de la lista y edítala en la columna derecha."
 
-#: blueprints/admin/templates/editCategories.html:35
-#: blueprints/admin/templates/editCategories.html:54
+#: app/admin/templates/editCategories.html:35
+#: app/admin/templates/editCategories.html:54
 msgid "Category"
 msgstr "Categoría"
 
-#: blueprints/admin/templates/editCategories.html:61
-#: blueprints/admin/templates/editPost.html:58
-#: blueprints/admin/templates/viewCategories.html:52
+#: app/admin/templates/editCategories.html:61
+#: app/admin/templates/editPost.html:58
+#: app/admin/templates/viewCategories.html:52
 msgid "Save"
 msgstr "Guardar"
 
-#: blueprints/admin/templates/editCategories.html:65
-#: blueprints/admin/templates/viewPosts.html:83
+#: app/admin/templates/editCategories.html:65
+#: app/admin/templates/viewPosts.html:83
 msgid "Delete"
 msgstr "Eliminar"
 
-#: blueprints/admin/templates/editPost.html:41
+#: app/admin/templates/editPost.html:41
 msgid "Other"
 msgstr "Otras"
 
-#: blueprints/admin/templates/editPost.html:41
-#: blueprints/admin/templates/nav.html:29
+#: app/admin/templates/editPost.html:41 app/admin/templates/mainNav.html:29
 msgid "Options"
 msgstr "Opciones"
 
-#: blueprints/admin/templates/editPost.html:58
+#: app/admin/templates/editPost.html:58
 msgid "Changes"
 msgstr "Cambios"
 
-#: blueprints/admin/templates/editPost.html:66
+#: app/admin/templates/editPost.html:66
 msgid "By saving all the changes will be published"
 msgstr "Al guardar, se publicarán los cambios"
 
-#: blueprints/admin/templates/editPost.html:68
+#: app/admin/templates/editPost.html:68
 msgid "Update the post"
 msgstr "Actualizar la entrada"
 
-#: blueprints/admin/templates/home.html:8
+#: app/admin/templates/home.html:8
 msgid "Welcome to Chroma,"
 msgstr "Bienvenido a Chroma,"
 
-#: blueprints/admin/templates/nav.html:1
+#: app/admin/templates/mainNav.html:1
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
-#: blueprints/admin/templates/nav.html:6
+#: app/admin/templates/mainNav.html:6
 msgid "Pages"
 msgstr "Páginas"
 
-#: blueprints/admin/templates/nav.html:10
+#: app/admin/templates/mainNav.html:10
 msgid "All Pages"
 msgstr "Todas las páginas"
 
-#: blueprints/admin/templates/nav.html:11
-#: blueprints/admin/templates/nav.html:22
+#: app/admin/templates/mainNav.html:11 app/admin/templates/mainNav.html:22
 msgid "Add New"
 msgstr "Añadir nueva"
 
-#: blueprints/admin/templates/nav.html:17
+#: app/admin/templates/mainNav.html:17
 msgid "Blog"
 msgstr "Blog"
 
-#: blueprints/admin/templates/nav.html:21
+#: app/admin/templates/mainNav.html:21
 msgid "All Entries"
 msgstr "Todas las entradas"
 
-#: blueprints/admin/templates/nav.html:33
+#: app/admin/templates/mainNav.html:33
 msgid "Menu Settings"
 msgstr "Opciones del menu"
 
-#: blueprints/admin/templates/nav.html:34
+#: app/admin/templates/mainNav.html:34
 msgid "Contact Settings"
 msgstr "Opciones de contacto"
 
-#: blueprints/admin/templates/addPost.html:14
-#: blueprints/admin/templates/viewCategories.html:36
+#: app/admin/templates/addPost.html:14
+#: app/admin/templates/viewCategories.html:36
 msgid "Add"
 msgstr "Añadir"
 
-#: blueprints/admin/templates/viewCategories.html:46
+#: app/admin/templates/viewCategories.html:46
 msgid "Add a"
 msgstr "Añadir una"
 
-#: blueprints/admin/templates/viewCategories.html:46
+#: app/admin/templates/viewCategories.html:46
 msgid "category"
 msgstr "categoría"
 
-#: blueprints/admin/templates/viewPosts.html:26
+#: app/admin/templates/viewPosts.html:26
 msgid "Posts"
 msgstr "Entradas"
 
-#: blueprints/admin/templates/viewPosts.html:36
+#: app/admin/templates/viewPosts.html:36
 msgid "Add Post"
 msgstr "Añadir Entrada"
 
-#: blueprints/admin/templates/viewPosts.html:55
+#: app/admin/templates/viewPosts.html:55
 msgid "Published"
 msgstr "Publicado el"
 
-#: blueprints/admin/templates/viewPosts.html:57
+#: app/admin/templates/viewPosts.html:57
 msgid "Actions"
 msgstr "Acciones"
 
-#: blueprints/admin/templates/viewPosts.html:26
+#: app/admin/templates/viewPosts.html:26
 msgid "All"
 msgstr "Todas las"
 
-#: blueprints/admin/templates/addPost.html:253
-#: blueprints/admin/templates/editPost.html:115
+#: app/admin/templates/addPost.html:253 app/admin/templates/editPost.html:115
 msgid "Your link"
 msgstr "Introduzca un Link"
 
-#: blueprints/admin/templates/addPost.html:287
-#: blueprints/admin/templates/editPost.html:149
+#: app/admin/templates/addPost.html:287 app/admin/templates/editPost.html:149
 msgid "YouTube or Vimeo link to a video"
 msgstr "Link a un video de YouTube o Vimeo"
 
-#: blueprints/admin/templates/addPost.html:131
+#: app/admin/templates/addPost.html:131
 msgid "Search or Create a category.."
 msgstr "Buscar o crear una categoría..."
 
-#: blueprints/admin/templates/addPost.html:139
+#: app/admin/templates/addPost.html:139
 msgid "Enter a title"
 msgstr "Introducir un título"
+
+#: app/admin/templates/modalEditor.html:6
+msgid "How to add images and edit text"
+msgstr "Como añadir imagene y editar el texto"
+
+#: app/admin/templates/modalEditor.html:18
+msgid "Edit text"
+msgstr "Editar el texto"
+
+#: app/admin/templates/modalEditor.html:19
+msgid "Text editing is as easy as selecting the words you want to style and then a bubble Box will appear with available options."
+msgstr "Para editar el texto, selecciona las palabras que deseas editar y aparecerá automáticamente un menu con las opciones disponibles."
+
+#: app/admin/templates/modalEditor.html:28
+msgid "Add an image or Video"
+msgstr "Añadir una imagen o vídeo"
+
+#: app/admin/templates/modalEditor.html:30
+msgid "For adding an image or a video, just drag the image to the editor or click in the"
+msgstr "Para añadir una imagen o un video, arrastralo a la web, o clica en el botón"
+
+#: app/admin/templates/modalEditor.html:35
+msgid "button in the left side of the editor."
+msgstr "que encontraras a la izquierda del editor."
 
