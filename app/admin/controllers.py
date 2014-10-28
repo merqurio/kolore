@@ -6,6 +6,7 @@ from login import login_required
 from google.appengine.api import users
 from google.appengine.ext import ndb, blobstore
 from google.appengine.api.images import get_serving_url
+from google.appengine.api.app_identity import get_default_gcs_bucket_name
 from werkzeug import parse_options_header
 from flask import (Blueprint, render_template, make_response, request,
                    redirect, url_for, jsonify)
@@ -19,7 +20,7 @@ from app.admin.models import BlogPost, BlogCategory
 # ----------------------------------------------------------------
 
 admin_app = Blueprint('admin', __name__, template_folder='templates')
-BUCKET_NAME = "gcs-tester-app"
+BUCKET_NAME = get_default_gcs_bucket_name()
 IMG_SIZE = 1200
 
 
