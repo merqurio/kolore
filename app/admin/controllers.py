@@ -2,7 +2,7 @@
 # ----------------------------------------------------------------
 import time
 import logging
-from login import login_required
+from app.login.controller import login_required
 from google.appengine.api import users
 from google.appengine.ext import ndb, blobstore
 from google.appengine.api.images import get_serving_url

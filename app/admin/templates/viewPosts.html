@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block content%}
-<div class="row">
+<div class="row animated fadeInUp">
         <div class="col-md-12">
             <div class="grid simple">
                 <div class="grid-title no-border">
@@ -73,11 +73,8 @@
                                     </td>
                                     <td>
                                         <form method="POST">
-                                            <div data-toggle="buttons-radio" class="btn-group">
-                                                {# <a class="btn btn-table btn-primary">
-                                                    <i class="fa fa-eye"></i>
-                                                </a> #}
-                                                <a class="btn btn-table btn-info tip" href="{{ url_for('admin.edit_post', post_id=post.key.id())}}" data-toggle="tooltip" data-container="body" data-original-title="{{_("Edit")}}">
+                                            <div class="btn-group">
+                                                <a href="{{ url_for('admin.edit_post', post_id=post.key.id())}}" class="btn btn-table btn-info tip"  data-toggle="tooltip" data-container="body" data-original-title="{{_("Edit")}}">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                                 <button type="submit" class="btn btn-table btn-danger tip" data-container="body" data-toggle="tooltip" data-original-title="{{_("Delete")}}">
@@ -100,7 +97,7 @@
 
 {% block js %}
 {# Dependencies #}
-<script type="text/javascript" src="{{ url_for('static', filename='plugins/moment-with-locales.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='plugins/moment/min/moment-with-locales.min.js') }}"></script>
 
 <script>
     //Helps the to tick all options in the table 
