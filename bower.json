@@ -3,7 +3,7 @@
   "version": "0.1",
   "homepage": "https://github.com/ChromaBranding/kolore",
   "authors": [
-    "Gabi Merqurio <gabriel.maeztu@gmail.com>"
+    "Gabi Merqurio <gabi@chromabranding.com>"
   ],
   "description": "This is the content administrator that we use in Chroma Branding.",
   "main": "app",
@@ -24,10 +24,19 @@
     "lib"
   ],
   "dependencies": {
+    "jquery": "~2.1.1",
     "medium-editor": "~1.9.8",
     "medium-editor-insert-plugin": "~0.3.1",
     "font-awesome": "~4.2.0",
     "select2-bootstrap-css": "~1.4.1",
-    "pace": "~1.0.1"
+    "pace": "~1.0.1",
+    "bootstrap": "~3.2.0",
+    "moment": "~2.8.3",
+    "jquery-cookie": "~1.4.1",
+    "jquery.breakpoints": "*",
+    "jquery-unveil": "~1.3.0",
+    "jquery.scrollbar": "~0.2.4",
+    "jquery-validate": "~1.13.1",
+    "twitter-bootstrap-wizard": "git://github.com/VinceG/twitter-bootstrap-wizard.git#~1.0.0"
   }
 }
