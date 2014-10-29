@@ -10,8 +10,8 @@
 {% endblock %}
 
 {% block content%}
-    <form id="editForm" method="POST" onsubmit="return copyContent()">
-        <div class="row animated fadeInUp">
+    <form id="editForm" class="hidden" method="POST" onsubmit="return copyContent()">
+        <div class="row">
             <div class="col-md-8">
                 <div class="grid simple">
                     <div class="grid-title no-border">
@@ -161,6 +161,8 @@
         document.getElementById("hiddenTextarea").value =  
             document.getElementById("editable").innerHTML;
     }
+
+    $('#editForm').removeClass('hidden').addClass('animated fadeInUp');
          
 </script>
 {% include "modalEditor.html"%}

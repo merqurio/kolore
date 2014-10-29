@@ -13,6 +13,34 @@ var color_warning="#f7cf5e";
 var color_info="#3b4751";
 
 $(document).ready(function () {
+
+    //***********************************BEGIN Language Selector ***************************
+    
+    $('.en').click(function() {
+        /* Act on the  */
+        console.log('You clicked !');
+        $.cookie('lang', 'en', { expires: 365, path: '/' });
+        location.reload();
+    });
+    $('.es').click(function() {
+        /* Act on the  */
+        $.cookie('lang', 'es', { expires: 365, path: '/' });
+        location.reload();
+    });
+    $('.eu').click(function() {
+        /* Act on the  */
+        console.log('eu')
+        $.cookie('lang', 'eu', { expires: 365, path: '/' });
+        location.reload();
+    });
+    $('.fr').click(function() {
+        /* Act on the  */
+        $.cookie('lang', 'fr', { expires: 365, path: '/' });
+        location.reload();
+    });
+
+    //***********************************BEGIN Selectors ***************************
+
     calculateHeight();
     $(".remove-widget").click(function () {
         $(this).parent().parent().parent().addClass('animated fadeOut');
@@ -201,31 +229,15 @@ $(document).ready(function () {
         });
     }
     //***********************************BEGIN Grids*****************************		
-    $('.grid .tools a.remove').on('click', function () {
-        var removable = jQuery(this).parents(".grid");
-        if (removable.next().hasClass('grid') || removable.prev().hasClass('grid')) {
-            jQuery(this).parents(".grid").remove();
-        } else {
-            jQuery(this).parents(".grid").parent().remove();
-        }
-    });
-
-    $('.grid .tools a.reload').on('click', function () {
-        var el = jQuery(this).parents(".grid");
-        blockUI(el);
-        window.setTimeout(function () {
-            unblockUI(el);
-        }, 1000);
-    });
 
     $('.grid .tools .collapse, .grid .tools .expand').on('click', function () {
         var el = jQuery(this).parents(".grid").children(".grid-body");
         if (jQuery(this).hasClass("collapse")) {
             jQuery(this).removeClass("collapse").addClass("expand");
-            el.slideUp(200);
+            el.slideUp(500);
         } else {
             jQuery(this).removeClass("expand").addClass("collapse");
-            el.slideDown(200);
+            el.slideDown(500);
         }
     });
 
@@ -336,6 +348,7 @@ $(document).ready(function () {
 
     //***********************************END Layout Readjust *****************************	
 
+
     //***********************************BEGIN Function calls *****************************	
     function closeAndRestSider() {
         if ($('#main-menu').attr('data-inner-menu') == '1') {
@@ -442,54 +455,8 @@ $(document).ready(function () {
 
     });
     //***********************************BEGIN Function calls *****************************	
-
-    //***********************************BEGIN Tiles Controller Options *****************************		
-
-
-    $('.widget-item > .controller .reload').click(function () {
-        var el = $(this).parent().parent();
-        blockUI(el);
-        window.setTimeout(function () {
-            unblockUI(el);
-        }, 1000);
-    });
-    $('.widget-item > .controller .remove').click(function () {
-        $(this).parent().parent().parent().addClass('animated fadeOut');
-        $(this).parent().parent().parent().attr('id', 'id_remove_temp_id');
-        setTimeout(function () {
-            $('#id_remove_temp_id').remove();
-        }, 400);
-    });
-
-    $('.tiles .controller .reload').click(function () {
-        var el = $(this).parent().parent().parent();
-        blockUI(el);
-        window.setTimeout(function () {
-            unblockUI(el);
-        }, 1000);
-    });
-    $('.tiles .controller .remove').click(function () {
-        $(this).parent().parent().parent().parent().addClass('animated fadeOut');
-        $(this).parent().parent().parent().parent().attr('id', 'id_remove_temp_id');
-        setTimeout(function () {
-            $('#id_remove_temp_id').remove();
-        }, 400);
-    });
-    if (!jQuery().sortable) {
-        return;
-    }
-    $(".sortable").sortable({
-        connectWith: '.sortable',
-        iframeFix: false,
-        items: 'div.grid',
-        opacity: 0.8,
-        helper: 'original',
-        revert: true,
-        forceHelperSize: true,
-        placeholder: 'sortable-box-placeholder round-all',
-        forcePlaceholderSize: true,
-        tolerance: 'pointer'
-    });
+    
+    
     //***********************************BEGIN Function calls *****************************	
 
     //***********************************BEGIN Function calls *****************************	
@@ -513,29 +480,6 @@ $(document).ready(function () {
         return false;
     });
     $("img").unveil();
-
-    //***********************************BEGIN Language Selector ***************************
-    $('.en').click(function() {
-        /* Act on the  */
-        $.cookie('lang', 'en', { expires: 365, path: '/' });
-        location.reload();
-    });
-    $('.es').click(function() {
-        /* Act on the  */
-        $.cookie('lang', 'es', { expires: 365, path: '/' });
-        location.reload();
-    });
-    $('.eu').click(function() {
-        /* Act on the  */
-        console.log('eu')
-        $.cookie('lang', 'eu', { expires: 365, path: '/' });
-        location.reload();
-    });
-    $('.fr').click(function() {
-        /* Act on the  */
-        $.cookie('lang', 'fr', { expires: 365, path: '/' });
-        location.reload();
-    });
 
 });
 $(window).resize(function () {
@@ -628,23 +572,3 @@ $('body.open-menu-left .page-content').on('touchstart', function (e) {
 
 })(jQuery);
 
-function blockUI(el) {
-    $(el).block({
-        message: '<div class="loading-animator"></div>',
-        css: {
-            border: 'none',
-            padding: '2px',
-            backgroundColor: 'none'
-        },
-        overlayCSS: {
-            backgroundColor: '#fff',
-            opacity: 0.3,
-            cursor: 'wait'
-        }
-    });
-}
-
-// wrapper function to  un-block element(finish loading)
-function unblockUI(el) {
-    $(el).unblock();
-}
