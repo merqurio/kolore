@@ -27,6 +27,7 @@
     "medium-editor": "~1.9.8",
     "medium-editor-insert-plugin": "~0.3.1",
     "font-awesome": "~4.2.0",
-    "select2-bootstrap-css": "~1.4.1"
+    "select2-bootstrap-css": "~1.4.1",
+    "pace": "~1.0.1"
   }
 }
