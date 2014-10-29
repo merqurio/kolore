@@ -13,10 +13,12 @@ This is the content administrator that we use in [Chroma Branding][0]. Is writte
 #### Languages
 - [Python][2]
 
-#### Dependencies
+#### Dependencies & resources
 - [Flask Framework][3]
 - [Babel][4]
 - [Jinja2][5]
+- [Bower][6]
+
 
 
 [0]: http://www.chromabranding.com
@@ -25,3 +27,4 @@ This is the content administrator that we use in [Chroma Branding][0]. Is writte
 [3]: https://flask.pocoo.org
 [4]: https://pythonhosted.org/Flask-Babel/
 [5]: http://jinja.pocoo.org/
+[6]: http://bower.io
