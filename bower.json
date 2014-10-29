@@ -1,0 +1,30 @@
+{
+  "name": "kolore",
+  "version": "0.1",
+  "homepage": "https://github.com/ChromaBranding/kolore",
+  "authors": [
+    "Gabi Merqurio <gabriel.maeztu@gmail.com>"
+  ],
+  "description": "This is the content administrator that we use in Chroma Branding.",
+  "main": "app",
+  "keywords": [
+    "cms",
+    "python",
+    "app",
+    "engine"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "lib"
+  ],
+  "dependencies": {
+    "medium-editor": "~1.9.8",
+    "medium-editor-insert-plugin": "~0.3.1"
+  }
+}
