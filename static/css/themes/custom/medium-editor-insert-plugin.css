@@ -185,17 +185,17 @@
     cursor: pointer; }
   .mediumInsert .mediumInsert-imageRemove {
     right: 0;
-    background-image: url(../images/remove.png); }
+    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/remove.png); }
   .mediumInsert .mediumInsert-imageResizeSmaller, .mediumInsert .mediumInsert-imageResizeBigger, .mediumInsert .mediumInsert-imageResizeBigger {
     right: 31px;
-    background-image: url(../images/resize-smaller.png); }
+    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/resize-smaller.png); }
   .mediumInsert .mediumInsert-imageResizeBigger {
-    background-image: url(../images/resize-bigger.png); }
+    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/resize-bigger.png); }
   .mediumInsert .mediumInsert-imageLink, .mediumInsert .mediumInsert-imageUnlink {
     right: 62px;
-    background-image: url(../images/link.png); }
+    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/link.png); }
   .mediumInsert .mediumInsert-imageUnlink {
-    background-image: url(../images/unlink.png); }
+    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/unlink.png); }
   .mediumInsert .mediumInsert-error {
     background-color: #f2dede;
     border: 1px solid #ebccd1;
