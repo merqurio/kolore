@@ -1,6 +1,14 @@
 ## Chroma Back-end
 
-This is the CMS we use in [Chroma Branding][0]. Is written in Python for [App Engine][1].
+This is the content administrator that we use in [Chroma Branding][0]. Is written in Python for [App Engine][1]. 
+
+#### Services
+- Google App Engine
+    - Images API
+    - Mail API
+    - Blobstore API
+- Google Datastore
+- Google Cloud Storage
 
 #### Languages
 - [Python][2]
