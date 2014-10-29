@@ -1,17 +1,4 @@
 
-var color_green="#27cebc";
-var color_blue="#00acec";
-var color_yellow="#FDD01C";
-var color_red="#f35958";
-var color_grey="#dce0e8";
-var color_black="#1b1e24";
-var color_purple="#6d5eac";
-var color_primary="#6d5eac";
-var color_success="#4eb2f5";
-var color_danger="#f35958";
-var color_warning="#f7cf5e";
-var color_info="#3b4751";
-
 $(document).ready(function () {
 
     //***********************************BEGIN Language Selector ***************************
@@ -363,10 +350,6 @@ $(document).ready(function () {
      e.preventDefault();
     toggleMainMenu();
     });
-    $('#chat-menu-toggle, .chat-menu-toggle').on('touchstart click', function (e) {
-        e.preventDefault();
-       toggleChat();
-    });
 
     function rebuildSider() {
 
@@ -406,20 +389,6 @@ $(document).ready(function () {
     });
     //***********************************END Main Menu Toggle *****************************	
     
-    //***********************************BEGIN Slimscroller *****************************		
-    $('.scroller').each(function () {
-        var h = $(this).attr('data-height');
-        $(this).scrollbar({
-            ignoreMobile:true
-        });
-        if(h != null  || h !=""){
-            if($(this).parent('.scroll-wrapper').length > 0)
-                $(this).parent().css('max-height',h);
-            else
-                $(this).css('max-height',h);
-        }
-    });
-    //***********************************END Slimscroller *****************************	
 
     //***********************************BEGIN dropdow menu *****************************		
     $('.dropdown-toggle').click(function () {
