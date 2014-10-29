@@ -1,3 +1,7 @@
+.medium-editor-insert-plugin.medium-editor-placeholder:after {
+  left: 1em;
+}
+
 .medium-toolbar-arrow-under:after {
   top: 50px;
   border-color: #242424 transparent transparent transparent; }

@@ -4158,7 +4158,7 @@ form legend,
 }
 .select2-search-choice-close {
   background: none;
-  top: 4px;
+  top: 12px;
   right: 0;
 }
 .select2-search-choice-close:hover {
