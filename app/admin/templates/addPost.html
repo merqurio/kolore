@@ -9,7 +9,7 @@
 
 {% block content%}
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-md-offset-1 hidden" id="wizard">
             <div class="grid simple">
                 <div class="grid-title no-border">
                     <h4>{{_("Add")}} <span class="semi-bold">{{_("Post")}}</span></h4>
@@ -178,12 +178,13 @@
 
 {% block js %}
 <script src="{{ url_for('static', filename='plugins/select2/select2.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='plugins/boostrap-form-wizard/js/jquery.bootstrap.wizard.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/tabs-wizard.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='plugins/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='plugins/jquery-validate/dist/jquery.validate.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='plugins/medium-editor/dist/js/medium-editor.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='plugins/medium-editor-insert-plugin/dist/js/addons/medium-editor-insert-plugin.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='plugins/medium-editor-insert-plugin/dist/js/addons/medium-editor-insert-embeds.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='plugins/medium-editor-insert-plugin/dist/js/addons/medium-editor-insert-images.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='plugins/medium-editor-insert-plugin/src/js/medium-editor-insert-embeds.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='plugins/medium-editor-insert-plugin/src/js/medium-editor-insert-images.js') }}" type="text/javascript"></script>
 
 <script type="text/javascript">
 
@@ -298,6 +299,8 @@
         document.getElementById("hiddenTextarea").value =  
             document.getElementById("editable").innerHTML;
     }
+
+    $('#wizard').removeClass('hidden').addClass('animated fadeInUp');
          
 </script>
 {% include "modalEditor.html"%}
