@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-10-27 23:31+0100\n"
+"POT-Creation-Date: 2014-10-30 21:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,211 +17,187 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: app/admin/templates/addPost.html:14
-#: app/admin/templates/viewCategories.html:36
+#: app/admin/templates/addPost.html:15
+#: app/admin/templates/viewCategories.html:38
 msgid "Add"
 msgstr ""
 
-#: app/admin/templates/addPost.html:14 app/admin/templates/addPost.html:124
-#: app/admin/templates/editPost.html:17 app/admin/templates/viewPosts.html:54
+#: app/admin/templates/addPost.html:15 app/admin/templates/addPost.html:125
+#: app/admin/templates/editPost.html:18 app/admin/templates/viewPosts.html:54
 msgid "Post"
 msgstr ""
 
-#: app/admin/templates/addPost.html:32
+#: app/admin/templates/addPost.html:33
 msgid "Help"
 msgstr ""
 
-#: app/admin/templates/addPost.html:38
+#: app/admin/templates/addPost.html:39
 msgid "Categorize"
 msgstr ""
 
-#: app/admin/templates/addPost.html:44
+#: app/admin/templates/addPost.html:45
 msgid "Write"
 msgstr ""
 
-#: app/admin/templates/addPost.html:50
+#: app/admin/templates/addPost.html:51
 msgid "Publish"
 msgstr ""
 
-#: app/admin/templates/addPost.html:60
+#: app/admin/templates/addPost.html:61
 msgid "Some tips"
 msgstr ""
 
-#: app/admin/templates/addPost.html:60
+#: app/admin/templates/addPost.html:61
 msgid "for writing a blog post"
 msgstr ""
 
-#: app/admin/templates/addPost.html:66
+#: app/admin/templates/addPost.html:67
 msgid "Tell your story"
 msgstr ""
 
-#: app/admin/templates/addPost.html:69
+#: app/admin/templates/addPost.html:70
 msgid "Share how you feel"
 msgstr ""
 
-#: app/admin/templates/addPost.html:72
+#: app/admin/templates/addPost.html:73
 msgid "You’ll never please everyone"
 msgstr ""
 
-#: app/admin/templates/addPost.html:75
+#: app/admin/templates/addPost.html:76
 msgid "Write about things that matter to you"
 msgstr ""
 
-#: app/admin/templates/addPost.html:78
+#: app/admin/templates/addPost.html:79
 msgid "Inform, inspire and interact"
 msgstr ""
 
-#: app/admin/templates/addPost.html:81
+#: app/admin/templates/addPost.html:82
 msgid "Put aside time to read others blog"
 msgstr ""
 
-#: app/admin/templates/addPost.html:84
+#: app/admin/templates/addPost.html:85
 msgid "When an idea strikes, write it down"
 msgstr ""
 
-#: app/admin/templates/addPost.html:87
+#: app/admin/templates/addPost.html:88
 msgid "Understand who is reading your blog"
 msgstr ""
 
-#: app/admin/templates/addPost.html:94
+#: app/admin/templates/addPost.html:95
 msgid "Do it at least, once a week"
 msgstr ""
 
-#: app/admin/templates/addPost.html:97
+#: app/admin/templates/addPost.html:98
 msgid "Put aside time to create quality content it doesn’t just appear"
 msgstr ""
 
-#: app/admin/templates/addPost.html:100
+#: app/admin/templates/addPost.html:101
 msgid "Ask your readers questions"
 msgstr ""
 
-#: app/admin/templates/addPost.html:103
+#: app/admin/templates/addPost.html:104
 msgid "Brainstorm regularly"
 msgstr ""
 
-#: app/admin/templates/addPost.html:106
+#: app/admin/templates/addPost.html:107
 msgid "Not every post needs to go viral"
 msgstr ""
 
-#: app/admin/templates/addPost.html:109
+#: app/admin/templates/addPost.html:110
 msgid "Write, Write, Write"
 msgstr ""
 
-#: app/admin/templates/addPost.html:112
+#: app/admin/templates/addPost.html:113
 msgid "And <strong>Yes !</strong> everyone writes good content if it wants"
 msgstr ""
 
-#: app/admin/templates/addPost.html:124 app/admin/templates/addPost.html:128
+#: app/admin/templates/addPost.html:125 app/admin/templates/addPost.html:129
 #: app/admin/templates/editCategories.html:10
-#: app/admin/templates/editPost.html:49 app/admin/templates/mainNav.html:23
-#: app/admin/templates/viewCategories.html:11
-#: app/admin/templates/viewCategories.html:36
+#: app/admin/templates/editPost.html:50 app/admin/templates/navMain.html:23
+#: app/admin/templates/viewCategories.html:12
+#: app/admin/templates/viewCategories.html:38
 #: app/admin/templates/viewPosts.html:56
 msgid "Categories"
 msgstr ""
 
-#: app/admin/templates/addPost.html:125
+#: app/admin/templates/addPost.html:126
 msgid ""
 "It's important to try to keep your content organized. Categorizing posts "
 "helps you to keep <b>your stuff organized.</b> Also helps search engines "
 "to understand the content of your website."
 msgstr ""
 
-#: app/admin/templates/addPost.html:128
+#: app/admin/templates/addPost.html:129
 msgid "Select"
 msgstr ""
 
-#: app/admin/templates/addPost.html:129
+#: app/admin/templates/addPost.html:130
 msgid ""
 "<span class='text-info'>Search for existing categories or write a new one"
 " and <b>press enter</b></span>. Please try <b>not to duplicate</b> "
 "categories."
 msgstr ""
 
-#: app/admin/templates/addPost.html:131
+#: app/admin/templates/addPost.html:132
 msgid "Search or Create a category.."
 msgstr ""
 
-#: app/admin/templates/addPost.html:137
+#: app/admin/templates/addPost.html:138
 msgid "Write your"
 msgstr ""
 
-#: app/admin/templates/addPost.html:137 app/admin/templates/addPost.html:148
+#: app/admin/templates/addPost.html:138 app/admin/templates/addPost.html:149
 msgid "Blog Post"
 msgstr ""
 
-#: app/admin/templates/addPost.html:138
+#: app/admin/templates/addPost.html:139
 msgid "Write here your blogpost, and when you finish, click next."
 msgstr ""
 
-#: app/admin/templates/addPost.html:139
+#: app/admin/templates/addPost.html:140
 msgid "Enter a title"
 msgstr ""
 
-#: app/admin/templates/addPost.html:148
+#: app/admin/templates/addPost.html:149
 msgid "Publish the"
 msgstr ""
 
-#: app/admin/templates/addPost.html:151
+#: app/admin/templates/addPost.html:152
 msgid ""
 "You are done, now is time to publish it and make it available to the "
 "world. Remember to share it in your social networks !"
 msgstr ""
 
-#: app/admin/templates/addPost.html:153
+#: app/admin/templates/addPost.html:154
 msgid "Publish Now"
 msgstr ""
 
-#: app/admin/templates/addPost.html:161
+#: app/admin/templates/addPost.html:162
 msgid "Previous"
 msgstr ""
 
-#: app/admin/templates/addPost.html:164
+#: app/admin/templates/addPost.html:165
 msgid "Next"
 msgstr ""
 
-#: app/admin/templates/addPost.html:253 app/admin/templates/editPost.html:115
+#: app/admin/templates/addPost.html:255 app/admin/templates/editPost.html:116
 msgid "Your link"
 msgstr ""
 
-#: app/admin/templates/addPost.html:287 app/admin/templates/editPost.html:149
+#: app/admin/templates/addPost.html:290 app/admin/templates/editPost.html:150
 msgid "YouTube or Vimeo link to a video"
-msgstr ""
-
-#: app/admin/templates/base.html:59 app/admin/templates/base.html:121
-msgid "Basque"
-msgstr ""
-
-#: app/admin/templates/base.html:62 app/admin/templates/base.html:124
-msgid "Spanish"
-msgstr ""
-
-#: app/admin/templates/base.html:65 app/admin/templates/base.html:127
-msgid "English"
-msgstr ""
-
-#: app/admin/templates/base.html:68 app/admin/templates/base.html:130
-msgid "French"
-msgstr ""
-
-#: app/admin/templates/base.html:79 app/admin/templates/base.html:141
-msgid "My Account"
-msgstr ""
-
-#: app/admin/templates/base.html:84 app/admin/templates/base.html:146
-msgid "Log Out"
 msgstr ""
 
 #: app/admin/templates/editCategories.html:10
 #: app/admin/templates/editCategories.html:35
-#: app/admin/templates/editPost.html:17 app/admin/templates/editPost.html:49
-#: app/admin/templates/viewCategories.html:11
-#: app/admin/templates/viewPosts.html:80
+#: app/admin/templates/editPost.html:18 app/admin/templates/editPost.html:50
+#: app/admin/templates/viewCategories.html:12
+#: app/admin/templates/viewPosts.html:77
 msgid "Edit"
 msgstr ""
 
 #: app/admin/templates/editCategories.html:18
-#: app/admin/templates/viewCategories.html:19
+#: app/admin/templates/viewCategories.html:20
 msgid ""
 "Pick a category from the list in the left, and edit it in the right "
 "column."
@@ -233,70 +209,38 @@ msgid "Category"
 msgstr ""
 
 #: app/admin/templates/editCategories.html:61
-#: app/admin/templates/editPost.html:58
-#: app/admin/templates/viewCategories.html:52
+#: app/admin/templates/editPost.html:59
+#: app/admin/templates/viewCategories.html:54
 msgid "Save"
 msgstr ""
 
 #: app/admin/templates/editCategories.html:65
-#: app/admin/templates/viewPosts.html:83
+#: app/admin/templates/viewPosts.html:80
 msgid "Delete"
 msgstr ""
 
-#: app/admin/templates/editPost.html:41
+#: app/admin/templates/editPost.html:42
 msgid "Other"
 msgstr ""
 
-#: app/admin/templates/editPost.html:41 app/admin/templates/mainNav.html:29
+#: app/admin/templates/editPost.html:42 app/admin/templates/navMain.html:29
 msgid "Options"
 msgstr ""
 
-#: app/admin/templates/editPost.html:58
+#: app/admin/templates/editPost.html:59
 msgid "Changes"
 msgstr ""
 
-#: app/admin/templates/editPost.html:66
+#: app/admin/templates/editPost.html:67
 msgid "By saving all the changes will be published"
 msgstr ""
 
-#: app/admin/templates/editPost.html:68
+#: app/admin/templates/editPost.html:69
 msgid "Update the post"
 msgstr ""
 
 #: app/admin/templates/home.html:8
 msgid "Welcome to Chroma,"
-msgstr ""
-
-#: app/admin/templates/mainNav.html:1
-msgid "MAIN MENU"
-msgstr ""
-
-#: app/admin/templates/mainNav.html:6
-msgid "Pages"
-msgstr ""
-
-#: app/admin/templates/mainNav.html:10
-msgid "All Pages"
-msgstr ""
-
-#: app/admin/templates/mainNav.html:11 app/admin/templates/mainNav.html:22
-msgid "Add New"
-msgstr ""
-
-#: app/admin/templates/mainNav.html:17
-msgid "Blog"
-msgstr ""
-
-#: app/admin/templates/mainNav.html:21
-msgid "All Entries"
-msgstr ""
-
-#: app/admin/templates/mainNav.html:33
-msgid "Menu Settings"
-msgstr ""
-
-#: app/admin/templates/mainNav.html:34
-msgid "Contact Settings"
 msgstr ""
 
 #: app/admin/templates/modalEditor.html:6
@@ -332,11 +276,67 @@ msgstr ""
 msgid "button in the left side of the editor."
 msgstr ""
 
-#: app/admin/templates/viewCategories.html:46
+#: app/admin/templates/navLang.html:10
+msgid "Basque"
+msgstr ""
+
+#: app/admin/templates/navLang.html:13
+msgid "Spanish"
+msgstr ""
+
+#: app/admin/templates/navLang.html:16
+msgid "English"
+msgstr ""
+
+#: app/admin/templates/navLang.html:19
+msgid "French"
+msgstr ""
+
+#: app/admin/templates/navLang.html:30
+msgid "My Account"
+msgstr ""
+
+#: app/admin/templates/navLang.html:35
+msgid "Log Out"
+msgstr ""
+
+#: app/admin/templates/navMain.html:1
+msgid "MAIN MENU"
+msgstr ""
+
+#: app/admin/templates/navMain.html:6
+msgid "Pages"
+msgstr ""
+
+#: app/admin/templates/navMain.html:10
+msgid "All Pages"
+msgstr ""
+
+#: app/admin/templates/navMain.html:11 app/admin/templates/navMain.html:22
+msgid "Add New"
+msgstr ""
+
+#: app/admin/templates/navMain.html:17
+msgid "Blog"
+msgstr ""
+
+#: app/admin/templates/navMain.html:21
+msgid "All Entries"
+msgstr ""
+
+#: app/admin/templates/navMain.html:33
+msgid "Menu Settings"
+msgstr ""
+
+#: app/admin/templates/navMain.html:34
+msgid "Contact Settings"
+msgstr ""
+
+#: app/admin/templates/viewCategories.html:48
 msgid "Add a"
 msgstr ""
 
-#: app/admin/templates/viewCategories.html:46
+#: app/admin/templates/viewCategories.html:48
 msgid "category"
 msgstr ""
 
@@ -358,5 +358,33 @@ msgstr ""
 
 #: app/admin/templates/viewPosts.html:57
 msgid "Actions"
+msgstr ""
+
+#: templates/404.html:19
+msgid "404"
+msgstr ""
+
+#: templates/404.html:20
+msgid "The webpage you are looking for is not here"
+msgstr ""
+
+#: templates/404.html:21
+msgid "Try searching:"
+msgstr ""
+
+#: templates/404.html:29
+msgid "Search"
+msgstr ""
+
+#: templates/500.html:19
+msgid "500"
+msgstr ""
+
+#: templates/500.html:20
+msgid "It looks like there was a problem with the server"
+msgstr ""
+
+#: templates/500.html:21
+msgid "While you are reading these, our team have been notified. "
 msgstr ""
 
