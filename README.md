@@ -2,7 +2,7 @@
 
 This is the content administrator that we use in [Chroma Branding][0]. Is written in Python for [App Engine][1]. 
 
-#### Services
+##### Services
 - Google App Engine
     - Images API
     - Mail API
@@ -10,10 +10,10 @@ This is the content administrator that we use in [Chroma Branding][0]. Is writte
 - Google Datastore
 - Google Cloud Storage
 
-#### Languages
+##### Languages
 - [Python][2]
 
-#### Dependencies & resources
+##### Dependencies & resources
 - [Flask Framework][3]
 - [Babel][4]
 - [Jinja2][5]
@@ -23,16 +23,39 @@ This is the content administrator that we use in [Chroma Branding][0]. Is writte
 
 ## Docs
 
-#### Babel commands
+### Python Dependencies
+App Engine Dependencies must be install and uploaded with your app. The configuration to include the libraries is done in the appengine_config.py file. `lib` subdirectory is added as a site packages directory.
+
+##### Install the dependencies inside a lib folder
+``pip install -r requirements.txt -t lib/`` to install these dependencies in `lib/` subdirectory.
+
+### Babel Commands
 
 ##### Extract all terms
-pybabel extract -F babel.cfg -o messages.pot .
+``pybabel extract -F babel.cfg -o messages.pot .``
 
 ##### Start a language
-pybabel init -i messages.pot -d translations -l {THE LANGUAGE ex: 'es'}
+``pybabel init -i messages.pot -d translations -l 'es'``
 
 ##### Compile all translations
-pybabel compile -d translations
+``pybabel compile -d translations``
+
+
+### App Engine Commands
+
+##### Start the server
+``dev_appserver.py .``
+
+##### Deploy to the server
+``appcfg.py -A PROJECT-ID --oauth2 update .``
+
+
+### Bower
+Bower is used to install all the front-end dependencies inside app/admin/static/plugins/
+
+##### Install dependencies
+``bower install`` at root
+
 
 
 [0]: http://www.chromabranding.com
