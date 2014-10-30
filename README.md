@@ -19,6 +19,20 @@ This is the content administrator that we use in [Chroma Branding][0]. Is writte
 - [Jinja2][5]
 - [Bower][6]
 
+---
+
+## Docs
+
+#### Babel commands
+
+##### Extract all terms
+pybabel extract -F babel.cfg -o messages.pot .
+
+##### Start a language
+pybabel init -i messages.pot -d translations -l {THE LANGUAGE ex: 'es'}
+
+##### Compile all translations
+pybabel compile -d translations
 
 
 [0]: http://www.chromabranding.com
