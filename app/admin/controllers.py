@@ -19,7 +19,9 @@ from app.admin.models import BlogPost, BlogCategory
 # Config
 # ----------------------------------------------------------------
 
-admin_app = Blueprint('admin', __name__, template_folder='templates')
+admin_app = Blueprint('admin', __name__,
+                      template_folder='templates',
+                      static_folder='static')
 BUCKET_NAME = get_default_gcs_bucket_name()
 IMG_SIZE = 1200
 
