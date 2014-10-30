@@ -1,4 +1,4 @@
-## Chroma Back-end
+## Kolore Content Manager
 
 This is the content administrator that we use in [Chroma Branding][0]. Is written in Python for [App Engine][1]. Right now is just a functional Blog CMS, but a page administrator, web settings and other stuff will be added soon ! 
 
@@ -7,13 +7,13 @@ This is the content administrator that we use in [Chroma Branding][0]. Is writte
 ##### Services
 - Google App Engine
     - Images API
-    - Mail API
     - Blobstore API
 - Google Datastore
 - Google Cloud Storage
 
 ##### Languages
 - [Python][2]
+- JS & CSS
 
 ##### Dependencies & resources
 - [Flask Framework][3]
