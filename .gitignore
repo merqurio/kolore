@@ -6,3 +6,4 @@ lib/
 admins.py
 app.yaml
 /static/plugins/*
+app/admin/static/plugins/*
