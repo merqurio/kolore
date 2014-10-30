@@ -3,6 +3,7 @@ html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -579,7 +580,7 @@ input[type="text"]:focus {
   height: auto;
   margin: 0 auto -130px;
   padding: 0 0 60px;
-  height: 624px;
+  height: 450px;
 }
 
 .error-wrapper:after {
@@ -743,8 +744,8 @@ input[type="text"]:focus {
 
   .error-wrapper {
     margin-bottom: 0px;
-    min-height: 624px;
-    height: 624px;
+    min-height: 450px;
+    height: 450px;
   }
 
   /** Horizontal Menu **/
