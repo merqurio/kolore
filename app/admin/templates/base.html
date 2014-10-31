@@ -26,7 +26,7 @@
     </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
-    <body class="condense-menu grey ">
+    <body class="{% if request.cookies.get('menu') != 'open' %}{{'condense-menu grey'}}{% endif %} ">
         <!-- BEGIN HEADER -->
         <div class="header navbar navbar-inverse ">
             <!-- BEGIN TOP NAVIGATION BAR -->
@@ -75,18 +75,18 @@
         <!-- BEGIN CONTAINER -->
         <div class="page-container row-fluid">
             <!-- BEGIN SIDEBAR -->
-            <div class="page-sidebar mini" id="main-menu">
+            <div class="page-sidebar {% if request.cookies.get('menu') != 'open' %}{{'mini'}}{% endif %}" id="main-menu">
                 <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
                     <!-- BEGIN SIDEBAR MENU -->
                     {% include "navMain.html"%}
                     <!-- END SIDEBAR MENU -->
                 </div>
-                <div class="footer-widget">
+                <div class="footer-widget" {% if request.cookies.get('menu') == 'open' %}{{'style="display:none;"'}}{% endif %} >
                     <div class="pull-right">
                         <a href="/logout"><i class="fa fa-power-off"></i></a></div>
                     </div>
             </div>
-            <div class="page-content condensed">
+            <div class="page-content {% if request.cookies.get('menu') != 'open' %}{{'condensed'}}{% endif %}">
                 <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
                 <div class="clearfix"></div>
                 <div class="content sm-gutter">
