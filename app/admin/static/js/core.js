@@ -58,6 +58,7 @@ $(document).ready(function () {
             $('.page-sidebar').removeClass('mini');
             $('.page-content').removeClass('condensed-layout');
             $('.footer-widget').show();
+
         } else {
             $('.page-sidebar').addClass('mini');
             $('.page-content').addClass('condensed-layout');
@@ -369,6 +370,7 @@ $(document).ready(function () {
                 $('.page-content').removeClass('condensed');
                 $('.scrollup').removeClass('to-edge');
                 $('.footer-widget').show();
+                $.cookie('menu', 'open', { expires: 365, path: '/' });
             } else {
                 $('body').addClass('grey');
                 $('#main-menu').addClass('mini');
@@ -377,6 +379,7 @@ $(document).ready(function () {
                 $('.header-seperation').hide();
                 $('.footer-widget').hide();
                 $('.main-menu-wrapper').scrollbar('destroy');
+                $.cookie('menu', 'closed', { expires: 365, path: '/' });
             }
         }
     });
