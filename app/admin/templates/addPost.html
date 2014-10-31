@@ -21,7 +21,7 @@
                 <div class="grid-body no-border">
                     <div class="row">    
                         <!-- FORM -->
-                        <form id="commentForm" method="POST" onsubmit="return copyContent()">
+                        <form id="addPostForm" method="POST" onsubmit="return copyContent()">
                             <!-- Main wrapper -->
                             <div id="rootwizard" class="col-md-12">
                           <!-- Step List -->
@@ -159,10 +159,10 @@
                                     </div>
                                     <ul class=" wizard wizard-actions">
                                         <li class="previous">
-                                            <a href="javascript:;" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
+                                            <a href="#" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
                                         </li>
                                         <li class="next">
-                                            <a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;{{_("Next")}}&nbsp;&nbsp;</a>
+                                            <a href="#" class="btn btn-primary">&nbsp;&nbsp;{{_("Next")}}&nbsp;&nbsp;</a>
                                         </li>
                                   </ul>
                                 </div>
@@ -191,7 +191,7 @@
     $(document).ready(function() {              
 
         //Form Wizard Validations
-        var $validator = $("#commentForm").validate({
+        var $validator = $("#addPostForm").validate({
               rules: {
                 categories: {
                     required: true
@@ -200,47 +200,59 @@
                     required: true
                 }
               },
+              messages: {
+                categories:'{{_("Please introduce at least one category")}}',
+                title:'{{_("Please, write a title for your blog post")}}'
+              },
               errorPlacement: function(label, element) {
                     $('<span class="arrow"></span>').insertBefore(element);
                     $('<span class="error"></span>').insertAfter(element).append(label)
                 }
             });
 
+        $('.next').click(function() {
+            if($("#addPostForm").valid()){
+                console.log('aquip');
+            }
+        });
+
         //Form Wizard itself
         $('#rootwizard').bootstrapWizard({
-                'tabClass': 'form-wizard',
-                'onNext': function(tab, navigation, index) {
-                    var $valid = $("#commentForm").valid();
-                    if(!$valid) {
-                        $validator.focusInvalid();
-                        return false;
-                    }
-                    else{
-                        $('#rootwizard').find('.form-wizard').children('li').eq(index-1).addClass('complete');
-                        $('#rootwizard').find('.form-wizard').children('li').eq(index-1).find('.step').html('<i class="fa fa-check"></i>'); 
-                    }
-                },
-                onTabShow: function(tab, navigation, index) {
-                                        var $total = navigation.find('li').length;
-                                        var $current = index+1;
-                                        
-                                        // If it's the last tab then hide the last button and show the finish instead
-                                        if($current >= $total) {
-                                            $('#rootwizard').find('.next').hide();
-                                        } 
-                                        else if($current === 1) {
-                                            $('#rootwizard').find('.previous').hide();
-                                        }
-                                        else {
-                                            $('#rootwizard').find('.next').show();
-                                            $('#rootwizard').find('.previous').show();
-                                        }
-                }
-
-                /*,
-                onTabClick: function(tab, navigation, index) {
+            'tabClass': 'form-wizard',
+            'onNext': function(tab, navigation, index) {
+                var $valid = $("#addPostForm").valid();
+                if(!$valid) {
+                    console.log('here');
+                    $validator.focusInvalid();
                     return false;
-                }*/
+                }
+                else{
+                    console.log('there');
+                    $('#rootwizard').find('.form-wizard').children('li').eq(index-1).addClass('complete');
+                    $('#rootwizard').find('.form-wizard').children('li').eq(index-1).find('.step').html('<i class="fa fa-check"></i>'); 
+                }
+            },
+            onTabShow: function(tab, navigation, index) {
+                                    var $total = navigation.find('li').length;
+                                    var $current = index+1;
+                                    
+                                    // If it's the last tab then hide the last button and show the finish instead
+                                    if($current >= $total) {
+                                        $('#rootwizard').find('.next').hide();
+                                    } 
+                                    else if($current === 1) {
+                                        $('#rootwizard').find('.previous').hide();
+                                    }
+                                    else {
+                                        $('#rootwizard').find('.next').show();
+                                        $('#rootwizard').find('.previous').show();
+                                    }
+            }
+
+            ,
+            onTabClick: function(tab, navigation, index) {
+                return false;
+            }
 
         });     
         

@@ -97,6 +97,10 @@
                     required: true
                 }
               },
+              messages: {
+                categories:'{{_("Please introduce at least one category")}}',
+                title:'{{_("Please, write a title for your blog post")}}'
+              },
               errorPlacement: function(label, element) {
                     $('<span class="arrow"></span>').insertBefore(element);
                     $('<span class="error"></span>').insertAfter(element).append(label)
