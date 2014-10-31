@@ -1,5 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/ChromaBranding/kolore.png?label=ready&title=Ready)](https://waffle.io/ChromaBranding/kolore)
 [![byChroma](http://img.shields.io/badge/by-Chroma-brightgreen.svg)](http://www.chromabranding.com)
+![ python ](http://img.shields.io/badge/python-v2.3-blue.svg)
 ## Kolore Content Manager
 
 This is the content administrator that we use in [Chroma Branding][0]. Is written in Python for [App Engine][1]. Right now is just a functional Blog CMS, but a page administrator, web settings and other stuff will be added soon ! 
