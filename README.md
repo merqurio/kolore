@@ -1,5 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/ChromaBranding/kolore.png?label=ready&title=Ready)](https://waffle.io/ChromaBranding/kolore)
-[![byChroma](http://img.shields.io/badge/by-Chroma-brightgreen.svg)](http://www.chromabranding.com)
+[![byChroma](http://img.shields.io/badge/by-Chroma-00bc9a.svg)](http://www.chromabranding.com)
 ![ python ](http://img.shields.io/badge/python-v2.3-blue.svg)
 ## Kolore Content Manager
 
