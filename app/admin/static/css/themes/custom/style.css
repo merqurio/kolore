@@ -3913,7 +3913,7 @@ form legend,
 }
 .wizard-steps li.active .step,
 .wizard-steps li.active.complete .step {
-  background-color: #37b0e9;
+  background-color: #01BC9A;
   color: #ffffff;
   font-weight: bold;
   padding: 10px 15px;
@@ -3951,6 +3951,9 @@ form legend,
 }
 .wizard-actions li {
   display: inline;
+}
+li.previous {
+padding-left: 0;
 }
 .tab-content {
   overflow: auto;
