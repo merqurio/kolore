@@ -34,7 +34,7 @@ IMG_SIZE = 1200
 def home():
     user = users.get_current_user()
     name = user.nickname().split('@')[0].title()
-    return render_template('home.html', user=name)
+    return render_template('main-home.html', user=name)
 
 # /// Pages ///
 
@@ -42,7 +42,7 @@ def home():
 @admin_app.route('/pages')
 @login_required
 def pages():
-    return render_template('viewPages.html')
+    return render_template('pages-view.html')
 
 
 # /// Posts ///
@@ -57,10 +57,11 @@ def posts():
         ndb.Key('BlogPost', int(request.form['post_id'])).delete()
         time.sleep(1)
 
-    return render_template('viewPosts.html', posts=BlogPost.query())
+    return render_template('posts-view.html',
+                           posts=BlogPost.query().order(-BlogPost.date))
 
 
-@admin_app.route('/addPost', methods=['GET', 'POST'])
+@admin_app.route('/posts/add', methods=['GET', 'POST'])
 @login_required
 def addPost():
     '''Creates a new post in the DB'''
@@ -83,11 +84,11 @@ def addPost():
         return redirect(url_for('admin.posts'))
 
     # GET
-    return render_template('addPost.html',
+    return render_template('posts-add.html',
                            categories=BlogCategory.query_all())
 
 
-@admin_app.route('/post/edit/<int:post_id>', methods=['GET', 'POST'])
+@admin_app.route('/posts/edit/<int:post_id>', methods=['GET', 'POST'])
 @login_required
 def edit_post(post_id):
     '''Edit posts'''
@@ -109,7 +110,7 @@ def edit_post(post_id):
         time.sleep(1)
         return redirect(url_for('admin.posts'))
 
-    return render_template('editPost.html',
+    return render_template('posts-edit.html',
                            post=ndb.Key('BlogPost', int(post_id)).get(),
                            categories=BlogCategory.query_all())
 
@@ -139,7 +140,7 @@ def upload():
                 return get_serving_url(blob_key, size=IMG_SIZE)
             except Exception as e:
                 logging.exception(e)
-                return 'http://placehold.it/500&text="No :("'
+                return 'http://placehold.it/500&text="No file uploaded :("'
         else:
             logging.exception('Not file, mate :(')
 
@@ -163,12 +164,12 @@ def categories():
         BlogCategory.add_categories(post_categories)
         time.sleep(1)
 
-    return render_template('viewCategories.html',
+    return render_template('categories-view.html',
                            categories=BlogCategory.query())
 
 
 @admin_app.route('/categories/edit/<int:cat_id>',
-                       methods=['GET', 'POST'])
+                 methods=['GET', 'POST'])
 @login_required
 def edit_category(cat_id):
     ''' Renders all categories'''
@@ -192,6 +193,6 @@ def edit_category(cat_id):
         else:
             pass
 
-    return render_template('editCategories.html',
+    return render_template('categories-edit.html',
                            categories=BlogCategory.query(),
                            edit_cat=edit_cat.get())

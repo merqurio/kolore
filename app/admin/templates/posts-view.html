@@ -1,4 +1,4 @@
-{% extends "base.html"%}
+{% extends "main-base.html"%}
 
 {% block css %}
 <style type="text/css">
@@ -98,7 +98,7 @@
 {% block js %}
 {# Dependencies #}
 <script type="text/javascript" src="{{ url_for('admin.static', filename='plugins/moment/min/moment-with-locales.min.js') }}"></script>
-
+{# 
 <script>
     //Helps the to tick all options in the table 
     $('table .checkbox input').click( function() {          
@@ -110,6 +110,7 @@
         }
     });
 </script>
+ #}
 <script type="text/javascript">
     // Set's dates
     $(document).ready(function(){
