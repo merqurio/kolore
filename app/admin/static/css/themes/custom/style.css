@@ -3931,10 +3931,10 @@ form legend,
   color: #2B3D53;
 }
 
-#rootwizard p{
+#rootwizard p.open{
   font-family: 'Open Sans';
   font-weight: 300;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .step-content {
@@ -4025,7 +4025,7 @@ padding-left: 0;
   height: 35px;
 }
 div.has-error ul.select2-choices {
-  border-color: rgb(185, 74, 72) !important;
+  border-color: #a94442!important;
 }
 .select2-container .select2-choice .select2-arrow {
   background: transparent;
