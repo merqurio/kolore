@@ -44,7 +44,7 @@
                             </a>
                         </li>
                     </ul>
-                    {% include "navLang.html"%}
+                    {% include "blocks/nav-lang.html"%}
                 </div>
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 <div class="header-quick-nav">
@@ -65,7 +65,7 @@
                         </ul>
                     </div>
                     <!-- END TOP NAVIGATION MENU -->
-                    {% include "navLang.html"%}
+                    {% include "blocks/nav-lang.html"%}
                 </div>
                 <!-- END TOP NAVIGATION MENU -->
             </div>
@@ -78,7 +78,7 @@
             <div class="page-sidebar {% if request.cookies.get('menu') != 'open' %}{{'mini'}}{% endif %}" id="main-menu">
                 <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
                     <!-- BEGIN SIDEBAR MENU -->
-                    {% include "navMain.html"%}
+                    {% include "blocks/nav-main.html"%}
                     <!-- END SIDEBAR MENU -->
                 </div>
                 <div class="footer-widget" {% if request.cookies.get('menu') == 'open' %}{{'style="display:none;"'}}{% endif %} >
