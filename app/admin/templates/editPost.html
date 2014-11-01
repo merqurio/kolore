@@ -1,12 +1,10 @@
 {% extends "base.html"%}
-
 {% block css %}
     <link href="{{ url_for('admin.static', filename='plugins/select2-bootstrap-css/select2-bootstrap.css') }}" rel="stylesheet" type="text/css" media="screen">
     <link href="{{ url_for('admin.static', filename='plugins/select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen">
     <link href="{{ url_for('admin.static', filename='plugins/medium-editor/dist/css/medium-editor.css') }}" rel="stylesheet" type="text/css" media="screen">
     <link href="{{ url_for('admin.static', filename='css/themes/custom/medium-theme.css') }}" rel="stylesheet" type="text/css" media="screen">
     <link href="{{ url_for('admin.static', filename='css/themes/custom/medium-editor-insert-plugin.css') }}" rel="stylesheet" type="text/css" media="screen">
-
 {% endblock %}
 
 {% block content%}
