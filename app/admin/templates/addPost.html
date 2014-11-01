@@ -27,25 +27,25 @@
                           <!-- Step List -->
                                 <div class="form-wizard-steps ">
                                     <ul class="wizard-steps">
-                                        <li class="active" data-target="#step1"> 
+                                        <li class="active" data-target="#tab1"> 
                                             <a href="#tab1" data-toggle="tab"> 
                                                 <span class="step">1</span> 
                                                 <span class="title">{{_("Help")}}</span>
                                             </a>
                                         </li>
-                                        <li class="" data-target="#step2" class="disabled"> 
+                                        <li class="disabled" data-target="#tab2"> 
                                             <a href="#tab2" data-toggle="tab"> 
                                                 <span class="step">2</span> 
                                                 <span class="title">{{_("Categorize")}}</span>
                                             </a>
                                         </li>
-                                        <li class="" data-target="#step3" class="disabled"> 
+                                        <li class="disabled" data-target="#tab3"> 
                                             <a href="#tab3" data-toggle="tab"> 
                                                 <span class="step">3</span> 
                                                 <span class="title">{{_("Write")}}</span>
                                             </a>
                                         </li>
-                                        <li class="" data-target="#step4" class="disabled"> 
+                                        <li class="disabled" data-target="#tab4"> 
                                             <a href="#tab4" data-toggle="tab"> 
                                                 <span class="step">4</span> 
                                                 <span class="title">{{_("Publish")}}</span>
@@ -130,16 +130,16 @@
                                                 <h3>{{_("Post")}} <span class="semi-bold">{{_("Categories")}}</span></h3><br>
                                                 <p>{{_("It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website.")}}</p>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 form-group">
                                                 <h3>{{_("Select")}} <span class="semi-bold">{{_("Categories")}}</span></h3><br>
                                                 <p>{{_("<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories.")}}</p>
                                                 <br>
-                                                <input id="multi" name="categories" style="width:100%" placeholder="{{_("Search or Create a category..")}}" required="required" class="form-control">
+                                                <input id="multi" type="text" name="categories" style="width:100%" placeholder="{{_("Search or Create a category..")}}" required="required" class="form-control">
                                             </div> 
                                         </div>
                                         <ul class=" wizard wizard-actions">
                                             <li class="previous">
-                                                <a href="#" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
+                                                <a href="#tab1" data-toggle="tab" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
                                             </li>
                                             <li class="next">
                                                 <a href="#" class="btn btn-primary">&nbsp;&nbsp;{{_("Next")}}&nbsp;&nbsp;</a>
@@ -147,7 +147,7 @@
                                         </ul>
                                     </div>
                                     <!-- Step -->
-                                    <div class="tab-pane" id="tab3">
+                                    <div class="tab-pane form-group" id="tab3">
                                         <h3>{{_("Write your")}} <span class="semi-bold">{{_("Blog Post")}}</span></h3>
                                         <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p><br>
                                         <input class="form-control input-lg" type="text" placeholder="{{_("Enter a title")}}" name="title" required="required">
@@ -158,7 +158,7 @@
                                         <input id="hiddenTextarea" name="text" style="display:none"/>
                                         <ul class=" wizard wizard-actions">
                                             <li class="previous">
-                                                <a href="#" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
+                                                <a href="#tab2" data-toggle="tab" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
                                             </li>
                                             <li class="next">
                                                 <a href="#" class="btn btn-primary">&nbsp;&nbsp;{{_("Next")}}&nbsp;&nbsp;</a>
@@ -178,7 +178,7 @@
                                         </div>
                                         <ul class=" wizard wizard-actions">
                                             <li class="previous">
-                                                <a href="#" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
+                                                <a href="#tab3" data-toggle="tab" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
                                             </li>
                                         </ul>
                                         
