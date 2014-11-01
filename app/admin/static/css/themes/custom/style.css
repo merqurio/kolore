@@ -3848,6 +3848,12 @@ form legend,
   text-align: center;
   padding-left: 0;
 }
+
+.wizard-steps li.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 .wizard-steps li:before {
   border-top: 6px solid #55606E;
   content: "";
@@ -3913,7 +3919,7 @@ form legend,
 }
 .wizard-steps li.active .step,
 .wizard-steps li.active.complete .step {
-  background-color: #37b0e9;
+  background-color: #01BC9A;
   color: #ffffff;
   font-weight: bold;
   padding: 10px 15px;
@@ -3948,9 +3954,13 @@ form legend,
   padding: 0;
   position: relative;
   width: 100%;
+  margin-top: 10px;
 }
 .wizard-actions li {
   display: inline;
+}
+li.previous {
+padding-left: 0;
 }
 .tab-content {
   overflow: auto;
@@ -4013,6 +4023,9 @@ form legend,
   padding: 3px 9px;
   transition: border 0.2s linear 0s;
   height: 35px;
+}
+div.has-error ul.select2-choices {
+  border-color: rgb(185, 74, 72) !important;
 }
 .select2-container .select2-choice .select2-arrow {
   background: transparent;

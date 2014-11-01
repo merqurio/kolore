@@ -27,25 +27,25 @@
                           <!-- Step List -->
                                 <div class="form-wizard-steps ">
                                     <ul class="wizard-steps">
-                                        <li class="" data-target="#step1"> 
+                                        <li class="active" data-target="#tab1"> 
                                             <a href="#tab1" data-toggle="tab"> 
                                                 <span class="step">1</span> 
                                                 <span class="title">{{_("Help")}}</span>
                                             </a>
                                         </li>
-                                        <li class="" data-target="#step2"> 
+                                        <li class="disabled" data-target="#tab2"> 
                                             <a href="#tab2" data-toggle="tab"> 
                                                 <span class="step">2</span> 
                                                 <span class="title">{{_("Categorize")}}</span>
                                             </a>
                                         </li>
-                                        <li class="" data-target="#step3"> 
+                                        <li class="disabled" data-target="#tab3"> 
                                             <a href="#tab3" data-toggle="tab"> 
                                                 <span class="step">3</span> 
                                                 <span class="title">{{_("Write")}}</span>
                                             </a>
                                         </li>
-                                        <li class="" data-target="#step4"> 
+                                        <li class="disabled" data-target="#tab4"> 
                                             <a href="#tab4" data-toggle="tab"> 
                                                 <span class="step">4</span> 
                                                 <span class="title">{{_("Publish")}}</span>
@@ -117,6 +117,11 @@
                                                 </div>
                                             </div>
                                         </p>
+                                        <ul class=" wizard wizard-actions">
+                                            <li class="next">
+                                                <a href="#" class="btn btn-primary">&nbsp;&nbsp;{{_("Next")}}&nbsp;&nbsp;</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                     <!-- Step -->
                                     <div class="tab-pane" id="tab2">
@@ -125,24 +130,40 @@
                                                 <h3>{{_("Post")}} <span class="semi-bold">{{_("Categories")}}</span></h3><br>
                                                 <p>{{_("It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website.")}}</p>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 form-group">
                                                 <h3>{{_("Select")}} <span class="semi-bold">{{_("Categories")}}</span></h3><br>
                                                 <p>{{_("<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories.")}}</p>
                                                 <br>
-                                                <input id="multi" name="categories" style="width:100%" placeholder="{{_("Search or Create a category..")}}">
+                                                <input id="multi" type="text" name="categories" style="width:100%" placeholder="{{_("Search or Create a category..")}}" required="required" class="form-control">
                                             </div> 
                                         </div>
+                                        <ul class=" wizard wizard-actions">
+                                            <li class="previous">
+                                                <a href="#tab1" data-toggle="tab" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
+                                            </li>
+                                            <li class="next">
+                                                <a href="#" class="btn btn-primary">&nbsp;&nbsp;{{_("Next")}}&nbsp;&nbsp;</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                     <!-- Step -->
-                                    <div class="tab-pane" id="tab3">
+                                    <div class="tab-pane form-group" id="tab3">
                                         <h3>{{_("Write your")}} <span class="semi-bold">{{_("Blog Post")}}</span></h3>
                                         <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p><br>
-                                        <input class="form-control input-lg" type="text" placeholder="{{_("Enter a title")}}" name="title">
+                                        <input class="form-control input-lg" type="text" placeholder="{{_("Enter a title")}}" name="title" required="required">
                                         <br>
                                         <div class="editable" id="editable">
                                             <p>&#8203;</p>
                                         </div>
                                         <input id="hiddenTextarea" name="text" style="display:none"/>
+                                        <ul class=" wizard wizard-actions">
+                                            <li class="previous">
+                                                <a href="#tab2" data-toggle="tab" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
+                                            </li>
+                                            <li class="next">
+                                                <a href="#" class="btn btn-primary">&nbsp;&nbsp;{{_("Next")}}&nbsp;&nbsp;</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                     <!-- Step -->
                                     <div class="tab-pane" id="tab4">
@@ -155,16 +176,13 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        <ul class=" wizard wizard-actions">
+                                            <li class="previous">
+                                                <a href="#tab3" data-toggle="tab" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
+                                            </li>
+                                        </ul>
                                         
                                     </div>
-                                    <ul class=" wizard wizard-actions">
-                                        <li class="previous">
-                                            <a href="#" class="btn">&nbsp;&nbsp;{{_("Previous")}}&nbsp;&nbsp;</a>
-                                        </li>
-                                        <li class="next">
-                                            <a href="#" class="btn btn-primary">&nbsp;&nbsp;{{_("Next")}}&nbsp;&nbsp;</a>
-                                        </li>
-                                  </ul>
                                 </div>
                             </div>
                         </form>
@@ -178,9 +196,10 @@
 
 {% block js %}
 <script src="{{ url_for('admin.static', filename='plugins/select2/select2.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('admin.static', filename='js/tabs-wizard.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('admin.static', filename='js/add-wizard.js') }}" type="text/javascript"></script>
+{# <script src="{{ url_for('admin.static', filename='js/tabs-wizard.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('admin.static', filename='plugins/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('admin.static', filename='plugins/jquery-validate/dist/jquery.validate.min.js') }}" type="text/javascript"></script>
+ #}<script src="{{ url_for('admin.static', filename='plugins/jquery-validate/dist/jquery.validate.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('admin.static', filename='plugins/medium-editor/dist/js/medium-editor.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('admin.static', filename='plugins/medium-editor-insert-plugin/dist/js/addons/medium-editor-insert-plugin.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('admin.static', filename='plugins/medium-editor-insert-plugin/src/js/medium-editor-insert-embeds.js') }}" type="text/javascript"></script>
@@ -189,72 +208,7 @@
 <script type="text/javascript">
 
     $(document).ready(function() {              
-
-        //Form Wizard Validations
-        var $validator = $("#addPostForm").validate({
-              rules: {
-                categories: {
-                    required: true
-                },
-                title:  {
-                    required: true
-                }
-              },
-              messages: {
-                categories:'{{_("Please introduce at least one category")}}',
-                title:'{{_("Please, write a title for your blog post")}}'
-              },
-              errorPlacement: function(label, element) {
-                    $('<span class="arrow"></span>').insertBefore(element);
-                    $('<span class="error"></span>').insertAfter(element).append(label)
-                }
-            });
-
-        $('.next').click(function() {
-            if($("#addPostForm").valid()){
-                console.log('aqui');
-            }
-        });
-
-        //Form Wizard itself
-        $('#rootwizard').bootstrapWizard({
-            'tabClass': 'form-wizard',
-            'onNext': function(tab, navigation, index) {
-                var $valid = $("#addPostForm").valid();
-                if(!$valid) {
-                    console.log('here');
-                    $validator.focusInvalid();
-                    return false;
-                }
-                else{
-                    console.log('there');
-                    $('#rootwizard').find('.form-wizard').children('li').eq(index-1).addClass('complete');
-                    $('#rootwizard').find('.form-wizard').children('li').eq(index-1).find('.step').html('<i class="fa fa-check"></i>'); 
-                }
-            },
-            onTabShow: function(tab, navigation, index) {
-                                    var $total = navigation.find('li').length;
-                                    var $current = index+1;
-                                    
-                                    // If it's the last tab then hide the last button and show the finish instead
-                                    if($current >= $total) {
-                                        $('#rootwizard').find('.next').hide();
-                                    } 
-                                    else if($current === 1) {
-                                        $('#rootwizard').find('.previous').hide();
-                                    }
-                                    else {
-                                        $('#rootwizard').find('.next').show();
-                                        $('#rootwizard').find('.previous').show();
-                                    }
-            }
-
-            ,
-            onTabClick: function(tab, navigation, index) {
-                return false;
-            }
-
-        });     
+   
         
         //Multiselect
         $("#multi").select2({

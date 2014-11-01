@@ -20,6 +20,9 @@ handlers:
 - url: /static
   static_dir: static
 
+- url: /admin/static
+  static_dir: app/admin/static/
+
 - url: /(robots\.txt)
   static_files: static/robots.txt
   upload: (robots\.txt)

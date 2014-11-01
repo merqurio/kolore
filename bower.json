@@ -36,7 +36,6 @@
     "jquery.breakpoints": "*",
     "jquery-unveil": "~1.3.0",
     "jquery.scrollbar": "~0.2.4",
-    "jquery-validate": "~1.13.1",
-    "twitter-bootstrap-wizard": "git://github.com/VinceG/twitter-bootstrap-wizard.git#~1.0.0"
+    "jquery-validate": "~1.13.1"
   }
 }
