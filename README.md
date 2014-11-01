@@ -1,7 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/ChromaBranding/kolore.png?label=ready&title=Ready)](https://waffle.io/ChromaBranding/kolore)
 ![ python ](http://img.shields.io/badge/python-v2.7-9cd5ee.svg)
-![ Active ](http://img.shields.io/badge/Active-Development-b9fdb5.svg)
-![ Not production ready ](http://img.shields.io/badge/Not-for-Proction-red.svg)
+![ Active ](http://img.shields.io/badge/Active-Development-aafca5.svg)
+![ Not production ready ](http://img.shields.io/badge/Not+for-Proction-red.svg)
 [![byChroma](http://img.shields.io/badge/by-Chroma-22f2b8.svg)](http://www.chromabranding.com)
 ## Kolore Content Manager
 
