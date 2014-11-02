@@ -178,7 +178,7 @@
   }
   /*** Page container ***/
   .page-container {
-    overflow-x: hidden;
+    overflow-x: hidden; 
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -214,9 +214,9 @@
 /* Landscape view of all tablet devices */
 @media (min-width: 768px) and (max-width: 1024px) {
 
-  body.condense-menu .page-content {
+  /*body.condense-menu .page-content {
     margin-left: 50px;
-  }
+  }*/
 
   .horizontal-menu .page-content {
     margin-left: 0px;
@@ -431,7 +431,8 @@
   .page-sidebar .page-sidebar-wrapper > ul {
     width: 50px;
     margin: 0;
-    padding-top: 70px;
+    padding-top: 3px;
+    /*padding-top: 70px;*/
   }
   .page-sidebar .page-sidebar-wrapper > ul > li > a {
     padding: 13px;
@@ -443,9 +444,9 @@
   .page-sidebar .user-info {
     display: none;
   }
-  .page-sidebar .page-sidebar-wrapper > p {
+  /*.page-sidebar .page-sidebar-wrapper > p {
     display: none;
-  }
+  }*/
   .page-sidebar .page-sidebar-wrapper > .status-widget {
     display: none;
   }
@@ -1331,7 +1332,7 @@
     background-size: 199px 57px;
   }
   .iconset {
-    background: url('../../../img/icon/top-trayx2.png') no-repeat;
+    background: url('../../../img/icon/top-tray-bx2.png') no-repeat;
     background-size: 394px 29px;
   }
   .status-icon {
