@@ -116,12 +116,12 @@
     $(document).ready(function(){
         
         $('.tip').tooltip();
-        moment.locale($.cookie('lang'));
+        moment.locale('{{request.cookies.get('lang')}}');
 
         $('.date').each(function(){
-            var elementData = moment(new Date($(this).attr('data-date'))),
+            var elementData = moment(new Date($(this).attr('data-date'))).fromNow(),
                 elementFormat = $(this).attr('data-format');
-            $(this).html(elementData.format(elementFormat));
+            $(this).html(elementData/*.format(elementFormat)*/);
         });
 
     });
