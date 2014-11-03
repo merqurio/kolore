@@ -58,7 +58,19 @@ def posts():
         time.sleep(1)
 
     return render_template('posts-view.html',
-                           posts=BlogPost.query().order(-BlogPost.date))
+                           posts=BlogPost.query()
+                           .order(-BlogPost.date)
+                           .fetch(5))
+
+
+@admin_app.route('/posts/<int:page_num>', methods=['GET', 'POST'])
+@login_required
+def more_posts(page_num):
+    offset = int(page_num*5)
+    return render_template('posts-view-more.html',
+                           posts=BlogPost.query()
+                           .order(-BlogPost.date)
+                           .fetch(5, offset=offset))
 
 
 @admin_app.route('/posts/add', methods=['GET', 'POST'])
@@ -165,7 +177,7 @@ def categories():
         time.sleep(1)
 
     return render_template('categories-view.html',
-                           categories=BlogCategory.query())
+                           categories=BlogCategory.query().fetch())
 
 
 @admin_app.route('/categories/edit/<int:cat_id>',
@@ -194,5 +206,5 @@ def edit_category(cat_id):
             pass
 
     return render_template('categories-edit.html',
-                           categories=BlogCategory.query(),
+                           categories=BlogCategory.query().fetch(),
                            edit_cat=edit_cat.get())
