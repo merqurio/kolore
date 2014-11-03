@@ -89,6 +89,7 @@
     margin: 1em 0; }
   .medium-editor-insert-plugin progress {
     display: block;
+    background-color: #00bc9a;
     margin: 1em auto; }
   .medium-editor-insert-plugin .hide {
     display: none !important; }
