@@ -1,10 +1,8 @@
-[![Stories in Ready](https://badge.waffle.io/ChromaBranding/kolore.png?label=ready&title=Ready)](https://waffle.io/ChromaBranding/kolore)
-![ python ](http://img.shields.io/badge/python-v2.7-9cd5ee.svg)
-![ Active ](http://img.shields.io/badge/Active-Development-06d963.svg)
-![ Version ](http://img.shields.io/badge/v-0.1-2af985.svg)
-![ Not production ready ](http://img.shields.io/badge/Production%20ready-Not%20Yet-red.svg)
-[![byChroma](http://img.shields.io/badge/by-Chroma-22f2b8.svg)](http://www.chromabranding.com)
 ## Kolore Content Manager
+[![Stories in Ready](https://badge.waffle.io/ChromaBranding/kolore.png?label=ready&title=Ready)](https://waffle.io/ChromaBranding/kolore)
+![ Version ](http://img.shields.io/badge/v-0.1-2af985.svg)
+![ Not production ready ](http://img.shields.io/badge/Not%20for-Production-red.svg)
+[![byChroma](http://img.shields.io/badge/by-Chroma-22f2b8.svg)](http://www.chromabranding.com)
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/ChromaBranding/kolore?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is the content administrator that we use in [Chroma Branding][0]. Is written in Python for [App Engine][1]. Right now is just a functional Blog CMS, but a page administrator, web settings and other stuff will be added soon ! 
