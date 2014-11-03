@@ -3,15 +3,15 @@
 {% block css %}
 <style type="text/css">
 @media only screen and (max-width: 950px) {
-    #unseen table td:nth-child(3), 
-    #unseen table th:nth-child(3) {display: none;}
+    #flex-table table td:nth-child(3), 
+    #flex-table table th:nth-child(3) {display: none;}
 }
  
 @media only screen and (max-width: 640px) {
-    #unseen table td:nth-child(3),
-    #unseen table th:nth-child(3),
-    #unseen table td:nth-child(2),
-    #unseen table th:nth-child(2){display: none;}
+    #flex-table table td:nth-child(3),
+    #flex-table table th:nth-child(3),
+    #flex-table table td:nth-child(2),
+    #flex-table table th:nth-child(2){display: none;}
 }
 
 
@@ -20,7 +20,7 @@
 
 {% block content%}
 <div class="row animated fadeInUp">
-        <div class="col-md-12 col-lg-10 col-lg-offset-1">
+        <div class="col-md-12">
             <div class="grid simple">
                 <div class="grid-title no-border">
                     <h4>{{_("All")}} <span class="semi-bold">{{_("Posts")}}</span></h4>
@@ -41,7 +41,7 @@
                         Delete
                     </button> #}
                      <br>
-                    <div class="row" id="unseen">    
+                    <div class="row" id="flex-table">    
                         <table class="table table-hover cf">
                             <thead class="cf">
                                 <tr>
@@ -57,7 +57,7 @@
                                     <th>{{_("Actions")}}</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="table_body">
                                 {% for post in posts %}
                                 <tr>
                                     {# <td>
@@ -89,6 +89,16 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+                            <button class="btn btn-block btn-white" type="button" id="more_posts">
+                                    <span class="fa-stack">
+                                      <i class="fa fa-circle-o fa-stack-2x"></i>
+                                      <i class="fa fa-plus fa-stack-1x"></i>
+                                    </span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,33 +106,52 @@
 {% endblock %}
 
 {% block js %}
-{# Dependencies #}
+<!-- Dependencies -->
 <script type="text/javascript" src="{{ url_for('admin.static', filename='plugins/moment/min/moment-with-locales.min.js') }}"></script>
-{# 
-<script>
-    //Helps the to tick all options in the table 
-    $('table .checkbox input').click( function() {          
-        if($(this).is(':checked')){         
-            $(this).parent().parent().parent().toggleClass('row_selected');                 
-        }
-        else{   
-        $(this).parent().parent().parent().toggleClass('row_selected');     
-        }
-    });
-</script>
- #}
+
 <script type="text/javascript">
     // Set's dates
     $(document).ready(function(){
         
+        // Tooltips
         $('.tip').tooltip();
         moment.locale('{{request.cookies.get('lang')}}');
 
-        $('.date').each(function(){
-            var elementData = moment(new Date($(this).attr('data-date'))).fromNow(),
-                elementFormat = $(this).attr('data-format');
-            $(this).html(elementData/*.format(elementFormat)*/);
+        // Dates
+        function set_dates(){$('.date').each(
+            function(){
+                var elementData = moment(new Date($(this).attr('data-date'))).fromNow(),
+                    elementFormat = $(this).attr('data-format');
+                $(this).html(elementData/*.format(elementFormat)*/);
+            }
+        );}
+
+        set_dates();
+
+        // AJAX Call more posts
+        var page = 0;
+        $("#more_posts").click(function(event){
+            page++;
+            jQuery.get('/admin/posts/'+page, function(more_posts) {
+                $('#table_body').append(more_posts);
+                set_dates();
+                if (more_posts === ""){
+                    $("#more_posts").hide()
+                }
+            });
+            
         });
+
+
+        /*//Helps the to tick all options in the table 
+        $('table .checkbox input').click( function() {          
+            if($(this).is(':checked')){         
+                $(this).parent().parent().parent().toggleClass('row_selected');                 
+            }
+            else{   
+            $(this).parent().parent().parent().toggleClass('row_selected');     
+            }
+        });*/
 
     });
 </script>
