@@ -36,6 +36,7 @@
     "jquery.breakpoints": "*",
     "jquery-unveil": "~1.3.0",
     "jquery.scrollbar": "~0.2.4",
-    "jquery-validate": "~1.13.1"
+    "jquery-validate": "~1.13.1",
+    "messenger": "~1.4.1"
   }
 }

@@ -1,6 +1,8 @@
 {% extends "main-base.html"%}
 
 {% block css %}
+<link href="{{ url_for('admin.static', filename='plugins/messenger/build/css/messenger.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('admin.static', filename='plugins/messenger/build/css/messenger-theme-flat.css') }}" rel="stylesheet" type="text/css">
 <style type="text/css">
 @media only screen and (max-width: 950px) {
     #flex-table table td:nth-child(3), 
@@ -92,10 +94,8 @@
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
                             <button class="btn btn-block btn-white" type="button" id="more_posts">
-                                    <span class="fa-stack">
-                                      <i class="fa fa-circle-o fa-stack-2x"></i>
-                                      <i class="fa fa-plus fa-stack-1x"></i>
-                                    </span>
+                                <i class="fa fa-plus"></i>
+                                {{_("Older Posts")}}
                             </button>
                         </div>
                     </div>
@@ -108,11 +108,15 @@
 {% block js %}
 <!-- Dependencies -->
 <script type="text/javascript" src="{{ url_for('admin.static', filename='plugins/moment/min/moment-with-locales.min.js') }}"></script>
-
+<script type="text/javascript" src="{{ url_for('admin.static', filename='plugins/messenger/build/js/messenger.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('admin.static', filename='plugins/messenger/build/js/messenger-theme-flat.js') }}"></script>
 <script type="text/javascript">
     // Set's dates
     $(document).ready(function(){
         
+        // Notifications
+        Messenger.options = {theme: 'flat'};
+
         // Tooltips
         $('.tip').tooltip();
         moment.locale('{{request.cookies.get('lang')}}');
@@ -135,8 +139,14 @@
             jQuery.get('/admin/posts/'+page, function(more_posts) {
                 $('#table_body').append(more_posts);
                 set_dates();
+                $('.fadein').fadeIn();
                 if (more_posts === ""){
-                    $("#more_posts").hide()
+                    $("#more_posts").fadeOut();
+                    Messenger().post({
+                        message: "{{_("All post were loaded")}}",
+                        type: 'info',
+                        showCloseButton: true
+                    });
                 }
             });
             
