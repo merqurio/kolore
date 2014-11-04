@@ -7,332 +7,329 @@ msgstr ""
 "Project-Id-Version: Kolore\n"
 "Language: eu\n"
 
-#: app/admin/templates/addPost.html:15 app/admin/templates/addPost.html:125
-#: app/admin/templates/editPost.html:18 app/admin/templates/viewPosts.html:54
+#: app/admin/templates/posts-add.html:15 app/admin/templates/posts-add.html:130
+#: app/admin/templates/posts-edit.html:16
+#: app/admin/templates/posts-view.html:56
 msgid "Post"
 msgstr "Blog sarrera"
 
-#: app/admin/templates/addPost.html:33
+#: app/admin/templates/posts-add.html:33
 msgid "Help"
 msgstr "Laguntza"
 
-#: app/admin/templates/addPost.html:39
+#: app/admin/templates/posts-add.html:39
 msgid "Categorize"
 msgstr "Kategorizatu"
 
-#: app/admin/templates/addPost.html:45
+#: app/admin/templates/posts-add.html:45
 msgid "Write"
 msgstr "Idatzi"
 
-#: app/admin/templates/addPost.html:51
+#: app/admin/templates/posts-add.html:51
 msgid "Publish"
 msgstr "Argitaratu"
 
-#: app/admin/templates/addPost.html:61
+#: app/admin/templates/posts-add.html:61
 msgid "Some tips"
 msgstr "Laguntza pixkat"
 
-#: app/admin/templates/addPost.html:61
+#: app/admin/templates/posts-add.html:61
 msgid "for writing a blog post"
 msgstr "Blog sarrerak idazkteko"
 
-#: app/admin/templates/addPost.html:67
+#: app/admin/templates/posts-add.html:67
 msgid "Tell your story"
 msgstr "Heman zure istoriaren berri"
 
-#: app/admin/templates/addPost.html:70
+#: app/admin/templates/posts-add.html:70
 msgid "Share how you feel"
 msgstr "Nola sentitzen zara ?"
 
-#: app/admin/templates/addPost.html:73
+#: app/admin/templates/posts-add.html:73
 msgid "You’ll never please everyone"
 msgstr "Ez bilatu guztien onarpena"
 
-#: app/admin/templates/addPost.html:76
+#: app/admin/templates/posts-add.html:76
 msgid "Write about things that matter to you"
 msgstr "Atsegin dituzun gaiaz idatzi"
 
-#: app/admin/templates/addPost.html:79
+#: app/admin/templates/posts-add.html:79
 msgid "Inform, inspire and interact"
 msgstr "Informatu, inspiratu eta elkarbanatu"
 
-#: app/admin/templates/addPost.html:82
+#: app/admin/templates/posts-add.html:82
 msgid "Put aside time to read others blog"
 msgstr "Denbora hartu idazteko"
 
-#: app/admin/templates/addPost.html:85
+#: app/admin/templates/posts-add.html:85
 msgid "When an idea strikes, write it down"
 msgstr "Ideia bat duzunean, idatzi"
 
-#: app/admin/templates/addPost.html:88
+#: app/admin/templates/posts-add.html:88
 msgid "Understand who is reading your blog"
 msgstr "Argi eduki norentzako idazten duzun"
 
-#: app/admin/templates/addPost.html:95
+#: app/admin/templates/posts-add.html:95
 msgid "Do it at least, once a week"
 msgstr "Astero idatzi"
 
-#: app/admin/templates/addPost.html:98
+#: app/admin/templates/posts-add.html:98
 msgid "Put aside time to create quality content it doesn’t just appear"
 msgstr "Beharrezko denbora hartu kalitatezko edukia sortzeko"
 
-#: app/admin/templates/addPost.html:101
+#: app/admin/templates/posts-add.html:101
 msgid "Ask your readers questions"
 msgstr "Galderak egin zure irakurleak parte hartu dezaten"
 
-#: app/admin/templates/addPost.html:104
+#: app/admin/templates/posts-add.html:104
 msgid "Brainstorm regularly"
 msgstr "Brainstorming-ak egin"
 
-#: app/admin/templates/addPost.html:107
+#: app/admin/templates/posts-add.html:107
 msgid "Not every post needs to go viral"
 msgstr "Sarrera guztiak ez dute arrakasta berdina izango, ez larritu"
 
-#: app/admin/templates/addPost.html:110
+#: app/admin/templates/posts-add.html:110
 msgid "Write, Write, Write"
 msgstr "Idatzi, idatzi, idatzi"
 
-#: app/admin/templates/addPost.html:113
+#: app/admin/templates/posts-add.html:113
 msgid "And <strong>Yes !</strong> everyone writes good content if it wants"
 msgstr "<strong>Edonork </strong> sor dezake kalitatezko edukia ! "
 
-#: app/admin/templates/addPost.html:125 app/admin/templates/addPost.html:129
-#: app/admin/templates/editCategories.html:10
-#: app/admin/templates/editPost.html:50 app/admin/templates/navMain.html:23
-#: app/admin/templates/viewCategories.html:12
-#: app/admin/templates/viewCategories.html:38
-#: app/admin/templates/viewPosts.html:56
+#: app/admin/templates/categories-edit.html:10
+#: app/admin/templates/categories-view.html:12
+#: app/admin/templates/categories-view.html:38
+#: app/admin/templates/posts-add.html:130
+#: app/admin/templates/posts-add.html:134
+#: app/admin/templates/posts-edit.html:48
+#: app/admin/templates/posts-view.html:58
+#: app/admin/templates/blocks/nav-main.html:23
 msgid "Categories"
 msgstr "Kategoriak"
 
-#: app/admin/templates/addPost.html:126
+#: app/admin/templates/posts-add.html:131
 msgid "It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website."
 msgstr "Kategoriak ipintzea, zure edukia <b>txukun mantetzen</b> lagunduko dizu. Horrela Google-k ere zure edukia ulertu ahal izango du."
 
-#: app/admin/templates/addPost.html:129
+#: app/admin/templates/posts-add.html:134
 msgid "Select"
 msgstr "Aukeratu"
 
-#: app/admin/templates/addPost.html:130
+#: app/admin/templates/posts-add.html:135
 msgid "<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories."
 msgstr "<span class='text-info'>Bilatu kategoria bat edo berri bat idatzi eta <b> enter sakatu</b></span>. Mesedez, saiatu zaitez kategori bat <b>ez duplikatzen</b>."
 
-#: app/admin/templates/addPost.html:138
+#: app/admin/templates/posts-add.html:151
 msgid "Write your"
 msgstr "Idatzi zure"
 
-#: app/admin/templates/addPost.html:138 app/admin/templates/addPost.html:149
+#: app/admin/templates/posts-add.html:151
+#: app/admin/templates/posts-add.html:170
 msgid "Blog Post"
 msgstr "Blog Sarrera"
 
-#: app/admin/templates/addPost.html:139
+#: app/admin/templates/posts-add.html:152
 msgid "Write here your blogpost, and when you finish, click next."
 msgstr "Idatzi zure blog sarrea eta bukatzean sakatu \"hurrengoa\""
 
-#: app/admin/templates/addPost.html:149
+#: app/admin/templates/posts-add.html:170
 msgid "Publish the"
 msgstr "Argitaratu"
 
-#: app/admin/templates/addPost.html:152
+#: app/admin/templates/posts-add.html:173
 msgid "You are done, now is time to publish it and make it available to the world. Remember to share it in your social networks !"
 msgstr "Bukatu duzu dagoeneko. Orain argitaratzeko ordua da. Gogoratu sare sozialetan elkarbanatzea !"
 
-#: app/admin/templates/addPost.html:154
+#: app/admin/templates/posts-add.html:175
 msgid "Publish Now"
 msgstr "Argitaratu orain"
 
-#: app/admin/templates/addPost.html:162
+#: app/admin/templates/posts-add.html:142
+#: app/admin/templates/posts-add.html:161
+#: app/admin/templates/posts-add.html:181
 msgid "Previous"
 msgstr "Aurrekoa"
 
-#: app/admin/templates/addPost.html:165
+#: app/admin/templates/posts-add.html:122
+#: app/admin/templates/posts-add.html:145
+#: app/admin/templates/posts-add.html:164
 msgid "Next"
 msgstr "Hurrengoa"
 
-#: app/admin/templates/navLang.html:10
+#: app/admin/templates/blocks/nav-lang.html:10
 msgid "Basque"
 msgstr "Euskara"
 
-#: app/admin/templates/navLang.html:13
+#: app/admin/templates/blocks/nav-lang.html:13
 msgid "Spanish"
 msgstr "Erdara"
 
-#: app/admin/templates/navLang.html:16
+#: app/admin/templates/blocks/nav-lang.html:16
 msgid "English"
 msgstr "Ingelesa"
 
-#: app/admin/templates/navLang.html:19
+#: app/admin/templates/blocks/nav-lang.html:19
 msgid "French"
 msgstr "Frantsesa"
 
-#: app/admin/templates/navLang.html:30
+#: app/admin/templates/blocks/nav-lang.html:30
 msgid "My Account"
 msgstr "Nire kontua"
 
-#: app/admin/templates/navLang.html:35
+#: app/admin/templates/blocks/nav-lang.html:35
 msgid "Log Out"
 msgstr "Amaitu saioa"
 
-#: app/admin/templates/editCategories.html:10
-#: app/admin/templates/editCategories.html:35
-#: app/admin/templates/editPost.html:18 app/admin/templates/editPost.html:50
-#: app/admin/templates/viewCategories.html:12
-#: app/admin/templates/viewPosts.html:77
+#: app/admin/templates/categories-edit.html:10
+#: app/admin/templates/categories-edit.html:35
+#: app/admin/templates/categories-view.html:12
+#: app/admin/templates/posts-edit.html:16
+#: app/admin/templates/posts-edit.html:48
+#: app/admin/templates/posts-view-more.html:17
+#: app/admin/templates/posts-view.html:79
 msgid "Edit"
 msgstr "Aldatu"
 
-#: app/admin/templates/editCategories.html:18
-#: app/admin/templates/viewCategories.html:20
+#: app/admin/templates/categories-edit.html:18
+#: app/admin/templates/categories-view.html:20
 msgid "Pick a category from the list in the left, and edit it in the right column."
 msgstr "Ezkerreko zerrendatik aukeratu kategori bat eta aldatu eskubiko zutabean."
 
-#: app/admin/templates/editCategories.html:35
-#: app/admin/templates/editCategories.html:54
+#: app/admin/templates/categories-edit.html:35
+#: app/admin/templates/categories-edit.html:54
 msgid "Category"
 msgstr "Kategoria"
 
-#: app/admin/templates/editCategories.html:61
-#: app/admin/templates/editPost.html:59
-#: app/admin/templates/viewCategories.html:54
+#: app/admin/templates/categories-edit.html:61
+#: app/admin/templates/categories-view.html:54
+#: app/admin/templates/posts-edit.html:57
 msgid "Save"
 msgstr "Gorde"
 
-#: app/admin/templates/editCategories.html:65
-#: app/admin/templates/viewPosts.html:80
+#: app/admin/templates/categories-edit.html:65
+#: app/admin/templates/posts-view-more.html:20
+#: app/admin/templates/posts-view.html:82
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: app/admin/templates/editPost.html:42
+#: app/admin/templates/posts-edit.html:40
 msgid "Other"
 msgstr "Beste"
 
-#: app/admin/templates/editPost.html:42 app/admin/templates/navMain.html:29
+#: app/admin/templates/posts-edit.html:40
 msgid "Options"
 msgstr "Aukerak"
 
-#: app/admin/templates/editPost.html:59
+#: app/admin/templates/posts-edit.html:57
 msgid "Changes"
 msgstr "Aldaketak"
 
-#: app/admin/templates/editPost.html:67
+#: app/admin/templates/posts-edit.html:65
 msgid "By saving all the changes will be published"
 msgstr "Aldaketak argitaratuko dira gordetzean"
 
-#: app/admin/templates/editPost.html:69
+#: app/admin/templates/posts-edit.html:67
 msgid "Update the post"
 msgstr "Gorde aldaketak"
 
-#: app/admin/templates/home.html:8
+#: app/admin/templates/main-home.html:8
 msgid "Welcome to Chroma,"
 msgstr "Ongietorri Chroma-ra"
 
-#: app/admin/templates/navMain.html:1
+#: app/admin/templates/blocks/nav-main.html:1
 msgid "MAIN MENU"
 msgstr "MENU NAGUSIA"
 
-#: app/admin/templates/navMain.html:6
-msgid "Pages"
-msgstr "Orriak"
-
-#: app/admin/templates/navMain.html:10
-msgid "All Pages"
-msgstr "Orri guztiak"
-
-#: app/admin/templates/navMain.html:11 app/admin/templates/navMain.html:22
+#: app/admin/templates/blocks/nav-main.html:22
 msgid "Add New"
 msgstr "Gehitu berri bat"
 
-#: app/admin/templates/navMain.html:17
+#: app/admin/templates/blocks/nav-main.html:17
 msgid "Blog"
 msgstr "Bloga"
 
-#: app/admin/templates/navMain.html:21
+#: app/admin/templates/blocks/nav-main.html:21
 msgid "All Entries"
 msgstr "Sarrera guztiak"
 
-#: app/admin/templates/navMain.html:33
-msgid "Menu Settings"
-msgstr "Menuaren ezarpenak"
-
-#: app/admin/templates/navMain.html:34
-msgid "Contact Settings"
-msgstr "Kontaktuaren ezarpenak"
-
-#: app/admin/templates/addPost.html:15
-#: app/admin/templates/viewCategories.html:38
+#: app/admin/templates/categories-view.html:38
+#: app/admin/templates/posts-add.html:15
 msgid "Add"
 msgstr "Gehitu"
 
-#: app/admin/templates/viewCategories.html:48
+#: app/admin/templates/categories-view.html:48
 msgid "Add a"
 msgstr "Gehitu"
 
-#: app/admin/templates/viewCategories.html:48
+#: app/admin/templates/categories-view.html:48
 msgid "category"
 msgstr "Kategoriak"
 
-#: app/admin/templates/viewPosts.html:26
+#: app/admin/templates/posts-view.html:28
 msgid "Posts"
 msgstr "Guztiak"
 
-#: app/admin/templates/viewPosts.html:36
+#: app/admin/templates/posts-view.html:38
 msgid "Add Post"
 msgstr "Gehitu Sarrera"
 
-#: app/admin/templates/viewPosts.html:55
+#: app/admin/templates/posts-view.html:57
 msgid "Published"
 msgstr "Argitaratua"
 
-#: app/admin/templates/viewPosts.html:57
+#: app/admin/templates/posts-view.html:59
 msgid "Actions"
 msgstr "Ekintzak"
 
-#: app/admin/templates/viewPosts.html:26
+#: app/admin/templates/posts-view.html:28
 msgid "All"
 msgstr "Sarrera"
 
-#: app/admin/templates/addPost.html:255 app/admin/templates/editPost.html:116
+#: app/admin/templates/posts-add.html:221
+#: app/admin/templates/posts-edit.html:118
 msgid "Your link"
 msgstr "Zure link-a"
 
-#: app/admin/templates/addPost.html:290 app/admin/templates/editPost.html:150
+#: app/admin/templates/posts-add.html:256
+#: app/admin/templates/posts-edit.html:152
 msgid "YouTube or Vimeo link to a video"
 msgstr "YouTube edo Vimeo-ko linka"
 
-#: app/admin/templates/addPost.html:132
+#: app/admin/templates/posts-add.html:137
 msgid "Search or Create a category.."
 msgstr "Kategori bat bilatu edo sortu.."
 
-#: app/admin/templates/addPost.html:140
+#: app/admin/templates/posts-add.html:153
 msgid "Enter a title"
 msgstr "Tituloa gehitu"
 
-#: app/admin/templates/modalEditor.html:6
+#: app/admin/templates/blocks/modal-editor.html:12
 msgid "How to add images and edit text"
 msgstr "Irudiak gehitu eta testua aldatu"
 
-#: app/admin/templates/modalEditor.html:10
-#: app/admin/templates/modalEditor.html:18
+#: app/admin/templates/blocks/modal-editor.html:16
+#: app/admin/templates/blocks/modal-editor.html:24
 msgid "Edit text"
 msgstr "Testua aldatu"
 
-#: app/admin/templates/modalEditor.html:19
+#: app/admin/templates/blocks/modal-editor.html:25
 msgid "Text editing is as easy as selecting the words you want to style and then a bubble Box will appear with available options."
 msgstr "Testua aldatzeko, aukeratu aldatu nahi dituzun hitzak eta menu bat agertuko da automatikoki hainbat aukerekin."
 
-#: app/admin/templates/modalEditor.html:28
+#: app/admin/templates/blocks/modal-editor.html:34
 msgid "Add an image or Video"
 msgstr "Gehitu irudi bat edota bideoa bat"
 
-#: app/admin/templates/modalEditor.html:30
+#: app/admin/templates/blocks/modal-editor.html:36
 msgid "For adding an image or a video, just drag the image to the editor or click in the"
 msgstr "Bideo edo irudi bat gehitzeko, irudia eraman weborrira saguarekin edo klikatu editoreko ezkerreko aldean dagoen"
 
-#: app/admin/templates/modalEditor.html:35
+#: app/admin/templates/blocks/modal-editor.html:41
 msgid "button in the left side of the editor."
 msgstr "botoian."
 
-#: app/admin/templates/modalEditor.html:11
+#: app/admin/templates/blocks/modal-editor.html:17
 msgid "Add images"
 msgstr "Irudiak gehitu"
 
@@ -363,4 +360,20 @@ msgstr "Badirudi arazo bat egon dela serbidorean."
 #: templates/500.html:21
 msgid "While you are reading these, our team have been notified. "
 msgstr "Gure teknikariak ohartarazi diegu jada. Saiatu zaitez berriro. "
+
+#: app/admin/templates/posts-edit.html:99
+msgid "Please introduce at least one category"
+msgstr "Mesedez, Kategoria bat sortu."
+
+#: app/admin/templates/posts-edit.html:100
+msgid "Please, write a title for your blog post"
+msgstr "Mesedez titulu bat gehitu"
+
+#: app/admin/templates/posts-view.html:98
+msgid "Older Posts"
+msgstr "Sarrera gehio"
+
+#: app/admin/templates/posts-view.html:153
+msgid "All post were loaded"
+msgstr "Sarrera guztiak kargatu dira"
 
