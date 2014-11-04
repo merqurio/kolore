@@ -122,24 +122,31 @@
         moment.locale('{{request.cookies.get('lang')}}');
 
         // Dates
-        function set_dates(){$('.date').each(
-            function(){
-                var elementData = moment(new Date($(this).attr('data-date'))).fromNow(),
-                    elementFormat = $(this).attr('data-format');
-                $(this).html(elementData/*.format(elementFormat)*/);
-            }
-        );}
+        function set_dates(){
+            $('.date').each(
+                function(){
+                    var elementData = moment(new Date($(this).attr('data-date'))).fromNow(),
+                        elementFormat = $(this).attr('data-format');
+                    $(this).html(elementData/*.format(elementFormat)*/);
+                }
+            )
+        }
 
         set_dates();
 
         // AJAX Call more posts
         var page = 0;
         $("#more_posts").click(function(event){
-            page++;
+            page++; // adds one to pagination
             jQuery.get('/admin/posts/'+page, function(more_posts) {
+                // Get's objects
                 $('#table_body').append(more_posts);
+                // set's time for new posts
                 set_dates();
+                // shows them
                 $('.fadein').fadeIn();
+
+                // If no more posts to show --> Notification
                 if (more_posts === ""){
                     $("#more_posts").fadeOut();
                     Messenger().post({
