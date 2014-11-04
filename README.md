@@ -1,6 +1,6 @@
 ## Kolore Content Manager
 [![Stories in Ready](https://badge.waffle.io/ChromaBranding/kolore.png?label=ready&title=Ready)](https://waffle.io/ChromaBranding/kolore)
-![ Version ](http://img.shields.io/badge/v-0.1-2af985.svg)
+![ Version ](http://img.shields.io/badge/v-0.2-2af985.svg)
 [![Gitter](http://img.shields.io/badge/Join-Chat-07e96a.svg)](https://gitter.im/ChromaBranding/kolore?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![ Not production ready ](http://img.shields.io/badge/Not%20for-Production-red.svg)
 [![byChroma](http://img.shields.io/badge/by-Chroma-22f2b8.svg)](http://www.chromabranding.com)
