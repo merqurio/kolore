@@ -76,7 +76,7 @@ Dependencies must be installed and uploaded within your app. The configuration t
 ### App Engine Commands
 
 ##### Start the server
-In the root directory<br>
+In the root directory of the app run in your terminal<br>
 `dev_appserver.py .`
 
 ##### Deploy to the server
