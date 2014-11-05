@@ -37,6 +37,7 @@ def home():
     return render_template('main-home.html', user=name)
 
 # /// Pages ///
+# ----------------------------------------------------------------
 
 
 @admin_app.route('/pages')
@@ -46,6 +47,7 @@ def pages():
 
 
 # /// Posts ///
+# ----------------------------------------------------------------
 
 @admin_app.route('/posts', methods=['GET', 'POST'])
 @login_required
@@ -130,6 +132,7 @@ def edit_post(post_id):
 
 
 # /// Images ///
+# ----------------------------------------------------------------
 
 @admin_app.route('/upload_url')
 def upload_url():
@@ -168,6 +171,7 @@ def img(bkey):
 
 
 # /// Categories ///
+# ----------------------------------------------------------------
 
 @admin_app.route('/categories', methods=['GET', 'POST'])
 @login_required
