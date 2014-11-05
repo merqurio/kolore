@@ -1,4 +1,5 @@
-# import dependencies
+# Import dependencies
+# ----------------------------------------------------------------
 import admins
 from functools import wraps
 from google.appengine.api import users
@@ -7,6 +8,7 @@ from main import app
 
 
 # Set's the login to Google Users Service
+# ----------------------------------------------------------------
 def login_required(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
@@ -22,6 +24,7 @@ def login_required(func):
 
 
 # Creates a logout page
+# ----------------------------------------------------------------
 @app.route('/logout')
 def logout():
     return redirect(users.create_logout_url('/'))

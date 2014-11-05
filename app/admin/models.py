@@ -1,8 +1,10 @@
 # Imports
+# ----------------------------------------------------------------
 from google.appengine.ext import ndb
 
 
-# Admin's Models
+# Blogs's Models
+# ----------------------------------------------------------------
 class BlogPost(ndb.Model):
     title = ndb.StringProperty()
     text = ndb.TextProperty()
@@ -57,7 +59,3 @@ class BlogCategory(ndb.Model):
                     new_categories.append(category)
             post.categories = new_categories
             post.put()
-
-
-class BlogImage(ndb.Model):
-    img_id = ndb.StringProperty()
