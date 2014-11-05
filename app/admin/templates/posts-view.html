@@ -127,7 +127,7 @@
         function set_dates(){
             $('.date').each(
                 function(){
-                    var elementData = moment(new Date($(this).attr('data-date'))).fromNow(),
+                    var elementData = moment($(this).attr('data-date'), "YYYY-MM-DD HH:mm:ss.SSSSSS").fromNow(),
                         elementFormat = $(this).attr('data-format');
                     $(this).html(elementData/*.format(elementFormat)*/);
                 }
