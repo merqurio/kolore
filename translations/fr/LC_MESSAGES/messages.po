@@ -95,7 +95,7 @@ msgstr "Ecrire, écrire, écrire"
 
 #: app/admin/templates/posts-add.html:113
 msgid "And <strong>Yes !</strong> everyone writes good content if it wants"
-msgstr "Et <strong> Oui! </ Strong> tout le monde écrit un bon contenu, si elle veut"
+msgstr "Et <strong> Oui! </strong> tout le monde écrit un bon contenu, si elle veut"
 
 #: app/admin/templates/categories-edit.html:10
 #: app/admin/templates/categories-view.html:12
@@ -110,7 +110,7 @@ msgstr "Catégories"
 
 #: app/admin/templates/posts-add.html:131
 msgid "It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website."
-msgstr "Il est important d'essayer de garder votre contenu organisé. Catégorisation des messages vous aide à garder <b> votre truc organisé. </ B> permet également des moteurs de recherche à comprendre le contenu de votre site web."
+msgstr "Il est important d'essayer de garder votre contenu organisé. Catégorisation des messages vous aide à garder <b> votre truc organisé. </b> permet également des moteurs de recherche à comprendre le contenu de votre site web."
 
 #: app/admin/templates/posts-add.html:134
 msgid "Select"
@@ -118,7 +118,7 @@ msgstr "Sélectionner"
 
 #: app/admin/templates/posts-add.html:135
 msgid "<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories."
-msgstr "<Span class = 'text-info'> Recherche de catégories existant ou en écrire un nouveau et <b> appuyez sur Entrée </ b> </ span>. Se il vous plaît essayer <b> ne pas dupliquer </ b> catégories."
+msgstr "<span class = 'text-info'> Recherche de catégories existant ou en écrire un nouveau et <b> appuyez sur Entrée </b> </span>. Se il vous plaît essayer <b> ne pas dupliquer </b> catégories."
 
 #: app/admin/templates/posts-add.html:151
 msgid "Write your"

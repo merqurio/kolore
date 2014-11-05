@@ -3832,6 +3832,8 @@ div.has-error ul.select2-choices {
   background-image: none;
   border: 1px solid #dae0e4;
   border-radius: 2px;
+  overflow: visible!important;
+  height: 40px!important;
 }
 .select2-container-multi .select2-choices .select2-search-choice {
   background-color: #e8edf1;
