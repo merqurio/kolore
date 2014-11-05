@@ -91,6 +91,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {% if plus%}
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
                             <button class="btn btn-block btn-white" type="button" id="more_posts">
@@ -99,6 +100,7 @@
                             </button>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -145,9 +147,10 @@
                 set_dates();
                 // shows them
                 $('.fadein').fadeIn();
-
+                var listItems = $("#table_body").children(),
+                    count = listItems.length;
                 // If no more posts to show --> Notification
-                if (more_posts === ""){
+                if (count%5 !== 0){
                     $("#more_posts").fadeOut();
                     Messenger().post({
                         message: "{{_("All post were loaded")}}",

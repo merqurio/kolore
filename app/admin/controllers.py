@@ -57,10 +57,12 @@ def posts():
         ndb.Key('BlogPost', int(request.form['post_id'])).delete()
         time.sleep(1)
 
+    posts = BlogPost.query().order(-BlogPost.date).fetch(5)
+    plus = True
+    if len(posts) < 5:
+        plus = False
     return render_template('posts-view.html',
-                           posts=BlogPost.query()
-                           .order(-BlogPost.date)
-                           .fetch(5))
+                           posts=posts, plus=plus)
 
 
 @admin_app.route('/posts/<int:page_num>', methods=['GET', 'POST'])
