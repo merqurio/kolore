@@ -20,9 +20,11 @@ LANGUAGES = {
 
 # Import Blueprints
 from app.admin.controllers import admin_app
+from app.front.controllers import front_app
 
 # Register Blueprints
 app.register_blueprint(admin_app, url_prefix='/admin')
+app.register_blueprint(front_app, url_prefix='')
 
 
 #Language selector
@@ -35,11 +37,6 @@ def get_locale():
 
 
 # Main routes
-@app.route('/')
-def hello():
-    """Return a friendly HTTP greeting."""
-    return 'This is your code'
-
 
 @app.errorhandler(404)
 def page_not_found(e):
