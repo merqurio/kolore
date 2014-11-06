@@ -7,6 +7,10 @@
  * Released under the MIT license
  */
 
+ .mediumInsert-buttons {
+  display: none;
+}
+
 .mediumInsert {
   margin: -1em 0; }
   .mediumInsert figure {
