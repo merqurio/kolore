@@ -1,7 +1,9 @@
 # This requirements file lists all third-party dependencies for this project.
 #
-# Run 'pip install -r static/requirements.txt -t lib/' to install these dependencies
+# Run 'pip install -r lib/requirements.txt -t lib/' to install these dependencies
 # in `lib/` subdirectory.
+# 
+# REMEMBER THAT YOU MUST BE IN THE ROOT DIRECTORY !
 #
 # Note: The `lib` directory is added to `sys.path` by `appengine_config.py`.
 Flask==0.10
