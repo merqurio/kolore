@@ -1,7 +1,7 @@
 *.pyc
 # don't include third-party dependencies.
 lib/
-!lib/README.md
+!lib/requirements.txt
 .DS_Store
 admins.py
 app.yaml
