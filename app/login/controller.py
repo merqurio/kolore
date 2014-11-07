@@ -19,7 +19,8 @@ def login_required(func):
             if user.email() in admins.USERS:
                 return func(*args, **kwargs)
             else:
-                return 'Trampak iten, ezta ? Email; info@chromabranding.com'
+                return '''This email is not in our system.
+                 Email us: info@chromabranding.com'''
     return decorated_view
 
 
