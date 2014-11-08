@@ -30,7 +30,7 @@ The CMS is a [Flask][3] app with [Jinja2][5] and [Flask-Babel][4] running on top
 *You don't have to pay anything until your website has lots of visitors.* You just need to start a project in the [Google's Developer Console][13] to upload your instance of **Kolore**. Plus you have a lot of freedom for customazing and you don't have to worry about scale problems.
 
 ##### What makes it different ?
-We focus in the user. We want our customers to easily manage their own web sites. 
+We focus in the users. We want to make web management easy for our customers. 
 
 ##### I don't mind about this stuff, I just want to create a web fast. 
 **Soon** you will find all the info you need to create a template, place it and start running.
