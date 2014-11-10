@@ -150,7 +150,7 @@
                 var listItems = $("#table_body").children(),
                     count = listItems.length;
                 // If no more posts to show --> Notification
-                if (count%5 !== 0){
+                if (count%5 !== 0 || more_posts == ''){
                     $("#more_posts").fadeOut();
                     Messenger().post({
                         message: "{{_("All post were loaded")}}",
