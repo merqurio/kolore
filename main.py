@@ -1,6 +1,6 @@
 # Import the Flask Framework
 # ----------------------------------------------------------------
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
@@ -44,6 +44,10 @@ def get_locale():
 
 # Global routes
 # ----------------------------------------------------------------
+@app.route('/ADMIN')
+def admin_redirect():
+    return redirect(url_for('admin.home'))
+
 @app.errorhandler(404)
 def page_not_found(e):
     """Return a custom 404 error."""
