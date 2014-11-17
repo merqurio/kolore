@@ -26,3 +26,10 @@ def home():
     if not request.cookies.get('lang'):
         response.set_cookie('lang', value='en')
     return response
+
+
+@front_app.route('/blog/<post_url>')
+def post(post_url):
+    return render_template('front-post.html',
+                           post=BlogPost.query(BlogPost.url == post_url)
+                           .fetch())

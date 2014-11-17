@@ -1,0 +1,9 @@
+{% extends 'front-base.html'%}
+{% block title %}{{post.title}}{% endblock%}
+{% block content%}
+<div class="post">
+    <small>{{post.date}} | {{post.author}}</small>
+    <p>{{post.text | safe}}</p>
+</div>
+<hr/>
+{% endblock %}

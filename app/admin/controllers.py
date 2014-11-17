@@ -2,6 +2,7 @@
 # ----------------------------------------------------------------
 import time
 import logging
+from functions import url
 from app.login.controller import login_required
 from google.appengine.api import users
 from google.appengine.ext import ndb, blobstore
@@ -35,15 +36,6 @@ def home():
     user = users.get_current_user()
     name = user.nickname().split('@')[0].title()
     return render_template('main-home.html', user=name)
-
-# /// Pages ///
-# ----------------------------------------------------------------
-
-
-@admin_app.route('/pages')
-@login_required
-def pages():
-    return render_template('pages-view.html')
 
 
 # /// Posts ///
@@ -86,7 +78,8 @@ def addPost():
         # Create New Blog Post Object
         blog_post = BlogPost(title=request.form['title'],
                              text=request.form['text'],
-                             author=users.get_current_user())
+                             author=users.get_current_user(),
+                             url=url(request.form['title']))
 
         # Create New Blog Post Categories
         post_categories = request.form['categories'].split(",")
