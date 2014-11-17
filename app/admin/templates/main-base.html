@@ -77,7 +77,7 @@
                     {% include "blocks/nav-main.html"%}
                     <!-- END SIDEBAR MENU -->
                 </div>
-                <div class="footer-widget" {% if request.cookies.get('menu') == 'open' %}{{'style="display:none;"'}}{% endif %} >
+                <div class="footer-widget" {% if request.cookies.get('menu') == 'open' %}{{'style="visibility:hidden;"'}}{% endif %} >
                     <div class="pull-right">
                         <a href="/logout"><i class="fa fa-power-off"></i></a></div>
                     </div>
