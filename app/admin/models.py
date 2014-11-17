@@ -10,7 +10,7 @@ class BlogPost(ndb.Model):
     text = ndb.TextProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
     categories = ndb.KeyProperty(repeated=True)
-    url = ndb.TextProperty()
+    url = ndb.StringProperty()
     author = ndb.UserProperty()
 
     def get_categories(self):

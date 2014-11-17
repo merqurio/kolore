@@ -531,7 +531,7 @@ hr {
     border-bottom: 1px solid #FEFEFE;
 }
 .iconset {
-    background: url('../../../img/icon/top-tray-b.png') no-repeat;
+    background: url('../img/icon/top-tray-b.png') no-repeat;
     position: relative;
     top: 1px;
 }
@@ -1026,7 +1026,7 @@ div.has-error ul.select2-choices {
 }
 .grid.simple .grid-title .tools a {
     position: relative;
-    background: url('../../../img/icon/portlet-tray.png') no-repeat;
+    background: url('../img/icon/portlet-tray.png') no-repeat;
     transition: all 0.1s linear 0s;
 }
 .grid.simple .grid-title .tools > a.config {
@@ -1040,6 +1040,14 @@ div.has-error ul.select2-choices {
     height: 7px;
     top: -5px;
 }
+
+.grid.simple .grid-title .tools > a.expand {
+    background-position: -123px -40px;
+    width: 10px;
+    height: 6px;
+    top: -5px;
+}
+
 .label {
     padding: 3px 9px;
     font-size: 11px;
@@ -1592,11 +1600,11 @@ th {
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 200/100), only screen and (min-device-pixel-ratio: 2) {
     .grid.simple .grid-title .tools a {
-        background: url('../../../img/icon/portlet-tray-2x.png');
+        background: url('../img/icon/portlet-tray-2x.png');
         background-size: 199px 57px;
     }
     .iconset {
-        background: url('../../../img/icon/top-tray-bx2.png') no-repeat;
+        background: url('../img/icon/top-tray-bx2.png') no-repeat;
         background-size: 394px 29px;
     }
 }

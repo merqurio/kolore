@@ -68,7 +68,7 @@
                                             <label for="checkbox{{loop.index}}"></label>
                                         </div>
                                     </td> #}
-                                    <td><a href="/blog/{{post.key.id()}}"><span style="line-height: 23px;">{{post.title}}</span></a></td>
+                                    <td><a href="/blog/{{post.url}}"><span style="line-height: 23px;">{{post.title}}</span></a></td>
                                     <td><span style="line-height: 23px;" class="date" data-date="{{post.date}}" data-format="LL"></span></td>
                                     <td>
                                         {% for category in post.get_categories() %}<span class="label">{{category}}</span> {% endfor %}
