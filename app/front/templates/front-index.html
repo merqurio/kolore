@@ -1,0 +1,10 @@
+{% extends 'front-base.html'%}
+{% block title %} BLOG PAGE{% endblock%}
+{% block content%} {% for post in posts %}
+<div class="post">
+    <h2>{{post.title}}</h2>
+    <small>{{post.date}} | {{post.author}}</small>
+    <p>{{post.text | safe}}</p>
+</div>
+<hr/>
+{% endfor %} {% endblock %}
