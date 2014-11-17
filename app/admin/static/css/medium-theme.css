@@ -234,7 +234,7 @@
     width: 18px;
     height: 18px;
     margin-top: -5px;
-    border-radius: 10px;
+    border-radius: 100px;
     border: 2px solid;
     font-size: 18px;
     line-height: 18px;
@@ -304,21 +304,21 @@ ul.mediumInsert-buttonsOptions li {
 }
 .mediumInsert .mediumInsert-imageRemove {
     right: 0;
-    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/remove.png);
+    background-image: url(../plugins/medium-editor-insert-plugin/dist/images/remove.png);
 }
 .mediumInsert .mediumInsert-imageResizeSmaller, .mediumInsert .mediumInsert-imageResizeBigger, .mediumInsert .mediumInsert-imageResizeBigger {
     right: 31px;
-    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/resize-smaller.png);
+    background-image: url(../plugins/medium-editor-insert-plugin/dist/images/resize-smaller.png);
 }
 .mediumInsert .mediumInsert-imageResizeBigger {
-    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/resize-bigger.png);
+    background-image: url(../plugins/medium-editor-insert-plugin/dist/images/resize-bigger.png);
 }
 .mediumInsert .mediumInsert-imageLink, .mediumInsert .mediumInsert-imageUnlink {
     right: 62px;
-    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/link.png);
+    background-image: url(../plugins/medium-editor-insert-plugin/dist/images/link.png);
 }
 .mediumInsert .mediumInsert-imageUnlink {
-    background-image: url(../../../plugins/medium-editor-insert-plugin/dist/images/unlink.png);
+    background-image: url(../plugins/medium-editor-insert-plugin/dist/images/unlink.png);
 }
 .mediumInsert .mediumInsert-error {
     background-color: #f2dede;
