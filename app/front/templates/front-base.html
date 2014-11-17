@@ -13,6 +13,7 @@
             max-width: 600px;
             margin-right: auto;
             margin-left: auto;
+            margin-bottom: 120px; 
         }
         p {
             margin: 20px 0 20px;
@@ -26,18 +27,13 @@
         <![endif]-->
     </head>
     <body>
-            <div class="container">
-                <div class="page-header">
-                    <h1>Blog Example</h1>
-                </div>
-                <!-- Use element -->
-                <google-map lat="37.790" long="-122.390"></google-map>
-                {% for post in posts %}
-                    <div class="post">
-                        <h3>{{post.title}}</h3><small>{{post.date}} | {{post.author}}</small>
-                        <p>{{post.text | safe}}</p>
-                    </div>
-                {% endfor %}
+        <div class="container">
+            <div class="page-header">
+                <h1>{% block title%}{% endblock %}</h1>
+            </div>
+            <!-- CONTENT -->
+            {% block content%}
+            {% endblock %}
         </div> <!-- /container -->
         
         <!-- jQuery -->
