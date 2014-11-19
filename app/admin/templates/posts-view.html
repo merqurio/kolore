@@ -62,17 +62,21 @@
                                         {% for category in post.get_categories() %}<span class="label">{{category}}</span> {% endfor %}
                                     </td>
                                     <td>
-                                        <form method="POST">
-                                            <div class="btn-group">
-                                                <a href="{{ url_for('admin.edit_post', post_id=post.key.id())}}" class="btn btn-table btn-info tip"  data-toggle="tooltip" data-container="body" data-original-title="{{_("Edit")}}">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                                <button type="submit" class="btn btn-table btn-danger tip" data-container="body" data-toggle="tooltip" data-original-title="{{_("Delete")}}">
-                                                    <input value="{{post.key.id()}}" name="post_id"  type="hidden"> 
-                                                    <i class="fa fa-trash-o"></i>
-                                                </button>
-                                            </div>
-                                        </form> 
+                                        <div class="btn-group">
+                                            <a href="{{ url_for('admin.edit_post', post_id=post.key.id())}}" class="btn btn-table btn-info tip"  data-toggle="tooltip" data-container="body" data-original-title="{{_("Edit")}}">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <button type="button" 
+                                                    class="btn btn-table btn-danger tip" 
+                                                    data-container="body" 
+                                                    rel="tooltip"
+                                                    data-toggle="modal" 
+                                                    data-target="#deleteModal" 
+                                                    data-blog-id="{{post.key.id()}}" 
+                                                    data-original-title="{{_("Delete")}}"> 
+                                                <i class="fa fa-trash-o"></i>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                                 {% endfor %}
@@ -152,4 +156,5 @@
 
     });
 </script>
+{% include "blocks/modal-delete.html"%}
 {% endblock %}
