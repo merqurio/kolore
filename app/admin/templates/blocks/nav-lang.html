@@ -27,11 +27,11 @@
             </a>
             <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
                 <li>
-                    <a href="#"> {{_('My Account')}}</a>
+                    <a href="{{url_for('admin.user')}}"> {{_('My Account')}}</a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="/logout">
+                    <a href="{{url_for('logout')}}">
                         <i class="fa fa-power-off"></i>&nbsp;&nbsp;{{_('Log Out')}}
                     </a>
                 </li>
