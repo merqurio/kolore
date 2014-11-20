@@ -3,7 +3,7 @@
 import time
 import logging
 from functions import url
-from app.login.controller import login_required
+from app.login.controllers import login_required
 from google.appengine.api import users
 from google.appengine.ext import ndb, blobstore
 from google.appengine.api.images import get_serving_url
@@ -16,6 +16,7 @@ from flask import (Blueprint, render_template, make_response, request,
 # ----------------------------------------------------------------
 
 from app.admin.models import BlogPost, BlogCategory
+from app.login.models import User
 
 # Config
 # ----------------------------------------------------------------
@@ -33,12 +34,24 @@ IMG_SIZE = 1200
 @admin_app.route('/')
 @login_required
 def home():
-    user = users.get_current_user()
-    name = user.nickname().split('@')[0].title()
-    return render_template('main-home.html', user=name)
+    current_user = users.get_current_user()
+    db_user = User.query(User.email == current_user.email()).get()
+    return render_template('main-home.html', user=db_user)
 
 
-# /// Posts ///
+@admin_app.route('/user', methods=['GET', 'POST'])
+@login_required
+def user():
+    current_user = users.get_current_user()
+    db_user = User.query(User.email == current_user.email()).get()
+    if request.method == 'POST':
+        db_user.name = request.form['user_name']
+        db_user.put()
+
+    return render_template('main-user.html', user=db_user)
+
+
+# Controllers /// Posts ///
 # ----------------------------------------------------------------
 
 @admin_app.route('/posts', methods=['GET', 'POST'])
@@ -124,7 +137,7 @@ def edit_post(post_id):
                            categories=BlogCategory.query_all())
 
 
-# /// Images ///
+# Controllers /// Images ///
 # ----------------------------------------------------------------
 
 @admin_app.route('/upload_url')
@@ -163,7 +176,7 @@ def img(bkey):
     return response
 
 
-# /// Categories ///
+# Controllers /// Categories ///
 # ----------------------------------------------------------------
 
 @admin_app.route('/categories', methods=['GET', 'POST'])

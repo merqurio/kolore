@@ -56,6 +56,13 @@ body.right-side-bar .page-content.condensed {
     margin-left: 0;
     margin-right: 50px;
 }
+
+p.open {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-size: 16px;
+}
+
 .navbar, .navbar-inverse {
     background-color: transparent;
     background-image: none;
@@ -704,11 +711,6 @@ form {
 .wizard-steps li.active .title {
     color: #2B3D53;
 }
-#rootwizard p.open {
-    font-family: 'Open Sans';
-    font-weight: 300;
-    font-size: 16px;
-}
 .wizard-actions {
     display: block;
     list-style: none outside none;
@@ -922,6 +924,16 @@ div.has-error ul.select2-choices {
     padding: 6px 10px;
     border-radius: 3px;
     transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s, color 0.2s linear 0s, box-shadow 0.2s linear 0s, background 0.2s linear 0s;
+}
+.input-group-addon.primary {
+    background-color: #0aa699;
+    border: 1px solid #0aa699;
+    color: #ffffff;
+}
+.input-group-addon.success {
+    background-color: #0090d9;
+    border: 1px solid #0090d9;
+    color: #ffffff;
 }
 .input-group-addon i {
     position: relative;
@@ -1152,6 +1164,14 @@ div.has-error ul.select2-choices {
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active {
     background-color: #f14d4d;
 }
+.btn-warning {
+    color: #ffffff;
+    background-color: #fbb05e;
+}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled] {
+    background-color: #faa652;
+}
+
 .btn-white {
     color: #5e5e5e;
     background-color: #ffffff;
