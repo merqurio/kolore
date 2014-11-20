@@ -5,56 +5,60 @@
     <link href="{{ url_for('admin.static', filename='plugins/select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen">
 {% endblock %}
 {% block content%}
-<div class="row animated fadeInUp">
-    <div class="col-md-6">
-        <div class="grid simple">
-            <div class="grid-title no-border">
-                <h4>{{_("Edit")}} <span class="semi-bold">{{_("Categories")}}</span></h4>
-                <div class="tools">
-                    <a href="javascript:;" class="collapse"></a>
-                    <a href="#" class="config"></a>
-                </div>
-            </div>
-            <div class="grid-body no-border">
-                <div class="row">
-                    <h4>{{_("Pick a category from the list in the left, and edit it in the right column.")}}</h4>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2" style="text-align: center;">
-                            {% for category in categories%}
-                            <a href="{{ url_for('admin.edit_category', cat_id=category.key.id())}}">
-                            {% set labels = ['','-success', '-info', '-inverse','-important','-warning'] %}
-                            <span class="label label{{labels|random()}}">{{category.name}}</span>
-                            </a>
-                            {% endfor %}
+<div class="row">
+    <div class="col-md-8 col-sm-12 col-md-offset-2">
+        <div class="row animated fadeInUp">
+            <div class="col-md-6 col-sm-6">
+                <div class="grid simple">
+                    <div class="grid-title no-border">
+                        <h4>{{_("Edit")}} <span class="semi-bold">{{_("Categories")}}</span></h4>
+                        <div class="tools">
+                            <a href="javascript:;" class="collapse"></a>
+                            <a href="#" class="config"></a>
+                        </div>
+                    </div>
+                    <div class="grid-body no-border">
+                        <div class="row">
+                            <h4>{{_("Pick a category from the list in the left, and edit it in the right column.")}}</h4>
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: center;">
+                                    {% for category in categories%}
+                                    <a href="{{ url_for('admin.edit_category', cat_id=category.key.id())}}">
+                                    {% set labels = ['','-success', '-info', '-inverse','-important','-warning'] %}
+                                    <span class="label label{{labels|random()}}">{{category.name}}</span>
+                                    </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="grid simple">
-            <div class="grid-title no-border">
-                <h4>{{_("Add")}} <span class="semi-bold">{{_("Categories")}}</span></h4>
-                <div class="tools">
-                    <a href="javascript:;" class="collapse"></a>
-                    <a href="#" class="config"></a>
-                </div>
-            </div>
-            <div class="grid-body no-border">
-                <div class="row"> 
-                    <form id="edit" method="post">
-                        <div class="col-md-8 col-md-offset-2" style="text-align:center;"> 
-                            <h4>{{_("Add a")}} <b>{{_("category")}}</b>.</h4>
-                            <input id="multi" name="categories" style="width:100%">
-                            <br>
-                            <br>
-                            <button type="submit" class="btn btn-success">
-                                <i class="fa fa-save"></i>
-                                {{_("Save")}}
-                            </button>
+            <div class="col-md-6 col-sm-6">
+                <div class="grid simple">
+                    <div class="grid-title no-border">
+                        <h4>{{_("Add")}} <span class="semi-bold">{{_("Categories")}}</span></h4>
+                        <div class="tools">
+                            <a href="javascript:;" class="collapse"></a>
+                            <a href="#" class="config"></a>
                         </div>
-                    </form>
+                    </div>
+                    <div class="grid-body no-border">
+                        <div class="row"> 
+                            <form id="edit" method="post">
+                                <div class="col-md-12" style="text-align:center;"> 
+                                    <h4>{{_("Add a")}} <b>{{_("category")}}</b>.</h4>
+                                    <input id="multi" name="categories" style="width:100%">
+                                    <br>
+                                    <br>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fa fa-save"></i>
+                                        {{_("Save")}}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
