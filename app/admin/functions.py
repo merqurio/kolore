@@ -9,7 +9,7 @@ PUNCTUATION = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
 # Functions
 # ----------------------------------------------------------------
 def url(text, delim=u'-'):
-    """Generates an slightly worse ASCII-only slug."""
+    """Generates an ASCII-only slug."""
     result = []
     for word in PUNCTUATION.split(text.lower()):
         word = normalize('NFKD', word).encode('ascii', 'ignore')
