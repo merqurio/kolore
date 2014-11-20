@@ -1108,6 +1108,7 @@ div.has-error ul.select2-choices {
     background-color: #F3F5F6;
     margin-top: 0;
     text-align: right;
+    border-radius: 3px;
 }
 .dropdown-menu.pull-right {
     right: 0;
