@@ -93,7 +93,7 @@ Remember to change also the `app.yaml`file with project-id.<br>
 `pybabel init -i messages.pot -d translations -l 'es'`
 
 ##### Compile all translations
-Once you have a `.po` file withe the translations, thode must be compiled to `.mo`
+Once you have a `.po` file with the translations, those files must be compiled to a `.mo` file<br>
 `pybabel compile -d translations`
 
 
