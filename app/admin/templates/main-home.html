@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2" style="text-align:center;">
         <div style="margin-top:20%">
-        <h1>{{_("Welcome to Chroma,")}} <span class="semi-bold">{{user}}</span></h1>
+        <h1>{{_("Welcome to Chroma")}}{% if user%}, <span class="semi-bold">{{user.name}}</span>{% endif %}</h1>
         </div>
     </div>
 </div>

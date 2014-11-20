@@ -256,7 +256,9 @@
                     oembedProxy: 'http://medium.iframe.ly/api/oembed?iframe=1'
                 }
             }
-        });  
+        });
+
+        $('#wizard').removeClass('hidden').addClass('animated fadeInUp');  
     }); 
 
     function copyContent () {
@@ -264,7 +266,7 @@
             document.getElementById("editable").innerHTML;
     }
 
-    $('#wizard').removeClass('hidden').addClass('animated fadeInUp');
+    
     
 </script>
 {% include "blocks/modal-editor.html"%}
