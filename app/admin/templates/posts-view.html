@@ -27,8 +27,8 @@
                 <div class="grid-title no-border">
                     <h4>{{_("All")}} <span class="semi-bold">{{_("Posts")}}</span></h4>
                     <div class="tools">
+                        <a href="#" class="config" style="visibility:hidden;"></a>
                         <a href="javascript:;" class="collapse"></a>
-                        <a href="#" class="config"></a>
                     </div>
                 </div>
                 <div class="grid-body no-border">
@@ -47,12 +47,6 @@
                         <table class="table table-hover cf">
                             <thead class="cf">
                                 <tr>
-                                    {# <th>
-                                        <div class="checkbox check-default">
-                                            <input id="checkbox0" type="checkbox" value="1" class="checkall">
-                                            <label for="checkbox0"></label>
-                                        </div>
-                                    </th> #}
                                     <th>{{_("Post")}}</th>
                                     <th>{{_("Published")}}</th>
                                     <th>{{_("Categories")}}</th>
@@ -62,12 +56,6 @@
                             <tbody id="table_body">
                                 {% for post in posts %}
                                 <tr>
-                                    {# <td>
-                                        <div class="checkbox check-default">
-                                            <input name="check" id="checkbox{{loop.index}}" type="checkbox" value="{{post.key.urlsafe()}}">
-                                            <label for="checkbox{{loop.index}}"></label>
-                                        </div>
-                                    </td> #}
                                     <td><a href="/blog/{{post.url}}"><span style="line-height: 23px;">{{post.title}}</span></a></td>
                                     <td><span style="line-height: 23px;" class="date" data-date="{{post.date}}" data-format="LL"></span></td>
                                     <td>
@@ -161,17 +149,6 @@
             });
             
         });
-
-
-        /*//Helps the to tick all options in the table 
-        $('table .checkbox input').click( function() {          
-            if($(this).is(':checked')){         
-                $(this).parent().parent().parent().toggleClass('row_selected');                 
-            }
-            else{   
-            $(this).parent().parent().parent().toggleClass('row_selected');     
-            }
-        });*/
 
     });
 </script>

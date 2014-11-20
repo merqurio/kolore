@@ -1,11 +1,5 @@
 {% for post in posts %}
     <tr class="fadein" style="display:none;">
-        {# <td>
-            <div class="checkbox check-default">
-                <input name="check" id="checkbox{{loop.index}}" type="checkbox" value="{{post.key.urlsafe()}}">
-                <label for="checkbox{{loop.index}}"></label>
-            </div>
-        </td> #}
         <td><a href="/blog/{{post.key.id()}}"><span style="line-height: 23px;">{{post.title}}</span></a></td>
         <td><span style="line-height: 23px;" class="date" data-date="{{post.date}}" data-format="LL"></span></td>
         <td>
