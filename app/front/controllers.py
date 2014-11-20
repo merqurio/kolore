@@ -1,7 +1,6 @@
 # Imports
 # ----------------------------------------------------------------
 from flask import Blueprint, render_template, make_response, request
-from google.appengine.ext import ndb
 
 # Models
 # ----------------------------------------------------------------
