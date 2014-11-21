@@ -1,8 +1,9 @@
 {% extends 'front-base.html'%}
-{% block title %}{{post.title}}{% endblock%}
+{% block title %}<a href="/">Consectetur adipisicing elit</a>{% endblock%}
 {% block content%}
 <div class="post">
-    <small>{{post.date}} | {{post.author}}</small>
+    <h3>{{post.title}}</h3>
+    <small><span class="date" data-date="{{post.date}}" data-format="LL"></span> | {{post.author}}</small>
     <p>{{post.text | safe}}</p>
 </div>
 <hr/>

@@ -1,10 +1,9 @@
 {% extends 'front-base.html'%}
-{% block title %} BLOG PAGE{% endblock%}
+{% block title %}<a href="/">Consectetur adipisicing elit</a>{% endblock%}
 {% block content%} {% for post in posts %}
 <div class="post">
     <h2><a href="/blog/{{post.url}}">{{post.title}}</a></h2>
-    <small>{{post.date}} | {{post.author}}</small>
+    <small><span class="date" data-date="{{post.date}}" data-format="LL"></span> | {{post.author}}</small>
     <p>{{post.text | safe}}</p>
 </div>
-<hr/>
 {% endfor %} {% endblock %}

@@ -28,7 +28,7 @@ $('#deleteModal').on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget), // Button that triggered the modal
         blog_id = button.data('blog-id'), // Extract info from data-* attributes
         modal = $(this);
-    modal.find('.modal-body input').val(blog_id)
+    modal.find('.modal-body input').val(blog_id);
     $('#deletePost').click(function(){
     //Some code
         $("#deleteForm").submit();
