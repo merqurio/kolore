@@ -61,7 +61,7 @@ We focus in the users. We want to make web management easy for our customers.
 Dependencies must be installed and uploaded within your app. The configuration to include the libraries in App Engine's python is done in the `appengine_config.py` file. A `lib` subdirectory is added as a site packages directory. Remember ! you must have Google Cloud SDK installed in order to run it locally.
 
 ##### Install the dependencies inside a lib folder
-`pip install -r static/requirements.txt -t lib/` to install these dependencies in `lib/` subdirectory from terminal in the root directory.
+`pip install -r lib/requirements.txt -t lib/` to install these dependencies in `lib/` subdirectory from terminal in the root directory.
 
 ### Bower
 [Bower][6] is used to install all the front-end dependencies inside `app/admin/static/plugins/`
