@@ -20,7 +20,7 @@ front_app = Blueprint('front', __name__, template_folder='templates',
 
 @front_app.route('/')
 def home():
-    posts = BlogPost.query().fetch()
+    posts = BlogPost.query().order(-BlogPost.date).fetch()
     response = make_response(render_template('front-index.html', posts=posts))
     if not request.cookies.get('lang'):
         response.set_cookie('lang', value='en')
@@ -29,6 +29,6 @@ def home():
 
 @front_app.route('/blog/<post_url>')
 def post(post_url):
-    object =  BlogPost.query(BlogPost.url == post_url).fetch(1)
+    object = BlogPost.query(BlogPost.url == post_url).fetch(1)
     return render_template('front-post.html',
                            post=object[0])

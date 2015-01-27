@@ -1,13 +1,21 @@
 # Import the Flask Framework
 # ----------------------------------------------------------------
 from flask import Flask, render_template, request, redirect, url_for
-app = Flask(__name__)
-# Note: We don't need to call run() since our application is embedded within
-# the App Engine WSGI application server.
 
 # Import dependencies
 # ----------------------------------------------------------------
 from flask.ext.babel import Babel
+
+# Import Blueprints
+# ----------------------------------------------------------------
+from app.admin.controllers import admin_app
+from app.front.controllers import front_app
+
+# Start Flask
+# ----------------------------------------------------------------
+# Note: We don't need to call run() since our application is embedded within
+# the App Engine WSGI application server.
+app = Flask(__name__)
 
 # Babel Config
 # ----------------------------------------------------------------
@@ -16,15 +24,8 @@ app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 LANGUAGES = {
     'en': 'English',
     'es': 'Espanol',
-    'eu': 'Euskera',
-    'fr': 'Francais'
+    'eu': 'Euskera'
 }
-
-
-# Import Blueprints
-# ----------------------------------------------------------------
-from app.admin.controllers import admin_app
-from app.front.controllers import front_app
 
 # Register Blueprints
 # ----------------------------------------------------------------
@@ -32,7 +33,7 @@ app.register_blueprint(admin_app, url_prefix='/admin')
 app.register_blueprint(front_app, url_prefix='')
 
 
-# Language selector
+# Language selector (Default)
 # ----------------------------------------------------------------
 @babel.localeselector
 def get_locale():
@@ -48,7 +49,11 @@ def get_locale():
 def admin_redirect():
     return redirect(url_for('admin.home'))
 
-@app.errorhandler(404)
+
+@app.errorhandler(400)  # Bad Request
+@app.errorhandler(401)  # Unauthorized
+@app.errorhandler(403)  # Forbidden
+@app.errorhandler(404)  # Not Found
 def page_not_found(e):
     """Return a custom 404 error."""
     return render_template('404.html')

@@ -20,11 +20,6 @@ $(document).ready(function () {
         $.cookie('lang', 'eu', { expires: 365, path: '/' });
         location.reload();
     });
-    $('.fr').click(function() {
-        /* Act on the  */
-        $.cookie('lang', 'fr', { expires: 365, path: '/' });
-        location.reload();
-    });
 
     //***********************************BEGIN Selectors ***************************
 

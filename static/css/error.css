@@ -8,6 +8,10 @@ html {
 
 body {
   margin: 0;
+  overflow: hidden;
+  background-color: #e5e9ec !important;
+  font-family: 'Open Sans';
+  height: 100%;
 }
 
 a {
@@ -567,12 +571,6 @@ input[type="text"]:focus {
 .btn-primary:focus,
 .btn-primary:active {
   background-color: #00b38d;
-}
-
-.error-body {
-  background-color: #e5e9ec !important;
-  font-family: 'Open Sans';
-  height: 100%;
 }
 
 .error-wrapper {

@@ -8,3 +8,4 @@ app.yaml
 /static/plugins/*
 app/admin/static/plugins/*
 app/front/static/plugins/*
+.idea/*
