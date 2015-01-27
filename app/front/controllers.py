@@ -29,6 +29,6 @@ def home():
 
 @front_app.route('/blog/<post_url>')
 def post(post_url):
-    object =  BlogPost.query(BlogPost.url == post_url).fetch(1)
+    object = BlogPost.query(BlogPost.url == post_url).fetch(1)
     return render_template('front-post.html',
                            post=object[0])
