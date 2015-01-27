@@ -1,14 +1,21 @@
 # Import the Flask Framework
 # ----------------------------------------------------------------
-from flask import (Flask, render_template, request, redirect,
-                   url_for, make_response)
-app = Flask(__name__)
-# Note: We don't need to call run() since our application is embedded within
-# the App Engine WSGI application server.
+from flask import Flask, render_template, request, redirect, url_for
 
 # Import dependencies
 # ----------------------------------------------------------------
 from flask.ext.babel import Babel
+
+# Import Blueprints
+# ----------------------------------------------------------------
+from app.admin.controllers import admin_app
+from app.front.controllers import front_app
+
+# Start Flask
+# ----------------------------------------------------------------
+# Note: We don't need to call run() since our application is embedded within
+# the App Engine WSGI application server.
+app = Flask(__name__)
 
 # Babel Config
 # ----------------------------------------------------------------
@@ -20,19 +27,13 @@ LANGUAGES = {
     'eu': 'Euskera'
 }
 
-
-# Import Blueprints
-# ----------------------------------------------------------------
-from app.admin.controllers import admin_app
-from app.front.controllers import front_app
-
 # Register Blueprints
 # ----------------------------------------------------------------
 app.register_blueprint(admin_app, url_prefix='/admin')
 app.register_blueprint(front_app, url_prefix='')
 
 
-# Language selector
+# Language selector (Default)
 # ----------------------------------------------------------------
 @babel.localeselector
 def get_locale():
@@ -62,13 +63,3 @@ def page_not_found(e):
 def page_not_founds(e):
     """Return a custom 500 error."""
     return render_template('500.html')
-
-
-@app.route('/sitemap.xml')
-def sitemap():
-    response = make_response(render_template(
-        'sitemap.xml',
-        host_url=request.host_url[:-1]
-    ))
-    response.headers['Content-Type'] = 'application/xml'
-    return response
