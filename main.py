@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for
 # Import dependencies
 # ----------------------------------------------------------------
 from flask.ext.babel import Babel
+from google.appengine.api import users
 
 # Import Blueprints
 # ----------------------------------------------------------------
@@ -48,6 +49,12 @@ def get_locale():
 @app.route('/ADMIN')
 def admin_redirect():
     return redirect(url_for('admin.home'))
+
+
+# Creates a logout page
+@app.route('/logout')
+def logout():
+    return redirect(users.create_logout_url('/'))
 
 
 @app.errorhandler(400)  # Bad Request
