@@ -4,7 +4,6 @@ import admins
 from functools import wraps
 from google.appengine.api import users
 from flask import redirect, request
-from main import app
 from app.login.models import User
 
 
@@ -34,9 +33,3 @@ def login_required(func):
                  try to logout and login with a correct user (email).'''
     return decorated_view
 
-
-# Creates a logout page
-# ----------------------------------------------------------------
-@app.route('/logout')
-def logout():
-    return redirect(users.create_logout_url('/'))
