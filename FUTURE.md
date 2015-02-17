@@ -1,5 +1,5 @@
 # Future versions of Kolore
-After having some experience with Kolore and building a CMS, some ideas had showned up for future versions.
+After having some experience with Kolore and building a CMS, I have some ideas for future versions.
 
 ### Creation of modules
 Some functionalities should be included as apart modules. For example:
