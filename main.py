@@ -1,6 +1,6 @@
 # Import the Flask Framework
 # ----------------------------------------------------------------
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, request, redirect, url_for
 
 # Import dependencies
 # ----------------------------------------------------------------
@@ -63,10 +63,10 @@ def logout():
 @app.errorhandler(404)  # Not Found
 def page_not_found(e):
     """Return a custom 404 error."""
-    return render_template('404.html')
+    return 'Sorry, Nothing at this URL. Error{}'.format(e), 404
 
 
 @app.errorhandler(500)
 def page_not_founds(e):
     """Return a custom 500 error."""
-    return render_template('500.html')
+    return 'Sorry, unexpected error: {}'.format(e), 500

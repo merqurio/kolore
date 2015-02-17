@@ -4,6 +4,7 @@ lib/
 !lib/requirements.txt
 .DS_Store
 admins.py
+Kolore.gliffy
 app.yaml
 /static/plugins/*
 app/admin/static/plugins/*
