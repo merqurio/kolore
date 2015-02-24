@@ -23,16 +23,16 @@
             <li > <a href="{{ url_for('admin.categories')}}"><i class="fa fa-tags"></i> {{_('Categories')}}</a> </li>
         </ul>
     </li>
-    {# <li >
+    <li >
         <a href="javascript:;">
             <i class="fa fa-gear"></i>
             <span class="title">{{_('Options')}}</span>
             <span class="arrow "></span>
         </a>
         <ul class="sub-menu">
-            <li > <a href="#"><i class="fa fa-align-justify"></i> {{_('Menu Settings')}}</a> </li>
-            <li > <a href="#"><i class="fa fa-envelope"></i> {{_('Contact Settings')}}</a> </li>
+            <li > <a href="{{url_for('admin.user')}}"><i class="fa fa-user"></i> {{_('My Account')}}</a> </li>
+            <li > <a href="{{url_for('logout')}}"><i class="fa fa-power-off"></i> {{_('Log Out')}}</a> </li>
         </ul>
-    </li> #}
+    </li>
 </ul>
 <div class="clearfix"></div>
