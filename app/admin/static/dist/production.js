@@ -126,14 +126,32 @@ var upNumbers = document.querySelectorAll('.wizard-steps li'),
 // Next is clicked
 [].forEach.call(allNextBtn, function (item) {
     item.addEventListener('click', function(event) {
-        var self = this,
-            targetNum = parseInt(this.parentNode.id.substr(3))+1,
-            targetTab = document.querySelector('#step-'+targetNum);
 
-        // remove class
-        targetTab.parentNode.classList.remove('disabled');
-        // click new target
-        targetTab.click();
+        var self = this,
+            targetNum = parseInt(self.parentNode.id.substr(3))+1,
+            targetTab = document.querySelector('#step-'+targetNum),
+            curInputs = self.parentElement.querySelectorAll('input'),
+            isValid = true;
+
+        // Check if all inputs are filled
+        if (curInputs) {
+            for (var i = curInputs.length - 1; i >= 0; i--) {
+                if (curInputs[i].value === null || curInputs[i].value === ""){
+                    isValid = false;
+                    curInputs[i].classList.add('input-error');
+                } else if(curInputs[i].classList.contains('input-error')){
+                    curInputs[i].classList.remove('input-error');
+                }
+            }
+        }
+        
+        // everythong ok
+        if (isValid) {
+            // remove class
+            targetTab.parentNode.classList.remove('disabled');
+            // click new target
+            targetTab.click();
+        }
 
     });
 });
