@@ -1,0 +1,37 @@
+{% extends 'admin-base.html'%}
+{% block content %}
+    <div class="card fadeInUp hide">
+        <div class="title group">
+            <h3 class="light left">{{_("All")}} <b>{{_("Posts")}}</b></h3>
+            <a class="btn btn-small btn-blue btn-outline right" href="{{url_for('admin.add_post')}}">
+                <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Add Post")}}
+            </a>
+        </div>
+        <table class="table-hovered">
+            <thead>
+                <tr>
+                    <th>{{_("Post")}}</th>
+                    <th>{{_("Published")}}</th>
+                    <th>{{_("Categories")}}</th>
+                    <th>{{_("Actions")}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td><a href="/blog/{{post.url}}">Fusce convallis metus id felis</a></td>
+                    <td><span class="date" data-date="{{post.date}}" data-format="LL"></span></td>
+                    <td>{% for category in post.get_categories() %}<span class="label">{{category}}</span> {% endfor %}</td>
+                    <td>
+                        <span class="btn-group">
+                            <a class="btn btn-smaller" href="{{ url_for('admin.edit_post', post_id=post.key.id())}}"><i class="fa fa-eye"></i></a>
+                            <button class="btn btn-smaller btn-blue"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-smaller btn-red"><i class="fa fa-trash-o"></i></button>
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
