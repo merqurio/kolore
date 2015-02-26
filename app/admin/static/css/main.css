@@ -1,0 +1,92 @@
+/* ------------------------------------
+General
+------------------------------------ */
+
+body {
+    background-color: #F4F4F4;
+}
+a {
+    text-decoration: none;
+}
+a:focus, a:hover {
+  color: #FFFFFF;
+}
+#main {
+    margin: auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+.card {
+    background-color: #fff;
+    clear: both;
+    min-height: 200px;
+    margin-top: 80px;
+    margin-bottom: 25px;
+    padding: 25px;
+    box-shadow: 0 1px 1px 0 rgba(50, 50, 50, .25);
+}
+/* ------------------------------------
+Table setting
+------------------------------------ */
+
+table .btn-group .btn {
+    padding: 0.8em 1em;
+}
+/* Button group */
+
+#main table td:nth-child(4), #main table th:nth-child(4) {
+    min-width: 8.5em;
+}
+@media only screen and (max-width: 640px) {
+    #main table td:nth-child(3), #main table th:nth-child(3) {
+        display: none;
+    }
+}
+@media only screen and (max-width: 767px) {
+    #main table td:nth-child(2), #main table th:nth-child(2) {
+        display: none;
+    }
+}
+
+/* ------------------------------------
+Animation
+------------------------------------ */
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 20%, 0);
+    }
+    20% {
+        opacity: 1;
+        transform: none;
+    }
+}
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 20%, 0);
+        transform: translate3d(0, 20%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+/* ------------------------------------
+Page specific
+------------------------------------ */
+
+#welcome {
+    margin-top: 60px;
+}

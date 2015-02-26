@@ -1,0 +1,60 @@
+{% extends 'admin-base.html'%}
+{% block content %}
+    <div class="card fadeInUp hide">
+        <div class="title group">
+            <h3 class="light left">{{_("Add")}} <b>{{_("Post")}}</b></h3>
+        </div>
+        <form id="wizard" method="POST">
+                    <ul class="wizard-steps">
+                        <li class="active" data-target="#tab1"> 
+                            <a href="#tab1" id="step-1"> 
+                                <span class="step">1</span> 
+                                <span class="title">{{_("Help")}}</span>
+                            </a>
+                        </li>
+                        <li class="disabled" data-target="#tab2"> 
+                            <a href="#tab2" id="step-2"> 
+                                <span class="step">2</span> 
+                                <span class="title">{{_("Categorize")}}</span>
+                            </a>
+                        </li>
+                        <li class="disabled" data-target="#tab3"> 
+                            <a href="#tab3" id="step-3"> 
+                                <span class="step">3</span> 
+                                <span class="title">{{_("Write")}}</span>
+                            </a>
+                        </li>
+                        <li class="disabled" data-target="#tab4"> 
+                            <a href="#tab4" id="step-4"> 
+                                <span class="step">4</span> 
+                                <span class="title">{{_("Publish")}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="step-panels">
+                        <div id="tab1" class="step-tab hide">
+                            1
+                            <hr>
+                            <a href="#" class="btn next btn-blue">Next</a>
+                        </div>
+                        <div id="tab2" class="step-tab hide">
+                            2
+                            <hr>
+                            <a href="#" class="btn next btn-blue">Next</a>
+                            <a href="#" class="btn previous"> Previous</a>
+                        </div>
+                        <div id="tab3" class="step-tab hide">
+                            3
+                            <hr>
+                            <a href="#" class="btn next btn-blue">Next</a>
+                            <a href="#" class="btn previous"> Previous</a>
+                        </div>
+                        <div id="tab4" class="step-tab hide">
+                            4
+                            <hr>
+                            <a href="#" class="btn previous"> Previous</a>
+                        </div>
+                    </div>
+        </form>
+    </div>
+{% endblock %}

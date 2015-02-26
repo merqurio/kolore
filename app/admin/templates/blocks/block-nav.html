@@ -1,0 +1,56 @@
+<nav class="menu-nav">
+    <div class="menu-top menu-block">
+        <div class="menu-toggle">
+            <button class="menu-icon">
+                <span class="menu-text-replace">{{_("Menu")}}</span>
+                <svg x="0px" y="0px" width="100%" viewBox="0 0 96 96" class="hambicon hambicon-top" enable-background="new 0 0 96 96">
+                    <rect width="32" height="4" x="32" y="46" class="hambicon-rect hambicon-rect-top"></rect>
+                </svg>
+                <svg x="0px" y="0px" width="100%" viewBox="0 0 96 96" class="hambicon hambicon-bottom" enable-background="new 0 0 96 96">
+                    <rect width="32" height="4" x="32" y="46" class="hambicon-rect hambicon-rect-bottom"></rect>
+                </svg>
+            </button>
+        </div>
+        <div class="menu-logo">
+            <a href="/">
+                <span class="menu-text-replace">Kolore</span>
+            </a>
+        </div>
+        <div class="menu-lang">
+            <button class="menu-icon-lang">
+                <span class="menu-text-replace">{{_("Language")}}</span>
+                <svg width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+                    <g id="Capa_1">
+                        <g id="language">
+                            <path d="M25,14.8046C19.3925,14.8046 14.8046,19.3925 14.8046,25C14.8046,30.6075 19.3925,35.1954 25,35.1954C30.6075,35.1954 35.1954,30.6075 35.1954,25C35.1954,19.3925 30.6075,14.8046 25,14.8046ZM32.0348,20.9218L29.0782,20.9218C28.7723,19.5964 28.2625,18.4749 27.6508,17.2515C29.486,17.9652 31.1172,19.1886 32.0348,20.9218ZM25,16.8437C25.8156,18.0671 26.5293,19.3925 26.9371,20.9218L23.0629,20.9218C23.4707,19.4945 24.1844,18.0671 25,16.8437ZM17.1495,27.0391C16.9456,26.4274 16.8437,25.7137 16.8437,25C16.8437,24.2863 16.9456,23.5726 17.1495,22.9609L20.616,22.9609C20.514,23.6746 20.514,24.2863 20.514,25C20.514,25.7137 20.616,26.3254 20.616,27.0391ZM17.9652,29.0782L20.9218,29.0782C21.2277,30.4036 21.7375,31.5251 22.3492,32.7485C20.514,32.0348 18.8828,30.8114 17.9652,29.0782ZM20.9218,20.9218L17.9652,20.9218C18.9847,19.1886 20.514,17.9652 22.3492,17.2515C21.7375,18.4749 21.2277,19.5964 20.9218,20.9218ZM25,33.1563C24.1844,31.9329 23.4707,30.6075 23.0629,29.0782L26.9371,29.0782C26.5293,30.5055 25.8156,31.9329 25,33.1563ZM27.3449,27.0391L22.6551,27.0391C22.5531,26.3254 22.4511,25.7137 22.4511,25C22.4511,24.2863 22.5531,23.6746 22.6551,22.9609L27.4469,22.9609C27.5489,23.6746 27.6508,24.2863 27.6508,25C27.6508,25.7137 27.4469,26.3254 27.3449,27.0391ZM27.6508,32.7485C28.2625,31.627 28.7723,30.4036 29.0782,29.0782L32.0348,29.0782C31.1172,30.8114 29.486,32.0348 27.6508,32.7485ZM29.486,27.0391C29.5879,26.3254 29.5879,25.7137 29.5879,25C29.5879,24.2863 29.486,23.6746 29.486,22.9609L32.9524,22.9609C33.1563,23.5726 33.2582,24.2863 33.2582,25C33.2582,25.7137 33.1563,26.4274 32.9524,27.0391Z" style="fill:rgb(136,136,136);fill-rule:nonzero;" />
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="menu-bottom menu-block">
+        <ul class="menu-bottom-list menu-bottom-main">
+            <li>
+                <a href="{{ url_for('admin.posts')}}">{{_("Posts")}}</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.categories')}}">{{_('Categories')}}</a>
+            </li>
+            <li>
+                <a href="#">{{_('Options')}}</a>
+            </li>
+        </ul>
+        <ul class="menu-bottom-list menu-bottom-lang">
+            <li class="eu">
+                <a href="#"> {{_('Basque')}}</a>
+            </li>
+            <li class="es">
+                <a href="#"> {{_('Spanish')}}</a>
+            </li>
+            <li class="en">
+                <a href="#"> {{_('English')}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>
