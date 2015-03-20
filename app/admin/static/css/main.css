@@ -9,7 +9,7 @@ a {
     text-decoration: none;
 }
 a:focus, a:hover {
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
 #main {
     margin: auto;
@@ -32,6 +32,11 @@ Table setting
 table .btn-group .btn {
     padding: 0.8em 1em;
 }
+
+
+table.table-hovered a:focus, a:hover {
+  color: #333;
+}
 /* Button group */
 
 #main table td:nth-child(4), #main table th:nth-child(4) {
@@ -47,7 +52,6 @@ table .btn-group .btn {
         display: none;
     }
 }
-
 /* ------------------------------------
 Animation
 ------------------------------------ */
@@ -82,11 +86,21 @@ Animation
         transform: none;
     }
 }
-
 /* ------------------------------------
 Page specific
 ------------------------------------ */
 
 #welcome {
     margin-top: 60px;
+}
+
+
+/* ------------------------------------
+Page specific
+------------------------------------ */
+@media only screen and (min-width: 800px) {
+    .modal {
+        max-width: 700px;
+        top: 115px;
+    }
 }

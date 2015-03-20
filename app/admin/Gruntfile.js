@@ -10,13 +10,6 @@ module.exports = function(grunt) {
             '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
             ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
         // Task configuration.
-        less: {
-            development: {
-                files: {
-                    'static/css/kube.css': 'static/plugins/kube/less/kube.less' // destination file and source file
-                }
-            }
-        },
         concat: {
             options: {
                 banner: '<%= banner %>',
@@ -24,10 +17,13 @@ module.exports = function(grunt) {
             },
             dist: {
                 src: ['static/plugins/hutsa/main.js',
+                    'static/plugins/momentjs/moment.js',
+                    'static/plugins/momentjs/locale/es.js',
+                    'static/plugins/momentjs/locale/eu.js',
                     'static/js/*.js'
                 ],
                 dest: 'static/dist/production.js'
-            },
+            }
         },
         uglify: {
             options: {
@@ -36,12 +32,19 @@ module.exports = function(grunt) {
             dist: {
                 src: 'static/dist/production.js',
                 dest: 'static/dist/production.min.js'
-            },
+            }
+        },
+        less: {
+            development: {
+                files: {
+                    'static/css/kube.css': 'static/css/kube.less' // destination file and source file
+                }
+            }
         },
         cssmin: {
             target: {
                 files: {
-                    'static/dist/production.min.css': ['static/plugins/normalize.css/normalize.css',
+                    'static/dist/production.min.css': [
                         'static/plugins/hutsa/menu.css',
                         'static/css/*.css'
                     ]
@@ -49,7 +52,7 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            files: ['static/css/*.css', 'static/js/*.js','static/plugins/kube/less/kube.less'],
+            files: ['static/css/*.css', 'static/js/*.js','static/css/*.less'],
             tasks: ['less', 'concat', 'uglify', 'cssmin']
         }
     });
@@ -63,5 +66,4 @@ module.exports = function(grunt) {
 
     // Default task.
     grunt.registerTask('default', ['less', 'concat', 'uglify', 'cssmin']);
-
 };

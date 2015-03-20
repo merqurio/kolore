@@ -242,7 +242,7 @@ img {
 /* =Typography
 -----------------------------------------------------------------------------*/
 body {
-  font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Tahoma, sans-serif;
   font-size: 0.9375em;
   line-height: 1.65em;
   background: #ffffff;
@@ -251,11 +251,11 @@ body {
 /* =Links
 -----------------------------------------------------------------------------*/
 a {
-  color: #134da5;
+  color: #2575ed;
 }
 a:focus,
 a:hover {
-  color: #de2c3b;
+  color: #1a52a5;
 }
 /* =Headings
 -----------------------------------------------------------------------------*/
@@ -271,7 +271,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Tahoma, sans-serif;
   font-weight: bold;
   color: #4c4c4c;
   text-rendering: optimizeLegibility;
@@ -506,7 +506,7 @@ button:focus {
 }
 textarea,
 select {
-  font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Tahoma, sans-serif;
   font-size: 1em;
   box-shadow: none;
 }
@@ -531,7 +531,7 @@ input[type="color"],
 input[type="time"],
 input[type="search"],
 input[type="datetime-local"] {
-  font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Tahoma, sans-serif;
   font-size: 1em;
   box-shadow: none;
   padding: 0.3em 0.35em;
@@ -1211,8 +1211,8 @@ input.input-success,
 textarea.input-success,
 select.input-success,
 .input-success {
-  border-color: #2c9f42;
-  box-shadow: 0 0 0 2px rgba(44, 159, 66, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+  border-color: #01bc9a;
+  box-shadow: 0 0 0 2px rgba(1, 188, 154, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
 }
 input.input-gray,
 textarea.input-gray,
@@ -1333,7 +1333,7 @@ input.input-smaller {
 input[type="submit"].btn {
   display: inline-block;
   vertical-align: top;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Tahoma, sans-serif;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65em;
@@ -1545,12 +1545,12 @@ input[type="submit"].btn-red.btn-outline.btn-active {
 .btn-green,
 input[type="submit"].btn-green {
   color: rgba(255, 255, 255, 0.9);
-  background: #2c9f42;
+  background: #01bc9a;
 }
 .btn-green:hover,
 input[type="submit"].btn-green:hover {
   color: rgba(255, 255, 255, 0.6);
-  background: #237f35;
+  background: #00b38d;
 }
 .btn-green.btn-active,
 input[type="submit"].btn-green.btn-active {
@@ -1563,7 +1563,7 @@ input[type="submit"].btn-green.btn-disabled,
 .btn-green.btn[disabled],
 input[type="submit"].btn-green.btn[disabled] {
   color: rgba(255, 255, 255, 0.5);
-  background: #237f35;
+  background: #00b38d;
 }
 .btn-green.btn-active:hover,
 input[type="submit"].btn-green.btn-active:hover,
@@ -1576,13 +1576,13 @@ input[type="submit"].btn-green.btn[disabled]:hover {
 .btn-green.btn-outline,
 input[type="submit"].btn-green.btn-outline {
   background: none;
-  border-color: #2c9f42;
-  color: #2c9f42;
+  border-color: #01bc9a;
+  color: #01bc9a;
 }
 .btn-green.btn-outline:hover,
 input[type="submit"].btn-green.btn-outline:hover {
   color: rgba(255, 255, 255, 0.9);
-  background: #2c9f42;
+  background: #01bc9a;
 }
 .btn-green.btn-outline.btn[disabled],
 input[type="submit"].btn-green.btn-outline.btn[disabled],
@@ -1590,15 +1590,15 @@ input[type="submit"].btn-green.btn-outline.btn[disabled],
 input[type="submit"].btn-green.btn-outline.btn-disabled {
   background: none;
   box-shadow: none;
-  color: rgba(44, 159, 66, 0.4);
-  border: 1px solid rgba(44, 159, 66, 0.3);
+  color: rgba(1, 188, 154, 0.4);
+  border: 1px solid rgba(1, 188, 154, 0.3);
 }
 .btn-green.btn-outline.btn-active,
 input[type="submit"].btn-green.btn-outline.btn-active {
   background: none;
-  color: rgba(44, 159, 66, 0.6);
+  color: rgba(1, 188, 154, 0.6);
   border: none;
-  box-shadow: 0 1px 3px rgba(35, 127, 53, 0.6) inset;
+  box-shadow: 0 1px 3px rgba(0, 179, 141, 0.6) inset;
 }
 .btn-black,
 input[type="submit"].btn-black {
@@ -1870,7 +1870,7 @@ input[type="submit"].btn-white.btn-outline.btn-active {
 }
 .label-green,
 .badge-green {
-  background: #2c9f42;
+  background: #01bc9a;
 }
 .label-yellow,
 .badge-yellow {
@@ -1898,8 +1898,8 @@ input[type="submit"].btn-white.btn-outline.btn-active {
   color: #de2c3b;
 }
 .label-green.label-outline {
-  border-color: #2c9f42;
-  color: #2c9f42;
+  border-color: #01bc9a;
+  color: #01bc9a;
 }
 .label-yellow.label-outline {
   border-color: #ffc800;
@@ -1908,6 +1908,74 @@ input[type="submit"].btn-white.btn-outline.btn-active {
 .label-white.label-outline {
   border-color: #ffffff;
   color: #ffffff;
+}
+/* =Modal
+-----------------------------------------------------------------------------*/
+#modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background-color: #000 !important;
+  filter: alpha(opacity=30);
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+  z-index: 100;
+}
+.modal-blur {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+.modal-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 101;
+}
+.modal {
+  position: relative;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 0;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 1px 70px rgba(0, 0, 0, 0.5);
+}
+.modal header {
+  padding: 30px 40px 5px 40px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.modal section {
+  padding: 30px 40px 50px 40px;
+}
+.modal footer button {
+  width: 100%;
+  border-radius: 0;
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  text-align: right;
+  color: #bbb;
+  font-size: 30px;
+  font-weight: 300;
+  cursor: pointer;
+}
+.modal-close:hover {
+  color: #000;
 }
 /* =Helpers
 -----------------------------------------------------------------------------*/
@@ -1944,7 +2012,7 @@ input[type="submit"].btn-white.btn-outline.btn-active {
   color: #de2c3b;
 }
 .success {
-  color: #2c9f42;
+  color: #01bc9a;
 }
 .text-centered {
   text-align: center;

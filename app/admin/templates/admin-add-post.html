@@ -1,63 +1,179 @@
 {% extends 'admin-base.html'%}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='plugins/quill/dist/quill.snow.css')}}">
+{% endblock %}
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
             <h3 class="light left">{{_("Add")}} <b>{{_("Post")}}</b></h3>
         </div>
-        <form id="wizard" method="POST">
-                    <ul class="wizard-steps">
-                        <li class="active" data-target="#tab1"> 
-                            <a href="#tab1" id="step-1"> 
-                                <span class="step">1</span> 
-                                <span class="title">{{_("Help")}}</span>
-                            </a>
-                        </li>
-                        <li class="disabled" data-target="#tab2"> 
-                            <a href="#tab2" id="step-2"> 
-                                <span class="step">2</span> 
-                                <span class="title">{{_("Categorize")}}</span>
-                            </a>
-                        </li>
-                        <li class="disabled" data-target="#tab3"> 
-                            <a href="#tab3" id="step-3"> 
-                                <span class="step">3</span> 
-                                <span class="title">{{_("Write")}}</span>
-                            </a>
-                        </li>
-                        <li class="disabled" data-target="#tab4"> 
-                            <a href="#tab4" id="step-4"> 
-                                <span class="step">4</span> 
-                                <span class="title">{{_("Publish")}}</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="step-panels">
-                        <div id="tab1" class="step-tab hide">
-                            <label>
-                                Email
-                                <input type="email" name="test-field-1" autocomplete="off" class="width-50">
-                            </label>
-                            <hr>
-                            <a href="#" class="btn next btn-blue">Next</a>
-                        </div>
-                        <div id="tab2" class="step-tab hide">
-                            2
-                            <hr>
-                            <a href="#" class="btn next btn-blue">Next</a>
-                            <a href="#" class="btn previous"> Previous</a>
-                        </div>
-                        <div id="tab3" class="step-tab hide">
-                            3
-                            <hr>
-                            <a href="#" class="btn next btn-blue">Next</a>
-                            <a href="#" class="btn previous"> Previous</a>
-                        </div>
-                        <div id="tab4" class="step-tab hide">
-                            4
-                            <hr>
-                            <a href="#" class="btn previous"> Previous</a>
+        <form id="wizard" class="forms" method="POST" onsubmit="return copyContent()" action="{{url_for('admin.add_post')}}">
+            <ul class="wizard-steps">
+                <li class="active" data-target="#tab1"> 
+                    <a href="#tab1" id="step-1"> 
+                        <span class="step">1</span> 
+                        <span class="title">{{_("Help")}}</span>
+                    </a>
+                </li>
+                <li class="disabled" data-target="#tab2"> 
+                    <a href="#tab2" id="step-2"> 
+                        <span class="step">2</span> 
+                        <span class="title">{{_("Categorize")}}</span>
+                    </a>
+                </li>
+                <li class="disabled" data-target="#tab3"> 
+                    <a href="#tab3" id="step-3"> 
+                        <span class="step">3</span> 
+                        <span class="title">{{_("Write")}}</span>
+                    </a>
+                </li>
+                <li class="disabled" data-target="#tab4"> 
+                    <a href="#tab4" id="step-4"> 
+                        <span class="step">4</span> 
+                        <span class="title">{{_("Publish")}}</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="step-panels">
+                <div id="tab1" class="step-tab">
+                    <div class="step-content">
+                        <h2 class="light">{{_("Some tips")}} <b>{{_("for writing a blog post")}}</b></h2>
+                        <div class="units-row ">
+                            <div class="unit-50">
+                                <ul>
+                                    <li>
+                                        {{_("Tell your story")}}
+                                    </li>
+                                    <li>
+                                        {{_("Share how you feel")}}
+                                    </li>
+                                    <li>
+                                        {{_("You’ll never please everyone")}}
+                                    </li>
+                                    <li>
+                                        {{_("Write about things that matter to you")}}
+                                    </li>
+                                    <li>
+                                        {{_("Inform, inspire and interact")}}
+                                    </li>
+                                    <li>
+                                        {{_("Put aside time to read others blog")}}
+                                    </li>
+                                    <li>
+                                        {{_("When an idea strikes, write it down")}}
+                                    </li>
+                                    <li>
+                                        {{_("Understand who is reading your blog")}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="unit-50">
+                                <ul>
+                                    <li>
+                                        {{_("Do it at least, once a week")}}
+                                    </li>
+                                    <li>
+                                        {{_("Put aside time to create quality content it doesn’t just appear")}}
+                                    </li>
+                                    <li>
+                                        {{_("Ask your readers questions")}}
+                                    </li>
+                                    <li>
+                                        {{_("Brainstorm regularly")}}
+                                    </li>
+                                    <li>
+                                        {{_("Not every post needs to go viral")}}
+                                    </li>
+                                    <li>
+                                        {{_("Write, Write, Write")}}
+                                    </li>
+                                    <li>
+                                        {{_("And <strong>Yes !</strong> everyone writes good content if it wants")}}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                    <a href="#" class="btn next btn-blue">{{_("Next")}}</a>
+                </div>
+                <div id="tab2" class="step-tab hide">
+                    <div class="step-content">
+                        <div class="units-row ">
+                            <div class="unit-50">
+                                <h2 class="light">{{_("Post")}} <b>{{_("Categories")}}</b></h2><br>
+                                <p>{{_("It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website.")}}</p>
+                            </div>
+                            <div class="unit-50">
+                                <h2 class="light">{{_("Select")}} <b>{{_("Categories")}}</b></h2><br>
+                                <p>{{_("<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories.")}}</p>
+                                <input type="text" id="categories" name="categories">
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn next btn-blue">{{_("Next")}}</a>
+                    <a href="#" class="btn previous"> {{_("Previous")}}</a>
+                </div>
+                <div id="tab3" class="step-tab hide">
+                    <div class="step-content">
+                        <h2 class="light">{{_("Write your")}} <b>{{_("Blog Post")}}</b></h2>
+                        <label>
+                            {{_("Title")}} <span class="forms-desc">{{_("Enter a title")}}</span>
+                            <input type="text" name="title" class="width-100"  />
+                        </label>
+                        <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p>
+                        <input id="hiddenTextarea" name="text" style="display:none"/>
+                        {% include 'blocks/block-editor.html'%}
+                        <br>
+                    </div>
+                    <a href="#" class="btn next btn-blue">{{_("Next")}}</a>
+                    <a href="#" class="btn previous"> {{_("Previous")}}</a>
+                </div>
+                <div id="tab4" class="step-tab hide">
+                    <div class="step-content">
+                        <h2 class="light">{{_("Publish the")}} <b>{{_("Blog Post")}}</b></h2>
+                        <p>{{_("You are done, now is time to publish it and make it available to the world. Remember to share it in your social networks !")}}</p>
+                        <p class="text-centered">
+                            <button type="submit" class="btn btn-black btn-outline">{{_("Publish Now")}}</button>
+                        </p>
+                        
+                    </div>
+                    <a href="#" class="btn previous"> {{_("Previous")}}</a>
+                </div>
+            </div>
         </form>
     </div>
+{% endblock %}
+{% block js %}
+<!-- Initialize Quill editor -->
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/jquery/dist/jquery.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/quill/dist/quill.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/select2/select2.min.js')}}"></script>
+<script type="text/javascript">
+
+var  advancedEditor = new Quill('.advanced-wrapper .editor-container', {
+      modules: {
+        'toolbar': {
+          container: '.advanced-wrapper .toolbar-container'
+        },
+        'link-tooltip': true,
+        'image-tooltip': true
+      },
+      styles: false,
+      theme: 'snow'
+});
+
+
+$('#categories').select2({
+    tags:{{categories|tojson}},
+    tokenSeparators: [",","."],
+    matcher: function(term, text) { 
+        return text.toUpperCase().indexOf(term.toUpperCase())==0; 
+    }
+});
+
+function copyContent() {
+        document.getElementById("hiddenTextarea").value = advancedEditor.getHTML();
+}
+
+</script>
 {% endblock %}
