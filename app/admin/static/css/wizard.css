@@ -39,7 +39,7 @@ form#wizard{
 }
 .wizard-steps li .step {
     background-color: #e7e7e7;
-    border-radius: 32px 32px 32px 32px;
+    border-radius: 50px;
     color: #ffffff;
     display: inline;
     font-size: 15px;
@@ -55,7 +55,7 @@ form#wizard{
   background-color: #2575ed;
   color: #ffffff;
   font-weight: bold;
-  padding: 10px 15px;
+  padding: 10px 17px;
   border: none;
   font-size: 16px;
 }
@@ -80,6 +80,13 @@ form#wizard{
   padding-top: 80px;
 }
 
-.step-tab {
-
+.step-tab li {
+    font-size: 1.3em;
+    line-height: 1.5em;
+    font-weight: 100;
+    list-style-type: square;
+}
+.step-content {
+    max-width: 900px;
+    margin: auto;
 }

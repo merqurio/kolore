@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="160px" height="80px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g>
+        <g id="Layer1">
+            <g>
+                <path id="borobil" d="M111.28,8.71951L74.9423,71.2805L147.619,71.2805L111.28,8.71951Z" style="fill:none;stroke-width:8.33px;stroke:rgb(136,136,136);"/>
+            </g>
+            <g>
+                <rect id="lauki" x="12.3814" y="8.71951" width="62.561" height="62.561" style="fill:none;stroke-width:8.33px;stroke:rgb(136,136,136);"/>
+            </g>
+            <g>
+                <path id="hiruki" d="M78.6619,8.71951C61.3861,8.71951 47.3814,22.7243 47.3814,40C47.3814,57.2757 61.3861,71.2805 78.6619,71.2805C95.9376,71.2805 109.942,57.2757 109.942,40C109.942,22.7243 95.9376,8.71951 78.6619,8.71951Z" style="fill:none;stroke-width:8.33px;stroke:rgb(136,136,136);"/>
+            </g>
+        </g>
+    </g>
+</svg>
