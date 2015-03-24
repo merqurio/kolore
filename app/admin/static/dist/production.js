@@ -1,4 +1,4 @@
-/*! Chroma - v0.2.0 - 2015-03-20
+/*! Chroma - v0.2.0 - 2015-03-24
 * http://chromabranding.com
 * Copyright (c) 2015 ; Licensed  */
 (function () {
@@ -3322,7 +3322,7 @@ function deletePostModalRequest(){
 
         } else {
         // We reached our target server, but it returned an error
-            console.log('F U C K');
+            console.log('There was an error trying to delete the post')
         }
     };
     closeModal();

@@ -41,7 +41,7 @@ function deletePostModalRequest(){
 
         } else {
         // We reached our target server, but it returned an error
-            console.log('F U C K');
+            console.log('There was an error trying to delete the post')
         }
     };
     closeModal();

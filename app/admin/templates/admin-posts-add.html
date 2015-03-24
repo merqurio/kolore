@@ -6,6 +6,9 @@
     <div class="card fadeInUp hide">
         <div class="title group">
             <h3 class="light left">{{_("Add")}} <b>{{_("Post")}}</b></h3>
+            <a class="btn btn-small btn-blue btn-outline right" href="{{url_for('admin.posts')}}">
+                <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{_("Return")}}
+            </a>
         </div>
         <form id="wizard" class="forms" method="POST" onsubmit="return copyContent()" action="{{url_for('admin.add_post')}}">
             <ul class="wizard-steps">
@@ -106,7 +109,7 @@
                             <div class="unit-50">
                                 <h2 class="light">{{_("Select")}} <b>{{_("Categories")}}</b></h2><br>
                                 <p>{{_("<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories.")}}</p>
-                                <input type="text" id="categories" name="categories">
+                                <input type="text" id="categories" name="categories" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -118,7 +121,7 @@
                         <h2 class="light">{{_("Write your")}} <b>{{_("Blog Post")}}</b></h2>
                         <label>
                             {{_("Title")}} <span class="forms-desc">{{_("Enter a title")}}</span>
-                            <input type="text" name="title" class="width-100"  />
+                            <input type="text" name="title" class="width-100 form-control" />
                         </label>
                         <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p>
                         <input id="hiddenTextarea" name="text" style="display:none"/>
