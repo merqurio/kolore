@@ -1,0 +1,71 @@
+{% extends 'admin-base.html'%}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='plugins/quill/dist/quill.snow.css')}}">
+{% endblock %}
+{% block content %}
+    <div class="card fadeInUp hide">
+        <div class="title group">
+            <h3 class="light left">{{_("Edit")}} <b>{{_("Post")}}</b></h3>
+        </div>
+        <form class="forms" method="POST" onsubmit="return copyContent()">
+            <div class="units-row">
+                <div class="unit-70">
+                    <label>
+                        {{_("Title")}} <span class="forms-desc">{{_("Edit the title")}}</span>
+                        <input type="text" name="title" class="width-100" value="{{post.title}}" />
+                    </label>
+                    <h4>{{_("Edit")}} {{_("Content")}}</h4>
+                    <input id="hiddenTextarea" name="text" style="display:none"/>
+                    {% include 'blocks/block-editor.html'%}
+                </div>
+                <div class="unit-30">
+                    <label>
+                        {{_("Edit")}} <span class="forms-desc">{{_("Categories")}}</span>
+                        <input type="text" id="categories" name="categories"
+                        value="{% for cat in post.get_categories()%}{{cat}}{% if not loop.last%},{% endif %}{% endfor %}">
+                    </label>
+                    <br>
+                    <h4 class="light">{{_("Save")}} <b>{{_("Changes")}}</b></h4>
+                    <p>{{_("By saving all the changes will be published")}}</p>
+                    <button type="submit" class="btn btn-black btn-outline">{{_("Publish Now")}}</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}
+{% block js %}
+<!-- Initialize Quill editor -->
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/jquery/dist/jquery.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/quill/dist/quill.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/select2/select2.min.js')}}"></script>
+<script type="text/javascript">
+
+var  advancedEditor = new Quill('.advanced-wrapper .editor-container', {
+      modules: {
+        'toolbar': {
+          container: '.advanced-wrapper .toolbar-container'
+        },
+        'link-tooltip': true,
+        'image-tooltip': true
+      },
+      styles: false,
+      theme: 'snow'
+});
+
+advancedEditor.setHTML('{{post.text|safe}}');
+
+$('#categories').select2({
+    tags:{{categories|tojson}},
+    tokenSeparators: [",","."],
+    matcher: function(term, text) { 
+        return text.toUpperCase().indexOf(term.toUpperCase())==0; 
+    }
+});
+
+function copyContent() {
+        document.getElementById("hiddenTextarea").value = advancedEditor.getHTML();
+}
+
+</script>
+{% endblock %}

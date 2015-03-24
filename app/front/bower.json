@@ -1,11 +1,11 @@
 {
-  "name": "kolore-admin",
+  "name": "kolore-front",
   "version": "1.0",
   "homepage": "https://github.com/chroma-branding/kolore",
   "authors": [
     "Gabi Merqurio <gabriel.maeztu@gmail.com>"
   ],
-  "description": "This is the content administrator that we use in Chroma Branding.",
+  "description": "This is the front web for kolore.",
   "main": "app",
   "keywords": [
     "cms",
@@ -24,9 +24,5 @@
     "lib"
   ],
   "dependencies": {
-    "hutsa": "0.2.2",
-    "kube": "imperavi/kube#1c73a61468cc68018e990762a70786624b1a6234",
-    "font-awesome": "~4.3.0",
-    "momentjs": "~2.9.0"
   }
 }

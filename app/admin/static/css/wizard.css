@@ -1,0 +1,92 @@
+form#wizard{
+  margin: 0;
+}
+.wizard-steps {
+    display: block;
+    list-style: none outside none;
+    padding: 0;
+    margin-left: 0; 
+    position: relative;
+    width: 100%;
+}
+.wizard-steps li {
+    display: block;
+    float: left;
+    max-width: 25%;
+    min-width: 25%;
+    text-align: center;
+    padding-left: 0;
+}
+.wizard-steps li:before {
+    border-top: 6px solid #55606E;
+    content: "";
+    display: block;
+    font-size: 0;
+    overflow: hidden;
+    position: relative;
+    top: 10px;
+    right: 1px;
+    width: 102%;
+    z-index: 1;
+}
+.wizard-steps li:first-child:before {
+    left: 50%;
+    max-width: 50%;
+}
+.wizard-steps li:last-child:before {
+  max-width: 50%;
+  width: 50%;
+}
+.wizard-steps li .step {
+    background-color: #e7e7e7;
+    border-radius: 50px;
+    color: #ffffff;
+    display: inline;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 12px;
+    padding: 4px 9px;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    transition: all 0.2s linear 0s;
+}
+.wizard-steps li.active .step {
+  background-color: #2575ed;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 17px;
+  border: none;
+  font-size: 16px;
+}
+.wizard-steps li.active .title {
+  color: #2B3D53;
+}
+.wizard-steps li .title {
+  color: #B1BCC5;
+  display: block;
+  font-size: 13px;
+  line-height: 15px;
+  max-width: 100%;
+  position: relative;
+  table-layout: fixed;
+  text-align: center;
+  top: 20px;
+  word-wrap: break-word;
+  z-index: 40;
+}
+
+.step-panels{
+  padding-top: 80px;
+}
+
+.step-tab li {
+    font-size: 1.3em;
+    line-height: 1.5em;
+    font-weight: 100;
+    list-style-type: square;
+}
+.step-content {
+    max-width: 900px;
+    margin: auto;
+}
