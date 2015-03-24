@@ -1,12 +1,12 @@
 *.pyc
-# don't include third-party dependencies.
 lib/
 !lib/requirements.txt
 .DS_Store
-admins.py
 Kolore.gliffy
 app.yaml
-/static/plugins/*
 app/admin/static/plugins/*
+app/admin/node_modules/*
+app/front/node_modules/*
 app/front/static/plugins/*
 .idea/*
+logo_kolore.afdesign

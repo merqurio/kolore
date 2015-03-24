@@ -1,15 +1,11 @@
 ## Kolore Content Manager
 [![Stories in Ready](https://badge.waffle.io/chroma-branding/kolore.png?label=ready&title=Work%20in%20progress)](https://waffle.io/chrom-abranding/kolore)
 ![ Version ](http://img.shields.io/badge/v-0.2-2af985.svg)
-[![Gitter](http://img.shields.io/badge/Join-Chat-07e96a.svg)](https://gitter.im/ChromaBranding/kolore?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-![ Not production ready ](http://img.shields.io/badge/Not%20for-Production-red.svg)
-[![byChroma](http://img.shields.io/badge/by-Chroma-22f2b8.svg)](http://www.chromabranding.com)
-
+![ Production ready ](http://img.shields.io/badge/Ready%20for-Production-2af985.svg)
 
 **Kolore** is a content management system. It has been created to develop websites fast and efficiently for [Chroma Branding][0]. Is written in Python for [App Engine][1]. Right now is just a functional Blog CMS. More to come soon.
 
 ![ Dashboard Preview ](http://lh6.ggpht.com/UpDBa0WRxeYDhuG3wXLmtZGOG6FQDmR3eSpfBBDXpUGlycZnRv9wRZboT1Hwv51LmLAFeQUvJTAu91Gt1TT7gORBU18u=s1200)
-
 
 ---
 

@@ -1,0 +1,8 @@
+{% extends 'admin-base.html'%}
+{% block content %}
+    <div class="card fadeInUp hide">
+        <div class="text-centered ">
+            <h1 id="welcome" class="color-gray-50 light">{{_("Welcome to Chroma")}}{% if user.name%}, <span class="bold">{{user.name}}</span>{% endif %}</h1>
+        </div>
+    </div>
+{% endblock %}
