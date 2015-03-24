@@ -1,0 +1,28 @@
+{% extends 'admin-base.html'%}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='plugins/quill/dist/quill.snow.css')}}">
+{% endblock %}
+{% block content %}
+    <div class="card fadeInUp hide">
+        <div class="title group">
+            <h3 class="light left">{{_("General")}} <b>{{_("Settings")}}</b></h3>
+        </div>
+        <form class="forms" method="POST">
+            <div class="units-row">
+                <div class="unit-50 unit-centered">
+                    <p>{{_("Here you can change the name that will be displayed in the posts.")}}</p>
+                    <label>
+                        {{_("User")}} <span class="forms-desc">{{_("Introduce your name and surname.")}}</span>
+                        <input type="text" {% if user%} value="{{user.name}}" {% endif %} name="user_name" class="form-control width-100">
+                    </label>
+                    <button class="btn btn-small btn-blue btn-outline" type="submit" name="action" value="save">
+                        <i class="fa fa-floppy-o"></i>&nbsp;&nbsp;{{_("Save")}}
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}
+{% block js %}
+{% endblock %}

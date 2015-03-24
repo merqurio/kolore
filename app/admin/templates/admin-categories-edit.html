@@ -1,0 +1,41 @@
+{% extends 'admin-base.html'%}
+{% block content %}
+    <div class="card fadeInUp hide">
+        <div class="title group">
+            <h3 class="light left">{{_("Edit")}} <b>{{_("Categories")}}</b></h3>
+            <a class="btn btn-small btn-blue btn-outline right" href="{{url_for('admin.categories')}}">
+                <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{_("Return")}}
+            </a>
+        </div>
+        <div class="units-row">
+            <div class="unit-50 unit-centered">
+                <form id="edit" method="post" class="forms">
+                    <h2 class="light">{{_("Edit")}} <b>{{edit_cat.name}}</b></h2><br>
+                    <label>
+                        {{_("ID")}} <span class="forms-desc">{{_("Unique number")}}</span>
+                        <input type="text" value="{{edit_cat.name}}" name="name" class="form-control width-100">
+                    </label>
+                    <button class="btn btn-small btn-blue btn-outline" type="submit" name="action" value="save">
+                        <i class="fa fa-floppy-o"></i>&nbsp;&nbsp;{{_("Save")}}
+                    </button>
+                    <button class="btn btn-small btn-red btn-outline" type="submit" name="action" value="delete">
+                        <i class="fa fa-trash-o"></i>&nbsp;&nbsp;{{_("Delete")}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/jquery/dist/jquery.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/select2/select2.min.js')}}"></script>
+<script type="application/javascript">
+$('#categories').select2({
+    tags:[{% for category in categories%}{{category.name|tojson}}{% if not loop.last%},{% endif %}{% endfor %}],
+    tokenSeparators: [",","."],
+    matcher: function(term, text) {
+        return text.toUpperCase().indexOf(term.toUpperCase())==0;
+    }
+});
+</script>
+{% endblock %}

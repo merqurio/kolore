@@ -25,6 +25,13 @@ a:focus, a:hover {
     padding: 25px;
     box-shadow: 0 1px 1px 0 rgba(50, 50, 50, .25);
 }
+.title .btn.right {
+  float: right;
+}
+
+.title h3.left {
+    float: left;
+}
 /* ------------------------------------
 Table setting
 ------------------------------------ */
