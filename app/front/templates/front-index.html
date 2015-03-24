@@ -1,9 +1,12 @@
 {% extends 'front-base.html'%}
-{% block title %}<a href="/">Consectetur adipisicing elit</a>{% endblock%}
-{% block content%} {% for post in posts %}
-<div class="post">
-    <h2><a href="/blog/{{post.url}}">{{post.title}}</a></h2>
-    <small><span class="date" data-date="{{post.date}}" data-format="LL"></span> | {{post.author}}</small>
-    <p>{{post.text | safe}}</p>
-</div>
-{% endfor %} {% endblock %}
+{% block content%}
+    {% for post in posts %}
+        <div class="post">
+            <h3><a href="/blog/{{post.url}}">{{post.title}}</a></h3>
+            <small>{{post.date.strftime('%Y-%m-%d')}} | {{post.author}}</small><br>
+            <small>{% for category in post.get_categories()%}{{ category }} {% endfor %}</small>
+            <p>{{post.text | safe}}</p>
+        </div>
+        <hr/>
+    {% endfor %}
+{% endblock %}
