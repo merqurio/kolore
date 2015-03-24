@@ -1,10 +1,14 @@
 {
-  "name": "Chroma",
-  "version": "0.2.0",
-  "description": "The website of Chroma Branding",
+  "name": "Kolore Front",
+  "version": "0.3",
+  "description": "The front website for Kolore",
   "license": "MIT",
   "author": "Gabi de Maeztu <gabi@chromabranding.com>",
   "homepage": "http://chromabranding.com",
+  "repository" :{
+    "type" : "git",
+    "url" : "https://github.com/chroma-branding/kolore"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.0",
