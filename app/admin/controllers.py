@@ -198,7 +198,7 @@ def upload_url():
 @admin_app.route('/upload', methods=['PUT', 'POST'])
 @admin_login_required
 def upload():
-    if request.method == 'PUT' or request.method == 'POST':
+    if request.method == 'POST':
         request_file = request.files['file']
         # Creates the options for the file
         header = request_file.headers['Content-Type']
