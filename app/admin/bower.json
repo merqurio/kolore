@@ -27,6 +27,8 @@
     "hutsa": "0.2.3",
     "kube": "imperavi/kube#1c73a61468cc68018e990762a70786624b1a6234",
     "font-awesome": "~4.3.0",
-    "momentjs": "~2.9.0"
+    "momentjs": "~2.9.0",
+    "select2": "~3.5.2",
+    "quill": "~0.19.10"
   }
 }
