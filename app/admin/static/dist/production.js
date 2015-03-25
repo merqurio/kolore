@@ -1,4 +1,4 @@
-/*! Chroma - v0.2.0 - 2015-03-24
+/*! Kolore CMS - v0.3 - 2015-03-25
 * http://chromabranding.com
 * Copyright (c) 2015 ; Licensed  */
 (function () {
@@ -3243,7 +3243,6 @@
         }
     });
 }));
-
 
 (function() {
 

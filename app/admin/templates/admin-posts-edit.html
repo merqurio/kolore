@@ -36,9 +36,10 @@
     </div>
 {% endblock %}
 {% block js %}
-<!-- Initialize Quill editor -->
+<!-- Initialize Redactor editor -->
 <script type="text/javascript" src="{{url_for('admin.static', filename='plugins/jquery/dist/jquery.js')}}"></script>
 <script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/redactor.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/plugins/imagemanager/imagemanager.js')}}"></script>
 {% if request.cookies.get('lang') != "en" %}
 <script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/langs/'+request.cookies.get("lang")+'.js')}}"></script>
 {% endif %}
@@ -50,6 +51,10 @@ $('#content').redactor({
     initCallback: function(){
         this.code.set('{{ post.text | safe}}');
     },
+    buttonsHide: ['html'],
+    toolbarFixedTopOffset: 50,
+    imageManagerJson: '/admin/image_serve/',
+    plugins: ['imagemanager'],
     gcs: '/admin/upload_url'
     {% if request.cookies.get("lang") != "en" %}
     ,

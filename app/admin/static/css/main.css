@@ -32,6 +32,10 @@ a:focus, a:hover {
 .title h3.left {
     float: left;
 }
+
+.menu-logo img {
+  margin-top: 12px;
+}
 /* ------------------------------------
 Table setting
 ------------------------------------ */

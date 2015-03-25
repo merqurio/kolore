@@ -1,6 +1,6 @@
 {% extends 'admin-base.html'%}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='plugins/quill/dist/quill.snow.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='plugins/redactor/css/redactor.css')}}">
 {% endblock %}
 {% block content %}
     <div class="card fadeInUp hide">
@@ -124,7 +124,6 @@
                             <input type="text" name="title" class="width-100 form-control" />
                         </label>
                         <p>{{_("Write here your blogpost, and when you finish, click next.")}}</p>
-                        <input id="hiddenTextarea" name="text" style="display:none"/>
                         {% include 'blocks/block-editor.html'%}
                         <br>
                     </div>
@@ -147,24 +146,28 @@
     </div>
 {% endblock %}
 {% block js %}
-<!-- Initialize Quill editor -->
+<!-- Redactor -->
 <script type="text/javascript" src="{{url_for('admin.static', filename='plugins/jquery/dist/jquery.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/quill/dist/quill.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/redactor.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/plugins/imagemanager/imagemanager.js')}}"></script>
+{% if request.cookies.get('lang') != "en" %}
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/langs/'+request.cookies.get("lang")+'.js')}}"></script>
+{% endif %}
 <script type="text/javascript" src="{{url_for('admin.static', filename='plugins/select2/select2.min.js')}}"></script>
 <script type="text/javascript">
 
-var  advancedEditor = new Quill('.advanced-wrapper .editor-container', {
-      modules: {
-        'toolbar': {
-          container: '.advanced-wrapper .toolbar-container'
-        },
-        'link-tooltip': true,
-        'image-tooltip': true
-      },
-      styles: false,
-      theme: 'snow'
+$('#content').redactor({
+    minHeight: 300,
+    buttonsHide: ['html'],
+    toolbarFixedTopOffset: 50,
+    imageManagerJson: '/admin/image_serve/',
+    plugins: ['imagemanager'],
+    gcs: '/admin/upload_url'
+    {% if request.cookies.get("lang") != "en" %}
+    ,
+    lang : '{{request.cookies.get("lang")}}'
+    {% endif %}
 });
-
 
 $('#categories').select2({
     tags:{{categories|tojson}},
@@ -173,10 +176,6 @@ $('#categories').select2({
         return text.toUpperCase().indexOf(term.toUpperCase())==0; 
     }
 });
-
-function copyContent() {
-        document.getElementById("hiddenTextarea").value = advancedEditor.getHTML();
-}
 
 </script>
 {% endblock %}
