@@ -185,6 +185,7 @@ def file_serve(blob_key):
     blob_info = blobstore.get(blob_key)
     response = make_response(blob_info.open().read())
     response.headers['Content-Type'] = blob_info.content_type
+    response.headers['Content-Disposition'] = 'attachment; filename = "'+blob_info.filename+'"'
     return response
 
 
@@ -195,7 +196,7 @@ def upload_url():
     return upload_url_string
 
 
-@admin_app.route('/upload', methods=['PUT', 'POST'])
+@admin_app.route('/upload', methods=['POST'])
 @admin_login_required
 def upload():
     if request.method == 'POST':
@@ -208,7 +209,9 @@ def upload():
         if request_file:
             try:
                 blob_key = parsed_header[1]['blob-key']
-                return jsonify({"filelink": "/admin/file_serve/" + blob_key})
+                blob_info = blobstore.get(blob_key)
+                return jsonify({"filelink": "/admin/file_serve/" + blob_key,
+                                "filename": ""+blob_info.filename})
             except Exception as e:
                 logging.exception(e)
                 return jsonify({"error": e})
