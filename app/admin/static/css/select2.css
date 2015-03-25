@@ -475,7 +475,6 @@ disabled look for disabled choices in the results dropdown
 
 .select2-container-multi .select2-choices {
     height: auto !important;
-    height: 1%;
     margin: 0;
     padding: 0 5px 0 0;
     position: relative;
@@ -496,15 +495,17 @@ html[dir="rtl"] .select2-container-multi .select2-choices {
 }
 
 .select2-container-multi .select2-choices {
-    min-height: 20px;
+    min-height: 35px;
 }
 
 .select2-container-multi.select2-container-active .select2-choices {
     border: 1px solid #2575ed;
     outline: none;
-
-    -webkit-box-shadow: 0 1px 1px 0 rgba(50,50,50,.25);
-    box-shadow: 0 1px 1px 0 rgba(50,50,50,.25);
+    -moz-transition: border ease .5s;
+    transition: border ease .5s;
+    box-shadow: 0 0 0 2px rgba(37,117,237,.3),0 1px 2px rgba(0,0,0,.2) inset;
+    -webkit-box-shadow:  0 0 0 2px rgba(37,117,237,.3),0 1px 2px rgba(0,0,0,.2) inset;
+    box-shadow:  0 0 0 2px rgba(37,117,237,.3),0 1px 2px rgba(0,0,0,.2) inset;
 }
 .select2-container-multi .select2-choices li {
     float: left;
@@ -544,7 +545,7 @@ html[dir="rtl"] .select2-container-multi .select2-choices li
 
 .select2-container-multi .select2-choices .select2-search-choice {
     padding: 3px 5px 3px 18px;
-    margin: 8px 0 3px 5px;
+    margin: 6px 0 3px 5px;
     position: relative;
     line-height: 13px;
     font-size: 13px;

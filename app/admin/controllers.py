@@ -2,10 +2,12 @@
 # ----------------------------------------------------------------
 import time
 import logging
+from json import dumps
 from functions import clean_url, admin_login_required
 from google.appengine.api import users
 from google.appengine.ext import ndb, blobstore
 from google.appengine.api.images import get_serving_url
+from google.appengine.ext.blobstore import BlobInfo
 from google.appengine.api.app_identity import get_default_gcs_bucket_name
 from werkzeug import parse_options_header
 from flask import (Blueprint, render_template, make_response, request,
@@ -185,7 +187,7 @@ def file_serve(blob_key):
     blob_info = blobstore.get(blob_key)
     response = make_response(blob_info.open().read())
     response.headers['Content-Type'] = blob_info.content_type
-    response.headers['Content-Disposition'] = 'attachment; filename = "'+blob_info.filename+'"'
+    response.headers['Content-Disposition'] = 'attachment; filename = "' + blob_info.filename + '"'
     return response
 
 
@@ -211,7 +213,52 @@ def upload():
                 blob_key = parsed_header[1]['blob-key']
                 blob_info = blobstore.get(blob_key)
                 return jsonify({"filelink": "/admin/file_serve/" + blob_key,
-                                "filename": ""+blob_info.filename})
+                                "filename": "" + blob_info.filename})
             except Exception as e:
                 logging.exception(e)
                 return jsonify({"error": e})
+
+
+# Controllers /// File Manager ///
+# ----------------------------------------------------------------
+@admin_app.route('/image_serve/')
+def images_manager():
+    blobs = BlobInfo.all()
+    keys = []
+    urls = []
+
+    # filter images
+    for blob in blobs:
+        if blob.content_type in ["image/jpeg", "image/png", "image/gif"]:
+            keys.append(blob.key())
+
+    for key in keys:
+        image_info = {}
+        image_info['thumb'] = get_serving_url(key, crop=True, size=200)
+        image_info['image'] = '/admin/file_serve/'+str(key)
+        image_info['title'] = blobstore.get(key).filename
+        urls.append(image_info)
+
+    response = make_response(dumps(urls))
+    response.mimetype = 'application/json'
+
+    return response
+
+
+@admin_app.route('/file_serve/')
+@admin_login_required
+def files_manager():
+    blobs = BlobInfo.all()
+    keys = []
+    urls = []
+
+    # filter images
+    for blob in blobs:
+        if blob.content_type in ["image/jpeg", "image/png", "image/gif"]:
+            keys.append(blob.key())
+
+    for key in keys:
+        urls.append(get_serving_url(key, crop=True, size=300))
+
+    return render_template('admin-manager.html', keys=urls)
+
