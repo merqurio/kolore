@@ -39,7 +39,9 @@
 <!-- Initialize Redactor editor -->
 <script type="text/javascript" src="{{url_for('admin.static', filename='plugins/jquery/dist/jquery.js')}}"></script>
 <script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/redactor.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/plugins/video/video.js')}}"></script>
 <script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/plugins/imagemanager/imagemanager.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/plugins/fullscreen/fullscreen.js')}}"></script>
 {% if request.cookies.get('lang') != "en" %}
 <script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/langs/'+request.cookies.get("lang")+'.js')}}"></script>
 {% endif %}
@@ -54,7 +56,7 @@ $('#content').redactor({
     buttonsHide: ['html'],
     toolbarFixedTopOffset: 50,
     imageManagerJson: '/admin/image_serve/',
-    plugins: ['imagemanager'],
+    plugins: ['imagemanager','video','fullscreen'],
     gcs: '/admin/upload_url'
     {% if request.cookies.get("lang") != "en" %}
     ,
