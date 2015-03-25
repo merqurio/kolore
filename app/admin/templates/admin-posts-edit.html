@@ -47,8 +47,7 @@
 
 $('#content').redactor({
     minHeight: 300,
-    initCallback: function()
-    {
+    initCallback: function(){
         this.code.set('{{ post.text | safe}}');
     },
     gcs: '/admin/upload_url'
