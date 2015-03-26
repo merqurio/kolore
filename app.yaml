@@ -12,6 +12,8 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
+default_expiration: "30d"
+
 # Handlers define how to route requests to your application.
 handlers:
 

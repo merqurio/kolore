@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="{{ url_for('front.static', filename='dist/production.min.css') }}" />
 </head>
 <body>
-    <div>
-        <h1>Example blog</h1>
+    <div style="max-width: 800px; margin: auto; padding:40px;">
+        <h1><a href="/">Example blog</a></h1>
         {% block content %}
         {% endblock %}
     </div>

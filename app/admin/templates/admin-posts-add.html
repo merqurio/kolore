@@ -10,7 +10,7 @@
                 <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{_("Return")}}
             </a>
         </div>
-        <form id="wizard" class="forms" method="POST" onsubmit="return copyContent()" action="{{url_for('admin.add_post')}}">
+        <form id="wizard" class="forms" method="POST" action="{{url_for('admin.add_post')}}">
             <ul class="wizard-steps">
                 <li class="active" data-target="#tab1"> 
                     <a href="#tab1" id="step-1"> 
