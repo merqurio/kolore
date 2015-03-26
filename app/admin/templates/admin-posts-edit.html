@@ -28,7 +28,10 @@
                     <br>
                     <h4 class="light">{{_("Save")}} <b>{{_("Changes")}}</b></h4>
                     <p>{{_("By saving all the changes will be published")}}</p>
-                    <button type="submit" class="btn btn-black btn-outline">{{_("Publish Now")}}</button>
+                    <a class="btn btn-small btn-blue btn-outline" href="{{url_for('admin.posts')}}">
+                        <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{_("Return")}}
+                    </a>
+                    <button type="submit" class="btn btn-small btn-black btn-outline"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;{{_("Publish Now")}}</button>
                 </div>
             </div>
 

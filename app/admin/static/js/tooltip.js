@@ -1,7 +1,10 @@
-[].forEach.call(document.querySelectorAll('.tooltip-it'), function(item){
+
+function showTooltip(item){
 
     var theme = "tooltip-theme-"+item.dataset.theme,
         title = document.createTextNode(item.dataset.title),
+        item_top = item.getBoundingClientRect().top + item.offsetHeight+1,
+        item_left = item.getBoundingClientRect().left,
         tooltip = document.createElement('div');
 
     // Edit tooltip
@@ -9,22 +12,37 @@
     tooltip.classList.add(theme);
     tooltip.appendChild(title);
 
-    // Show tooltip
-    item.addEventListener('mouseover', function(){
+    // Position
+    tooltip.style.top = item_top + 'px';
+    tooltip.style.left = item_left + 'px';
 
-        var item_top = item.getBoundingClientRect().top + item.offsetHeight+1,
-            item_left = item.getBoundingClientRect().left;
+    // Create tooltip
+    document.body.appendChild(tooltip);
+}
 
-        // Position
-        tooltip.style.top = item_top + 'px';
-        tooltip.style.left = item_left + 'px';
+function hideTooltip(){
+    document.querySelector('.tooltip').remove();
+}
 
-        // Create tooltip
-        document.body.appendChild(tooltip);
-    });
-    // Hide tooltip
-    item.addEventListener('mouseout', function(){
-        // Create tooltip
-        document.body.removeChild(tooltip);
-    });
+document.addEventListener('mouseover', function(e){
+    if(e.target && e.target.classList.contains('tooltip-it')){
+        showTooltip(e.target);
+    }
+    if(e.target.parentNode.classList) {
+        if (e.target && e.target.parentNode.classList.contains('tooltip-it')) {
+            showTooltip(e.target.parentNode);
+        }
+    }
+});
+
+document.addEventListener('mouseout', function(e){
+    if(e.target && e.target.classList.contains('tooltip-it')){
+        hideTooltip();
+    }
+    if(e.target.parentNode.classList){
+        if(e.target && e.target.parentNode.classList.contains('tooltip-it')){
+            hideTooltip();
+        }
+    }
+
 });
