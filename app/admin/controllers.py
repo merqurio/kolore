@@ -148,7 +148,7 @@ def categories():
         time.sleep(1)
 
     return render_template('admin-categories.html',
-                           categories=BlogCategory.all())
+                           categories=BlogCategory.query().fetch())
 
 
 @admin_app.route('/categories/edit/<int:cat_id>',
@@ -233,11 +233,9 @@ def images_manager():
             keys.append(blob.key())
 
     for key in keys:
-        image_info = {}
-        image_info['thumb'] = get_serving_url(key, crop=True, size=200)
-        image_info['image'] = '/admin/file_serve/'+str(key)
-        image_info['title'] = blobstore.get(key).filename
-        urls.append(image_info)
+        urls.append({'thumb': get_serving_url(key, crop=True, size=200),
+                      'image': '/admin/file_serve/' + str(key),
+                      'title': blobstore.get(key).filename})
 
     response = make_response(dumps(urls))
     response.mimetype = 'application/json'
@@ -254,7 +252,7 @@ def files_manager():
 
     # filter images
     for blob in blobs:
-        if blob.content_type in ["image/jpeg", "image/png", "image/gif"]:
+        if blob.content_type not in ["image/jpeg", "image/png", "image/gif"]:
             keys.append(blob.key())
 
     for key in keys:
