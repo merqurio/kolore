@@ -5,7 +5,7 @@
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
-            <h3 class="light left">{{_("Add")}} <b>{{_("Post")}}</b></h3>
+            <h3 class="light left">{{_("Add <b>Post</b>")}}</h3>
             <a class="btn btn-small btn-blue btn-outline right" href="{{url_for('admin.posts')}}">
                 <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{_("Return")}}
             </a>
@@ -40,7 +40,7 @@
             <div class="step-panels">
                 <div id="tab1" class="step-tab">
                     <div class="step-content">
-                        <h2 class="light">{{_("Some tips")}} <b>{{_("for writing a blog post")}}</b></h2>
+                        <h2 class="light">{{_("Some tips for writing a <b>blog post</b>")}}</h2>
                         <div class="units-row ">
                             <div class="unit-50">
                                 <ul>
@@ -103,11 +103,11 @@
                     <div class="step-content">
                         <div class="units-row ">
                             <div class="unit-50">
-                                <h2 class="light">{{_("Post")}} <b>{{_("Categories")}}</b></h2><br>
+                                <h2 class="light">{{_("Post <b>Categories</b>")}}</h2><br>
                                 <p>{{_("It's important to try to keep your content organized. Categorizing posts helps you to keep <b>your stuff organized.</b> Also helps search engines to understand the content of your website.")}}</p>
                             </div>
                             <div class="unit-50">
-                                <h2 class="light">{{_("Select")}} <b>{{_("Categories")}}</b></h2><br>
+                                <h2 class="light">{{_("Select <b>Categories</b>")}}</h2><br>
                                 <p>{{_("<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories.")}}</p>
                                 <input type="text" id="categories" name="categories" class="form-control">
                             </div>
@@ -118,7 +118,7 @@
                 </div>
                 <div id="tab3" class="step-tab hide">
                     <div class="step-content">
-                        <h2 class="light">{{_("Write your")}} <b>{{_("Blog Post")}}</b></h2>
+                        <h2 class="light">{{_("Write the <b>Blog Post</b>")}}</h2>
                         <label>
                             {{_("Title")}} <span class="forms-desc">{{_("Enter a title")}}</span>
                             <input type="text" name="title" class="width-100 form-control" />

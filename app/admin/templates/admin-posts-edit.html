@@ -5,7 +5,7 @@
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
-            <h3 class="light left">{{_("Edit")}} <b>{{_("Post")}}</b></h3>
+            <h3 class="light left">{{_("Edit <b>Post</b>")}}</h3>
         </div>
         <form class="forms" method="POST">
             <div class="units-row">
@@ -52,6 +52,10 @@ $('#content').redactor({
     minHeight: 300,
     initCallback: function(){
         this.code.set('{{ post.text | safe}}');
+        this.observe.load();
+        if (this.utils.isOldIe()){
+            alert("{{_("You should update your Internet Explorer")}}")
+        }
     },
     buttonsHide: ['html'],
     toolbarFixedTopOffset: 50,
