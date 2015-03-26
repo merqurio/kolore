@@ -7,7 +7,7 @@
                 <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Add Post")}}
             </a>
         </div>
-        <table class="table-hovered">
+        <table class="table-hovered" >
             <thead>
                 <tr>
                     <th>{{_("Post")}}</th>
@@ -16,7 +16,7 @@
                     <th>{{_("Actions")}}</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="posts-table-body">
                 {% for post in posts %}
                 <tr id="{{ post.key.id() }}">
                     <td><a href="/blog/{{post.url}}" class="title">{{post.title}}</a></td>
@@ -32,20 +32,72 @@
                 {% endfor %}
             </tbody>
         </table>
+        {% if plus %}
+        <div class="units-row">
+            <div class="unit-centered unit-40 text-centered">
+                 <button class="btn btn-small btn-black btn-outline" id="more-posts">
+                    <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Older Posts")}}
+                </button>
+            </div>
+        </div>
+        {% endif %} 
     </div>
     {% include 'blocks/block-modal.html' %}
 {% endblock %}
 {% block js %}
     <script type="application/javascript">
+        var page = 0;
+
+        // AJAX more posts
+        document.getElementById('more-posts').addEventListener('click', function(){
+            var request = new XMLHttpRequest(),
+                tbody = document.getElementById('posts-table-body');
+
+            // Add 1
+            page++;
+
+            // Get HTML
+            request.open('GET', '/admin/posts/'+page, true);
+            request.onload = function() {
+              if (request.status >= 200 && request.status < 400) {
+                
+                // Count the number of post, to know if last request or not
+                var post_number = 0;
+
+                // Success!
+                tbody.insertAdjacentHTML('afterend', request.responseText);
+                [].forEach.call(document.querySelectorAll('.added-post'), function(item){
+                    item.classList.remove('hide')
+                });
+
+                // Set Dates
+                [].forEach.call(document.querySelectorAll('.date'), function(item){
+                    item.innerHTML = moment(item.dataset.date, "YYYY-MM-DD HH:mm:ss.SSSSSS").add(1, 'h').fromNow();
+                    post_number++;
+                });
+
+                // Check if more post to come
+                if (request.responseText === "" || post_number%5 !== 0){
+                    document.getElementById('more-posts').remove()
+                }
+
+              } else {
+                // We reached our target server, but it returned an error
+                alert("{{_("There was an error while requesting more posts. Please reload the page.")}}")
+              }
+            };
+            request.send();
+        });
+
         // set Locale Lang
         moment.locale('{{request.cookies.get('lang')}}');
 
-        // Set dates
+        // Set dates (Initial)
         [].forEach.call(document.querySelectorAll('.date'), function(item){
             item.innerHTML = moment(item.dataset.date, "YYYY-MM-DD HH:mm:ss.SSSSSS").add(1, 'h').fromNow();
         });
 
-        // Set modal listener
+        // Set modal open listener
         [].forEach.call(document.querySelectorAll('.delete-modal'), function(item){
             item.addEventListener('click', function() {
                 var title = item.parentNode.parentNode.parentNode.querySelector('.title').innerText,
