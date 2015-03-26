@@ -75,7 +75,7 @@
                 var post_number = 0;
 
                 // Success!
-                tbody.insertAdjacentHTML('afterend', request.responseText);
+                tbody.insertAdjacentHTML('beforeEnd', request.responseText);
                 [].forEach.call(document.querySelectorAll('.added-post'), function(item){
                     item.classList.remove('hide')
                 });
@@ -108,8 +108,17 @@
         });
 
         // Set modal open listener
-        [].forEach.call(document.querySelectorAll('.delete-modal'), function(item){
-            item.addEventListener('click', function() {
+        document.addEventListener('click', function(e){
+            var item = e.target;
+
+            // Check if parent
+            if (item.parentNode.classList){
+                if (item.parentNode.classList.contains('delete-modal')){
+                    item = e.target.parentNode
+                }
+            }
+
+            if(item && item.classList.contains('delete-modal') ){
                 var title = item.parentNode.parentNode.parentNode.querySelector('.title').innerText,
                     content = '{{_("Are you sure you want to delete this post")}}',
                     action = '{{_("Delete")}}',
@@ -117,24 +126,28 @@
 
                 populateModal(title, content, action, postId);
                 openModal();
+
+                // Set modals action
                 document.querySelector('#modal-action').addEventListener('click', deletePostModalRequest);
-            });
+            }
         });
 
         // Set modal closing listeners
         document.querySelector('.modal-box').addEventListener('click', function(event){
             if (this.classList.contains('modal-box') && event.target.classList.contains('modal-box')) {
                 closeModal();
+
+                // Remove modal action
                 document.querySelector('#modal-action').removeEventListener('click', deletePostModalRequest);
             }
         });
 
         // Modal closing listener
-        [].forEach.call(document.querySelectorAll('.modal-close-action'), function(item){
-            item.addEventListener('click', function(event) {
+        document.addEventListener('click', function(e){
+            if(e.target && e.target.classList.contains('modal-close-action')){
                 closeModal();
                 document.querySelector('#modal-action').removeEventListener('click', deletePostModalRequest);
-            });
+            }
         });
 
 

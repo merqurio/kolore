@@ -1,6 +1,5 @@
 var overlay = document.querySelector('#modal-overlay'),
-    box = document.querySelector('.modal-box'),
-    closeBtn = document.querySelectorAll('.modal-close-action');
+    box = document.querySelector('.modal-box');
 
 // Populate
 function populateModal(title, content, action, postId){

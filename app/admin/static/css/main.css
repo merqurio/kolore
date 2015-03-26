@@ -25,14 +25,16 @@ a:focus, a:hover {
     padding: 25px;
     box-shadow: 0 1px 1px 0 rgba(50, 50, 50, .25);
 }
-.title .btn.right {
-  float: right;
-}
 
-.title h3.left {
-    float: left;
-}
+@media only screen and (min-width: 650px) {
+    .title .btn.right {
+        float: right;
+    }
 
+    .title h3.left {
+        float: left;
+    }
+}
 .menu-logo img {
   margin-top: 12px;
 }
@@ -112,8 +114,16 @@ Page specific
 
 
 /* ------------------------------------
-Page specific
+Modal
 ------------------------------------ */
+.modal-close-action{
+    float: left;
+}
+
+.modal footer button {
+    width: 50%;
+}
+
 @media only screen and (min-width: 800px) {
     .modal {
         max-width: 700px;
