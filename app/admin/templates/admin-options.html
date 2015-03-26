@@ -5,12 +5,12 @@
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
-            <h3 class="light left">{{_("General")}} <b>{{_("Settings")}}</b></h3>
+            <h3 class="light left">{{_("General <b>Settings</b>")}}</h3>
         </div>
         <form class="forms" method="POST">
             <div class="units-row">
                 <div class="unit-50 unit-centered">
-                    <p>{{_("Here you can change the name that will be displayed in the posts.")}}</p>
+                    <p>{{_("Here you can change the name that will be displayed in the website.")}}</p>
                     <label>
                         {{_("User")}} <span class="forms-desc">{{_("Introduce your name and surname.")}}</span>
                         <input type="text" {% if user%} value="{{user.name}}" {% endif %} name="user_name" class="form-control width-100">

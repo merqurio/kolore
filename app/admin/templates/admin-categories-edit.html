@@ -2,7 +2,7 @@
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
-            <h3 class="light left">{{_("Edit")}} <b>{{_("Categories")}}</b></h3>
+            <h3 class="light left">{{_("Edit <b>Categories</b>")}}</h3>
             <a class="btn btn-small btn-blue btn-outline right" href="{{url_for('admin.categories')}}">
                 <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{_("Return")}}
             </a>
@@ -12,7 +12,7 @@
                 <form id="edit" method="post" class="forms">
                     <h2 class="light">{{_("Edit")}} <b>{{edit_cat.name}}</b></h2><br>
                     <label>
-                        {{_("ID")}} <span class="forms-desc">{{_("Unique number")}}</span>
+                        {{_("Category")}} <span class="forms-desc">{{_("Change the name of the category")}}</span>
                         <input type="text" value="{{edit_cat.name}}" name="name" class="form-control width-100">
                     </label>
                     <button class="btn btn-small btn-blue btn-outline" type="submit" name="action" value="save">

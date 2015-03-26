@@ -2,12 +2,12 @@
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
-            <h3 class="light left">{{_("All")}} <b>{{_("Categories")}}</b></h3>
+            <h3 class="light left">{{_("All <b>Categories</b>")}}</h3>
         </div>
         <div class="units-row">
             <div class="unit-50">
-                <h2 class="light">{{_("Edit")}} <b>{{_("Categories")}}</b></h2><br>
-                <p>{{_("Pick a category from the list in the left, and edit it in the right column.")}}</p>
+                <h2 class="light">{{_("Edit <b>Categories</b>")}}</h2><br>
+                <p>{{_("Pick a category from the list to edit or delete it.")}}</p>
                 {% set labels = ['','-black', '-blue', '-red','-yellow','-green'] %}
                 {% for category in categories%}
                     <a href="{{ url_for('admin.edit_category', cat_id=category.key.id())}}">
@@ -17,7 +17,7 @@
             </div>
             <div class="unit-50">
                 <form id="edit" method="post">
-                    <h2 class="light">{{_("Add")}} <b>{{_("Categories")}}</b></h2><br>
+                    <h2 class="light">{{_("Add <b>Categories</b>")}}</h2><br>
                     <p>{{_("<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories.")}}</p>
                     <input type="text" id="categories" name="categories" class="form-control">
                     <br>
