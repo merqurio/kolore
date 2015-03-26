@@ -1909,6 +1909,38 @@ input[type="submit"].btn-white.btn-outline.btn-active {
   border-color: #ffffff;
   color: #ffffff;
 }
+/* =Tooltip
+-----------------------------------------------------------------------------*/
+.tooltip {
+  position: absolute;
+  z-index: 10000;
+  display: inline-block;
+  color: #fff;
+  padding: 2px 10px;
+  font-size: 12.75px;
+  line-height: 1.5em;
+  max-width: 250px;
+  background: #4c4c4c;
+}
+.tooltip-theme-red {
+  background: #de2c3b;
+}
+.tooltip-theme-blue {
+  background: #2575ed;
+}
+.tooltip-theme-green {
+  background: #01bc9a;
+}
+.tooltip-theme-yellow {
+  background: #ffc800;
+}
+.tooltip-theme-white {
+  background: #ffffff;
+}
+.tooltip-theme-yellow,
+.tooltip-theme-white {
+  color: #000;
+}
 /* =Modal
 -----------------------------------------------------------------------------*/
 #modal-overlay {

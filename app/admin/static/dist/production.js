@@ -1,4 +1,4 @@
-/*! Kolore CMS - v0.3 - 2015-03-25
+/*! Kolore CMS - v0.3 - 2015-03-26
 * http://chromabranding.com
 * Copyright (c) 2015 ; Licensed  */
 (function () {
@@ -3326,6 +3326,36 @@ function deletePostModalRequest(){
     };
     closeModal();
 }
+[].forEach.call(document.querySelectorAll('.tooltip-it'), function(item){
+
+    var theme = "tooltip-theme-"+item.dataset.theme,
+        title = document.createTextNode(item.dataset.title),
+        tooltip = document.createElement('div');
+
+    // Edit tooltip
+    tooltip.classList.add("tooltip");
+    tooltip.classList.add(theme);
+    tooltip.appendChild(title);
+
+    // Show tooltip
+    item.addEventListener('mouseover', function(){
+
+        var item_top = item.getBoundingClientRect().top + item.offsetHeight+1,
+            item_left = item.getBoundingClientRect().left;
+
+        // Position
+        tooltip.style.top = item_top + 'px';
+        tooltip.style.left = item_left + 'px';
+
+        // Create tooltip
+        document.body.appendChild(tooltip);
+    });
+    // Hide tooltip
+    item.addEventListener('mouseout', function(){
+        // Create tooltip
+        document.body.removeChild(tooltip);
+    });
+});
 (function() {
     // The JS for the wizard effect .
 
