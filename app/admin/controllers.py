@@ -76,7 +76,7 @@ def posts():
 @admin_login_required
 def more_posts(page_num):
     offset = int(page_num * 5)
-    return render_template('posts-view-more.html',
+    return render_template('admin-posts-more.html',
                            posts=BlogPost.query()
                            .order(-BlogPost.date)
                            .fetch(5, offset=offset))
