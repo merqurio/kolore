@@ -13,7 +13,7 @@ class User(ndb.Model):
 
     @classmethod
     def query_all(cls):
-        '''It creates a list with all the user objects'''
+        """It creates a list with all the user objects"""
         users = cls.query()
         users_list = []
         for user in users:
@@ -32,7 +32,7 @@ class BlogPost(ndb.Model):
     author = ndb.UserProperty()
 
     def get_categories(self):
-        '''Returns a string list of post's categories'''
+        """Returns a string list of post's categories"""
         categories_list = []
         for category in self.categories:
             categories_list.append(category.get().name)
@@ -45,7 +45,7 @@ class BlogCategory(ndb.Model):
 
     @classmethod
     def query_all(cls):
-        '''It creates a list with all the categories objects'''
+        """It creates a list with all the categories objects"""
         categories = cls.query()
         category_list = []
         for category in categories:
@@ -54,8 +54,8 @@ class BlogCategory(ndb.Model):
 
     @staticmethod
     def add_categories(form_categories):
-        '''Looks for exisiting categories Keys and creates new
-        categories if not found. Returns a list of those keys.'''
+        """Looks for exisiting categories Keys and creates new
+        categories if not found. Returns a list of those keys."""
         list_of_categories = []
         for category in form_categories:
             if category in BlogCategory.query_all():

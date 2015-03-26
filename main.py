@@ -44,6 +44,17 @@ def get_locale():
         return request.cookies.get('lang')
 
 
+# Jinja2 functions
+# ----------------------------------------------------------------
+
+def url_for_other_page(page):
+    args = request.view_args.copy()
+    args['page'] = page
+    return url_for(request.endpoint, **args)
+
+
+app.jinja_env.globals['url_for_other_page'] = url_for_other_page
+
 # Global routes
 # ----------------------------------------------------------------
 @app.route('/ADMIN')

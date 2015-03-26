@@ -148,7 +148,7 @@ def categories():
         time.sleep(1)
 
     return render_template('admin-categories.html',
-                           categories=BlogCategory.query().fetch())
+                           categories=BlogCategory.all())
 
 
 @admin_app.route('/categories/edit/<int:cat_id>',
