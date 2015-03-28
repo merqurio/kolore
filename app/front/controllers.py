@@ -24,8 +24,9 @@ POSTS_PER_PAGE = 2
 @front_app.route('/page/<int:page>')
 def home(page):
     offset = (page-1)*POSTS_PER_PAGE
-    posts = BlogPost.query().order(-BlogPost.date).fetch(POSTS_PER_PAGE, offset=offset)
-    all_posts = len(BlogPost.query().fetch())
+    q = BlogPost.query().order(-BlogPost.date)
+    posts = q.fetch(POSTS_PER_PAGE, offset=offset)
+    all_posts = len(q.fetch())
     pagination = Pagination(page, POSTS_PER_PAGE, all_posts)
     response = make_response(render_template('front-index.html', posts=posts, pagination=pagination))
     if not request.cookies.get('lang'):
