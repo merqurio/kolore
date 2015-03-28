@@ -131,31 +131,12 @@
                     action = '{{_("Delete")}}',
                     postId = item.dataset.id;
 
-                populateModal(title, content, action, postId);
+                populateModal(title, content, action, postId, "{{ url_for('admin.posts') }}");
                 openModal();
-
-                // Set modals action
-                document.querySelector('#modal-action').addEventListener('click', deletePostModalRequest);
             }
         });
 
-        // Set modal closing listeners
-        document.querySelector('.modal-box').addEventListener('click', function(event){
-            if (this.classList.contains('modal-box') && event.target.classList.contains('modal-box')) {
-                closeModal();
 
-                // Remove modal action
-                document.querySelector('#modal-action').removeEventListener('click', deletePostModalRequest);
-            }
-        });
-
-        // Modal closing listener
-        document.addEventListener('click', function(e){
-            if(e.target && e.target.classList.contains('modal-close-action')){
-                closeModal();
-                document.querySelector('#modal-action').removeEventListener('click', deletePostModalRequest);
-            }
-        });
 
 
     </script>

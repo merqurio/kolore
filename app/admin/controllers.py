@@ -61,7 +61,7 @@ def posts():
     if request.method == 'POST':
         post = request.get_json()
         # Get the Key, and delete() the object using Key (mandatory)
-        ndb.Key('BlogPost', int(post['post_id'])).delete()
+        ndb.Key('BlogPost', int(post['objects'])).delete()
         return "true"
 
     all_posts = BlogPost.query().order(-BlogPost.date).fetch(5)
@@ -212,14 +212,16 @@ def upload():
             try:
                 blob_key = parsed_header[1]['blob-key']
                 blob_info = blobstore.get(blob_key)
+                blob_img_url = get_serving_url(blob_key, crop=True, size=200)
                 return jsonify({"filelink": "/admin/file_serve/" + blob_key,
-                                "filename": "" + blob_info.filename})
+                                "filename": "" + blob_info.filename,
+                                "thumb": blob_img_url})
             except Exception as e:
                 logging.exception(e)
                 return jsonify({"error": e})
 
 
-# Controllers /// File Manager ///
+# Controllers /// Redactor Manager ///
 # ----------------------------------------------------------------
 @admin_app.route('/image_serve/')
 def images_redactor():
@@ -227,7 +229,7 @@ def images_redactor():
     Image manager of redactor
     :return:json with image urls
     """
-    blobs = BlobInfo.all()
+    blobs = BlobInfo.all().order('-creation')
     keys = []
     urls = []
 
@@ -253,7 +255,7 @@ def files_redactor():
     Files manager of redactor
     :return: json with all the file urls
     """
-    blobs = BlobInfo.all()
+    blobs = BlobInfo.all().order('-creation')
     blob_files = []
     urls = []
 
@@ -273,17 +275,20 @@ def files_redactor():
     return response
 
 
+# Controllers /// File Manager ///
+# ----------------------------------------------------------------
+
 @admin_app.route('/images', methods=['GET', 'POST'])
 @admin_login_required
 def image_manager():
     if request.method == 'POST':
-        blob_keys = request.form['images'].split(",")
-        for blob_instance in BlobInfo.get(blob_keys):
+        blob_keys = request.get_json()
+        for blob_instance in BlobInfo.get(blob_keys['objects'].split(',')):
             blob_instance.delete()
         sleep(1)
-        return redirect(url_for('admin.image_manager'))
+        return "true"
 
-    blobs = BlobInfo.all()
+    blobs = BlobInfo.all().order('-creation')
     keys = []
     urls = []
 
@@ -299,7 +304,7 @@ def image_manager():
     return render_template('admin-manager-images.html', keys=urls)
 
 
-@admin_app.route('/files/add', methods=['GET', 'POST'])
+@admin_app.route('/images/add', methods=['GET', 'POST'])
 @admin_login_required
-def manager_add():
-    return render_template('admin-manager-add.html')
+def image_manager_add():
+    return render_template('admin-manager-images-add.html')
