@@ -38,6 +38,10 @@ a:focus, a:hover {
 .menu-logo img {
   margin-top: 12px;
 }
+
+.pagination{
+      margin: 0;
+}
 /* ------------------------------------
 Table setting
 ------------------------------------ */
