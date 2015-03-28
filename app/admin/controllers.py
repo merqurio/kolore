@@ -26,7 +26,7 @@ admin_app = Blueprint('admin', __name__,
                       static_folder='static')
 BUCKET_NAME = get_default_gcs_bucket_name()
 IMG_SIZE = 1200
-IMAGES_PER_PAGE = 40
+IMAGES_PER_PAGE = 24
 
 
 # Controllers /// General ///
