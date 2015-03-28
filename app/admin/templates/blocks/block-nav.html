@@ -33,10 +33,13 @@
     <div class="menu-bottom menu-block">
         <ul class="menu-bottom-list menu-bottom-main">
             <li>
-                <a href="{{ url_for('admin.posts')}}">{{_("Blog Posts")}}</a>
+                <a href="{{ url_for('admin.posts')}}">{{_("Posts")}}</a>
             </li>
             <li>
-                <a href="{{ url_for('admin.categories')}}">{{_('Blog Categories')}}</a>
+                <a href="{{ url_for('admin.categories')}}">{{_('Categories')}}</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.image_manager') }}">{{_('Images')}}</a>
             </li>
             <li>
                 <a href="{{ url_for('admin.options') }}">{{_('Options')}}</a>

@@ -1941,6 +1941,28 @@ input[type="submit"].btn-white.btn-outline.btn-active {
 .tooltip-theme-white {
   color: #000;
 }
+/* =Upload
+-----------------------------------------------------------------------------*/
+.tools-droparea {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+  border: 3px dashed rgba(0, 0, 0, 0.1);
+}
+.tools-droparea.drag-hover {
+  background: rgba(200, 222, 250, 0.75);
+}
+.tools-droparea.drag-drop {
+  background: rgba(250, 248, 200, 0.5);
+}
+.tools-droparea-placeholder {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.tools-droparea-placeholder input[type="file"] {
+  display: inline-block;
+}
 /* =Modal
 -----------------------------------------------------------------------------*/
 #modal-overlay {

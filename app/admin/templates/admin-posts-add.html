@@ -160,6 +160,11 @@
 
 $('#content').redactor({
     minHeight: 300,
+    initCallback: function(){
+        if (this.utils.isOldIe()){
+            alert("{{_("You should update your Internet Explorer")}}");
+        }
+    },
     buttonsHide: ['html'],
     toolbarFixedTopOffset: 50,
     imageManagerJson: '/admin/image_serve/',
