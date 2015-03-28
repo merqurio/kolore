@@ -1,4 +1,5 @@
 {% extends 'admin-base.html'%}
+{% import 'macros/admin-pagination.html' as paginator %}
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
@@ -25,6 +26,9 @@
                     </div>
                 {% endfor %}
             </div>
+            {% if keys %}
+                {{ paginator.render_pagination(pagination) }}
+            {% endif %}
         {% endif %}
     </div>
     {% include 'blocks/block-modal.html' %}

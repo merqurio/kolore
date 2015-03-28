@@ -16,7 +16,7 @@ from flask import (Blueprint, render_template, make_response, request,
 # Models
 # ----------------------------------------------------------------
 
-from app.admin.models import BlogPost, BlogCategory, User
+from app.admin.models import BlogPost, BlogCategory, User, Pagination
 
 # Config
 # ----------------------------------------------------------------
@@ -26,6 +26,7 @@ admin_app = Blueprint('admin', __name__,
                       static_folder='static')
 BUCKET_NAME = get_default_gcs_bucket_name()
 IMG_SIZE = 1200
+IMAGES_PER_PAGE = 40
 
 
 # Controllers /// General ///
@@ -39,7 +40,7 @@ def home():
     return render_template('admin-home.html', user=db_user)
 
 
-@admin_app.route('/options', methods=['GET', 'POST'])
+@admin_app.route('/options/', methods=['GET', 'POST'])
 @admin_login_required
 def options():
     current_user = users.get_current_user()
@@ -54,7 +55,7 @@ def options():
 # Controllers /// Posts ///
 # ----------------------------------------------------------------
 
-@admin_app.route('/posts', methods=['GET', 'POST'])
+@admin_app.route('/posts/', methods=['GET', 'POST'])
 @admin_login_required
 def posts():
     """ Renders all posts"""
@@ -138,7 +139,7 @@ def edit_post(post_id):
 # Controllers /// Categories ///
 # ----------------------------------------------------------------
 
-@admin_app.route('/categories', methods=['GET', 'POST'])
+@admin_app.route('/categories/', methods=['GET', 'POST'])
 @admin_login_required
 def categories():
     """ Renders all categories """
@@ -278,9 +279,10 @@ def files_redactor():
 # Controllers /// File Manager ///
 # ----------------------------------------------------------------
 
-@admin_app.route('/images', methods=['GET', 'POST'])
+@admin_app.route('/images/', defaults={'page': 1}, methods=['GET', 'POST'])
+@admin_app.route('/images/<int:page>', methods=['GET', 'POST'])
 @admin_login_required
-def image_manager():
+def image_manager(page):
     if request.method == 'POST':
         blob_keys = request.get_json()
         for blob_instance in BlobInfo.get(blob_keys['objects'].split(',')):
@@ -288,20 +290,24 @@ def image_manager():
         sleep(1)
         return "true"
 
+    offset = (page-1)*IMAGES_PER_PAGE
     blobs = BlobInfo.all().order('-creation')
     keys = []
     urls = []
+    pagination = Pagination(page, IMAGES_PER_PAGE, blobs.count())
 
     # filter images
-    for blob in blobs:
+    for blob in blobs.fetch(IMAGES_PER_PAGE, offset=offset):
         if blob.content_type in ["image/jpeg", "image/png", "image/gif"]:
             keys.append(blob.key())
 
+    # get urls and keys
     for key in keys:
         urls.append({"url": get_serving_url(key, crop=True, size=300),
                      "key": key})
 
-    return render_template('admin-manager-images.html', keys=urls)
+    return render_template('admin-manager-images.html', keys=urls, pagination=pagination)
+
 
 
 @admin_app.route('/images/add', methods=['GET', 'POST'])
