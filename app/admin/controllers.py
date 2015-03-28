@@ -1,7 +1,7 @@
 # Imports
 # ----------------------------------------------------------------
-import time
 import logging
+from time import sleep
 from json import dumps
 from functions import clean_url, admin_login_required
 from google.appengine.api import users
@@ -101,7 +101,7 @@ def add_post():
         blog_post.put()
 
         # Redirect
-        time.sleep(1)
+        sleep(1)
         return redirect(url_for('admin.posts'))
 
     # GET
@@ -127,7 +127,7 @@ def edit_post(post_id):
         blog_post.put()
 
         # Redirect
-        time.sleep(1)
+        sleep(1)
         return redirect(url_for('admin.posts'))
 
     return render_template('admin-posts-edit.html',
@@ -145,7 +145,7 @@ def categories():
     if request.method == 'POST':
         post_categories = request.form['categories'].split(",")
         BlogCategory.add_categories(post_categories)
-        time.sleep(1)
+        sleep(1)
 
     return render_template('admin-categories.html',
                            categories=BlogCategory.query().fetch())
@@ -163,13 +163,13 @@ def edit_category(cat_id):
             category = edit_cat.get()
             category.name = request.form['name']
             category.put()
-            time.sleep(1)
+            sleep(1)
             return redirect(url_for('admin.categories'))
 
         elif request.form["action"] == "delete":
             BlogCategory.update_posts_categories(edit_cat.get())
             edit_cat.delete()
-            time.sleep(1)
+            sleep(1)
             return redirect(url_for('admin.categories'))
 
         else:
@@ -222,7 +222,11 @@ def upload():
 # Controllers /// File Manager ///
 # ----------------------------------------------------------------
 @admin_app.route('/image_serve/')
-def images_manager():
+def images_redactor():
+    """
+    Image manager of redactor
+    :return:json with image urls
+    """
     blobs = BlobInfo.all()
     keys = []
     urls = []
@@ -234,29 +238,68 @@ def images_manager():
 
     for key in keys:
         urls.append({'thumb': get_serving_url(key, crop=True, size=200),
-                      'image': '/admin/file_serve/' + str(key),
-                      'title': blobstore.get(key).filename})
+                     'image': '/admin/file_serve/' + str(key),
+                     'title': blobstore.get(key).filename})
 
     response = make_response(dumps(urls))
     response.mimetype = 'application/json'
-
     return response
 
 
 @admin_app.route('/file_serve/')
 @admin_login_required
-def files_manager():
+def files_redactor():
+    """
+    Files manager of redactor
+    :return: json with all the file urls
+    """
+    blobs = BlobInfo.all()
+    blob_files = []
+    urls = []
+
+    # filter images
+    for blob in blobs:
+        if blob.content_type not in ["image/jpeg", "image/png", "image/gif"]:
+            blob_files.append(blob)
+
+    for blob_file in blob_files:
+        urls.append({"title": blob_file.filename,
+                     "name": blob_file.filename,
+                     "link": "/admin/file_serve/"+blob_file.key(),
+                     "size": blob_file.size})
+
+    response = make_response(dumps(urls))
+    response.mimetype = 'application/json'
+    return response
+
+
+@admin_app.route('/images', methods=['GET', 'POST'])
+@admin_login_required
+def image_manager():
+    if request.method == 'POST':
+        blob_keys = request.form['images'].split(",")
+        for blob_instance in BlobInfo.get(blob_keys):
+            blob_instance.delete()
+        sleep(1)
+        return redirect(url_for('admin.image_manager'))
+
     blobs = BlobInfo.all()
     keys = []
     urls = []
 
     # filter images
     for blob in blobs:
-        if blob.content_type not in ["image/jpeg", "image/png", "image/gif"]:
+        if blob.content_type in ["image/jpeg", "image/png", "image/gif"]:
             keys.append(blob.key())
 
     for key in keys:
-        urls.append(get_serving_url(key, crop=True, size=300))
+        urls.append({"url": get_serving_url(key, crop=True, size=300),
+                     "key": key})
 
-    return render_template('admin-manager.html', keys=urls)
+    return render_template('admin-manager-images.html', keys=urls)
 
+
+@admin_app.route('/files/add', methods=['GET', 'POST'])
+@admin_login_required
+def manager_add():
+    return render_template('admin-manager-add.html')

@@ -6,14 +6,16 @@
         </div>
         <div class="units-row">
             <div class="unit-50">
-                <h2 class="light">{{_("Edit <b>Categories</b>")}}</h2><br>
-                <p>{{_("Pick a category from the list to edit or delete it.")}}</p>
-                {% set labels = ['','-black', '-blue', '-red','-yellow','-green'] %}
-                {% for category in categories%}
-                    <a href="{{ url_for('admin.edit_category', cat_id=category.key.id())}}">
-                        <span class="label label-outline label{{labels|random()}}">{{category.name}}</span>
-                    </a>
-                {% endfor %}
+                {% if categories %}
+                    <h2 class="light">{{_("Edit <b>Categories</b>")}}</h2><br>
+                    <p>{{_("Pick a category from the list to edit or delete it.")}}</p>
+                    {% set labels = ['','-black', '-blue', '-red','-yellow','-green'] %}
+                    {% for category in categories%}
+                        <a href="{{ url_for('admin.edit_category', cat_id=category.key.id())}}">
+                            <span class="label label-outline label{{labels|random()}}">{{category.name}}</span>
+                        </a>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div class="unit-50">
                 <form id="edit" method="post">

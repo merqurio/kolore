@@ -1,0 +1,57 @@
+{% extends 'admin-base.html'%}
+{% block content %}
+    <div class="card fadeInUp hide">
+        <div class="title group">
+            <h3 class="light left">{{_("All")}} <b>{{_("Images")}}</b></h3>
+        </div>
+        {% if not keys %}
+            <p>{{ _("No images uploaded yet.") }}</p>
+            <p>{{ _("All the files you upload will be listed here.") }}
+            {{ _("Click the images to select any items you wish to delete.") }}</p>
+        {% else %}
+            <form action="{{ url_for('admin.image_manager') }}" method="post" onsubmit="return getKeys()">
+                <div class="text-right">
+                    <a class="btn btn-smaller btn-blue btn-outline" href="{{ url_for('admin.manager_add') }}">
+                        <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Add Image")}}
+                    </a>
+                    <button class="btn btn-smaller btn-red btn-outline" type="submit">
+                        <i class="fa fa-trash-o"></i>&nbsp;&nbsp;{{_("Delete Images")}}
+                    </button>
+                </div>
+                <div class="grid" id="grid">
+                    {% for key in keys %}
+                        <div class="grid-item" id="{{ key.key }}" style="background-image: url('{{ key.url }}')">
+                        </div>
+                    {% endfor %}
+                </div>
+                <input id="input_images" type="text" name="images" class="hide">
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block js %}
+<script>
+
+    var getKeys = function(){
+            var selected = document.querySelectorAll('.active'),
+                input_images = document.getElementById('input_images'),
+                keys = [];
+
+            [].forEach.call(selected, function(item){
+                keys.push(item.id);
+            });
+
+            input_images.value = keys;},
+        grid = document.getElementById('grid');
+
+    if (grid){
+        grid.addEventListener('click', function(e){
+            if(e.target && e.target.classList.contains('grid-item')){
+                e.target.classList.toggle('active');
+            }
+        });
+    }
+
+
+</script>
+{% endblock %}
