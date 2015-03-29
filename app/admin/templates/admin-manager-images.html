@@ -16,7 +16,7 @@
                 {% endif %}
             </div>
             {% if not keys %}
-                <p>{{ _("No images uploaded yet.") }}</p>
+                <p>{{ _("No images uploaded here..") }}</p>
                 <p>{{ _("All the files you upload will be listed here.") }}
                 {{ _("Click the images to select any items you wish to delete.") }}</p>
             {% else %}
@@ -36,29 +36,31 @@
 {% block js %}
 <script>
 
-    var grid = document.getElementById('grid');
+    var grid = document.getElementById('grid'),
+        delBtn = document.getElementById('delete-btn');
 
-    document.getElementById('delete-btn').addEventListener('click', function(e){
-        var title = '{{ _("Delete selected images.") }}',
-            content = '{{_("Are you sure you want to delete this images ?")}}',
-            action = '{{_("Delete")}}',
-            selected = document.querySelectorAll('.active'),
-            keys = [];
 
-        [].forEach.call(selected, function(item){
-            keys.push(item.id);
-        });
-
-        populateModal(title, content, action, keys, "{{ url_for('admin.image_manager') }}");
-        openModal();
-
-    });
-
-    if (grid){
+    if (grid && delBtn){
         grid.addEventListener('click', function(e){
             if(e.target && e.target.classList.contains('grid-item')){
                 e.target.classList.toggle('active');
             }
+        });
+
+        delBtn.addEventListener('click', function(e){
+            var title = '{{ _("Delete selected images.") }}',
+                content = '{{_("Are you sure you want to delete this images ?")}}',
+                action = '{{_("Delete")}}',
+                selected = document.querySelectorAll('.active'),
+                keys = [];
+
+            [].forEach.call(selected, function(item){
+                keys.push(item.id);
+            });
+
+            populateModal(title, content, action, keys, "{{ url_for('admin.image_manager') }}");
+            openModal();
+
         });
     }
 

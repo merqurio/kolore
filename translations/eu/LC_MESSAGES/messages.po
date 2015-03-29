@@ -12,12 +12,15 @@ msgid "Edit"
 msgstr "Aldatu"
 
 #: app/admin/templates/admin-posts-edit.html:24
-#: app/admin/templates/admin-posts.html:15
+#: app/admin/templates/admin-posts.html:18
+#: app/admin/templates/blocks/block-nav.html:39
 msgid "Categories"
 msgstr "Kategoria"
 
 #: app/admin/templates/admin-categories-edit.html:7
+#: app/admin/templates/admin-manager-images-add.html:7
 #: app/admin/templates/admin-posts-add.html:10
+#: app/admin/templates/admin-posts-edit.html:32
 msgid "Return"
 msgstr "Atzera"
 
@@ -28,16 +31,17 @@ msgid "Save"
 msgstr "Gorde"
 
 #: app/admin/templates/admin-categories-edit.html:22
-#: app/admin/templates/admin-posts.html:53
+#: app/admin/templates/admin-manager-images.html:53
+#: app/admin/templates/admin-posts.html:131
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: app/admin/templates/admin-categories.html:21
+#: app/admin/templates/admin-categories.html:23
 #: app/admin/templates/admin-posts-add.html:111
 msgid "<span class='text-info'>Search for existing categories or write a new one and <b>press enter</b></span>. Please try <b>not to duplicate</b> categories."
 msgstr "<span class='text-info'>Bilatu kategoria bat edo berri bat idatzi eta <b> enter sakatu</b></span>. Mesedez, saiatu zaitez kategori bat <b>ez duplikatzen</b>."
 
-#: app/admin/templates/admin-categories.html:26
+#: app/admin/templates/admin-categories.html:28
 msgid "Add Category"
 msgstr "Gehitu kategoria"
 
@@ -53,7 +57,7 @@ msgstr "Erabiltzailea"
 msgid "Introduce your name and surname."
 msgstr "Zure izen eta abizenak ipini"
 
-#: app/admin/templates/admin-posts.html:13
+#: app/admin/templates/admin-posts.html:16
 msgid "Post"
 msgstr "Blog sarrera"
 
@@ -175,7 +179,7 @@ msgid "You are done, now is time to publish it and make it available to the worl
 msgstr "Bukatu duzu dagoeneko. Orain argitaratzeko ordua da. Gogoratu sare sozialetan elkarbanatzea !"
 
 #: app/admin/templates/admin-posts-add.html:138
-#: app/admin/templates/admin-posts-edit.html:31
+#: app/admin/templates/admin-posts-edit.html:34
 msgid "Publish Now"
 msgstr "Argitaratu orain"
 
@@ -203,7 +207,8 @@ msgstr "Aldaketak"
 msgid "By saving all the changes will be published"
 msgstr "Aldaketak argitaratuko dira gordetzean"
 
-#: app/admin/templates/admin-posts-edit.html:57
+#: app/admin/templates/admin-posts-add.html:165
+#: app/admin/templates/admin-posts-edit.html:60
 msgid "You should update your Internet Explorer"
 msgstr "Internet Explorer berritu beharko zenuke dena ondo ikusteko."
 
@@ -211,15 +216,15 @@ msgstr "Internet Explorer berritu beharko zenuke dena ondo ikusteko."
 msgid "Add Post"
 msgstr "Gehitu Sarrera"
 
-#: app/admin/templates/admin-posts.html:14
+#: app/admin/templates/admin-posts.html:17
 msgid "Published"
 msgstr "Argitaratua"
 
-#: app/admin/templates/admin-posts.html:16
+#: app/admin/templates/admin-posts.html:19
 msgid "Actions"
 msgstr "Ekintzak"
 
-#: app/admin/templates/admin-posts.html:52
+#: app/admin/templates/admin-posts.html:130
 msgid "Are you sure you want to delete this post"
 msgstr "Zihur zaude ezabatu nahi duzula sarrera hau ?"
 
@@ -235,36 +240,28 @@ msgstr "Menua"
 msgid "Language"
 msgstr "Hizkuntza"
 
-#: app/admin/templates/blocks/block-nav.html:36
-msgid "Blog Posts"
-msgstr "Sarrerak"
-
-#: app/admin/templates/blocks/block-nav.html:39
-msgid "Blog Categories"
-msgstr "Kategoriak"
-
-#: app/admin/templates/blocks/block-nav.html:42
+#: app/admin/templates/blocks/block-nav.html:45
 msgid "Options"
 msgstr "Ezarpenak"
 
-#: app/admin/templates/blocks/block-nav.html:47
+#: app/admin/templates/blocks/block-nav.html:50
 msgid "Basque"
 msgstr "Euskara"
 
-#: app/admin/templates/blocks/block-nav.html:50
+#: app/admin/templates/blocks/block-nav.html:53
 msgid "Spanish"
 msgstr "Erdara"
 
-#: app/admin/templates/blocks/block-nav.html:53
+#: app/admin/templates/blocks/block-nav.html:56
 msgid "English"
 msgstr "Ingelesa"
 
-#: app/admin/templates/admin-categories.html:10
+#: app/admin/templates/admin-categories.html:11
 msgid "Pick a category from the list to edit or delete it."
 msgstr "Aukeratu kategori bat editatu edo ezabatzeko."
 
 #: app/admin/templates/admin-categories-edit.html:5
-#: app/admin/templates/admin-categories.html:9
+#: app/admin/templates/admin-categories.html:10
 msgid "Edit <b>Categories</b>"
 msgstr "Kategoria <b>Aldatu</b>"
 
@@ -272,7 +269,7 @@ msgstr "Kategoria <b>Aldatu</b>"
 msgid "All <b>Categories</b>"
 msgstr "Kategori <b>Guztiak</b>"
 
-#: app/admin/templates/admin-categories.html:20
+#: app/admin/templates/admin-categories.html:22
 msgid "Add <b>Categories</b>"
 msgstr "Kategoria <b>Sortu</b>"
 
@@ -319,4 +316,79 @@ msgstr "Kategoria"
 #: app/admin/templates/admin-categories-edit.html:15
 msgid "Change the name of the category"
 msgstr "Aldatu kategoriaren izena"
+
+#: app/admin/templates/admin-manager-images-add.html:5
+msgid "Add"
+msgstr "Gehitu"
+
+#: app/admin/templates/admin-manager-images-add.html:5
+msgid "Files"
+msgstr "Fitxategiak"
+
+#: app/admin/templates/admin-manager-images-add.html:13
+msgid "Drop file here or"
+msgstr "Jaregin fitxategia hemen edo"
+
+#: app/admin/templates/admin-manager-images.html:6
+msgid "All"
+msgstr "Irudi"
+
+#: app/admin/templates/admin-manager-images.html:6
+#: app/admin/templates/blocks/block-nav.html:42
+msgid "Images"
+msgstr "Guztiak"
+
+#: app/admin/templates/admin-manager-images.html:10
+msgid "Add Image"
+msgstr "Gehitu Irudia"
+
+#: app/admin/templates/admin-manager-images.html:14
+msgid "Delete Images"
+msgstr "Ezabatu irudiak"
+
+#: app/admin/templates/admin-manager-images.html:19
+msgid "No images uploaded here.."
+msgstr "Ez da irudirik igo .."
+
+#: app/admin/templates/admin-manager-images.html:20
+msgid "All the files you upload will be listed here."
+msgstr "Igotako fitxategi guztiak zerrendatu egingo dira hemen."
+
+#: app/admin/templates/admin-manager-images.html:21
+msgid "Click the images to select any items you wish to delete."
+msgstr "Ezabatu nahi dituzun irudien gainean sakatu."
+
+#: app/admin/templates/admin-manager-images.html:51
+msgid "Delete selected images."
+msgstr "Ezabatu aukeratutako irudiak."
+
+#: app/admin/templates/admin-manager-images.html:52
+msgid "Are you sure you want to delete this images ?"
+msgstr "Zihur zaude irudi hauek ezabatu nahi dituzula ?"
+
+#: app/admin/templates/admin-posts-more.html:9
+#: app/admin/templates/admin-posts.html:31
+msgid "edit"
+msgstr "editatu"
+
+#: app/admin/templates/admin-posts-more.html:15
+#: app/admin/templates/admin-posts.html:37
+msgid "delete"
+msgstr "ezabatu"
+
+#: app/admin/templates/admin-posts.html:11
+msgid "Add a new post to begin."
+msgstr "Hasteko, idatzi sarrera bat."
+
+#: app/admin/templates/admin-posts.html:53
+msgid "Older Posts"
+msgstr "Sarrera zaharragoak"
+
+#: app/admin/templates/admin-posts.html:102
+msgid "There was an error while requesting more posts. Please reload the page."
+msgstr "Errore bat egon da sarrera gehiago kargatzean. Mesedez berriro kargatu orria."
+
+#: app/admin/templates/blocks/block-nav.html:36
+msgid "Posts"
+msgstr "Sarrerak"
 

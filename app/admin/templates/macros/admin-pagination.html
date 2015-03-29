@@ -8,7 +8,7 @@
           {% if page != pagination.page %}
             <li><a href="{{ url_for_other_page(page) }}">{{ page }}</a></li>
           {% else %}
-            <li><a href="/" >{{ page }}</a></li>
+            <li><a href="#" >{{ page }}</a></li>
           {% endif %}
         {% else %}
           <li>…</li>
