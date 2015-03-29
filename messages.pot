@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-03-26 12:05+0100\n"
+"POT-Creation-Date: 2015-03-29 00:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,14 @@ msgstr ""
 "Generated-By: Babel 1.3\n"
 
 #: app/admin/templates/admin-categories-edit.html:5
-#: app/admin/templates/admin-categories.html:9
+#: app/admin/templates/admin-categories.html:10
 msgid "Edit <b>Categories</b>"
 msgstr ""
 
 #: app/admin/templates/admin-categories-edit.html:7
+#: app/admin/templates/admin-manager-images-add.html:7
 #: app/admin/templates/admin-posts-add.html:10
+#: app/admin/templates/admin-posts-edit.html:32
 msgid "Return"
 msgstr ""
 
@@ -46,7 +48,8 @@ msgid "Save"
 msgstr ""
 
 #: app/admin/templates/admin-categories-edit.html:22
-#: app/admin/templates/admin-posts.html:53
+#: app/admin/templates/admin-manager-images.html:53
+#: app/admin/templates/admin-posts.html:131
 msgid "Delete"
 msgstr ""
 
@@ -54,15 +57,15 @@ msgstr ""
 msgid "All <b>Categories</b>"
 msgstr ""
 
-#: app/admin/templates/admin-categories.html:10
+#: app/admin/templates/admin-categories.html:11
 msgid "Pick a category from the list to edit or delete it."
 msgstr ""
 
-#: app/admin/templates/admin-categories.html:20
+#: app/admin/templates/admin-categories.html:22
 msgid "Add <b>Categories</b>"
 msgstr ""
 
-#: app/admin/templates/admin-categories.html:21
+#: app/admin/templates/admin-categories.html:23
 #: app/admin/templates/admin-posts-add.html:111
 msgid ""
 "<span class='text-info'>Search for existing categories or write a new one"
@@ -70,12 +73,61 @@ msgid ""
 "categories."
 msgstr ""
 
-#: app/admin/templates/admin-categories.html:26
+#: app/admin/templates/admin-categories.html:28
 msgid "Add Category"
 msgstr ""
 
 #: app/admin/templates/admin-home.html:5
 msgid "Welcome to Chroma"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images-add.html:5
+msgid "Add"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images-add.html:5
+msgid "Files"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images-add.html:13
+msgid "Drop file here or"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:6
+msgid "All"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:6
+#: app/admin/templates/blocks/block-nav.html:42
+msgid "Images"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:10
+msgid "Add Image"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:14
+msgid "Delete Images"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:19
+msgid "No images uploaded here.."
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:20
+msgid "All the files you upload will be listed here."
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:21
+msgid "Click the images to select any items you wish to delete."
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:51
+msgid "Delete selected images."
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:52
+msgid "Are you sure you want to delete this images ?"
 msgstr ""
 
 #: app/admin/templates/admin-options.html:8
@@ -237,8 +289,13 @@ msgid ""
 msgstr ""
 
 #: app/admin/templates/admin-posts-add.html:138
-#: app/admin/templates/admin-posts-edit.html:31
+#: app/admin/templates/admin-posts-edit.html:34
 msgid "Publish Now"
+msgstr ""
+
+#: app/admin/templates/admin-posts-add.html:165
+#: app/admin/templates/admin-posts-edit.html:60
+msgid "You should update your Internet Explorer"
 msgstr ""
 
 #: app/admin/templates/admin-posts-edit.html:8
@@ -258,7 +315,8 @@ msgid "Edit the main content"
 msgstr ""
 
 #: app/admin/templates/admin-posts-edit.html:24
-#: app/admin/templates/admin-posts.html:15
+#: app/admin/templates/admin-posts.html:18
+#: app/admin/templates/blocks/block-nav.html:39
 msgid "Categories"
 msgstr ""
 
@@ -274,8 +332,14 @@ msgstr ""
 msgid "By saving all the changes will be published"
 msgstr ""
 
-#: app/admin/templates/admin-posts-edit.html:57
-msgid "You should update your Internet Explorer"
+#: app/admin/templates/admin-posts-more.html:9
+#: app/admin/templates/admin-posts.html:31
+msgid "edit"
+msgstr ""
+
+#: app/admin/templates/admin-posts-more.html:15
+#: app/admin/templates/admin-posts.html:37
+msgid "delete"
 msgstr ""
 
 #: app/admin/templates/admin-posts.html:5
@@ -286,19 +350,31 @@ msgstr ""
 msgid "Add Post"
 msgstr ""
 
-#: app/admin/templates/admin-posts.html:13
-msgid "Post"
-msgstr ""
-
-#: app/admin/templates/admin-posts.html:14
-msgid "Published"
+#: app/admin/templates/admin-posts.html:11
+msgid "Add a new post to begin."
 msgstr ""
 
 #: app/admin/templates/admin-posts.html:16
+msgid "Post"
+msgstr ""
+
+#: app/admin/templates/admin-posts.html:17
+msgid "Published"
+msgstr ""
+
+#: app/admin/templates/admin-posts.html:19
 msgid "Actions"
 msgstr ""
 
-#: app/admin/templates/admin-posts.html:52
+#: app/admin/templates/admin-posts.html:53
+msgid "Older Posts"
+msgstr ""
+
+#: app/admin/templates/admin-posts.html:102
+msgid "There was an error while requesting more posts. Please reload the page."
+msgstr ""
+
+#: app/admin/templates/admin-posts.html:130
 msgid "Are you sure you want to delete this post"
 msgstr ""
 
@@ -315,26 +391,22 @@ msgid "Language"
 msgstr ""
 
 #: app/admin/templates/blocks/block-nav.html:36
-msgid "Blog Posts"
+msgid "Posts"
 msgstr ""
 
-#: app/admin/templates/blocks/block-nav.html:39
-msgid "Blog Categories"
-msgstr ""
-
-#: app/admin/templates/blocks/block-nav.html:42
+#: app/admin/templates/blocks/block-nav.html:45
 msgid "Options"
 msgstr ""
 
-#: app/admin/templates/blocks/block-nav.html:47
+#: app/admin/templates/blocks/block-nav.html:50
 msgid "Basque"
 msgstr ""
 
-#: app/admin/templates/blocks/block-nav.html:50
+#: app/admin/templates/blocks/block-nav.html:53
 msgid "Spanish"
 msgstr ""
 
-#: app/admin/templates/blocks/block-nav.html:53
+#: app/admin/templates/blocks/block-nav.html:56
 msgid "English"
 msgstr ""
 

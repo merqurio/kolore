@@ -1,4 +1,4 @@
-/*! Kolore CMS - v0.3 - 2015-03-28
+/*! Kolore CMS - v0.3 - 2015-03-29
 * http://chromabranding.com
 * Copyright (c) 2015 ; Licensed  */
 (function () {
@@ -3372,57 +3372,60 @@ if (box){
 }
 
 
+(function() {
+    function showTooltip(item) {
 
-function showTooltip(item){
+        var theme = "tooltip-theme-" + item.dataset.theme,
+            title = document.createTextNode(item.dataset.title),
+            item_top = item.getBoundingClientRect().top + item.offsetHeight + 1,
+            item_left = item.getBoundingClientRect().left,
+            tooltip = document.createElement('div');
 
-    var theme = "tooltip-theme-"+item.dataset.theme,
-        title = document.createTextNode(item.dataset.title),
-        item_top = item.getBoundingClientRect().top + item.offsetHeight+1,
-        item_left = item.getBoundingClientRect().left,
-        tooltip = document.createElement('div');
+        // Edit tooltip
+        tooltip.classList.add("tooltip");
+        tooltip.classList.add(theme);
+        tooltip.appendChild(title);
 
-    // Edit tooltip
-    tooltip.classList.add("tooltip");
-    tooltip.classList.add(theme);
-    tooltip.appendChild(title);
+        // Position
+        tooltip.style.top = item_top + 'px';
+        tooltip.style.left = item_left + 'px';
 
-    // Position
-    tooltip.style.top = item_top + 'px';
-    tooltip.style.left = item_left + 'px';
-
-    // Create tooltip
-    document.body.appendChild(tooltip);
-}
-
-function hideTooltip(){
-    document.querySelector('.tooltip').remove();
-}
-
-document.addEventListener('mouseover', function(e){
-    if(e.target && e.target.classList.contains('tooltip-it')){
-        showTooltip(e.target);
+        // Create tooltip
+        document.body.appendChild(tooltip);
     }
-    if(e.target.parentNode.classList) {
-        if (e.target && e.target.parentNode.classList.contains('tooltip-it')) {
-            showTooltip(e.target.parentNode);
+
+    function hideTooltip() {
+        document.querySelector('.tooltip').remove();
+    }
+
+    document.addEventListener('mouseover', function(e) {
+        if (e.target && e.target.classList.contains('tooltip-it')) {
+            showTooltip(e.target);
         }
-    }
-});
+        if (e.target.parentNode.classList) {
+            if (e.target && e.target.parentNode.classList.contains('tooltip-it')) {
+                showTooltip(e.target.parentNode);
+            }
+        }
+    });
 
-document.addEventListener('mouseout', function(e){
-    if(e.target && e.target.classList.contains('tooltip-it')){
-        hideTooltip();
-    }
-    if(e.target.parentNode.classList){
-        if(e.target && e.target.parentNode.classList.contains('tooltip-it')){
+    document.addEventListener('mouseout', function(e) {
+        if (e.target && e.target.classList.contains('tooltip-it')) {
             hideTooltip();
         }
-    }
+        if (e.target.parentNode.classList) {
+            if (e.target && e.target.parentNode.classList.contains('tooltip-it')) {
+                hideTooltip();
+            }
+        }
 
-});
+    });
+})();
+
 function dropUpload(dropElement){
     // Variables
     var dropArea = document.querySelector(dropElement),
+        fileInput = dropArea.querySelector('input'),
         progressBar = document.getElementById('tools-progress'),
         allFiles,
         totalFiles;
@@ -3439,6 +3442,10 @@ function dropUpload(dropElement){
         // fetch FileList object
         allFiles = e.target.files || e.dataTransfer.files;
         totalFiles = allFiles.length-1;
+
+        if(!allFiles[0]){
+            return;
+        }
 
         // Unable interaction in the meanwhile
         document.getElementById('modal-overlay').classList.remove('hide');
@@ -3521,7 +3528,10 @@ function dropUpload(dropElement){
             document.getElementById('modal-overlay').classList.add('hide');
 
             // Remove Loading bar
-            progressBar.classList.add('hide')
+            progressBar.classList.add('hide');
+
+            allFiles = null;
+
         } else {
             // Remove one to totalFile
             totalFiles--;
@@ -3566,6 +3576,17 @@ function dropUpload(dropElement){
 
         // On drop in the drop area
         dropArea.addEventListener('drop', fileSelectHandler);
+
+        // On area click
+        dropArea.addEventListener('click', function(e){
+            if(e.target != fileInput){
+                fileInput.click()
+            }
+            
+        });
+
+        // On file selection
+        fileInput.addEventListener('change', fileSelectHandler);
 
     }
 }

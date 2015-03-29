@@ -1,6 +1,7 @@
 function dropUpload(dropElement){
     // Variables
     var dropArea = document.querySelector(dropElement),
+        fileInput = dropArea.querySelector('input'),
         progressBar = document.getElementById('tools-progress'),
         allFiles,
         totalFiles;
@@ -17,6 +18,10 @@ function dropUpload(dropElement){
         // fetch FileList object
         allFiles = e.target.files || e.dataTransfer.files;
         totalFiles = allFiles.length-1;
+
+        if(!allFiles[0]){
+            return;
+        }
 
         // Unable interaction in the meanwhile
         document.getElementById('modal-overlay').classList.remove('hide');
@@ -99,7 +104,10 @@ function dropUpload(dropElement){
             document.getElementById('modal-overlay').classList.add('hide');
 
             // Remove Loading bar
-            progressBar.classList.add('hide')
+            progressBar.classList.add('hide');
+
+            allFiles = null;
+
         } else {
             // Remove one to totalFile
             totalFiles--;
@@ -144,6 +152,17 @@ function dropUpload(dropElement){
 
         // On drop in the drop area
         dropArea.addEventListener('drop', fileSelectHandler);
+
+        // On area click
+        dropArea.addEventListener('click', function(e){
+            if(e.target != fileInput){
+                fileInput.click()
+            }
+            
+        });
+
+        // On file selection
+        fileInput.addEventListener('change', fileSelectHandler);
 
     }
 }

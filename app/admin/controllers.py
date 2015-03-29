@@ -306,8 +306,9 @@ def image_manager(page):
         urls.append({"url": get_serving_url(key, crop=True, size=300),
                      "key": key})
 
-    return render_template('admin-manager-images.html', keys=urls, pagination=pagination)
-
+    return render_template('admin-manager-images.html',
+                           keys=urls,
+                           pagination=pagination)
 
 
 @admin_app.route('/images/add', methods=['GET', 'POST'])
