@@ -151,7 +151,7 @@ def edit_post(post_id):
         return redirect(url_for('admin.posts'))
 
     return render_template('admin-posts-edit.html',
-                           post=ndb.Key('BlogPost', int(post_id)).get(),
+                           post=ndb.Key(BlogPost, int(post_id)).get(),
                            categories=BlogCategory.query_all())
 
 
@@ -238,9 +238,16 @@ def upload():
                 # Check if is image and save a reference
                 if blob_info.content_type in IMAGES_MIME:
                     img = Image(image_data=blob_info.open().read())
+                    img_size = img.width if img.width > img.height else img.height
+
+                    if img_size > 1600:
+                        img_url = '/admin/file_serve/'+blob_key
+                    else:
+                        img_url = get_serving_url(blob_key_object, size=img_size)
+
                     img_ref = ImageReference(filename=blob_info.filename,
                                              blob=blob_key_object,
-                                             url=get_serving_url(blob_key_object),
+                                             url=img_url,
                                              thumb=get_serving_url(blob_key_object, crop=True, size=200),
                                              height=img.height,
                                              width=img.width)
@@ -309,15 +316,22 @@ def files_redactor():
 @admin_login_required
 def image_manager(page):
     if request.method == 'POST':
-        blob_keys = request.get_json()
+        img_ref_key = request.get_json()
 
         # Delete the blob from GCS
-        for blob_instance in BlobInfo.get(blob_keys['objects'].split(',')):
-            blob_instance.delete()
+        #  BlobInfo.get(blob_key):
+        #    blob_instance.delete()
 
         # Delete the img from ndb
-        for img_ref in blob_keys['objects'].split(','):
-            ndb.Key('ImageReference', int(img_ref)).delete()
+        for img_ref in img_ref_key['objects'].split(','):
+            img_inst = ndb.Key(ImageReference, int(img_ref))
+            img = img_inst.get()
+            blob_key = img.blob
+
+            # Delete img and blob
+            img_inst.delete()
+            BlobInfo.get(blob_key).delete()
+
         sleep(1)
         return "true"
 
