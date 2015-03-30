@@ -37,6 +37,10 @@ IMAGES_MIME = ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/tif
 @admin_app.route('/')
 @admin_login_required
 def home():
+    """
+    Home route
+    :return: admin-home.html
+    """
     current_user = users.get_current_user()
     db_user = User.query(User.email == current_user.email()).get()
     return render_template('admin-home.html', user=db_user)
@@ -45,6 +49,12 @@ def home():
 @admin_app.route('/options/', methods=['GET', 'POST'])
 @admin_login_required
 def options():
+    """
+    General settings
+    GET --> admin-options.html
+    POST & xhr --> delete sended user
+    POST & form --> add or edit user
+    """
     current_user = users.get_current_user()
     db_user = User.query(User.email == current_user.email()).get()
     if request.method == 'POST':
@@ -77,7 +87,10 @@ def options():
 @admin_app.route('/posts/', methods=['GET', 'POST'])
 @admin_login_required
 def posts():
-    """ Renders all posts"""
+    """
+    GET --> Main post list
+    POST --> Delete post
+    """
     if request.method == 'POST':
         post = request.get_json()
         # Get the Key, and delete() the object using Key (mandatory)
@@ -95,6 +108,10 @@ def posts():
 @admin_app.route('/posts/<int:page_num>', methods=['GET', 'POST'])
 @admin_login_required
 def more_posts(page_num):
+    """
+    :param page_num: The number of pages/posts
+    :return: AJAX more posts
+    """
     offset = int(page_num * 5)
     return render_template('admin-posts-more.html',
                            posts=BlogPost.query()
@@ -105,7 +122,9 @@ def more_posts(page_num):
 @admin_app.route('/posts/add', methods=['GET', 'POST'])
 @admin_login_required
 def add_post():
-    """Creates a new post in the DB"""
+    """
+    Create a new post
+    """
     if request.method == 'POST':
         # Create New Blog Post Object
         blog_post = BlogPost(title=request.form['title'],
@@ -204,6 +223,11 @@ def edit_category(cat_id):
 # ----------------------------------------------------------------
 @admin_app.route('/file_serve/<blob_key>')
 def file_serve(blob_key):
+    """
+    Serves request file
+    :param blob_key: The file blob key
+    :return: File
+    """
     blob_info = blobstore.get(blob_key)
     response = make_response(blob_info.open().read())
     response.headers['Content-Type'] = blob_info.content_type
@@ -213,6 +237,10 @@ def file_serve(blob_key):
 
 @admin_app.route('/upload_url')
 def upload_url():
+    """
+    Return a url to upload files GCS
+    :return: str url
+    """
     upload_url_string = blobstore.create_upload_url('/admin/upload',
                                                     gs_bucket_name=BUCKET_NAME)
     return upload_url_string
@@ -221,6 +249,10 @@ def upload_url():
 @admin_app.route('/upload', methods=['POST'])
 @admin_login_required
 def upload():
+    """
+    Endpoint after GCS upload
+    :return: JSON --> filelink, filename, thumb
+    """
     if request.method == 'POST':
         request_file = request.files['file']
 
@@ -238,13 +270,7 @@ def upload():
                 # Check if is image and save a reference
                 if blob_info.content_type in IMAGES_MIME:
                     img = Image(image_data=blob_info.open().read())
-                    img_size = img.width if img.width > img.height else img.height
-
-                    if img_size > 1600:
-                        img_url = '/admin/file_serve/'+blob_key
-                    else:
-                        img_url = get_serving_url(blob_key_object, size=img_size)
-
+                    img_url = '/admin/file_serve/'+blob_key
                     img_ref = ImageReference(filename=blob_info.filename,
                                              blob=blob_key_object,
                                              url=img_url,
@@ -266,7 +292,7 @@ def upload():
 def images_redactor():
     """
     Image manager of redactor
-    :return:json with image urls
+    :return: JSON with image objects list
     """
     images = ImageReference.query().order(-ImageReference.date)
     urls = []
@@ -281,33 +307,6 @@ def images_redactor():
     return response
 
 
-@admin_app.route('/file_serve/')
-@admin_login_required
-def files_redactor():
-    """
-    Files manager of redactor
-    :return: json with all the file urls
-    """
-    blobs = BlobInfo.all().order('-creation')
-    blob_files = []
-    urls = []
-
-    # filter images
-    for blob in blobs:
-        if blob.content_type not in IMAGES_MIME:
-            blob_files.append(blob)
-
-    for blob_file in blob_files:
-        urls.append({"title": blob_file.filename,
-                     "name": blob_file.filename,
-                     "link": "/admin/file_serve/"+blob_file.key(),
-                     "size": blob_file.size})
-
-    response = make_response(dumps(urls))
-    response.mimetype = 'application/json'
-    return response
-
-
 # Controllers /// Image Manager ///
 # ----------------------------------------------------------------
 
@@ -315,12 +314,13 @@ def files_redactor():
 @admin_app.route('/images/<int:page>', methods=['GET', 'POST'])
 @admin_login_required
 def image_manager(page):
+    """
+    GET --> The main image manager page
+    POST --> Delete requested file(s)
+    :param page: The requested page
+    """
     if request.method == 'POST':
         img_ref_key = request.get_json()
-
-        # Delete the blob from GCS
-        #  BlobInfo.get(blob_key):
-        #    blob_instance.delete()
 
         # Delete the img from ndb
         for img_ref in img_ref_key['objects'].split(','):

@@ -56,14 +56,16 @@
 
     if (grid && delBtn){
 
-        var galBtn = document.getElementById('gallery-btn');
+        var gallleryBtn = document.getElementById('gallery-btn');
 
+        // Grid listener
         grid.addEventListener('click', function(e){
             if(e.target && e.target.classList.contains('grid-item')){
                 e.target.classList.toggle('active');
             }
         });
 
+        // Delete listener
         delBtn.addEventListener('click', function(e){
             var title = '{{ _("Delete selected images.") }}',
                 content = '{{_("Are you sure you want to delete this images ?")}}',
@@ -71,25 +73,30 @@
                 selected = document.querySelectorAll('.active'),
                 keys = [];
 
+            // Add all selected items
             [].forEach.call(selected, function(item){
-
                 keys.push(item.id);
             });
 
+            // Create modal
             populateModal(title, content, action, keys, "{{ url_for('admin.image_manager') }}");
             openModal();
 
         });
 
-        galBtn.addEventListener('click', function(){
+        // Gallery listener
+        gallleryBtn.addEventListener('click', function(){
             var selected = document.querySelectorAll('.active'),
                 gallery = document.getElementById('image-gallery'),
                 options = {
-                    closeOnScroll: false
+                    closeOnScroll: false,
+                    showHideOpacity:true,
+                    hideAnimationDuration:true
 
                 },
                 slides = [];
 
+            // Add slide per image
             [].forEach.call(selected, function(item){
                 var slide = {};
                 slide['src'] = item.dataset.image;
@@ -99,6 +106,7 @@
                 slides.push(slide);
             });
 
+            // If no images, cancel
             if (!slides[0]){
                 return;
             }
