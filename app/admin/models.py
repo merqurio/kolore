@@ -7,6 +7,10 @@ from math import ceil
 # User Model
 # ----------------------------------------------------------------
 class User(ndb.Model):
+    """
+    A reflect in the DB of the Users API
+    Google console Admin users have always access
+    """
     name = ndb.StringProperty()
     email = ndb.StringProperty(required=True)
     date = ndb.DateTimeProperty(auto_now_add=True)
@@ -25,6 +29,9 @@ class User(ndb.Model):
 # Blogs's Models
 # ----------------------------------------------------------------
 class BlogPost(ndb.Model):
+    """
+    Creates a post object
+    """
     title = ndb.StringProperty()
     text = ndb.TextProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
@@ -32,8 +39,21 @@ class BlogPost(ndb.Model):
     url = ndb.StringProperty()
     author = ndb.UserProperty()
 
+    @classmethod
+    def get_urls(cls):
+        """
+        Returns a list of actual urls
+        """
+        posts = cls.query()
+        urls_list = []
+        for post in posts:
+            urls_list.append(post.url)
+        return urls_list
+
     def get_categories(self):
-        """Returns a string list of post's categories"""
+        """
+        Returns a string list of post's categories
+        """
         categories_list = []
         for category in self.categories:
             categories_list.append(category.get().name)
@@ -41,6 +61,9 @@ class BlogPost(ndb.Model):
 
 
 class BlogCategory(ndb.Model):
+    """
+    The Categories for the blog posts
+    """
     name = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
 
@@ -55,8 +78,10 @@ class BlogCategory(ndb.Model):
 
     @staticmethod
     def add_categories(form_categories):
-        """Looks for exisiting categories Keys and creates new
-        categories if not found. Returns a list of those keys."""
+        """
+        Looks for exisiting categories Keys and creates new
+        categories if not found. Returns a list of those keys
+        """
         list_of_categories = []
         for category in form_categories:
             if category in BlogCategory.query_all():
@@ -84,10 +109,13 @@ class BlogCategory(ndb.Model):
 # Image Model
 # ----------------------------------------------------------------
 class ImageReference(ndb.Model):
+    """
+    Creates a reference to a GCS Blob, with the necessary information to avoid a transaction
+    """
     filename = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
     url = ndb.StringProperty()
-    thumb = ndb.StringProperty()
+    thumb = ndb.StringProperty
     blob = ndb.BlobKeyProperty()
     height = ndb.IntegerProperty()
     width = ndb.IntegerProperty()
@@ -97,7 +125,9 @@ class ImageReference(ndb.Model):
 # ----------------------------------------------------------------
 
 class Pagination(object):
-
+    """
+    Creates a pagination object to populate a pagination HTML
+    """
     def __init__(self, page, per_page, total_count):
         self.page = page
         self.per_page = per_page
