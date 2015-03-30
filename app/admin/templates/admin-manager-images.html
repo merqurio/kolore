@@ -1,5 +1,9 @@
 {% extends 'admin-base.html'%}
 {% import 'macros/admin-pagination.html' as paginator %}
+{% block css%}
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='dist/photoswipe/photoswipe.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='dist/photoswipe/default-skin/default-skin.css')}}">
+{% endblock %}
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
@@ -10,6 +14,9 @@
                     <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Add Image")}}
                 </a>
                 {% if keys %}
+                <button class="btn btn-smaller btn-black btn-outline" id="gallery-btn" type="button">
+                    <i class="fa fa-eye"></i>&nbsp;&nbsp;{{_("Preview Images")}}
+                </button>
                 <button class="btn btn-smaller btn-red btn-outline" id="delete-btn" type="submit">
                     <i class="fa fa-trash-o"></i>&nbsp;&nbsp;{{_("Delete Images")}}
                 </button>
@@ -22,7 +29,11 @@
             {% else %}
             <div class="grid" id="grid">
                 {% for key in keys %}
-                    <div class="grid-item" id="{{ key.key }}" style="background-image: url('{{ key.url }}')">
+                    <div class="grid-item" id="{{ key.key.id() }}" style="background-image: url('{{ key.thumb }}')"
+                    data-url="{{ key.thumb }}"
+                    data-image="{{ key.url }}"
+                    data-height="{{ key.height }}"
+                    data-width="{{ key.width }}">
                     </div>
                 {% endfor %}
             </div>
@@ -32,8 +43,11 @@
         {% endif %}
     </div>
     {% include 'blocks/block-modal.html' %}
+    {% include 'blocks/block-gallery.html' %}
 {% endblock %}
 {% block js %}
+<script src="{{ url_for('admin.static', filename='dist/photoswipe/photoswipe.min.js') }}" type="application/javascript"></script>
+<script src="{{ url_for('admin.static', filename='dist/photoswipe/photoswipe-ui-default.min.js') }}" type="application/javascript"></script>
 <script>
 
     var grid = document.getElementById('grid'),
@@ -41,6 +55,9 @@
 
 
     if (grid && delBtn){
+
+        var galBtn = document.getElementById('gallery-btn');
+
         grid.addEventListener('click', function(e){
             if(e.target && e.target.classList.contains('grid-item')){
                 e.target.classList.toggle('active');
@@ -60,6 +77,33 @@
 
             populateModal(title, content, action, keys, "{{ url_for('admin.image_manager') }}");
             openModal();
+
+        });
+
+        galBtn.addEventListener('click', function(){
+            var selected = document.querySelectorAll('.active'),
+                gallery = document.getElementById('image-gallery'),
+                options = {
+                    closeOnScroll: false
+
+                },
+                slides = [];
+
+            [].forEach.call(selected, function(item){
+                var slide = {};
+                slide['src'] = item.dataset.image;
+                slide['msrc'] = item.dataset.url;
+                slide['h'] = item.dataset.height;
+                slide['w'] = item.dataset.width;
+                slides.push(slide);
+            });
+
+            if (!slides[0]){
+                return;
+            }
+
+            var slider = new PhotoSwipe( gallery, PhotoSwipeUI_Default, slides, options);
+            slider.init();
 
         });
     }

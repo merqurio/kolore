@@ -8,9 +8,9 @@ from math import ceil
 # ----------------------------------------------------------------
 class User(ndb.Model):
     name = ndb.StringProperty()
-    email = ndb.StringProperty()
+    email = ndb.StringProperty(required=True)
     date = ndb.DateTimeProperty(auto_now_add=True)
-    user = ndb.UserProperty(required=True)
+    user = ndb.UserProperty()
 
     @classmethod
     def query_all(cls):
@@ -79,6 +79,18 @@ class BlogCategory(ndb.Model):
                     new_categories.append(category)
             post.categories = new_categories
             post.put()
+
+
+# Image Model
+# ----------------------------------------------------------------
+class ImageReference(ndb.Model):
+    filename = ndb.StringProperty()
+    date = ndb.DateTimeProperty(auto_now_add=True)
+    url = ndb.StringProperty()
+    thumb = ndb.StringProperty()
+    blob = ndb.BlobKeyProperty()
+    height = ndb.IntegerProperty()
+    width = ndb.IntegerProperty()
 
 
 # Pagination model

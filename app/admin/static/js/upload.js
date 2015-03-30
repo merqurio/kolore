@@ -77,7 +77,12 @@ function dropUpload(dropElement){
                 file = JSON.parse(this.responseText);
                 addPrevisualization(file);
             } else if (this.readyState == 4 && this.status != 200) {
-                console.log("Something went wrong")
+                console.log("Something went wrong on server side.");
+                // Enable interaction again
+                document.getElementById('modal-overlay').classList.add('hide');
+                // Remove Loading bar
+                progressBar.classList.add('hide');
+                alert('Error');
             }
         };
         request.send(formData);
@@ -94,7 +99,7 @@ function dropUpload(dropElement){
         }
 
         // Append the element
-        wrapper.insertAdjacentHTML('beforeEnd', '<div class="grid-item" style="background-image: url('+file.thumb+');"></div>')
+        wrapper.insertAdjacentHTML('beforeEnd', '<div class="grid-item uploaded" style="background-image: url('+file.thumb+');"></div>');
 
 
 

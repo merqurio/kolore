@@ -32,16 +32,18 @@ def admin_login_required(func):
         if not users.get_current_user():
             return redirect(users.create_login_url(request.url))
         else:
-            user = users.get_current_user()
+            actual_user = users.get_current_user()
             # Security Layer
-            if user.email() in USERS:
+            if actual_user.email() in User.query_all() or users.is_current_user_admin():
                 # DB User model check
-                if user.email() in User.query_all():
+                if User.query(User.user == actual_user).get():
                     return func(*args, **kwargs)
                 else:
-                    new_user = User(user=user, email=user.email(),
-                                    name=user.nickname())
-                    new_user.put()
+                    db_user = User.query(User.email == actual_user.email()).get()
+                    db_user = User(email=actual_user.email()) if not db_user else db_user
+                    db_user.user = actual_user
+                    db_user.name = actual_user.nickname()
+                    db_user.put()
                     return func(*args, **kwargs)
             # If not in permited users
             else:

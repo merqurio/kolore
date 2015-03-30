@@ -33,8 +33,8 @@
     </div>
 {% endblock %}
 {% block js %}
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/jquery/dist/jquery.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/select2/select2.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/select2/select2.min.js')}}"></script>
 <script type="application/javascript">
 $('#categories').select2({
     tags:[{% for category in categories%}{{category.name|tojson}}{% if not loop.last%},{% endif %}{% endfor %}],

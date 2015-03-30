@@ -33,6 +33,21 @@
     color: rgba(241, 241, 241, 0.9);
 }
 
+.uploaded.grid-item:before {
+    content: "\f14a";
+    position: absolute;
+    text-align: center;
+    font-family: FontAwesome;
+    display: block;
+    border-radius: 2px;
+    background: rgba(57, 57, 57, 0.5);
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.88);
+}
+
 .drag-hover.active {
     background-color: rgba(38, 163, 100, 0.48);
 }

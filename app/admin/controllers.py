@@ -6,8 +6,8 @@ from json import dumps
 from functions import clean_url, admin_login_required
 from google.appengine.api import users
 from google.appengine.ext import ndb, blobstore
-from google.appengine.api.images import get_serving_url
-from google.appengine.ext.blobstore import BlobInfo
+from google.appengine.api.images import get_serving_url, Image
+from google.appengine.ext.blobstore import BlobInfo, blobstore
 from google.appengine.api.app_identity import get_default_gcs_bucket_name
 from werkzeug import parse_options_header
 from flask import (Blueprint, render_template, make_response, request,
@@ -16,7 +16,8 @@ from flask import (Blueprint, render_template, make_response, request,
 # Models
 # ----------------------------------------------------------------
 
-from app.admin.models import BlogPost, BlogCategory, User, Pagination
+from app.admin.models import (BlogPost, BlogCategory, User,
+                              Pagination, ImageReference)
 
 # Config
 # ----------------------------------------------------------------
@@ -27,6 +28,7 @@ admin_app = Blueprint('admin', __name__,
 BUCKET_NAME = get_default_gcs_bucket_name()
 IMG_SIZE = 1200
 IMAGES_PER_PAGE = 24
+IMAGES_MIME = ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/tiff']
 
 
 # Controllers /// General ///
@@ -46,10 +48,27 @@ def options():
     current_user = users.get_current_user()
     db_user = User.query(User.email == current_user.email()).get()
     if request.method == 'POST':
-        db_user.name = request.form['user_name']
-        db_user.put()
 
-    return render_template('admin-options.html', user=db_user)
+        if request.is_xhr:
+            user = request.get_json()
+            # Get the Key, and delete() the object using Key (mandatory)
+            ndb.Key('User', int(user['objects'])).delete()
+            return "true"
+
+        if request.form["action"] == "user_save":
+            db_user.name = request.form['user_name']
+            db_user.put()
+
+        if request.form["action"] == "user_new":
+            mail = request.form['user_mail']
+            if not User.query(User.email == mail).get():
+                new_user = User(name=mail, email=mail)
+                new_user.put()
+                sleep(1)
+
+
+    all_users = User().query().fetch()
+    return render_template('admin-options.html', user=db_user, all_users=all_users)
 
 
 # Controllers /// Posts ///
@@ -204,6 +223,7 @@ def upload_url():
 def upload():
     if request.method == 'POST':
         request_file = request.files['file']
+
         # Creates the options for the file
         header = request_file.headers['Content-Type']
         parsed_header = parse_options_header(header)
@@ -213,10 +233,21 @@ def upload():
             try:
                 blob_key = parsed_header[1]['blob-key']
                 blob_info = blobstore.get(blob_key)
-                blob_img_url = get_serving_url(blob_key, crop=True, size=200)
+                blob_key_object = blob_info._BlobInfo__key
+
+                # Check if is image and save a reference
+                if blob_info.content_type in IMAGES_MIME:
+                    img = Image(image_data=blob_info.open().read())
+                    img_ref = ImageReference(filename=blob_info.filename,
+                                             blob=blob_key_object,
+                                             url=get_serving_url(blob_key_object),
+                                             thumb=get_serving_url(blob_key_object, crop=True, size=200),
+                                             height=img.height,
+                                             width=img.width)
+                    img_ref.put()
                 return jsonify({"filelink": "/admin/file_serve/" + blob_key,
                                 "filename": "" + blob_info.filename,
-                                "thumb": blob_img_url})
+                                "thumb": get_serving_url(blob_key, crop=True, size=200)})
             except Exception as e:
                 logging.exception(e)
                 return jsonify({"error": e})
@@ -230,19 +261,13 @@ def images_redactor():
     Image manager of redactor
     :return:json with image urls
     """
-    blobs = BlobInfo.all().order('-creation')
-    keys = []
+    images = ImageReference.query().order(-ImageReference.date)
     urls = []
 
-    # filter images
-    for blob in blobs:
-        if blob.content_type in ["image/jpeg", "image/png", "image/gif"]:
-            keys.append(blob.key())
-
-    for key in keys:
-        urls.append({'thumb': get_serving_url(key, crop=True, size=200),
-                     'image': '/admin/file_serve/' + str(key),
-                     'title': blobstore.get(key).filename})
+    for img in images:
+        urls.append({'thumb': img.thumb,
+                     'image': img.url,
+                     'title': img.filename})
 
     response = make_response(dumps(urls))
     response.mimetype = 'application/json'
@@ -262,7 +287,7 @@ def files_redactor():
 
     # filter images
     for blob in blobs:
-        if blob.content_type not in ["image/jpeg", "image/png", "image/gif"]:
+        if blob.content_type not in IMAGES_MIME:
             blob_files.append(blob)
 
     for blob_file in blob_files:
@@ -276,7 +301,7 @@ def files_redactor():
     return response
 
 
-# Controllers /// File Manager ///
+# Controllers /// Image Manager ///
 # ----------------------------------------------------------------
 
 @admin_app.route('/images/', defaults={'page': 1}, methods=['GET', 'POST'])
@@ -285,29 +310,24 @@ def files_redactor():
 def image_manager(page):
     if request.method == 'POST':
         blob_keys = request.get_json()
+
+        # Delete the blob from GCS
         for blob_instance in BlobInfo.get(blob_keys['objects'].split(',')):
             blob_instance.delete()
+
+        # Delete the img from ndb
+        for img_ref in blob_keys['objects'].split(','):
+            ndb.Key('ImageReference', int(img_ref)).delete()
         sleep(1)
         return "true"
 
     offset = (page-1)*IMAGES_PER_PAGE
-    blobs = BlobInfo.all().order('-creation')
-    keys = []
-    urls = []
-    pagination = Pagination(page, IMAGES_PER_PAGE, blobs.count())
-
-    # filter images
-    for blob in blobs.fetch(IMAGES_PER_PAGE, offset=offset):
-        if blob.content_type in ["image/jpeg", "image/png", "image/gif"]:
-            keys.append(blob.key())
-
-    # get urls and keys
-    for key in keys:
-        urls.append({"url": get_serving_url(key, crop=True, size=300),
-                     "key": key})
+    images = ImageReference.query().order(-ImageReference.date)
+    pagination = Pagination(page, IMAGES_PER_PAGE, images.count())
+    query = images.fetch(IMAGES_PER_PAGE, offset=offset)
 
     return render_template('admin-manager-images.html',
-                           keys=urls,
+                           keys=query,
                            pagination=pagination)
 
 

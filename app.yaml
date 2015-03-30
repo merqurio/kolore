@@ -55,6 +55,7 @@ skip_files:
 - ^(.*/)?.*\.less$
 - ^(.*/)?.*\.md$
 - ^\.idea$
+- ^\.git$
 - ^(app/admin/static/plugins/.*)
 - ^(app/admin/node_modules/.*)
 - ^(app/front/static/plugins/.*)
