@@ -115,7 +115,7 @@ class ImageReference(ndb.Model):
     filename = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
     url = ndb.StringProperty()
-    thumb = ndb.StringProperty
+    thumb = ndb.StringProperty()
     blob = ndb.BlobKeyProperty()
     height = ndb.IntegerProperty()
     width = ndb.IntegerProperty()
