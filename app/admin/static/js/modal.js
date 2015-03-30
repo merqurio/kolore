@@ -44,6 +44,7 @@ function deleteObjectsRequest(){
     // Request
     request.open('POST', url, true);
     request.setRequestHeader('Content-Type', 'application/json');
+    request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     request.send(JSON.stringify(postData));
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {

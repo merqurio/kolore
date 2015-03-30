@@ -116,6 +116,9 @@ Page specific
     margin-top: 60px;
 }
 
+#tools-progress {
+    height: 20px;
+}
 
 /* ------------------------------------
 Modal
@@ -133,4 +136,20 @@ Modal
         max-width: 700px;
         top: 115px;
     }
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 0.3; }
+}
+
+#modal-overlay{
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+
 }

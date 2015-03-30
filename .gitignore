@@ -10,3 +10,4 @@ app/front/node_modules/*
 app/front/static/plugins/*
 .idea/*
 logo_kolore.afdesign
+app/admin/static/dist

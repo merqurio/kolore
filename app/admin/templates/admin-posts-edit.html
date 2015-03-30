@@ -1,6 +1,6 @@
 {% extends 'admin-base.html'%}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='plugins/redactor/css/redactor.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='dist/redactor/css/redactor.css')}}">
 {% endblock %}
 {% block content %}
     <div class="card fadeInUp hide">
@@ -40,15 +40,15 @@
 {% endblock %}
 {% block js %}
 <!-- Initialize Redactor editor -->
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/jquery/dist/jquery.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/redactor.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/plugins/video/video.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/plugins/imagemanager/imagemanager.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/plugins/fullscreen/fullscreen.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/redactor.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/video/video.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/imagemanager/imagemanager.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/fullscreen/fullscreen.js')}}"></script>
 {% if request.cookies.get('lang') != "en" %}
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/redactor/langs/'+request.cookies.get("lang")+'.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/langs/'+request.cookies.get("lang")+'.js')}}"></script>
 {% endif %}
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/select2/select2.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/select2/select2.min.js')}}"></script>
 <script type="text/javascript">
 
 $('#content').redactor({
