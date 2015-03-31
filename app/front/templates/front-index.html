@@ -1,4 +1,5 @@
 {% extends 'front-base.html'%}
+{% import 'macros/front-pagination.html' as paginator %}
 {% block content%}
     {% for post in posts %}
         <div class="post">
@@ -9,4 +10,5 @@
         </div>
         <hr/>
     {% endfor %}
+    {{ paginator.render_pagination(pagination) }}
 {% endblock %}

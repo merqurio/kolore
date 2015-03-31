@@ -12,6 +12,8 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
+default_expiration: "30d"
+
 # Handlers define how to route requests to your application.
 handlers:
 
@@ -43,10 +45,18 @@ handlers:
 # a list of libraries included in the SDK.  Third party libs that are *not* part
 # of the App Engine SDK don't need to be listed here, instead add them to your
 # project directory, either as a git submodule or as a plain subdirectory.
-# TODO: List any other App Engine SDK libs you may need here.
-#libraries:
-#- name: jinja2
-#  version: latest
 libraries:
 - name: PIL
   version: "1.1.7"
+
+skip_files:
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*\.DS_Store$
+- ^(.*/)?.*\.less$
+- ^(.*/)?.*\.md$
+- ^\.idea$
+- ^\.git$
+- ^(app/admin/static/plugins/.*)
+- ^(app/admin/node_modules/.*)
+- ^(app/front/static/plugins/.*)
+- ^(app/front/node_modules/.*)

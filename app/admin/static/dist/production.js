@@ -1,4 +1,4 @@
-/*! Chroma - v0.2.0 - 2015-03-24
+/*! Kolore - v0.4.0 - 2015-03-31
 * http://chromabranding.com
 * Copyright (c) 2015 ; Licensed  */
 (function () {
@@ -3244,7 +3244,6 @@
     });
 }));
 
-
 (function() {
 
     // Language cookie
@@ -3281,14 +3280,15 @@
 
 var overlay = document.querySelector('#modal-overlay'),
     box = document.querySelector('.modal-box'),
-    closeBtn = document.querySelectorAll('.modal-close-action');
+    progressBar = document.getElementById('tools-progress');
 
 // Populate
-function populateModal(title, content, action, postId){
+function populateModal(title, content, action, objects, url){
     document.querySelector('#modal-header').innerText = title;
     document.querySelector('#modal-text').innerText = content;
     document.querySelector('#modal-action').innerText = action;
-    document.querySelector('.modal').dataset['id'] = postId;
+    document.querySelector('.modal').dataset['id'] = objects;
+    document.querySelector('.modal').dataset['url'] = url;
 
 }
 
@@ -3304,28 +3304,297 @@ function closeModal(){
     overlay.classList.add('hide');
 }
 
-function deletePostModalRequest(){
+function deleteObjectsRequest(){
     var request = new XMLHttpRequest(),
         postData = {},
-        postId = document.querySelector('.modal').dataset['id'],
-        url = "/admin/posts";
+        objects = document.querySelector('.modal').dataset['id'],
+        url = document.querySelector('.modal').dataset['url'];
 
-    postData['post_id'] = postId.toString();
+    // Add loading bar
+    if (!progressBar){
+        document.body.insertAdjacentHTML('beforeEnd', '<div id="tools-progress"><span></span></div>');
+        progressBar = document.getElementById('tools-progress');
+    } else {
+        progressBar.classList.remove('hide');
+    }
+
+    // Set data
+    postData['objects'] = objects.toString();
+
+    // Request
     request.open('POST', url, true);
     request.setRequestHeader('Content-Type', 'application/json');
+    request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     request.send(JSON.stringify(postData));
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
+
+            // Create array it is not
+            var nodes = objects.split(',');
+            nodes = ( typeof nodes != 'undefined' && nodes instanceof Array ) ? nodes : [nodes];
+
             // Success so remove from table
-            var actualNode = document.getElementById(postId);
-            actualNode.parentNode.removeChild(actualNode);
+            for (var i = 0; i < nodes.length; i++) {
+                var actualNode = document.getElementById(nodes[i]);
+                actualNode.parentNode.removeChild(actualNode);
+            }
+
+            // Hide overlay and loader
+            overlay.classList.add('hide');
+            progressBar.classList.add('hide');
 
         } else {
         // We reached our target server, but it returned an error
             console.log('There was an error trying to delete the post')
         }
     };
-    closeModal();
+    // Hide modal
+    box.classList.add('hide');
+}
+
+if (box){
+    // Listeners
+    // Set modal closing listeners
+    box.addEventListener('click', function(event){
+        if (this.classList.contains('modal-box') && event.target.classList.contains('modal-box')) {
+            closeModal();
+        }
+    });
+
+    // Modal closing listener
+    document.addEventListener('click', function(e){
+        if(e.target && e.target.classList.contains('modal-close-action')){
+            closeModal();
+        }
+    });
+
+    // Set modals action
+    document.querySelector('#modal-action').addEventListener('click', deleteObjectsRequest);
+}
+
+
+(function() {
+    function showTooltip(item) {
+
+        var theme = "tooltip-theme-" + item.dataset.theme,
+            title = document.createTextNode(item.dataset.title),
+            item_top = item.getBoundingClientRect().top + item.offsetHeight + 1,
+            item_left = item.getBoundingClientRect().left,
+            tooltip = document.createElement('div');
+
+        // Edit tooltip
+        tooltip.classList.add("tooltip");
+        tooltip.classList.add(theme);
+        tooltip.appendChild(title);
+
+        // Position
+        tooltip.style.top = item_top + 'px';
+        tooltip.style.left = item_left + 'px';
+
+        // Create tooltip
+        document.body.appendChild(tooltip);
+    }
+
+    function hideTooltip() {
+        document.querySelector('.tooltip').remove();
+    }
+
+    document.addEventListener('mouseover', function(e) {
+        if (e.target && e.target.classList.contains('tooltip-it')) {
+            showTooltip(e.target);
+        }
+        if (e.target.parentNode.classList) {
+            if (e.target && e.target.parentNode.classList.contains('tooltip-it')) {
+                showTooltip(e.target.parentNode);
+            }
+        }
+    });
+
+    document.addEventListener('mouseout', function(e) {
+        if (e.target && e.target.classList.contains('tooltip-it')) {
+            hideTooltip();
+        }
+        if (e.target.parentNode.classList) {
+            if (e.target && e.target.parentNode.classList.contains('tooltip-it')) {
+                hideTooltip();
+            }
+        }
+
+    });
+})();
+
+function dropUpload(dropElement){
+    // Variables
+    var dropArea = document.querySelector(dropElement),
+        fileInput = dropArea.querySelector('input'),
+        progressBar = document.getElementById('tools-progress'),
+        allFiles,
+        totalFiles;
+
+    // Dropped file manager
+    function fileSelectHandler(e) {
+        e.preventDefault();
+
+        // cancel event and hover styling
+        dropArea.classList.remove('drag-hover');
+        dropArea.classList.remove('active');
+
+
+        // fetch FileList object
+        allFiles = e.target.files || e.dataTransfer.files;
+        totalFiles = allFiles.length-1;
+
+        if(!allFiles[0]){
+            return;
+        }
+
+        // Unable interaction in the meanwhile
+        document.getElementById('modal-overlay').classList.remove('hide');
+
+        // Add loading bar
+        if (!progressBar){
+            document.body.insertAdjacentHTML('beforeEnd', '<div id="tools-progress"><span></span></div>');
+            progressBar = document.getElementById('tools-progress');
+        } else {
+            progressBar.classList.remove('hide');
+        }
+
+        //Upload process begin
+        uploadFileGCS();
+
+    }
+
+    // Start the callback hell
+    function uploadFileGCS() {
+
+        var file = allFiles[totalFiles];
+
+        gcsExecuteOnUrl(file, function (finalURL) {
+            gcsUploadToGCS(file, finalURL)
+        });
+    }
+
+    function gcsExecuteOnUrl(file, callback) {
+
+        var request = new XMLHttpRequest();
+
+        request.open('GET', '/admin/upload_url', true);
+
+        request.onreadystatechange = function (e) {
+            if (this.readyState == 4 && this.status == 200) {
+                callback(this.responseText);
+            } else if (this.readyState == 4 && this.status != 200) {
+                console.log("Couldn't get the upload URL");
+            }
+        };
+        request.send();
+    }
+
+    function gcsUploadToGCS(file, finalURL) {
+
+        var request = new XMLHttpRequest(),
+            formData = new FormData();
+
+        formData.append("file", file);
+        request.open('POST', finalURL, true);
+        request.onreadystatechange = function (e) {
+            if (this.readyState == 4 && this.status == 200) {
+                file = JSON.parse(this.responseText);
+                addPrevisualization(file);
+            } else if (this.readyState == 4 && this.status != 200) {
+                console.log("Something went wrong on server side.");
+                // Enable interaction again
+                document.getElementById('modal-overlay').classList.add('hide');
+                // Remove Loading bar
+                progressBar.classList.add('hide');
+                alert('Error');
+            }
+        };
+        request.send(formData);
+    }
+
+    // Add the file visualization after the drop
+    function addPrevisualization(file){
+        var wrapper = document.querySelector('.grid');
+
+        //Create wrapper if doesn't exist
+        if (!wrapper){
+            dropArea.insertAdjacentHTML('afterend','<div class="grid"></div>');
+            wrapper = document.querySelector('.grid');
+        }
+
+        // Append the element
+        wrapper.insertAdjacentHTML('beforeEnd', '<div class="grid-item uploaded" style="background-image: url('+file.thumb+');"></div>');
+
+
+
+        // Check if all uploaded
+        if (totalFiles === 0){
+            // Enable interaction again
+            document.getElementById('modal-overlay').classList.add('hide');
+
+            // Remove Loading bar
+            progressBar.classList.add('hide');
+
+            allFiles = null;
+
+        } else {
+            // Remove one to totalFile
+            totalFiles--;
+
+            // Upload next one
+            uploadFileGCS();
+        }
+
+
+    }
+
+    // Event listeners
+    if (dropArea) {
+
+        // On drag hover window prevent drop
+        window.addEventListener("dragover", function (e) {
+            e = e || event;
+            e.preventDefault();
+            dropArea.classList.add('drag-hover');
+        });
+
+        window.addEventListener("drop", function (e) {
+            e = e || event;
+            e.preventDefault();
+            dropArea.classList.remove('drag-hover');
+        });
+
+        document.body.addEventListener("dragleave", function (e) {
+            e = e || event;
+            e.preventDefault();
+            dropArea.classList.remove('drag-hover');
+        });
+
+        // On drag hover drop area
+        dropArea.addEventListener("dragover", function () {
+            dropArea.classList.add('active');
+        });
+
+        dropArea.addEventListener("dragleave", function () {
+            dropArea.classList.remove('active');
+        });
+
+        // On drop in the drop area
+        dropArea.addEventListener('drop', fileSelectHandler);
+
+        // On area click
+        dropArea.addEventListener('click', function(e){
+            if(e.target != fileInput){
+                fileInput.click()
+            }
+            
+        });
+
+        // On file selection
+        fileInput.addEventListener('change', fileSelectHandler);
+
+    }
 }
 (function() {
     // The JS for the wizard effect .

@@ -99,6 +99,9 @@ ex@Book:[~/kolore/app/admin]$ bower install
 ## [Local testing](#3)
 Once you have installed all the dependencies, you must have the **Google Cloud SDK** to run the server. Check the instructions [here][20].
 
+##### Build the front-end files
+In order to get all the CSS and JS done, you must build it, once from each app. Use the command `grunt`to build it, and `grunt watch` while you work on CSS and JS files, so they build immediately after you change them.
+
 ##### Start the server
 In the root directory of the app run in your terminal<br>
 `dev_appserver.py .`

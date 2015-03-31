@@ -35,6 +35,7 @@ module.exports = function(grunt) {
             target: {
                 files: {
                     'static/dist/production.min.css': [
+                        'static/plugins/*/*.css',
                         'static/css/*.css'
                     ]
                 }

@@ -1,28 +1,70 @@
 {% extends 'admin-base.html'%}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='plugins/quill/dist/quill.snow.css')}}">
 {% endblock %}
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
-            <h3 class="light left">{{_("General")}} <b>{{_("Settings")}}</b></h3>
+            <h3 class="light left">{{_("General <b>Settings</b>")}}</h3>
         </div>
-        <form class="forms" method="POST">
-            <div class="units-row">
-                <div class="unit-50 unit-centered">
-                    <p>{{_("Here you can change the name that will be displayed in the posts.")}}</p>
+        <form class="forms" method="POST" action="{{ url_for('admin.options') }}">
+            <div class="units-row units-padding">
+                <div class="unit-50">
+                    <h2 class="light">{{_("Name and")}} <b>{{_("Surname")}}</b></h2>
+                    <p>{{_("Here you can change the name that will be displayed in the website.")}}</p>
                     <label>
-                        {{_("User")}} <span class="forms-desc">{{_("Introduce your name and surname.")}}</span>
+                        {{_("Display name")}} <span class="forms-desc">{{_("Introduce your name and surname.")}}</span>
                         <input type="text" {% if user%} value="{{user.name}}" {% endif %} name="user_name" class="form-control width-100">
                     </label>
-                    <button class="btn btn-small btn-blue btn-outline" type="submit" name="action" value="save">
+                    <button class="btn btn-small btn-blue btn-outline" type="submit" name="action" value="user_save">
                         <i class="fa fa-floppy-o"></i>&nbsp;&nbsp;{{_("Save")}}
+                    </button>
+                </div>
+                <div class="unit-50">
+                    <h2 class="light">{{_("Authorized")}} <b>{{_("Users")}}</b></h2>
+                    <p>{{_("Here you can manage the users that can access to the admin.")}}</p>
+                    <ul class="width-80 unit-centered" id="user-list">
+                        {% for u in all_users %}
+                        <li id="{{ u.key.id() }}">{{ u.name }}
+                            <a class="right btn btn-smaller btn-outline btn-red" href="#" >
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <br><br>
+                    <h2 class="light">{{_("Add a new <b>User</b>")}}</h2>
+                    <p>{{ _("To add a new user, insert the new users Google @gmail account.") }}</p>
+                    <label>
+                        {{_("Email")}} <span class="forms-desc">{{_("Introduce a @gmail account.")}}</span>
+                        <input type="email" name="user_mail" class="form-control width-100">
+                    </label>
+                    <button class="btn btn-small btn-blue btn-outline" type="submit" name="action" value="user_new">
+                        <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;{{_("Add")}}
                     </button>
                 </div>
             </div>
 
         </form>
     </div>
+    {% include 'blocks/block-modal.html' %}
 {% endblock %}
 {% block js %}
+<script type="application/javascript">
+    var users = document.getElementById('user-list');
+
+    if(users){
+        users.addEventListener('click', function(e){
+
+            if(e.target && (e.target.classList.contains('btn') || e.target.parentNode.classList.contains('btn'))){
+                var title = '{{ _("Delete selected user") }}',
+                content = '{{_("Are you sure you want to delete this user ?")}}',
+                action = '{{_("Delete")}}',
+                keys = e.target.parentNode.id;
+
+                populateModal(title, content, action, keys, "{{ url_for('admin.options') }}");
+                openModal();
+            }
+        });
+    }
+</script>
 {% endblock %}
