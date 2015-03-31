@@ -29,7 +29,6 @@
     "font-awesome": "~4.3.0",
     "momentjs": "~2.9.0",
     "select2": "~3.5.2",
-    "redactor": "git@git.chromabranding.com:redactor",
     "open-sans-fontface": "~1.2.1",
     "photoswipe": "~4.0.7"
   }
