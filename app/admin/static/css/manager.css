@@ -9,7 +9,7 @@
 
 .grid-item {
     display: inline-block;
-    margin: 0.2em 0.1em;
+    margin: 0.2em 0.178em;
     width: 130px;
     height: 130px;
     cursor: pointer;
@@ -17,6 +17,7 @@
     background: #E0E0E0 no-repeat center;
     background-size: 130px 130px;
 }
+
 
 .active.grid-item:before {
     content: "\f058";

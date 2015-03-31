@@ -271,12 +271,30 @@ def upload():
                 if blob_info.content_type in IMAGES_MIME:
                     img = Image(image_data=blob_info.open().read())
                     img_url = '/admin/file_serve/'+blob_key
+
+                    if img.height > 1600 or img.width > 1600:
+                        img_gallery = get_serving_url(blob_key_object, size=1600)
+                        # Landscape
+                        if img.height < img.width:
+                            img_height = (img.height*1600)/img.width
+                            img_width = 1600
+                        # Portrait
+                        else:
+                            img_width = (img.width*1600)/img.height
+                            img_height = 1600
+                    else:
+                        img_gallery = img_url
+                        img_height = img.height
+                        img_width = img.width
+
+
                     img_ref = ImageReference(filename=blob_info.filename,
                                              blob=blob_key_object,
                                              url=img_url,
                                              thumb=get_serving_url(blob_key_object, crop=True, size=200),
-                                             height=img.height,
-                                             width=img.width)
+                                             gallery=img_gallery,
+                                             height=img_height,
+                                             width=img_width)
                     img_ref.put()
                 return jsonify({"filelink": "/admin/file_serve/" + blob_key,
                                 "filename": "" + blob_info.filename,
