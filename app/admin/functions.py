@@ -54,16 +54,18 @@ def admin_login_required(func):
             # Security Layer
             if actual_user.email() in User.query_all() or users.is_current_user_admin():
                 # DB User model check
-                if User.query(User.user == actual_user).get():
+                user_in_db = User.query(User.user == actual_user).get()
+                if user_in_db:
                     return func(*args, **kwargs)
                 else:
                     db_user = User.query(User.email == actual_user.email()).get()
                     db_user = User(email=actual_user.email()) if not db_user else db_user
                     db_user.user = actual_user
                     db_user.name = actual_user.nickname()
+                    db_user.admin = True if users.is_current_user_admin() else False
                     db_user.put()
                     return func(*args, **kwargs)
             # If not in permited users
             else:
-                return '''Sorry but this user, is not in our system.'''
+                return 'Sorry but this user, is not in our system.'
     return decorated_view

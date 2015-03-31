@@ -76,9 +76,9 @@ def options():
                 new_user.put()
                 sleep(1)
 
-
+    admin = users.is_current_user_admin()
     all_users = User().query().fetch()
-    return render_template('admin-options.html', user=db_user, all_users=all_users)
+    return render_template('admin-options.html', user=db_user, all_users=all_users, admin=admin)
 
 
 # Controllers /// Posts ///

@@ -15,6 +15,7 @@ class User(ndb.Model):
     email = ndb.StringProperty(required=True)
     date = ndb.DateTimeProperty(auto_now_add=True)
     user = ndb.UserProperty()
+    admin = ndb.BooleanProperty()
 
     @classmethod
     def query_all(cls):

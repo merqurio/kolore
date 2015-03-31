@@ -94,8 +94,10 @@ Use this commands to finally install all the dependencies.
 ```bash
 ex@Book:[~/kolore]$ cd app/front
 ex@Book:[~/kolore/app/front]$ bower install
+ex@Book:[~/kolore/app/front]$ npm install
 ex@Book:[~/kolore/app/front]$ cd ../admin
 ex@Book:[~/kolore/app/admin]$ bower install
+ex@Book:[~/kolore/app/front]$ npm install
 ```
 Once you installed all the dependencies, you must build them with grunt. Keep reading.
 

@@ -1,6 +1,6 @@
 # Import the Flask Framework
 # ----------------------------------------------------------------
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, g
 
 # Import dependencies
 # ----------------------------------------------------------------
@@ -54,6 +54,32 @@ def url_for_other_page(page):
 
 
 app.jinja_env.globals['url_for_other_page'] = url_for_other_page
+
+
+# Deferred Request Callbacks
+# ----------------------------------------------------------------
+def after_this_request(f):
+    if not hasattr(g, 'after_request_callbacks'):
+        g.after_request_callbacks = []
+    g.after_request_callbacks.append(f)
+    return f
+
+@app.after_request
+def call_after_request_callbacks(response):
+    for callback in getattr(g, 'after_request_callbacks', ()):
+        callback(response)
+    return response
+
+# Set a language cookie
+@app.before_request
+def detect_user_language():
+    language = request.cookies.get('lang')
+    if language is None:
+        language = "en"
+        @after_this_request
+        def remember_language(response):
+            response.set_cookie('lang', language)
+    g.language = language
 
 # Global routes
 # ----------------------------------------------------------------

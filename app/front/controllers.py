@@ -29,8 +29,6 @@ def home(page):
     all_posts = len(q.fetch())
     pagination = Pagination(page, POSTS_PER_PAGE, all_posts)
     response = make_response(render_template('front-index.html', posts=posts, pagination=pagination))
-    if not request.cookies.get('lang'):
-        response.set_cookie('lang', value='en')
     return response
 
 
