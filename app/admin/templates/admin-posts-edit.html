@@ -1,33 +1,37 @@
 {% extends 'admin-base.html'%}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='plugins/quill/dist/quill.snow.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='dist/redactor/css/redactor.css')}}">
 {% endblock %}
 {% block content %}
     <div class="card fadeInUp hide">
         <div class="title group">
-            <h3 class="light left">{{_("Edit")}} <b>{{_("Post")}}</b></h3>
+            <h3 class="light left">{{_("Edit <b>Post</b>")}}</h3>
         </div>
-        <form class="forms" method="POST" onsubmit="return copyContent()">
+        <form class="forms" method="POST">
             <div class="units-row">
                 <div class="unit-70">
                     <label>
                         {{_("Title")}} <span class="forms-desc">{{_("Edit the title")}}</span>
                         <input type="text" name="title" class="width-100" value="{{post.title}}" />
                     </label>
-                    <h4>{{_("Edit")}} {{_("Content")}}</h4>
-                    <input id="hiddenTextarea" name="text" style="display:none"/>
-                    {% include 'blocks/block-editor.html'%}
+                    <label>
+                        {{_("Content")}} <span class="forms-desc">{{_("Edit the main content")}}</span>
+                        {% include 'blocks/block-editor.html'%}
+                    </label>
                 </div>
                 <div class="unit-30">
                     <label>
-                        {{_("Edit")}} <span class="forms-desc">{{_("Categories")}}</span>
+                        {{_("Categories")}} <span class="forms-desc">{{_("Try not to duplicate")}}</span>
                         <input type="text" id="categories" name="categories"
                         value="{% for cat in post.get_categories()%}{{cat}}{% if not loop.last%},{% endif %}{% endfor %}">
                     </label>
                     <br>
                     <h4 class="light">{{_("Save")}} <b>{{_("Changes")}}</b></h4>
                     <p>{{_("By saving all the changes will be published")}}</p>
-                    <button type="submit" class="btn btn-black btn-outline">{{_("Publish Now")}}</button>
+                    <a class="btn btn-small btn-blue btn-outline" href="{{url_for('admin.posts')}}">
+                        <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{_("Return")}}
+                    </a>
+                    <button type="submit" class="btn btn-small btn-black btn-outline"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;{{_("Publish Now")}}</button>
                 </div>
             </div>
 
@@ -35,25 +39,37 @@
     </div>
 {% endblock %}
 {% block js %}
-<!-- Initialize Quill editor -->
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/jquery/dist/jquery.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/quill/dist/quill.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='plugins/select2/select2.min.js')}}"></script>
+<!-- Initialize Redactor editor -->
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/redactor.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/video/video.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/imagemanager/imagemanager.js')}}"></script>
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/fullscreen/fullscreen.js')}}"></script>
+{% if request.cookies.get('lang') != "en" %}
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/langs/'+request.cookies.get("lang")+'.js')}}"></script>
+{% endif %}
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/select2/select2.min.js')}}"></script>
 <script type="text/javascript">
 
-var  advancedEditor = new Quill('.advanced-wrapper .editor-container', {
-      modules: {
-        'toolbar': {
-          container: '.advanced-wrapper .toolbar-container'
-        },
-        'link-tooltip': true,
-        'image-tooltip': true
-      },
-      styles: false,
-      theme: 'snow'
+$('#content').redactor({
+    minHeight: 300,
+    initCallback: function(){
+        this.code.set('{{ post.text | safe}}');
+        this.observe.load();
+        if (this.utils.isOldIe()){
+            alert("{{_("You should update your Internet Explorer")}}");
+        }
+    },
+    buttonsHide: ['html'],
+    toolbarFixedTopOffset: 50,
+    imageManagerJson: '/admin/image_serve/',
+    plugins: ['imagemanager','video','fullscreen'],
+    gcs: '/admin/upload_url'
+    {% if request.cookies.get("lang") != "en" %}
+    ,
+    lang : '{{request.cookies.get("lang")}}'
+    {% endif %}
 });
-
-advancedEditor.setHTML('{{post.text|safe}}');
 
 $('#categories').select2({
     tags:{{categories|tojson}},
@@ -62,10 +78,6 @@ $('#categories').select2({
         return text.toUpperCase().indexOf(term.toUpperCase())==0; 
     }
 });
-
-function copyContent() {
-        document.getElementById("hiddenTextarea").value = advancedEditor.getHTML();
-}
 
 </script>
 {% endblock %}

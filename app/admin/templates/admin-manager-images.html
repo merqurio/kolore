@@ -1,0 +1,127 @@
+{% extends 'admin-base.html'%}
+{% import 'macros/admin-pagination.html' as paginator %}
+{% block css%}
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='dist/photoswipe/photoswipe.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='dist/photoswipe/default-skin/default-skin.css')}}">
+{% endblock %}
+{% block content %}
+    <div class="card fadeInUp hide">
+        <div class="title group">
+            <h3 class="light left">{{_("All")}} <b>{{_("Images")}}</b></h3>
+        </div>
+        <p>{{ _("You can view and delete all the uploaded images here.") }}</p>
+        <div class="group">
+            <a class="btn btn-smaller btn-blue btn-outline right" href="{{ url_for('admin.image_manager_add') }}">
+                <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Add Image")}}
+            </a>
+            {% if keys %}
+            <button class="btn btn-smaller btn-black btn-outline" id="gallery-btn" type="button">
+                <i class="fa fa-eye"></i>&nbsp;&nbsp;{{_("Preview Images")}}
+            </button>
+            <button class="btn btn-smaller btn-red btn-outline" id="delete-btn" type="submit">
+                <i class="fa fa-trash-o"></i>&nbsp;&nbsp;{{_("Delete Images")}}
+            </button>
+            {% endif %}
+            {% if not keys %}
+                <p>{{ _("No images uploaded here..") }}</p>
+                <p>{{ _("All the files you upload will be listed here.") }}
+                {{ _("Click the images to select any items you wish to delete.") }}</p>
+            {% else %}
+        </div>
+            <div class="grid" id="grid">
+                {% for key in keys %}
+                    <div class="grid-item" id="{{ key.key.id() }}" style="background-image: url('{{ key.thumb }}')"
+                    data-url="{{ key.thumb }}"
+                    data-image="{{ key.gallery }}"
+                    data-height="{{ key.height }}"
+                    data-width="{{ key.width }}">
+                    </div>
+                {% endfor %}
+            </div>
+            {% if keys %}
+                {{ paginator.render_pagination(pagination) }}
+            {% endif %}
+        {% endif %}
+    </div>
+    {% include 'blocks/block-modal.html' %}
+    {% include 'blocks/block-gallery.html' %}
+{% endblock %}
+{% block js %}
+<script src="{{ url_for('admin.static', filename='dist/photoswipe/photoswipe.min.js') }}" type="application/javascript"></script>
+<script src="{{ url_for('admin.static', filename='dist/photoswipe/photoswipe-ui-default.min.js') }}" type="application/javascript"></script>
+<script>
+
+    var grid = document.getElementById('grid'),
+        delBtn = document.getElementById('delete-btn');
+
+
+    if (grid && delBtn){
+
+        var gallleryBtn = document.getElementById('gallery-btn');
+
+        // Grid listener
+        grid.addEventListener('click', function(e){
+            if(e.target && e.target.classList.contains('grid-item')){
+                e.target.classList.toggle('active');
+            }
+        });
+
+        // Delete listener
+        delBtn.addEventListener('click', function(e){
+            var title = '{{ _("Delete selected images.") }}',
+                content = '{{_("Are you sure you want to delete this images ?")}}',
+                action = '{{_("Delete")}}',
+                selected = document.querySelectorAll('.active'),
+                keys = [];
+
+            // Add all selected items
+            [].forEach.call(selected, function(item){
+                keys.push(item.id);
+            });
+
+            if (!keys[0]){
+                return;
+            }
+
+            // Create modal
+            populateModal(title, content, action, keys, "{{ url_for('admin.image_manager') }}");
+            openModal();
+
+        });
+
+        // Gallery listener
+        gallleryBtn.addEventListener('click', function(){
+            var selected = document.querySelectorAll('.active'),
+                gallery = document.getElementById('image-gallery'),
+                options = {
+                    closeOnScroll: false,
+                    showHideOpacity:true,
+                    hideAnimationDuration:true
+
+                },
+                slides = [];
+
+            // Add slide per image
+            [].forEach.call(selected, function(item){
+                var slide = {};
+                slide['src'] = item.dataset.image;
+                slide['msrc'] = item.dataset.url;
+                slide['h'] = item.dataset.height;
+                slide['w'] = item.dataset.width;
+                slides.push(slide);
+            });
+
+            // If no images, cancel
+            if (!slides[0]){
+                return;
+            }
+
+            var slider = new PhotoSwipe( gallery, PhotoSwipeUI_Default, slides, options);
+            slider.init();
+
+        });
+    }
+
+
+</script>
+{% endblock %}

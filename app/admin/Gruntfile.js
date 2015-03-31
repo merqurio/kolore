@@ -10,6 +10,48 @@ module.exports = function(grunt) {
             '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
             ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
         // Task configuration.
+        copy: {
+            dist: {
+                files: [{ // Font-awesome
+                    expand: true,
+                    dot: true,
+                    cwd: 'static/plugins/font-awesome/fonts/',
+                    src: ['*.*'],
+                    dest: 'static/fonts'
+                },{ // Open Sans
+                    expand: true,
+                    dot: true,
+                    cwd: 'static/plugins/open-sans-fontface/fonts/',
+                    src: '**/**',
+                    dest: 'static/fonts'
+                },{ // Select2
+                    expand: true,
+                    dot: true,
+                    cwd: 'static/plugins/select2/',
+                    src: ['select2.min.js'],
+                    dest: 'static/dist/select2/'
+                },{ // Redactor
+                    expand: true,
+                    dot: true,
+                    cwd: 'static/plugins/redactor/',
+                    src: ['redactor.js','langs/es.js', 'langs/eu.js', 'css/redactor.css','css/redactor-font.eot',
+                          'plugins/video/video.js', 'plugins/fullscreen/fullscreen.js', 'plugins/imagemanager/imagemanager.js'],
+                    dest: 'static/dist/redactor/'
+                },{ // Photoswipe
+                    expand: true,
+                    dot: true,
+                    cwd: 'static/plugins/photoswipe/dist',
+                    src: ['photoswipe.css','photoswipe.min.js', 'photoswipe-ui-default.min.js', 'default-skin/*'],
+                    dest: 'static/dist/photoswipe/'
+                },{ // jquery
+                    expand: true,
+                    dot: true,
+                    cwd: 'static/plugins/jquery/dist',
+                    src: '*.min*',
+                    dest: 'static/dist/'
+                }]
+            }
+        },
         concat: {
             options: {
                 banner: '<%= banner %>',
@@ -37,7 +79,8 @@ module.exports = function(grunt) {
         less: {
             development: {
                 files: {
-                    'static/css/kube.css': 'static/css/kube.less' // destination file and source file
+                    'static/css/kube.css': 'static/css/kube.less',
+                    'static/css/open-sans.css': 'static/plugins/open-sans-fontface/open-sans.less'// destination file and source file
                 }
             }
         },
@@ -46,6 +89,7 @@ module.exports = function(grunt) {
                 files: {
                     'static/dist/production.min.css': [
                         'static/plugins/hutsa/menu.css',
+                        'static/plugins/font-awesome/css/font-awesome.css',
                         'static/css/*.css'
                     ]
                 }
@@ -58,6 +102,7 @@ module.exports = function(grunt) {
     });
 
     // These plugins provide necessary tasks.
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -65,5 +110,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task.
-    grunt.registerTask('default', ['less', 'concat', 'uglify', 'cssmin']);
+    grunt.registerTask('default', ['copy', 'concat', 'uglify', 'less', 'cssmin']);
 };

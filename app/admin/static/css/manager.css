@@ -1,0 +1,58 @@
+.grid {
+    margin: 20px auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.grid-item {
+    display: inline-block;
+    margin: 0.2em 0.178em;
+    width: 130px;
+    height: 130px;
+    cursor: pointer;
+    border-radius: 2px;
+    background: #E0E0E0 no-repeat center;
+    background-size: 130px 130px;
+}
+
+
+.active.grid-item:before {
+    content: "\f058";
+    position: absolute;
+    text-align: center;
+    font-family: FontAwesome;
+    display: block;
+    border-radius: 2px;
+    background: rgba(4, 16, 22, 0.63);
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    font-size: 50px;
+    color: rgba(241, 241, 241, 0.9);
+}
+
+.uploaded.grid-item:before {
+    content: "\f14a";
+    position: absolute;
+    text-align: center;
+    font-family: FontAwesome;
+    display: block;
+    border-radius: 2px;
+    background: rgba(57, 57, 57, 0.5);
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.drag-hover.active {
+    background-color: rgba(38, 163, 100, 0.48);
+}
+
+.tools-droparea {
+    cursor: pointer;
+}

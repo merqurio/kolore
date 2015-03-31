@@ -25,12 +25,25 @@ a:focus, a:hover {
     padding: 25px;
     box-shadow: 0 1px 1px 0 rgba(50, 50, 50, .25);
 }
-.title .btn.right {
-  float: right;
+.group .btn{
+    margin-bottom: 6px;
 }
 
-.title h3.left {
-    float: left;
+@media only screen and (min-width: 650px) {
+    .title .btn.right {
+        float: right;
+    }
+
+    .title h3.left {
+        float: left;
+    }
+}
+.menu-logo img {
+  margin-top: 12px;
+}
+
+.pagination{
+      margin: 0;
 }
 /* ------------------------------------
 Table setting
@@ -44,6 +57,11 @@ table .btn-group .btn {
 table.table-hovered a:focus, a:hover {
   color: #333;
 }
+
+table td {
+  vertical-align: middle;
+}
+
 /* Button group */
 
 #main table td:nth-child(4), #main table th:nth-child(4) {
@@ -101,13 +119,42 @@ Page specific
     margin-top: 60px;
 }
 
+#tools-progress, #redactor-progress {
+    bottom: 0;
+    top: inherit;
+    height: 20px;
+}
 
 /* ------------------------------------
-Page specific
+Modal
 ------------------------------------ */
+.modal-close-action{
+    float: left;
+}
+
+.modal footer button {
+    width: 50%;
+}
+
 @media only screen and (min-width: 800px) {
     .modal {
         max-width: 700px;
         top: 115px;
     }
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 0.3; }
+}
+
+#modal-overlay{
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+
 }
