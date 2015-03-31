@@ -9,29 +9,30 @@
         <div class="title group">
             <h3 class="light left">{{_("All")}} <b>{{_("Images")}}</b></h3>
         </div>
-            <div class="text-right">
-                <a class="btn btn-smaller btn-blue btn-outline" href="{{ url_for('admin.image_manager_add') }}">
-                    <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Add Image")}}
-                </a>
-                {% if keys %}
-                <button class="btn btn-smaller btn-black btn-outline" id="gallery-btn" type="button">
-                    <i class="fa fa-eye"></i>&nbsp;&nbsp;{{_("Preview Images")}}
-                </button>
-                <button class="btn btn-smaller btn-red btn-outline" id="delete-btn" type="submit">
-                    <i class="fa fa-trash-o"></i>&nbsp;&nbsp;{{_("Delete Images")}}
-                </button>
-                {% endif %}
-            </div>
+        <p>{{ _("You can view and delete all the uploaded images here.") }}</p>
+        <div class="group">
+            <a class="btn btn-smaller btn-blue btn-outline right" href="{{ url_for('admin.image_manager_add') }}">
+                <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Add Image")}}
+            </a>
+            {% if keys %}
+            <button class="btn btn-smaller btn-black btn-outline" id="gallery-btn" type="button">
+                <i class="fa fa-eye"></i>&nbsp;&nbsp;{{_("Preview Images")}}
+            </button>
+            <button class="btn btn-smaller btn-red btn-outline" id="delete-btn" type="submit">
+                <i class="fa fa-trash-o"></i>&nbsp;&nbsp;{{_("Delete Images")}}
+            </button>
+            {% endif %}
             {% if not keys %}
                 <p>{{ _("No images uploaded here..") }}</p>
                 <p>{{ _("All the files you upload will be listed here.") }}
                 {{ _("Click the images to select any items you wish to delete.") }}</p>
             {% else %}
+        </div>
             <div class="grid" id="grid">
                 {% for key in keys %}
                     <div class="grid-item" id="{{ key.key.id() }}" style="background-image: url('{{ key.thumb }}')"
                     data-url="{{ key.thumb }}"
-                    data-image="{{ key.url }}"
+                    data-image="{{ key.gallery }}"
                     data-height="{{ key.height }}"
                     data-width="{{ key.width }}">
                     </div>
@@ -77,6 +78,10 @@
             [].forEach.call(selected, function(item){
                 keys.push(item.id);
             });
+
+            if (!keys[0]){
+                return;
+            }
 
             // Create modal
             populateModal(title, content, action, keys, "{{ url_for('admin.image_manager') }}");

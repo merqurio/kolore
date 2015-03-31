@@ -25,6 +25,9 @@ a:focus, a:hover {
     padding: 25px;
     box-shadow: 0 1px 1px 0 rgba(50, 50, 50, .25);
 }
+.group .btn{
+    margin-bottom: 6px;
+}
 
 @media only screen and (min-width: 650px) {
     .title .btn.right {
@@ -117,6 +120,8 @@ Page specific
 }
 
 #tools-progress {
+    bottom: 0;
+    top: inherit;
     height: 20px;
 }
 
