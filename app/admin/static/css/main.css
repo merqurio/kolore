@@ -119,7 +119,7 @@ Page specific
     margin-top: 60px;
 }
 
-#tools-progress {
+#tools-progress, #redactor-progress {
     bottom: 0;
     top: inherit;
     height: 20px;
