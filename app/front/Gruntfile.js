@@ -15,11 +15,21 @@ module.exports = function(grunt) {
                 banner: '<%= banner %>',
                 stripBanners: true
             },
-            dist: {
-                src: [
+            js: {
+                src: ['static/plugins/hutsa/main.js',
+                    'static/plugins/momentjs/moment.js',
+                    'static/plugins/momentjs/locale/es.js',
+                    'static/plugins/momentjs/locale/eu.js',
                     'static/js/*.js'
-                ],
+                    ],
                 dest: 'static/dist/production.js'
+            },
+            css: {
+                src: [
+                    'static/plugins/*/*.css',
+                    'static/css/*.css'
+                ],
+                dest: 'static/dist/production.css'
             }
         },
         uglify: {
@@ -35,14 +45,13 @@ module.exports = function(grunt) {
             target: {
                 files: {
                     'static/dist/production.min.css': [
-                        'static/plugins/*/*.css',
-                        'static/css/*.css'
+                        'static/dist/production.css'
                     ]
                 }
             }
         },
         watch: {
-            files: ['static/css/*.css', 'static/js/*.js','static/css/*.less'],
+            files: ['static/css/*.css', 'static/js/*.js', 'static/css/*.less'],
             tasks: [/*'less',*/ 'concat', 'uglify', 'cssmin']
         }
     });

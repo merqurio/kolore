@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     // Project configuration.
     grunt.initConfig({
@@ -18,32 +18,32 @@ module.exports = function(grunt) {
                     cwd: 'static/plugins/font-awesome/fonts/',
                     src: ['*.*'],
                     dest: 'static/fonts'
-                },{ // Open Sans
+                }, { // Open Sans
                     expand: true,
                     dot: true,
                     cwd: 'static/plugins/open-sans-fontface/fonts/',
                     src: '**/**',
                     dest: 'static/fonts'
-                },{ // Select2
+                }, { // Select2
                     expand: true,
                     dot: true,
                     cwd: 'static/plugins/select2/',
                     src: ['select2.min.js'],
                     dest: 'static/dist/select2/'
-                },{ // Redactor
+                }, { // Redactor
                     expand: true,
                     dot: true,
                     cwd: 'static/plugins/redactor/',
-                    src: ['redactor.js','langs/es.js', 'langs/eu.js', 'css/redactor.css','css/redactor-font.eot',
+                    src: ['redactor.js', 'langs/es.js', 'langs/eu.js', 'css/redactor.css', 'css/redactor-font.eot',
                           'plugins/video/video.js', 'plugins/fullscreen/fullscreen.js', 'plugins/imagemanager/imagemanager.js'],
                     dest: 'static/dist/redactor/'
-                },{ // Photoswipe
+                }, { // Photoswipe
                     expand: true,
                     dot: true,
                     cwd: 'static/plugins/photoswipe/dist',
-                    src: ['photoswipe.css','photoswipe.min.js', 'photoswipe-ui-default.min.js', 'default-skin/*'],
+                    src: ['photoswipe.css', 'photoswipe.min.js', 'photoswipe-ui-default.min.js', 'default-skin/*'],
                     dest: 'static/dist/photoswipe/'
-                },{ // jquery
+                }, { // jquery
                     expand: true,
                     dot: true,
                     cwd: 'static/plugins/jquery/dist',
@@ -57,14 +57,21 @@ module.exports = function(grunt) {
                 banner: '<%= banner %>',
                 stripBanners: true
             },
-            dist: {
+            js: {
                 src: ['static/plugins/hutsa/main.js',
                     'static/plugins/momentjs/moment.js',
                     'static/plugins/momentjs/locale/es.js',
                     'static/plugins/momentjs/locale/eu.js',
                     'static/js/*.js'
-                ],
+                    ],
                 dest: 'static/dist/production.js'
+            },
+            css: {
+                src: ['static/plugins/font-awesome/css/font-awesome.css',
+                        'static/css/*.css',
+                        'static/plugins/hutsa/menu.css'
+                    ],
+                dest: 'static/dist/production.css'
             }
         },
         uglify: {
@@ -80,7 +87,7 @@ module.exports = function(grunt) {
             development: {
                 files: {
                     'static/css/kube.css': 'static/css/kube.less',
-                    'static/css/open-sans.css': 'static/plugins/open-sans-fontface/open-sans.less'// destination file and source file
+                    'static/css/open-sans.css': 'static/css/open-sans.less'// destination file and source file
                 }
             }
         },
@@ -88,15 +95,13 @@ module.exports = function(grunt) {
             target: {
                 files: {
                     'static/dist/production.min.css': [
-                        'static/plugins/hutsa/menu.css',
-                        'static/plugins/font-awesome/css/font-awesome.css',
-                        'static/css/*.css'
+                        'static/dist/production.css'
                     ]
                 }
             }
         },
         watch: {
-            files: ['static/css/*.css', 'static/js/*.js','static/css/*.less'],
+            files: ['static/css/*.css', 'static/js/*.js', 'static/css/*.less'],
             tasks: ['less', 'concat', 'uglify', 'cssmin']
         }
     });
