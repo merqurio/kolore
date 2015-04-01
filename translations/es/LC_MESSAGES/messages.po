@@ -25,14 +25,14 @@ msgid "Return"
 msgstr "Volver atras"
 
 #: app/admin/templates/admin-categories-edit.html:19
-#: app/admin/templates/admin-options.html:42
+#: app/admin/templates/admin-options.html:19
 #: app/admin/templates/admin-posts-edit.html:29
 msgid "Save"
 msgstr "Guardar"
 
 #: app/admin/templates/admin-categories-edit.html:22
-#: app/admin/templates/admin-manager-images.html:70
-#: app/admin/templates/admin-options.html:61
+#: app/admin/templates/admin-manager-images.html:73
+#: app/admin/templates/admin-options.html:63
 #: app/admin/templates/admin-posts.html:131
 msgid "Delete"
 msgstr "Eliminar"
@@ -46,11 +46,7 @@ msgstr "<span class='text-info'>Busca una categoría o crea una nueva y <b>presi
 msgid "Add Category"
 msgstr "Añadir Categoria"
 
-#: app/admin/templates/admin-home.html:5
-msgid "Welcome to Chroma"
-msgstr "Bienvenido a Kolore"
-
-#: app/admin/templates/admin-options.html:38
+#: app/admin/templates/admin-options.html:15
 msgid "Introduce your name and surname."
 msgstr "Introduzca su nombre y apellido."
 
@@ -274,7 +270,7 @@ msgstr "Añadir <b>Categorias</b>"
 msgid "General <b>Settings</b>"
 msgstr "<b>Configuración</b> General"
 
-#: app/admin/templates/admin-options.html:36
+#: app/admin/templates/admin-options.html:13
 msgid "Here you can change the name that will be displayed in the website."
 msgstr "Aquí puede editar el nombre que se visualiza en las entradas."
 
@@ -315,7 +311,7 @@ msgid "Change the name of the category"
 msgstr "Cambiar el nombre de la categoría"
 
 #: app/admin/templates/admin-manager-images-add.html:5
-#: app/admin/templates/admin-options.html:19
+#: app/admin/templates/admin-options.html:44
 msgid "Add"
 msgstr "Añadir"
 
@@ -336,11 +332,11 @@ msgstr "Todas las"
 msgid "Images"
 msgstr "Imagenes"
 
-#: app/admin/templates/admin-manager-images.html:14
+#: app/admin/templates/admin-manager-images.html:15
 msgid "Add Image"
 msgstr "Añadir Imagen"
 
-#: app/admin/templates/admin-manager-images.html:21
+#: app/admin/templates/admin-manager-images.html:22
 msgid "Delete Images"
 msgstr "Eliminar Imagen"
 
@@ -356,11 +352,11 @@ msgstr "Todas las imágenes que suba aparecerán aqui."
 msgid "Click the images to select any items you wish to delete."
 msgstr "Haga click en las imágenes que desee eliminar."
 
-#: app/admin/templates/admin-manager-images.html:68
+#: app/admin/templates/admin-manager-images.html:71
 msgid "Delete selected images."
 msgstr "Eliminar las imágenes seleccionadas."
 
-#: app/admin/templates/admin-manager-images.html:69
+#: app/admin/templates/admin-manager-images.html:72
 msgid "Are you sure you want to delete this images ?"
 msgstr "¿ Esta seguro de que desea eliminar estas imágenes ?"
 
@@ -390,55 +386,63 @@ msgstr "Ocurrió un error tratando de obtener entradas anteriores. Por favor, re
 msgid "Posts"
 msgstr "Entradas"
 
-#: app/admin/templates/admin-manager-images.html:18
+#: app/admin/templates/admin-manager-images.html:19
 msgid "Preview Images"
 msgstr "Previsualizar imágenes"
 
-#: app/admin/templates/admin-options.html:12
+#: app/admin/templates/admin-options.html:37
 msgid "Add a new <b>User</b>"
 msgstr "Añadir un nuevo <b>Usuario</b>"
 
-#: app/admin/templates/admin-options.html:13
+#: app/admin/templates/admin-options.html:38
 msgid "To add a new user, insert the new users Google @gmail account."
 msgstr "Para añadir un nuevo usuario, introduce una cuenta de Google @gmail."
 
-#: app/admin/templates/admin-options.html:15
+#: app/admin/templates/admin-options.html:40
 msgid "Email"
 msgstr "Email"
 
-#: app/admin/templates/admin-options.html:15
+#: app/admin/templates/admin-options.html:40
 msgid "Introduce a @gmail account."
 msgstr "Intrduce una cuenta @gmail.com"
 
-#: app/admin/templates/admin-options.html:22
+#: app/admin/templates/admin-options.html:23
 msgid "Authorized"
 msgstr "Usuarios"
 
-#: app/admin/templates/admin-options.html:22
+#: app/admin/templates/admin-options.html:23
 msgid "Users"
 msgstr "Autorizados"
 
-#: app/admin/templates/admin-options.html:23
+#: app/admin/templates/admin-options.html:24
 msgid "Here you can manage the users that can access to the admin."
 msgstr "Desde aquí puede manejar los usuarios con acceso."
 
-#: app/admin/templates/admin-options.html:35
+#: app/admin/templates/admin-options.html:12
 msgid "Name and"
 msgstr "Nombre y"
 
-#: app/admin/templates/admin-options.html:35
+#: app/admin/templates/admin-options.html:12
 msgid "Surname"
 msgstr "Apellido"
 
-#: app/admin/templates/admin-options.html:38
+#: app/admin/templates/admin-options.html:15
 msgid "Display name"
 msgstr "Nombre a visualizar"
 
-#: app/admin/templates/admin-options.html:59
+#: app/admin/templates/admin-options.html:61
 msgid "Delete selected user"
 msgstr "Eliminar el usuario"
 
-#: app/admin/templates/admin-options.html:60
+#: app/admin/templates/admin-options.html:62
 msgid "Are you sure you want to delete this user ?"
 msgstr "¿Está seguro de que desea eliminar este usuario?"
+
+#: app/admin/templates/admin-home.html:5
+msgid "Welcome to Kolore"
+msgstr "Bienvenido"
+
+#: app/admin/templates/admin-manager-images.html:12
+msgid "You can view and delete all the uploaded images here."
+msgstr "Visualice o elimine todas las imágenes subidas."
 

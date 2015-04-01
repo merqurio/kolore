@@ -25,14 +25,14 @@ msgid "Return"
 msgstr "Atzera"
 
 #: app/admin/templates/admin-categories-edit.html:19
-#: app/admin/templates/admin-options.html:42
+#: app/admin/templates/admin-options.html:19
 #: app/admin/templates/admin-posts-edit.html:29
 msgid "Save"
 msgstr "Gorde"
 
 #: app/admin/templates/admin-categories-edit.html:22
-#: app/admin/templates/admin-manager-images.html:70
-#: app/admin/templates/admin-options.html:61
+#: app/admin/templates/admin-manager-images.html:73
+#: app/admin/templates/admin-options.html:63
 #: app/admin/templates/admin-posts.html:131
 msgid "Delete"
 msgstr "Ezabatu"
@@ -46,11 +46,7 @@ msgstr "<span class='text-info'>Bilatu kategoria bat edo berri bat idatzi eta <b
 msgid "Add Category"
 msgstr "Gehitu kategoria"
 
-#: app/admin/templates/admin-home.html:5
-msgid "Welcome to Chroma"
-msgstr "Ongi etorri"
-
-#: app/admin/templates/admin-options.html:38
+#: app/admin/templates/admin-options.html:15
 msgid "Introduce your name and surname."
 msgstr "Zure izen eta abizenak ipini"
 
@@ -274,7 +270,7 @@ msgstr "Kategoria <b>Sortu</b>"
 msgid "General <b>Settings</b>"
 msgstr "Ezarpen <b>Orokorrak</b>"
 
-#: app/admin/templates/admin-options.html:36
+#: app/admin/templates/admin-options.html:13
 msgid "Here you can change the name that will be displayed in the website."
 msgstr "Weborrian agertzen den izena aldatu dezakezu hemen."
 
@@ -315,7 +311,7 @@ msgid "Change the name of the category"
 msgstr "Aldatu kategoriaren izena"
 
 #: app/admin/templates/admin-manager-images-add.html:5
-#: app/admin/templates/admin-options.html:19
+#: app/admin/templates/admin-options.html:44
 msgid "Add"
 msgstr "Gehitu"
 
@@ -336,11 +332,11 @@ msgstr "Igotako"
 msgid "Images"
 msgstr "Irudiak"
 
-#: app/admin/templates/admin-manager-images.html:14
+#: app/admin/templates/admin-manager-images.html:15
 msgid "Add Image"
 msgstr "Gehitu Irudia"
 
-#: app/admin/templates/admin-manager-images.html:21
+#: app/admin/templates/admin-manager-images.html:22
 msgid "Delete Images"
 msgstr "Ezabatu irudiak"
 
@@ -356,11 +352,11 @@ msgstr "Igotako fitxategi guztiak zerrendatu egingo dira hemen."
 msgid "Click the images to select any items you wish to delete."
 msgstr "Ezabatu nahi dituzun irudien gainean sakatu."
 
-#: app/admin/templates/admin-manager-images.html:68
+#: app/admin/templates/admin-manager-images.html:71
 msgid "Delete selected images."
 msgstr "Ezabatu aukeratutako irudiak."
 
-#: app/admin/templates/admin-manager-images.html:69
+#: app/admin/templates/admin-manager-images.html:72
 msgid "Are you sure you want to delete this images ?"
 msgstr "Zihur zaude irudi hauek ezabatu nahi dituzula ?"
 
@@ -390,55 +386,63 @@ msgstr "Errore bat egon da sarrera gehiago kargatzean. Mesedez berriro kargatu o
 msgid "Posts"
 msgstr "Sarrerak"
 
-#: app/admin/templates/admin-manager-images.html:18
+#: app/admin/templates/admin-manager-images.html:19
 msgid "Preview Images"
 msgstr "Irudiak ikusi"
 
-#: app/admin/templates/admin-options.html:12
+#: app/admin/templates/admin-options.html:37
 msgid "Add a new <b>User</b>"
 msgstr "<b>Erabiltzaile</b> berria sortu"
 
-#: app/admin/templates/admin-options.html:13
+#: app/admin/templates/admin-options.html:38
 msgid "To add a new user, insert the new users Google @gmail account."
 msgstr "Erabiltzaile berria sortzeko, gehitu Google @gmail kontua."
 
-#: app/admin/templates/admin-options.html:15
+#: app/admin/templates/admin-options.html:40
 msgid "Email"
 msgstr "Email"
 
-#: app/admin/templates/admin-options.html:15
+#: app/admin/templates/admin-options.html:40
 msgid "Introduce a @gmail account."
 msgstr "Ipini @gmail kontua"
 
-#: app/admin/templates/admin-options.html:22
+#: app/admin/templates/admin-options.html:23
 msgid "Authorized"
 msgstr "Baimendutako"
 
-#: app/admin/templates/admin-options.html:22
+#: app/admin/templates/admin-options.html:23
 msgid "Users"
 msgstr "Erabiltzaileak"
 
-#: app/admin/templates/admin-options.html:23
+#: app/admin/templates/admin-options.html:24
 msgid "Here you can manage the users that can access to the admin."
 msgstr "Erabiltzaileak kudeatu dezakezu hemendik."
 
-#: app/admin/templates/admin-options.html:35
+#: app/admin/templates/admin-options.html:12
 msgid "Name and"
 msgstr "Izen eta"
 
-#: app/admin/templates/admin-options.html:35
+#: app/admin/templates/admin-options.html:12
 msgid "Surname"
 msgstr "Abizena"
 
-#: app/admin/templates/admin-options.html:38
+#: app/admin/templates/admin-options.html:15
 msgid "Display name"
 msgstr "Bistaratzeko izena"
 
-#: app/admin/templates/admin-options.html:59
+#: app/admin/templates/admin-options.html:61
 msgid "Delete selected user"
 msgstr "Ezabatu aukeratutako erabiltzailea"
 
-#: app/admin/templates/admin-options.html:60
+#: app/admin/templates/admin-options.html:62
 msgid "Are you sure you want to delete this user ?"
 msgstr "Zihur zaude erabiltzaile hau ezabatu nahi duzula ?"
+
+#: app/admin/templates/admin-home.html:5
+msgid "Welcome to Kolore"
+msgstr "Ongi etorri"
+
+#: app/admin/templates/admin-manager-images.html:12
+msgid "You can view and delete all the uploaded images here."
+msgstr "Ikusi edo ezabatu, igotako irudiak."
 
