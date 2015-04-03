@@ -4,7 +4,7 @@
     /*global escape: true */
 
     // Language cookie
-    function SetCookie(cookieName, cookieValue, nDays) {
+    function setCookie(cookieName, cookieValue, nDays) {
         var today = new Date();
         var expire = new Date();
         if (nDays === null || nDays === 0){ nDays = 1;}
@@ -23,14 +23,13 @@
         if (e.target && e.target.nodeName === "LI") {
             var lang = e.target.className;
 
-            SetCookie('lang', lang, 365);
+            setCookie('lang', lang, 365);
             location.reload();
         } else if (e.target && e.target.nodeName === "A") {
-            var parent = e.target.parentNode;
+            var parent = e.target.parentNode,
+                alang = parent.className;
 
-            lang = parent.className;
-
-            SetCookie('lang', lang, 365);
+            setCookie('lang', alang, 365);
             location.reload();
         }
     });

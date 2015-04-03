@@ -62,7 +62,7 @@ def options():
         if request.is_xhr:
             user = request.get_json()
             # Get the Key, and delete() the object using Key (mandatory)
-            ndb.Key('User', int(user['objects'])).delete()
+            ndb.Key('User', int(user['objects'][0])).delete()
             return "true"
 
         if request.form["action"] == "user_save":
@@ -94,7 +94,7 @@ def posts():
     if request.method == 'POST':
         post = request.get_json()
         # Get the Key, and delete() the object using Key (mandatory)
-        ndb.Key('BlogPost', int(post['objects'])).delete()
+        ndb.Key('BlogPost', int(post['objects'][0])).delete()
         return "true"
 
     all_posts = BlogPost.query().order(-BlogPost.date).fetch(5)
@@ -341,7 +341,7 @@ def image_manager(page):
         img_ref_key = request.get_json()
 
         # Delete the img from ndb
-        for img_ref in img_ref_key['objects'].split(','):
+        for img_ref in img_ref_key['objects']:
             img_inst = ndb.Key(ImageReference, int(img_ref))
             img = img_inst.get()
             blob_key = img.blob

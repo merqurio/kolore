@@ -1,20 +1,24 @@
 {% for post in posts %}
-<tr class="fadeInUp hide added-post"  id="{{ post.key.id() }}">
+<tr class="fadeInUp hide added-post" id="{{ post.key.id() }}">
     <td><a href="/blog/{{post.url}}" class="title">{{post.title}}</a></td>
     <td><span class="date" data-date="{{post.date}}" data-format="LL"></span></td>
     <td>{% for category in post.get_categories() %}<span class="label">{{category}}</span> {% endfor %}</td>
     <td>
         <span class="btn-group">
             <a class="btn btn-smaller btn-blue btn-outline tooltip-it"
-                data-title="{{ _("edit") }}"
+                data-tooltiptitle="{{ _("edit") }}"
                 data-theme="blue"
                 href="{{ url_for('admin.edit_post', post_id=post.key.id())}}">
                <i class="fa fa-pencil"></i>
             </a>
-            <button class="btn btn-smaller btn-red btn-outline delete-modal tooltip-it"
-                data-title="{{ _("delete") }}"
+            <button class="btn btn-smaller btn-red btn-outline delete-modal tooltip-it modal-trigger"
+                data-tooltiptitle="{{ _("delete") }}"
                 data-theme="red"
-                data-id="{{post.key.id()}}">
+                data-title="{{ _("Delete selected post.") }}"
+                data-content="{{_("Are you sure you want to delete this post ?")}}"
+                data-action="{{_("Delete")}}"
+                data-url="{{ url_for('admin.posts') }}"
+                data-target="#{{post.key.id()}}">
                 <i class="fa fa-trash-o"></i>
             </button>
         </span>

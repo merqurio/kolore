@@ -26,7 +26,12 @@
                         {% for u in all_users %}
                         <li id="{{ u.key.id() }}">{{ u.name }}
                             {% if not u.admin %}
-                            <a class="right btn btn-smaller btn-outline btn-red" href="#" >
+                            <a class="right btn btn-smaller btn-outline btn-red modal-trigger" href="#"
+                             data-title="{{ _("Delete selected user.") }}"
+                            data-content="{{_("Are you sure you want to delete this user ?")}}"
+                            data-action="{{_("Delete")}}"
+                            data-url="{{ url_for('admin.options') }}"
+                            data-target="#{{ u.key.id() }}">
                                 <i class="fa fa-trash-o"></i>
                             </a>
                             {% endif %}
@@ -49,24 +54,4 @@
         </form>
     </div>
     {% include 'blocks/block-modal.html' %}
-{% endblock %}
-{% block js %}
-<script type="application/javascript">
-    var users = document.getElementById('user-list');
-
-    if(users){
-        users.addEventListener('click', function(e){
-
-            if(e.target && (e.target.classList.contains('btn') || e.target.parentNode.classList.contains('btn'))){
-                var title = '{{ _("Delete selected user") }}',
-                content = '{{_("Are you sure you want to delete this user ?")}}',
-                action = '{{_("Delete")}}',
-                keys = e.target.parentNode.id || e.target.parentNode.parentNode.id;
-
-                populateModal(title, content, action, keys, "{{ url_for('admin.options') }}");
-                openModal();
-            }
-        });
-    }
-</script>
 {% endblock %}

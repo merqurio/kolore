@@ -5,7 +5,7 @@
     function showTooltip(item) {
 
         var theme = "tooltip-theme-" + item.dataset.theme,
-            title = document.createTextNode(item.dataset.title),
+            title = document.createTextNode(item.dataset.tooltiptitle),
             item_top = item.getBoundingClientRect().top + item.offsetHeight + 1,
             item_left = item.getBoundingClientRect().left,
             tooltip = document.createElement('div');

@@ -18,7 +18,12 @@
             <button class="btn btn-smaller btn-black btn-outline" id="gallery-btn" type="button">
                 <i class="fa fa-eye"></i>&nbsp;&nbsp;{{_("Preview Images")}}
             </button>
-            <button class="btn btn-smaller btn-red btn-outline" id="delete-btn" type="submit">
+            <button class="btn btn-smaller btn-red btn-outline modal-trigger" type="submit"
+                data-title="{{ _("Delete selected images.") }}"
+                data-content="{{_("Are you sure you want to delete this images ?")}}"
+                data-action="{{_("Delete")}}"
+                data-url="{{ url_for('admin.image_manager') }}"
+                data-target=".active">
                 <i class="fa fa-trash-o"></i>&nbsp;&nbsp;{{_("Delete Images")}}
             </button>
             {% endif %}
@@ -48,79 +53,4 @@
 {% endblock %}
 {% block js %}
 <script src="{{ url_for('admin.static', filename='dist/photoswipe/production.min.js') }}" type="application/javascript"></script>
-<script>
-
-    var grid = document.getElementById('grid'),
-        delBtn = document.getElementById('delete-btn');
-
-
-    if (grid && delBtn){
-
-        var gallleryBtn = document.getElementById('gallery-btn');
-
-        // Grid listener
-        grid.addEventListener('click', function(e){
-            if(e.target && e.target.classList.contains('grid-item')){
-                e.target.classList.toggle('active');
-            }
-        });
-
-        // Delete listener
-        delBtn.addEventListener('click', function(e){
-            var title = '{{ _("Delete selected images.") }}',
-                content = '{{_("Are you sure you want to delete this images ?")}}',
-                action = '{{_("Delete")}}',
-                selected = document.querySelectorAll('.active'),
-                keys = [];
-
-            // Add all selected items
-            [].forEach.call(selected, function(item){
-                keys.push(item.id);
-            });
-
-            if (!keys[0]){
-                return;
-            }
-
-            // Create modal
-            populateModal(title, content, action, keys, "{{ url_for('admin.image_manager') }}");
-            openModal();
-
-        });
-
-        // Gallery listener
-        gallleryBtn.addEventListener('click', function(){
-            var selected = document.querySelectorAll('.active'),
-                gallery = document.getElementById('image-gallery'),
-                options = {
-                    closeOnScroll: false,
-                    showHideOpacity:true,
-                    hideAnimationDuration:true
-
-                },
-                slides = [];
-
-            // Add slide per image
-            [].forEach.call(selected, function(item){
-                var slide = {};
-                slide['src'] = item.dataset.image;
-                slide['msrc'] = item.dataset.url;
-                slide['h'] = item.dataset.height;
-                slide['w'] = item.dataset.width;
-                slides.push(slide);
-            });
-
-            // If no images, cancel
-            if (!slides[0]){
-                return;
-            }
-
-            var slider = new PhotoSwipe( gallery, PhotoSwipeUI_Default, slides, options);
-            slider.init();
-
-        });
-    }
-
-
-</script>
 {% endblock %}
