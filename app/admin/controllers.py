@@ -317,7 +317,7 @@ def images_redactor():
 
     for img in images:
         urls.append({'thumb': img.thumb,
-                     'image': img.url,
+                     'image': img.gallery,
                      'title': img.filename})
 
     response = make_response(dumps(urls))

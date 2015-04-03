@@ -1,8 +1,10 @@
-function dropUpload(dropElement){
+function dropUpload(dropElement) {
+    'use strict';
     // Variables
     var dropArea = document.querySelector(dropElement),
-        fileInput = dropArea.querySelector('input'),
+        fileInput = dropArea.querySelector('.file'),
         progressBar = document.getElementById('tools-progress'),
+        formInput = dropArea.querySelector('.form-input'),
         allFiles,
         totalFiles;
 
@@ -28,8 +30,16 @@ function dropUpload(dropElement){
 
         // Add loading bar
         if (!progressBar){
-            document.body.insertAdjacentHTML('beforeEnd', '<div id="tools-progress"><span></span></div>');
             progressBar = document.getElementById('tools-progress');
+
+            //Try again, if it was programatically already crated
+            if (!progressBar) {
+                document.body.insertAdjacentHTML('beforeEnd', '<div id="tools-progress"><span></span></div>');
+                progressBar = document.getElementById('tools-progress');
+            } else {
+                progressBar.classList.remove('hide');
+            }
+
         } else {
             progressBar.classList.remove('hide');
         }
@@ -45,7 +55,7 @@ function dropUpload(dropElement){
         var file = allFiles[totalFiles];
 
         gcsExecuteOnUrl(file, function (finalURL) {
-            gcsUploadToGCS(file, finalURL)
+            gcsUploadToGCS(file, finalURL);
         });
     }
 
@@ -56,10 +66,10 @@ function dropUpload(dropElement){
         request.open('GET', '/admin/upload_url', true);
 
         request.onreadystatechange = function (e) {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState === 4 && this.status === 200) {
                 callback(this.responseText);
-            } else if (this.readyState == 4 && this.status != 200) {
-                console.log("Couldn't get the upload URL");
+            } else if (this.readyState === 4 && this.status !== 200) {
+                window.console.log("Couldn't get the upload URL");
             }
         };
         request.send();
@@ -73,16 +83,16 @@ function dropUpload(dropElement){
         formData.append("file", file);
         request.open('POST', finalURL, true);
         request.onreadystatechange = function (e) {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState === 4 && this.status === 200) {
                 file = JSON.parse(this.responseText);
                 addPrevisualization(file);
-            } else if (this.readyState == 4 && this.status != 200) {
-                console.log("Something went wrong on server side.");
+            } else if (this.readyState === 4 && this.status !== 200) {
+                window.console.log("Something went wrong on server side.");
                 // Enable interaction again
                 document.getElementById('modal-overlay').classList.add('hide');
                 // Remove Loading bar
                 progressBar.classList.add('hide');
-                alert('Error');
+                window.alert('Error');
             }
         };
         request.send(formData);
@@ -90,18 +100,21 @@ function dropUpload(dropElement){
 
     // Add the file visualization after the drop
     function addPrevisualization(file){
-        var wrapper = document.querySelector('.grid');
+        var wrapper = nextByClass(dropArea, 'grid');
 
         //Create wrapper if doesn't exist
         if (!wrapper){
             dropArea.insertAdjacentHTML('afterend','<div class="grid"></div>');
-            wrapper = document.querySelector('.grid');
+            wrapper = nextByClass(dropArea, 'grid');
+        }
+
+        // Check if formInput
+        if(formInput){
+            addURLToForm(file);
         }
 
         // Append the element
         wrapper.insertAdjacentHTML('beforeEnd', '<div class="grid-item uploaded" style="background-image: url('+file.thumb+');"></div>');
-
-
 
         // Check if all uploaded
         if (totalFiles === 0){
@@ -113,15 +126,51 @@ function dropUpload(dropElement){
 
             allFiles = null;
 
-        } else {
+        }
+        else {
             // Remove one to totalFile
             totalFiles--;
 
             // Upload next one
             uploadFileGCS();
         }
+    }
 
+    // Adds a link to the form input
+    function addURLToForm(file){
+        if(fileInput.hasAttribute('multiple')){
+            var prevInput = formInput.value,
+                links = (prevInput)? JSON.parse(prevInput) : [] ;
+            links.push(file.filelink);
+            formInput.value = JSON.stringify(links);
+        }
+        else {
+            var nextElement = nextByClass(dropArea, 'grid');
+            if(nextElement){
+                var previousPhoto = nextElement.querySelector('.grid-item');
+                if(previousPhoto){
+                    nextElement.removeChild(previousPhoto);
+                }
+            }
+            formInput.value = file.thumb;
+        }
+    }
 
+    // Helper funcs
+    function hasClass(elem, cls) {
+        var str = " " + elem.className + " ";
+        var testCls = " " + cls + " ";
+        return(str.indexOf(testCls) !== -1) ;
+    }
+
+    function nextByClass(node, cls) {
+        while (node.nextSibling) {
+            node = node.nextSibling;
+            if (hasClass(node, cls)) {
+                return node;
+            }
+        }
+        return null;
     }
 
     // Event listeners
@@ -160,8 +209,8 @@ function dropUpload(dropElement){
 
         // On area click
         dropArea.addEventListener('click', function(e){
-            if(e.target != fileInput){
-                fileInput.click()
+            if(e.target !== fileInput){
+                fileInput.click();
             }
             
         });
