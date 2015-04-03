@@ -1,6 +1,6 @@
 (function() {
+    'use strict';
     // The JS for the wizard effect .
-
     var upNumbers = document.querySelectorAll('.wizard-steps li'),
         wizPanels = document.querySelectorAll('.step-tab'),
         allNextBtn = document.querySelectorAll('.next'),
@@ -67,8 +67,7 @@
     // Previous is clicked
     [].forEach.call(allPrevBtn, function(item) {
         item.addEventListener('click', function(event) {
-            var self = this,
-                targetNum = parseInt(this.parentNode.id.substr(3)) - 1,
+            var targetNum = parseInt(this.parentNode.id.substr(3)) - 1,
                 targetTab = document.querySelector('#step-' + targetNum);
 
             event.preventDefault();

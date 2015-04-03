@@ -34,14 +34,13 @@ module.exports = function (grunt) {
                     expand: true,
                     dot: true,
                     cwd: 'static/plugins/redactor/',
-                    src: ['redactor.js', 'langs/es.js', 'langs/eu.js', 'css/redactor.css', 'css/redactor-font.eot',
-                          'plugins/video/video.js', 'plugins/fullscreen/fullscreen.js', 'plugins/imagemanager/imagemanager.js'],
+                    src: ['css/redactor.css', 'css/redactor-font.eot'],
                     dest: 'static/dist/redactor/'
                 }, { // Photoswipe
                     expand: true,
                     dot: true,
                     cwd: 'static/plugins/photoswipe/dist',
-                    src: ['photoswipe.css', 'photoswipe.min.js', 'photoswipe-ui-default.min.js', 'default-skin/*'],
+                    src: ['photoswipe.css', 'default-skin/*'],
                     dest: 'static/dist/photoswipe/'
                 }, { // jquery
                     expand: true,
@@ -57,11 +56,35 @@ module.exports = function (grunt) {
                 banner: '<%= banner %>',
                 stripBanners: true
             },
-            js: {
-                src: ['static/plugins/hutsa/main.js',
+            photoswipe:{
+                src: [
+                    'static/plugins/photoswipe/dist/photoswipe.js',
+                    'static/plugins/photoswipe/dist/photoswipe-ui-default.js'
+                ],
+                dest: 'static/dist/photoswipe/production.js'
+            },
+            momentjs: {
+                src: [
                     'static/plugins/momentjs/moment.js',
                     'static/plugins/momentjs/locale/es.js',
-                    'static/plugins/momentjs/locale/eu.js',
+                    'static/plugins/momentjs/locale/eu.js'],
+
+                dest: 'static/dist/momentjs/production.js'
+            },
+            redactorjs: {
+                src: [
+                    'static/plugins/redactor/redactor.js',
+                    'static/plugins/redactor/langs/es.js',
+                    'static/plugins/redactor/langs/eu.js',
+                    'static/plugins/redactor/plugins/video/video.js',
+                    'static/plugins/redactor/plugins/fullscreen/fullscreen.js',
+                    'static/plugins/redactor/plugins/imagemanager/imagemanager.js'
+                ],
+
+                dest: 'static/dist/redactor/production.js'
+            },
+            js: {
+                src: ['static/plugins/hutsa/main.js',
                     'static/js/*.js'
                     ],
                 dest: 'static/dist/production.js'
@@ -77,6 +100,18 @@ module.exports = function (grunt) {
         uglify: {
             options: {
                 banner: '<%= banner %>'
+            },
+            photoswipe: {
+                src: 'static/dist/photoswipe/production.js',
+                dest: 'static/dist/photoswipe/production.min.js'
+            },
+            momentjs: {
+                src: 'static/dist/momentjs/production.js',
+                dest: 'static/dist/momentjs/production.min.js'
+            },
+            redactorjs: {
+                src: 'static/dist/redactor/production.js',
+                dest: 'static/dist/redactor/production.min.js'
             },
             dist: {
                 src: 'static/dist/production.js',

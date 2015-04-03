@@ -47,8 +47,7 @@
     {% include 'blocks/block-gallery.html' %}
 {% endblock %}
 {% block js %}
-<script src="{{ url_for('admin.static', filename='dist/photoswipe/photoswipe.min.js') }}" type="application/javascript"></script>
-<script src="{{ url_for('admin.static', filename='dist/photoswipe/photoswipe-ui-default.min.js') }}" type="application/javascript"></script>
+<script src="{{ url_for('admin.static', filename='dist/photoswipe/production.min.js') }}" type="application/javascript"></script>
 <script>
 
     var grid = document.getElementById('grid'),

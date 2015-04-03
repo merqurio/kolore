@@ -41,43 +41,37 @@
 {% block js %}
 <!-- Initialize Redactor editor -->
 <script type="text/javascript" src="{{url_for('admin.static', filename='dist/jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/redactor.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/video/video.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/imagemanager/imagemanager.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/fullscreen/fullscreen.js')}}"></script>
-{% if request.cookies.get('lang') != "en" %}
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/langs/'+request.cookies.get("lang")+'.js')}}"></script>
-{% endif %}
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/production.min.js')}}"></script>
 <script type="text/javascript" src="{{url_for('admin.static', filename='dist/select2/select2.min.js')}}"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+    $('#content').redactor({
+        minHeight: 300,
+        initCallback: function(){
+            this.code.set('{{ post.text | safe}}');
+            this.observe.load();
+            if (this.utils.isOldIe()){
+                alert("{{_("You should update your Internet Explorer")}}");
+            }
+        },
+        buttonsHide: ['html'],
+        toolbarFixedTopOffset: 50,
+        imageManagerJson: '/admin/image_serve/',
+        plugins: ['imagemanager','video','fullscreen'],
+        gcs: '/admin/upload_url'
+        {% if request.cookies.get("lang") != "en" %}
+        ,
+        lang : '{{request.cookies.get("lang")}}'
+        {% endif %}
+    });
 
-$('#content').redactor({
-    minHeight: 300,
-    initCallback: function(){
-        this.code.set('{{ post.text | safe}}');
-        this.observe.load();
-        if (this.utils.isOldIe()){
-            alert("{{_("You should update your Internet Explorer")}}");
+    $('#categories').select2({
+        tags:{{categories|tojson}},
+        tokenSeparators: [",","."],
+        matcher: function(term, text) {
+            return text.toUpperCase().indexOf(term.toUpperCase())==0;
         }
-    },
-    buttonsHide: ['html'],
-    toolbarFixedTopOffset: 50,
-    imageManagerJson: '/admin/image_serve/',
-    plugins: ['imagemanager','video','fullscreen'],
-    gcs: '/admin/upload_url'
-    {% if request.cookies.get("lang") != "en" %}
-    ,
-    lang : '{{request.cookies.get("lang")}}'
-    {% endif %}
+    });
 });
-
-$('#categories').select2({
-    tags:{{categories|tojson}},
-    tokenSeparators: [",","."],
-    matcher: function(term, text) { 
-        return text.toUpperCase().indexOf(term.toUpperCase())==0; 
-    }
-});
-
 </script>
 {% endblock %}

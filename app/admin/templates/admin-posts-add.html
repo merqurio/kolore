@@ -148,16 +148,10 @@
 {% block js %}
 <!-- Redactor -->
 <script type="text/javascript" src="{{url_for('admin.static', filename='dist/jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/redactor.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/imagemanager/imagemanager.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/video/video.js')}}"></script>
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/plugins/fullscreen/fullscreen.js')}}"></script>
-{% if request.cookies.get('lang') != "en" %}
-<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/langs/'+request.cookies.get("lang")+'.js')}}"></script>
-{% endif %}
+<script type="text/javascript" src="{{url_for('admin.static', filename='dist/redactor/production.min.js')}}"></script>
 <script type="text/javascript" src="{{url_for('admin.static', filename='dist/select2/select2.min.js')}}"></script>
 <script type="text/javascript">
-
+$(document).ready(function(){
     $('#content').redactor({
         minHeight: 300,
         initCallback: function(){
@@ -183,6 +177,6 @@
             return text.toUpperCase().indexOf(term.toUpperCase())==0;
         }
     });
-
+});
 </script>
 {% endblock %}

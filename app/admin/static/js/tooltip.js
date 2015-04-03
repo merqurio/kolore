@@ -1,4 +1,7 @@
 (function() {
+
+    'use strict';
+
     function showTooltip(item) {
 
         var theme = "tooltip-theme-" + item.dataset.theme,

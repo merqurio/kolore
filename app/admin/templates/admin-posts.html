@@ -59,6 +59,7 @@
     {% include 'blocks/block-modal.html' %}
 {% endblock %}
 {% block js %}
+    <script src="{{ url_for('admin.static', filename="dist/momentjs/production.min.js") }}" type="application/javascript"></script>
     <script type="application/javascript">
         var page = 0,
             older_posts = document.getElementById('more-posts');
@@ -135,9 +136,6 @@
                 openModal();
             }
         });
-
-
-
 
     </script>
 {% endblock %}
