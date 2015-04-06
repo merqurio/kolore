@@ -1,5 +1,5 @@
 ## Kolore
-[![Stories in Ready](https://badge.waffle.io/merqurio/kolore.png?label=ready&title=Work%20in%20progress)](https://waffle.io/chroma-branding/kolore)
+[![Stories in Ready](https://badge.waffle.io/merqurio/kolore.png?label=ready&title=Work%20in%20progress)](https://waffle.io/merqurio/kolore)
 ![ Version ](http://img.shields.io/badge/v-0.4-2af985.svg)
 ![ Production ready ](http://img.shields.io/badge/Ready%20for-Production-2af985.svg)
 
