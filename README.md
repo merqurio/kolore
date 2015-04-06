@@ -21,6 +21,7 @@
 5. [Deploying](#5)
 6. [Babel work-flow (multilingual)](#6)
 7. [Creating your own website](https://github.com/chroma-branding/kolore/wiki)
+8. [Screenshots](https://github.com/merqurio/kolore/wiki/Screenshots)
 
 <a name="1"></a>
 ## [What & How](#1)

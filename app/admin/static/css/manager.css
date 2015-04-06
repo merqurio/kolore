@@ -49,6 +49,10 @@
     color: rgba(255, 255, 255, 0.88);
 }
 
+.uploaded.grid-item{
+    cursor: default;
+}
+
 .drag-hover.active {
     background-color: rgba(38, 163, 100, 0.48);
 }
