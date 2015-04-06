@@ -5,7 +5,7 @@
 
 **Kolore** is a content management system. It has been created to develop websites fast and efficiently for [Chroma Branding][0]. It's written in Python for the [Google App Engine][1]. Right now is just a Blog CMS.
 
-###Test it --> [here](http://kolore-github.appspot.com)
+###Test it --> [here](http://kolore-github.appspot.com/admin)
 (Not all fx available)
 
 ![ Dashboard Preview ](http://lh4.ggpht.com/IBl90oZNQwVfnd1jnWcZObnrC3w7h9E-tgq6WITqBoCBC76SFuQY_y0FQHciEXpMKPX6NqQQtfUC1HR7zZYBAB8=s1200)
