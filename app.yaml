@@ -62,5 +62,7 @@ skip_files:
 - ^\.git$
 - ^(app/admin/static/plugins/.*)
 - ^(app/admin/node_modules/.*)
+- ^(app/admin/static/css/.*)
+- ^(app/admin/static/js/.*)
 - ^(app/front/static/plugins/.*)
 - ^(app/front/node_modules/.*)

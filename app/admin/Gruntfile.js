@@ -51,6 +51,14 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        less: {
+            development: {
+                files: {
+                    'static/css/kube.css': 'static/css/kube.less',
+                    'static/css/open-sans.css': 'static/css/open-sans.less'// destination file and source file
+                }
+            }
+        },
         concat: {
             options: {
                 banner: '<%= banner %>',
@@ -119,14 +127,6 @@ module.exports = function (grunt) {
                 dest: 'static/dist/production.min.js'
             }
         },
-        less: {
-            development: {
-                files: {
-                    'static/css/kube.css': 'static/css/kube.less',
-                    'static/css/open-sans.css': 'static/css/open-sans.less'// destination file and source file
-                }
-            }
-        },
         cssmin: {
             target: {
                 files: {
@@ -151,5 +151,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task.
-    grunt.registerTask('default', ['copy', 'concat', 'uglify', 'less', 'cssmin']);
+    grunt.registerTask('default', ['copy', 'less', 'concat', 'uglify', 'cssmin']);
 };
