@@ -287,7 +287,6 @@ def upload():
                         img_height = img.height
                         img_width = img.width
 
-
                     img_ref = ImageReference(filename=blob_info.filename,
                                              blob=blob_key_object,
                                              url=img_url,
@@ -297,6 +296,7 @@ def upload():
                                              width=img_width)
                     img_ref.put()
                 return jsonify({"filelink": "/admin/file_serve/" + blob_key,
+                                "filegallery": img_gallery,
                                 "filename": "" + blob_info.filename,
                                 "thumb": get_serving_url(blob_key, crop=True, size=200)})
             except Exception as e:
@@ -350,7 +350,6 @@ def image_manager(page):
             img_inst.delete()
             BlobInfo.get(blob_key).delete()
 
-        sleep(1)
         return "true"
 
     offset = (page-1)*IMAGES_PER_PAGE
