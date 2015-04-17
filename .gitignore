@@ -2,12 +2,12 @@
 lib/
 !lib/requirements.txt
 .DS_Store
-Kolore.gliffy
 app.yaml
 app/admin/static/plugins/*
 app/admin/node_modules/*
 app/front/node_modules/*
 app/front/static/plugins/*
+app/admin/static/dist
+app/front/static/dist
 .idea/*
 logo_kolore.afdesign
-app/admin/static/dist

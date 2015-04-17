@@ -1,6 +1,6 @@
 # Import the Flask Framework
 # ----------------------------------------------------------------
-from flask import Flask, request, redirect, url_for, g
+from flask import Flask, request, redirect, url_for, g, render_template, make_response
 
 # Import dependencies
 # ----------------------------------------------------------------
@@ -107,3 +107,4 @@ def page_not_found(e):
 def page_not_founds(e):
     """Return a custom 500 error."""
     return 'Sorry, unexpected error: {}'.format(e), 500
+
