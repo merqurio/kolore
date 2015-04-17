@@ -8,6 +8,7 @@ app/admin/node_modules/*
 app/front/node_modules/*
 app/front/static/plugins/*
 app/admin/static/dist
+app/admin/static/fonts
 app/front/static/dist
 .idea/*
 logo_kolore.afdesign
