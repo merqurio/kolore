@@ -95,6 +95,7 @@ def posts():
         post = request.get_json()
         # Get the Key, and delete() the object using Key (mandatory)
         ndb.Key('BlogPost', int(post['objects'][0])).delete()
+        logging.info("Deleted post: {}".format(post['objects'][0]))
         return "true"
 
     all_posts = BlogPost.query().order(-BlogPost.date).fetch(5)
@@ -164,6 +165,7 @@ def edit_post(post_id):
 
         # Save the new post
         blog_post.put()
+        logging.info("Edit post : {}".format(post_id))
 
         # Redirect
         sleep(1)
@@ -349,6 +351,7 @@ def image_manager(page):
             # Delete img and blob
             img_inst.delete()
             BlobInfo.get(blob_key).delete()
+            logging.info("Delete image: {}".format(img_ref))
 
         return "true"
 
