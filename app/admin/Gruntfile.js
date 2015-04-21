@@ -76,7 +76,7 @@ module.exports = function (grunt) {
                     'static/plugins/momentjs/moment.js',
                     'static/plugins/momentjs/locale/es.js',
                     'static/plugins/momentjs/locale/eu.js',
-                    'static/js/momentjs/moment.js'],
+                    'static/js/momentjs/config_momentjs.js'],
 
                 dest: 'static/dist/momentjs/production.js'
             },
