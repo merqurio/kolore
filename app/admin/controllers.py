@@ -9,7 +9,7 @@ from google.appengine.ext import ndb, blobstore
 from google.appengine.api.images import get_serving_url, Image
 from google.appengine.ext.blobstore import BlobInfo, blobstore
 from google.appengine.api.app_identity import get_default_gcs_bucket_name
-from werkzeug import parse_options_header
+from werkzeug.http import parse_options_header
 from flask import (Blueprint, render_template, make_response, request,
                    redirect, url_for, jsonify)
 
