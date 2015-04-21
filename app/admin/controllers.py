@@ -5,7 +5,7 @@ from time import sleep
 from json import dumps
 from functions import clean_url, admin_login_required
 from google.appengine.api import users
-from google.appengine.ext import ndb, blobstore
+from google.appengine.ext import ndb
 from google.appengine.api.images import get_serving_url, Image
 from google.appengine.ext.blobstore import BlobInfo, blobstore
 from google.appengine.api.app_identity import get_default_gcs_bucket_name
@@ -268,24 +268,26 @@ def upload():
                 blob_key = parsed_header[1]['blob-key']
                 blob_info = blobstore.get(blob_key)
                 blob_key_object = blob_info._BlobInfo__key
+                img_url = '/admin/file_serve/'+blob_key
+                img_gallery = img_url
 
                 # Check if is image and save a reference
                 if blob_info.content_type in IMAGES_MIME:
                     img = Image(image_data=blob_info.open().read())
-                    img_url = '/admin/file_serve/'+blob_key
 
                     if img.height > 1600 or img.width > 1600:
                         img_gallery = get_serving_url(blob_key_object, size=1600)
+
                         # Landscape
                         if img.height < img.width:
                             img_height = (img.height*1600)/img.width
                             img_width = 1600
+
                         # Portrait
                         else:
                             img_width = (img.width*1600)/img.height
                             img_height = 1600
                     else:
-                        img_gallery = img_url
                         img_height = img.height
                         img_width = img.width
 
@@ -297,6 +299,7 @@ def upload():
                                              height=img_height,
                                              width=img_width)
                     img_ref.put()
+
                 return jsonify({"filelink": "/admin/file_serve/" + blob_key,
                                 "filegallery": img_gallery,
                                 "filename": "" + blob_info.filename,
