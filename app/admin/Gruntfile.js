@@ -67,7 +67,7 @@ module.exports = function (grunt) {
             photoswipe:{
                 src: [
                     'static/plugins/photoswipe/dist/photoswipe.js',
-                    'static/plugins/photoswipe/dist/photoswipe-ui-default.js'
+                    'static/js/photoswipe/config_photoswipe.js'
                 ],
                 dest: 'static/dist/photoswipe/production.js'
             },
