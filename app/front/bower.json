@@ -24,6 +24,5 @@
     "lib"
   ],
   "dependencies": {
-    "base": "~2.0.2"
   }
 }

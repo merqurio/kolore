@@ -16,17 +16,13 @@ module.exports = function(grunt) {
                 stripBanners: true
             },
             js: {
-                src: ['static/plugins/hutsa/main.js',
-                    'static/plugins/momentjs/moment.js',
-                    'static/plugins/momentjs/locale/es.js',
-                    'static/plugins/momentjs/locale/eu.js',
+                src: [
                     'static/js/*.js'
                     ],
                 dest: 'static/dist/production.js'
             },
             css: {
                 src: [
-                    'static/plugins/*/*.css',
                     'static/css/*.css'
                 ],
                 dest: 'static/dist/production.css'
@@ -52,7 +48,7 @@ module.exports = function(grunt) {
         },
         watch: {
             files: ['static/css/*.css', 'static/js/*.js', 'static/css/*.less'],
-            tasks: [/*'less',*/ 'concat', 'uglify', 'cssmin']
+            tasks: ['concat', 'uglify', 'cssmin']
         }
     });
 

@@ -27,7 +27,7 @@
 
                     // Set Dates
                     [].forEach.call(document.querySelectorAll('.date'), function(item){
-                        item.innerHTML = moment(item.dataset.date, "YYYY-MM-DD HH:mm:ss.SSSSSS").add(1, 'h').fromNow();
+                        item.innerHTML = moment(item.dataset.date, "YYYY-MM-DD HH:mm:ss.SSSSSS").add(2, 'h').fromNow();
                         post_number++;
                     });
 
