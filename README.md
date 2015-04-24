@@ -82,7 +82,7 @@ Please, check the latest installation instructions [here][18].
 Kolore is designed to take the most from Google's cloud, but it can be ran in any server using [AppScale](https://github.com/AppScale/appscale). 
 Install the SDK from Google as detailed [here](https://cloud.google.com/sdk/).
 Then make sure you install all the Appengine dependencies: 
-`gcloud components update app-engine-python`
+`gcloud components update gae-python`
 
 ##### Install the dependencies inside the lib folder
 `pip install -r lib/requirements.txt -t lib/` to install these dependencies in `lib/` subdirectory from terminal in the root directory.
