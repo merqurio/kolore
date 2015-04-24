@@ -78,6 +78,9 @@ Dependencies are managed using [pip][18] in the `lib/requirements.txt` file.
 ##### Install pip
 Please, check the latest installation instructions [here][18].
 
+##### Install Google Cloud SDK (or AppScale)
+Kolore is designed to take the most from Google's cloud, but it can be ran in any server using [AppScale](https://github.com/AppScale/appscale). Install the SDK from Google as detailed [here](https://cloud.google.com/sdk/)
+
 ##### Install the dependencies inside the lib folder
 `pip install -r lib/requirements.txt -t lib/` to install these dependencies in `lib/` subdirectory from terminal in the root directory.
 
@@ -89,22 +92,23 @@ To install dependencies using Bower, you must first install [Node][19] and NPM. 
 ```
 npm install -g bower
 npm install -g grunt
+npm install -g grunt-cli
 ```
 
 ##### Install dependencies
 Use this commands to finally install all the dependencies.
 ```bash
-ex@Book:[~/kolore]$ cd app/front
-ex@Book:[~/kolore/app/front]$ bower install
-ex@Book:[~/kolore/app/front]$ npm install
-ex@Book:[~/kolore/app/front]$ cd ../admin
-ex@Book:[~/kolore/app/admin]$ bower install
-ex@Book:[~/kolore/app/front]$ npm install
+[~/kolore]$ cd app/front
+[~/kolore/app/front]$ bower install
+[~/kolore/app/front]$ npm install
+[~/kolore/app/front]$ cd ../admin
+[~/kolore/app/admin]$ bower install
+[~/kolore/app/front]$ npm install
 ```
 Once you installed all the dependencies, you must build them with grunt. Keep reading.
 
 ##### Build the front-end files
-In order to get all the CSS and JS in place, you must build it, once each app (admin & front). Use the command `grunt`to build it, and `grunt watch` while you work on CSS and JS files, so they build immediately after you change them.
+In order to get all the CSS and JS in place, you must build it, once each app (admin & front). Use the command `grunt` to build it at `app/front` and `app/admin`. You can automate the dependency building by running `grunt watch` while you work on CSS and JS files.
 
 There is a dependency not included yet in the repository, [Redactor][17]. You must obtain a copy of it and place it in the `admin/static/plugins/redactor` directory with the next structure:
 ```
