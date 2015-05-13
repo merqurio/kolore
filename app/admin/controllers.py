@@ -276,7 +276,8 @@ def upload():
                     img = Image(image_data=blob_info.open().read())
 
                     if img.height > 1600 or img.width > 1600:
-                        img_gallery = get_serving_url(blob_key_object, size=1600)
+                        img_gallery = get_serving_url(blob_key_object,
+                                                      size=1600)
 
                         # Landscape
                         if img.height < img.width:

@@ -1,6 +1,6 @@
 # Import the Flask Framework
 # ----------------------------------------------------------------
-from flask import Flask, request, redirect, url_for, g, render_template, make_response
+from flask import Flask, request, redirect, url_for, g
 
 # Import dependencies
 # ----------------------------------------------------------------
@@ -80,6 +80,7 @@ def detect_user_language():
         def remember_language(response):
             response.set_cookie('lang', language)
     g.language = language
+
 
 # Global routes
 # ----------------------------------------------------------------
