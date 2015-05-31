@@ -13,7 +13,7 @@
 
             event.preventDefault();
             var self = event.currentTarget,
-                targetData = self.dataset.target,
+                targetData = self.getAttribute('data-target') ,
                 target = document.querySelector(targetData);
 
             if (!self.classList.contains('disabled')) {

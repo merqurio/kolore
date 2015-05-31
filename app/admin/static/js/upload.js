@@ -227,5 +227,17 @@
             fileInput.addEventListener('change', fileSelectHandler);
 
         }
+
+        // Check if previous value
+        if (formInput.value){
+            var wrapper = nextByClass(dropArea, 'grid');
+            //Create wrapper if doesn't exist
+            if (!wrapper){
+                dropArea.insertAdjacentHTML('afterend','<div class="grid"></div>');
+                wrapper = nextByClass(dropArea, 'grid');
+            }
+            wrapper.insertAdjacentHTML('beforeEnd', '<div class="grid-item" style="background-image: url('+formInput.value+');"></div>');
+        }
     }
+
 })();

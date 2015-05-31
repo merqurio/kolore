@@ -4,8 +4,8 @@
 
     function showTooltip(item) {
 
-        var theme = "tooltip-theme-" + item.dataset.theme,
-            title = document.createTextNode(item.dataset.tooltiptitle),
+        var theme = "tooltip-theme-" + item.getAttribute('data-theme'),
+            title = document.createTextNode(item.getAttribute('data-tooltiptitle')),
             item_top = item.getBoundingClientRect().top + item.offsetHeight + 1,
             item_left = item.getBoundingClientRect().left,
             tooltip = document.createElement('div');
@@ -24,7 +24,9 @@
     }
 
     function hideTooltip() {
-        document.querySelector('.tooltip').remove();
+        var tooltip = document.querySelector('.tooltip');
+
+        tooltip.parentNode.removeChild(tooltip);
     }
 
     document.addEventListener('mouseover', function(e) {
