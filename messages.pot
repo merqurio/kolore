@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-04-01 13:05+0200\n"
+"POT-Creation-Date: 2015-06-03 13:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,9 +48,10 @@ msgid "Save"
 msgstr ""
 
 #: app/admin/templates/admin-categories-edit.html:22
-#: app/admin/templates/admin-manager-images.html:73
-#: app/admin/templates/admin-options.html:63
-#: app/admin/templates/admin-posts.html:131
+#: app/admin/templates/admin-manager-images.html:24
+#: app/admin/templates/admin-options.html:32
+#: app/admin/templates/admin-posts-more.html:19
+#: app/admin/templates/admin-posts.html:41
 msgid "Delete"
 msgstr ""
 
@@ -83,7 +84,7 @@ msgid "Welcome to Kolore"
 msgstr ""
 
 #: app/admin/templates/admin-manager-images-add.html:5
-#: app/admin/templates/admin-options.html:44
+#: app/admin/templates/admin-options.html:49
 msgid "Add"
 msgstr ""
 
@@ -117,27 +118,27 @@ msgid "Preview Images"
 msgstr ""
 
 #: app/admin/templates/admin-manager-images.html:22
-msgid "Delete Images"
-msgstr ""
-
-#: app/admin/templates/admin-manager-images.html:26
-msgid "No images uploaded here.."
-msgstr ""
-
-#: app/admin/templates/admin-manager-images.html:27
-msgid "All the files you upload will be listed here."
-msgstr ""
-
-#: app/admin/templates/admin-manager-images.html:28
-msgid "Click the images to select any items you wish to delete."
-msgstr ""
-
-#: app/admin/templates/admin-manager-images.html:71
 msgid "Delete selected images."
 msgstr ""
 
-#: app/admin/templates/admin-manager-images.html:72
+#: app/admin/templates/admin-manager-images.html:23
 msgid "Are you sure you want to delete this images ?"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:27
+msgid "Delete Images"
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:31
+msgid "No images uploaded here.."
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:32
+msgid "All the files you upload will be listed here."
+msgstr ""
+
+#: app/admin/templates/admin-manager-images.html:33
+msgid "Click the images to select any items you wish to delete."
 msgstr ""
 
 #: app/admin/templates/admin-options.html:7
@@ -176,28 +177,28 @@ msgstr ""
 msgid "Here you can manage the users that can access to the admin."
 msgstr ""
 
-#: app/admin/templates/admin-options.html:37
+#: app/admin/templates/admin-options.html:30
+msgid "Delete selected user."
+msgstr ""
+
+#: app/admin/templates/admin-options.html:31
+msgid "Are you sure you want to delete this user ?"
+msgstr ""
+
+#: app/admin/templates/admin-options.html:42
 msgid "Add a new <b>User</b>"
 msgstr ""
 
-#: app/admin/templates/admin-options.html:38
+#: app/admin/templates/admin-options.html:43
 msgid "To add a new user, insert the new users Google @gmail account."
 msgstr ""
 
-#: app/admin/templates/admin-options.html:40
+#: app/admin/templates/admin-options.html:45
 msgid "Email"
 msgstr ""
 
-#: app/admin/templates/admin-options.html:40
+#: app/admin/templates/admin-options.html:45
 msgid "Introduce a @gmail account."
-msgstr ""
-
-#: app/admin/templates/admin-options.html:61
-msgid "Delete selected user"
-msgstr ""
-
-#: app/admin/templates/admin-options.html:62
-msgid "Are you sure you want to delete this user ?"
 msgstr ""
 
 #: app/admin/templates/admin-posts-add.html:8
@@ -347,8 +348,8 @@ msgstr ""
 msgid "Publish Now"
 msgstr ""
 
-#: app/admin/templates/admin-posts-add.html:165
-#: app/admin/templates/admin-posts-edit.html:60
+#: app/admin/templates/admin-posts-add.html:159
+#: app/admin/templates/admin-posts-edit.html:58
 msgid "You should update your Internet Explorer"
 msgstr ""
 
@@ -396,6 +397,16 @@ msgstr ""
 msgid "delete"
 msgstr ""
 
+#: app/admin/templates/admin-posts-more.html:17
+#: app/admin/templates/admin-posts.html:39
+msgid "Delete selected post."
+msgstr ""
+
+#: app/admin/templates/admin-posts-more.html:18
+#: app/admin/templates/admin-posts.html:40
+msgid "Are you sure you want to delete this post ?"
+msgstr ""
+
 #: app/admin/templates/admin-posts.html:5
 msgid "All <b>Posts</b>"
 msgstr ""
@@ -420,16 +431,8 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: app/admin/templates/admin-posts.html:53
+#: app/admin/templates/admin-posts.html:57
 msgid "Older Posts"
-msgstr ""
-
-#: app/admin/templates/admin-posts.html:102
-msgid "There was an error while requesting more posts. Please reload the page."
-msgstr ""
-
-#: app/admin/templates/admin-posts.html:130
-msgid "Are you sure you want to delete this post"
 msgstr ""
 
 #: app/admin/templates/blocks/block-modal.html:9
