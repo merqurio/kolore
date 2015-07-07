@@ -3,6 +3,9 @@
     <div class="card fadeInUp hide">
         <div class="title group">
             <h3 class="light left">{{_("All <b>Posts</b>")}}</h3>
+            <a class="btn btn-small btn-black btn-outline" href="{{ url_for('admin.categories')}}">
+                <i class="fa fa-tags"></i>&nbsp;&nbsp;{{ _("Categories") }}
+            </a>
             <a class="btn btn-small btn-blue btn-outline right" href="{{url_for('admin.add_post')}}">
                 <i class="fa fa-plus"></i>&nbsp;&nbsp;{{_("Add Post")}}
             </a>
