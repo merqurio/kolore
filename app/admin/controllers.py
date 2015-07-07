@@ -100,7 +100,7 @@ def posts(page_num):
         return "true"
     all_posts = BlogPost.query().order(-BlogPost.date).fetch(ELEMENTS_PER_PAGE*page_num)
     plus = False if len(all_posts) < (ELEMENTS_PER_PAGE*page_num) else True
-    return render_template('admin-posts.html',
+    return render_template('blog/admin-posts.html',
                            posts=all_posts, plus=plus)
 
 
@@ -112,7 +112,7 @@ def more_posts(page_num):
     :return: AJAX more posts
     """
     offset = int(page_num * ELEMENTS_PER_PAGE)
-    return render_template('admin-posts-more.html',
+    return render_template('blog/admin-posts-more.html',
                            posts=BlogPost.query()
                            .order(-BlogPost.date)
                            .fetch(ELEMENTS_PER_PAGE, offset=offset))
@@ -143,7 +143,7 @@ def add_post():
         sleep(1)
         return redirect(url_for('admin.posts'))
     # GET
-    return render_template('admin-posts-add.html',
+    return render_template('blog/admin-posts-add.html',
                            categories=BlogCategory.query_all())
 
 
@@ -169,7 +169,7 @@ def edit_post(post_id):
         sleep(1)
 
         return redirect(url_for('admin.posts'))
-    return render_template('admin-posts-edit.html',
+    return render_template('blog/admin-posts-edit.html',
                            post=ndb.Key(BlogPost, int(post_id)).get(),
                            categories=BlogCategory.query_all())
 
@@ -186,7 +186,7 @@ def categories():
         BlogCategory.add_categories(post_categories)
         sleep(1)
 
-    return render_template('admin-categories.html',
+    return render_template('blog/categories/admin-categories.html',
                            categories=BlogCategory.query().fetch())
 
 
@@ -214,7 +214,7 @@ def edit_category(cat_id):
         else:
             pass
 
-    return render_template('admin-categories-edit.html',
+    return render_template('blog/categories/admin-categories-edit.html',
                            categories=BlogCategory.query().fetch(),
                            edit_cat=edit_cat.get())
 
@@ -362,7 +362,7 @@ def image_manager(page):
     pagination = Pagination(page, IMAGES_PER_PAGE, images.count())
     query = images.fetch(IMAGES_PER_PAGE, offset=offset)
 
-    return render_template('admin-manager-images.html',
+    return render_template('image-manager/admin-manager-images.html',
                            keys=query,
                            pagination=pagination)
 
@@ -370,4 +370,4 @@ def image_manager(page):
 @admin_app.route('/images/add', methods=['GET', 'POST'])
 @admin_login_required
 def image_manager_add():
-    return render_template('admin-manager-images-add.html')
+    return render_template('image-manager/admin-manager-images-add.html')

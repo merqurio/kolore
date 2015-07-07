@@ -1,4 +1,4 @@
-{% extends 'admin-base.html'%}
+{% extends 'admin-base.html' %}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{url_for('admin.static', filename='dist/redactor/css/redactor.css')}}">
 {% endblock %}
@@ -16,7 +16,7 @@
                     </label>
                     <label>
                         {{_("Content")}} <span class="forms-desc">{{_("Edit the main content")}}</span>
-                        {% include 'blocks/block-editor.html'%}
+                        {% include 'blocks/block-editor.html' %}
                     </label>
                 </div>
                 <div class="unit-30">
