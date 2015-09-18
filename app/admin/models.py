@@ -71,11 +71,7 @@ class BlogCategory(ndb.Model):
     @classmethod
     def query_all(cls):
         """It creates a list with all the categories objects"""
-        categories = cls.query()
-        category_list = []
-        for category in categories:
-            category_list.append(category.name)
-        return category_list
+        return [category.name for category in cls.query()]
 
     @staticmethod
     def add_categories(form_categories):
@@ -84,13 +80,13 @@ class BlogCategory(ndb.Model):
         categories if not found. Returns a list of those keys
         """
         list_of_categories = []
+        all_categories = BlogCategory.query_all()
         for category in form_categories:
-            if category in BlogCategory.query_all():
+            if category in all_categories:
                 cat = BlogCategory.query(BlogCategory.name == category).get()
                 list_of_categories.append(cat.key)
             else:
-                new_category = BlogCategory()
-                new_category.name = category
+                new_category = BlogCategory(name=category)
                 new_category.put()
                 list_of_categories.append(new_category.key)
         return list_of_categories
