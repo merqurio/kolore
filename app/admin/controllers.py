@@ -301,8 +301,7 @@ def upload():
 
                 return jsonify({"filelink": "/admin/file_serve/" + blob_key,
                                 "filegallery": img_gallery,
-                                "filename": "" + blob_info.filename,
-                                "thumb": get_serving_url(blob_key, crop=True, size=200)})
+                                "filename": "" + blob_info.filename})
             except Exception as e:
                 logging.exception(e)
                 return jsonify({"error": e})
