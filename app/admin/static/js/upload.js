@@ -110,19 +110,23 @@
         function addPrevisualization(file){
             var wrapper = nextByClass(dropArea, 'grid');
 
-            //Create wrapper if doesn't exist
-            if (!wrapper){
-                dropArea.insertAdjacentHTML('afterend','<div class="grid"></div>');
-                wrapper = nextByClass(dropArea, 'grid');
-            }
-
             // Check if formInput
             if(formInput){
                 addURLToForm(file);
             }
 
-            // Append the element
-            wrapper.insertAdjacentHTML('beforeEnd', '<div class="grid-item uploaded" style="background-image: url('+file.thumb+');"></div>');
+            if (typeof file.thumb != 'undefined') {
+                //Create wrapper if doesn't exist
+                if (!wrapper){
+                    dropArea.insertAdjacentHTML('afterend','<div class="grid"></div>');
+                    wrapper = nextByClass(dropArea, 'grid');
+                }
+
+                // Append the element
+                wrapper.insertAdjacentHTML('beforeEnd', '<div class="grid-item uploaded" style="background-image: url('+file.thumb+');"></div>');
+            } else {
+                console.log('file has no thumb, skipping previsualization...');
+            }
 
             // Check if all uploaded
             if (totalFiles === 0){
@@ -160,7 +164,11 @@
                         nextElement.removeChild(previousPhoto);
                     }
                 }
-                formInput.value = file.thumb;
+                if (typeof file.thumb == 'undefined') {
+                    formInput.value = file.filelink;
+                } else {
+                    formInput.value = file.thumb;
+                }
             }
         }
 
@@ -239,5 +247,4 @@
             wrapper.insertAdjacentHTML('beforeEnd', '<div class="grid-item" style="background-image: url('+formInput.value+');"></div>');
         }
     }
-
 })();
