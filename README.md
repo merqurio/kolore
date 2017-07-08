@@ -1,3 +1,8 @@
+
+# ⚠️⚠️ Abandonware ⚠️⚠️
+
+-----
+
 ## Kolore
 [![Stories in Ready](https://badge.waffle.io/merqurio/kolore.png?label=ready&title=Work%20in%20progress)](https://waffle.io/merqurio/kolore)
 ![ Version ](http://img.shields.io/badge/v-0.4-2af985.svg)
@@ -7,8 +12,6 @@
 
 ### Test it --> [here](http://kolore-github.appspot.com/admin) <--
 (Not all features are  available in the demo)
-
-![ Dashboard Preview ](http://lh4.ggpht.com/IBl90oZNQwVfnd1jnWcZObnrC3w7h9E-tgq6WITqBoCBC76SFuQY_y0FQHciEXpMKPX6NqQQtfUC1HR7zZYBAB8=s1200)
 
 ---
 
